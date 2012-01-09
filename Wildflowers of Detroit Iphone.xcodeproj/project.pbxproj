@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
+		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
+		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
+		F4D3929E14BBA6660051E831 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929C14BBA6660051E831 /* InfoPlist.strings */; };
+		F4D392A014BBA6660051E831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
+		F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392A314BBA6660051E831 /* AppDelegate.m */; };
+		F4D392AC14BBA6660051E831 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D392AB14BBA6660051E831 /* SenTestingKit.framework */; };
+		F4D392AD14BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
+		F4D392AE14BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
+		F4D392B614BBA6660051E831 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4D392B414BBA6660051E831 /* InfoPlist.strings */; };
+		F4D392B914BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F4D392AF14BBA6660051E831 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4D3928614BBA6650051E831 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4D3928E14BBA6660051E831;
+			remoteInfo = "Wildflowers of Detroit Iphone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F4D3929714BBA6660051E831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */ = {isa = PBXFileReference; path = "Wildflowers of Detroit Iphone-Info.plist"; sourceTree = "<group>"; };
+		F4D3929D14BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4D3929F14BBA6660051E831 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F4D392A114BBA6660051E831 /* Wildflowers of Detroit Iphone-Prefix.pch */ = {isa = PBXFileReference; path = "Wildflowers of Detroit Iphone-Prefix.pch"; sourceTree = "<group>"; };
+		F4D392A214BBA6660051E831 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F4D392A314BBA6660051E831 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F4D392AA14BBA6660051E831 /* Wildflowers of Detroit IphoneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wildflowers of Detroit IphoneTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D392AB14BBA6660051E831 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F4D392B314BBA6660051E831 /* Wildflowers of Detroit IphoneTests-Info.plist */ = {isa = PBXFileReference; path = "Wildflowers of Detroit IphoneTests-Info.plist"; sourceTree = "<group>"; };
+		F4D392B514BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */ = {isa = PBXFileReference; path = Wildflowers_of_Detroit_IphoneTests.h; sourceTree = "<group>"; };
+		F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Wildflowers_of_Detroit_IphoneTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4D3928C14BBA6660051E831 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */,
+				F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */,
+				F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4D392A614BBA6660051E831 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D392AC14BBA6660051E831 /* SenTestingKit.framework in Frameworks */,
+				F4D392AD14BBA6660051E831 /* UIKit.framework in Frameworks */,
+				F4D392AE14BBA6660051E831 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4D3928414BBA6650051E831 = {
+			isa = PBXGroup;
+			children = (
+				F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */,
+				F4D392B114BBA6660051E831 /* Wildflowers of Detroit IphoneTests */,
+				F4D3929214BBA6660051E831 /* Frameworks */,
+				F4D3929014BBA6660051E831 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4D3929014BBA6660051E831 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */,
+				F4D392AA14BBA6660051E831 /* Wildflowers of Detroit IphoneTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4D3929214BBA6660051E831 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3929314BBA6660051E831 /* UIKit.framework */,
+				F4D3929514BBA6660051E831 /* Foundation.framework */,
+				F4D3929714BBA6660051E831 /* CoreGraphics.framework */,
+				F4D392AB14BBA6660051E831 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */ = {
+			isa = PBXGroup;
+			children = (
+				F4D392A214BBA6660051E831 /* AppDelegate.h */,
+				F4D392A314BBA6660051E831 /* AppDelegate.m */,
+				F4D3929A14BBA6660051E831 /* Supporting Files */,
+			);
+			path = "Wildflowers of Detroit Iphone";
+			sourceTree = "<group>";
+		};
+		F4D3929A14BBA6660051E831 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */,
+				F4D3929C14BBA6660051E831 /* InfoPlist.strings */,
+				F4D3929F14BBA6660051E831 /* main.m */,
+				F4D392A114BBA6660051E831 /* Wildflowers of Detroit Iphone-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4D392B114BBA6660051E831 /* Wildflowers of Detroit IphoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */,
+				F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */,
+				F4D392B214BBA6660051E831 /* Supporting Files */,
+			);
+			path = "Wildflowers of Detroit IphoneTests";
+			sourceTree = "<group>";
+		};
+		F4D392B214BBA6660051E831 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4D392B314BBA6660051E831 /* Wildflowers of Detroit IphoneTests-Info.plist */,
+				F4D392B414BBA6660051E831 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F4D3928E14BBA6660051E831 /* Wildflowers of Detroit Iphone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4D392BC14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Wildflowers of Detroit Iphone" */;
+			buildPhases = (
+				F4D3928B14BBA6660051E831 /* Sources */,
+				F4D3928C14BBA6660051E831 /* Frameworks */,
+				F4D3928D14BBA6660051E831 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wildflowers of Detroit Iphone";
+			productName = "Wildflowers of Detroit Iphone";
+			productReference = F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F4D392A914BBA6660051E831 /* Wildflowers of Detroit IphoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4D392BF14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Wildflowers of Detroit IphoneTests" */;
+			buildPhases = (
+				F4D392A514BBA6660051E831 /* Sources */,
+				F4D392A614BBA6660051E831 /* Frameworks */,
+				F4D392A714BBA6660051E831 /* Resources */,
+				F4D392A814BBA6660051E831 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4D392B014BBA6660051E831 /* PBXTargetDependency */,
+			);
+			name = "Wildflowers of Detroit IphoneTests";
+			productName = "Wildflowers of Detroit IphoneTests";
+			productReference = F4D392AA14BBA6660051E831 /* Wildflowers of Detroit IphoneTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4D3928614BBA6650051E831 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Wildflowers of Detroit Iphone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F4D3928414BBA6650051E831;
+			productRefGroup = F4D3929014BBA6660051E831 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4D3928E14BBA6660051E831 /* Wildflowers of Detroit Iphone */,
+				F4D392A914BBA6660051E831 /* Wildflowers of Detroit IphoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4D3928D14BBA6660051E831 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D3929E14BBA6660051E831 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4D392A714BBA6660051E831 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D392B614BBA6660051E831 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F4D392A814BBA6660051E831 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4D3928B14BBA6660051E831 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D392A014BBA6660051E831 /* main.m in Sources */,
+				F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4D392A514BBA6660051E831 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D392B914BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F4D392B014BBA6660051E831 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4D3928E14BBA6660051E831 /* Wildflowers of Detroit Iphone */;
+			targetProxy = F4D392AF14BBA6660051E831 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F4D3929C14BBA6660051E831 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4D3929D14BBA6660051E831 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F4D392B414BBA6660051E831 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4D392B514BBA6660051E831 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4D392BA14BBA6660051E831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4D392BB14BBA6660051E831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4D392BD14BBA6660051E831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
+				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F4D392BE14BBA6660051E831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
+				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F4D392C014BBA6660051E831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Wildflowers of Detroit Iphone.app/Wildflowers of Detroit Iphone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
+				INFOPLIST_FILE = "Wildflowers of Detroit IphoneTests/Wildflowers of Detroit IphoneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F4D392C114BBA6660051E831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Wildflowers of Detroit Iphone.app/Wildflowers of Detroit Iphone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
+				INFOPLIST_FILE = "Wildflowers of Detroit IphoneTests/Wildflowers of Detroit IphoneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Wildflowers of Detroit Iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4D392BA14BBA6660051E831 /* Debug */,
+				F4D392BB14BBA6660051E831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4D392BC14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Wildflowers of Detroit Iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4D392BD14BBA6660051E831 /* Debug */,
+				F4D392BE14BBA6660051E831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F4D392BF14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Wildflowers of Detroit IphoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4D392C014BBA6660051E831 /* Debug */,
+				F4D392C114BBA6660051E831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4D3928614BBA6650051E831 /* Project object */;
+}
