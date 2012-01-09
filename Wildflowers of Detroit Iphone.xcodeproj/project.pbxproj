@@ -35,17 +35,17 @@
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4D3929714BBA6660051E831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */ = {isa = PBXFileReference; path = "Wildflowers of Detroit Iphone-Info.plist"; sourceTree = "<group>"; };
+		F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wildflowers of Detroit Iphone-Info.plist"; sourceTree = "<group>"; };
 		F4D3929D14BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4D3929F14BBA6660051E831 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F4D392A114BBA6660051E831 /* Wildflowers of Detroit Iphone-Prefix.pch */ = {isa = PBXFileReference; path = "Wildflowers of Detroit Iphone-Prefix.pch"; sourceTree = "<group>"; };
-		F4D392A214BBA6660051E831 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F4D392A114BBA6660051E831 /* Wildflowers of Detroit Iphone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wildflowers of Detroit Iphone-Prefix.pch"; sourceTree = "<group>"; };
+		F4D392A214BBA6660051E831 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F4D392A314BBA6660051E831 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F4D392AA14BBA6660051E831 /* Wildflowers of Detroit IphoneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wildflowers of Detroit IphoneTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D392AB14BBA6660051E831 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		F4D392B314BBA6660051E831 /* Wildflowers of Detroit IphoneTests-Info.plist */ = {isa = PBXFileReference; path = "Wildflowers of Detroit IphoneTests-Info.plist"; sourceTree = "<group>"; };
+		F4D392B314BBA6660051E831 /* Wildflowers of Detroit IphoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wildflowers of Detroit IphoneTests-Info.plist"; sourceTree = "<group>"; };
 		F4D392B514BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */ = {isa = PBXFileReference; path = Wildflowers_of_Detroit_IphoneTests.h; sourceTree = "<group>"; };
+		F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wildflowers_of_Detroit_IphoneTests.h; sourceTree = "<group>"; };
 		F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Wildflowers_of_Detroit_IphoneTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
