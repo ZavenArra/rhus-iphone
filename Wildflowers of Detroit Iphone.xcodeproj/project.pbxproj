@@ -101,14 +101,10 @@
 		A6A620D814BBBB670096CA01 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
 				A6D3AC8D14BBC85F005BB81D /* CameraIconT.png */,
 				A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */,
 				A6D3AC8F14BBC85F005BB81D /* MapIconT.png */,
 				A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */,
-=======
-				F4D392DC14BBC7310051E831 /* swoopBarMiddle.png */,
->>>>>>> Stashed changes
 				A6D3AC8314BBC2C0005BB81D /* MapIcon.png */,
 				A6D3AC8114BBBF31005BB81D /* cameraIcon.png */,
 				A6D3AC7F14BBBE57005BB81D /* GalleryIcon.png */,
