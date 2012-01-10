@@ -24,6 +24,7 @@
 		F4D392AE14BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D392B614BBA6660051E831 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4D392B414BBA6660051E831 /* InfoPlist.strings */; };
 		F4D392B914BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */; };
+		F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		F4D392B514BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wildflowers_of_Detroit_IphoneTests.h; sourceTree = "<group>"; };
 		F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Wildflowers_of_Detroit_IphoneTests.m; sourceTree = "<group>"; };
+		F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwoopTabViewController.h; sourceTree = "<group>"; };
+		F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwoopTabViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				F4D392A214BBA6660051E831 /* AppDelegate.h */,
 				F4D392A314BBA6660051E831 /* AppDelegate.m */,
 				F4D3929A14BBA6660051E831 /* Supporting Files */,
+				F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */,
+				F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */,
 				A6A620D114BBB7FC0096CA01 /* SwoopTabController.xib */,
 			);
 			path = "Wildflowers of Detroit Iphone";
@@ -282,6 +287,7 @@
 			files = (
 				F4D392A014BBA6660051E831 /* main.m in Sources */,
 				F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */,
+				F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

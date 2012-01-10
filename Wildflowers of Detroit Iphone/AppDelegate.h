@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SwoopTabViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    SwoopTabViewController * swoopTabViewController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) SwoopTabViewController * swoopTabViewController;
 
 @end
