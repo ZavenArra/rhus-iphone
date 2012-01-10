@@ -13,6 +13,10 @@
 		A6D3AC8014BBBE57005BB81D /* GalleryIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC7F14BBBE57005BB81D /* GalleryIcon.png */; };
 		A6D3AC8214BBBF31005BB81D /* cameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8114BBBF31005BB81D /* cameraIcon.png */; };
 		A6D3AC8414BBC2C0005BB81D /* MapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8314BBC2C0005BB81D /* MapIcon.png */; };
+		A6D3AC9114BBC85F005BB81D /* CameraIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8D14BBC85F005BB81D /* CameraIconT.png */; };
+		A6D3AC9214BBC85F005BB81D /* GalleryIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */; };
+		A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8F14BBC85F005BB81D /* MapIconT.png */; };
+		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -44,6 +48,10 @@
 		A6D3AC7F14BBBE57005BB81D /* GalleryIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GalleryIcon.png; path = graphics/GalleryIcon.png; sourceTree = SOURCE_ROOT; };
 		A6D3AC8114BBBF31005BB81D /* cameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cameraIcon.png; path = graphics/cameraIcon.png; sourceTree = SOURCE_ROOT; };
 		A6D3AC8314BBC2C0005BB81D /* MapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapIcon.png; path = graphics/MapIcon.png; sourceTree = SOURCE_ROOT; };
+		A6D3AC8D14BBC85F005BB81D /* CameraIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CameraIconT.png; path = graphics/CameraIconT.png; sourceTree = SOURCE_ROOT; };
+		A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GalleryIconT.png; path = graphics/GalleryIconT.png; sourceTree = SOURCE_ROOT; };
+		A6D3AC8F14BBC85F005BB81D /* MapIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapIconT.png; path = graphics/MapIconT.png; sourceTree = SOURCE_ROOT; };
+		A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarMiddle.png; path = graphics/swoopBarMiddle.png; sourceTree = SOURCE_ROOT; };
 		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +99,10 @@
 		A6A620D814BBBB670096CA01 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				A6D3AC8D14BBC85F005BB81D /* CameraIconT.png */,
+				A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */,
+				A6D3AC8F14BBC85F005BB81D /* MapIconT.png */,
+				A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */,
 				A6D3AC8314BBC2C0005BB81D /* MapIcon.png */,
 				A6D3AC8114BBBF31005BB81D /* cameraIcon.png */,
 				A6D3AC7F14BBBE57005BB81D /* GalleryIcon.png */,
@@ -251,6 +263,10 @@
 				A6D3AC8014BBBE57005BB81D /* GalleryIcon.png in Resources */,
 				A6D3AC8214BBBF31005BB81D /* cameraIcon.png in Resources */,
 				A6D3AC8414BBC2C0005BB81D /* MapIcon.png in Resources */,
+				A6D3AC9114BBC85F005BB81D /* CameraIconT.png in Resources */,
+				A6D3AC9214BBC85F005BB81D /* GalleryIconT.png in Resources */,
+				A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */,
+				A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
