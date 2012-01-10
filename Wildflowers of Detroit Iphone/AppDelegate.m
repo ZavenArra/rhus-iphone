@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "GalleryViewController.h"
+#import "CameraViewController.h"
+#import "MapViewController.h"
 
 @implementation AppDelegate
 
@@ -20,6 +23,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
+    
+    self.swoopTabViewController.topViewController = [[GalleryViewController alloc]init];
+    self.swoopTabViewController.middleViewController = [[CameraViewController alloc]init];
+    self.swoopTabViewController.bottomViewController = [[MapViewController alloc]init];
+
     
     [self.window addSubview:swoopTabViewController.view];
 	    

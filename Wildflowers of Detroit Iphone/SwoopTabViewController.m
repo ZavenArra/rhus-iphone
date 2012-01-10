@@ -17,6 +17,7 @@
 @synthesize topButton, middleButton, bottomButton;
 @synthesize controlsBackgroundImage;
 @synthesize topBackground, middleBackground, bottomBackground;
+@synthesize topViewController, middleViewController, bottomViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,6 +80,9 @@
     self.middleButton.selected = NO;
     self.bottomButton.selected = NO;
 
+    [middleViewController.view removeFromSuperview];
+    [bottomViewController.view removeFromSuperview];
+    [self.view insertSubview:topViewController.view atIndex:0];
 }
 
 - (IBAction)didTouchMiddleButton:(id)sender{
@@ -86,6 +90,10 @@
     self.topButton.selected = NO;
     self.middleButton.selected = YES;
     self.bottomButton.selected = NO;
+    
+    [topViewController.view removeFromSuperview];
+    [bottomViewController.view removeFromSuperview];
+    [self.view insertSubview:middleViewController.view atIndex:0];
 }
 
 - (IBAction)didTouchBottomButton:(id)sender{
@@ -93,6 +101,12 @@
     self.topButton.selected = NO;
     self.middleButton.selected = NO;
     self.bottomButton.selected = YES;
+    
+    
+    [topViewController.view removeFromSuperview];
+    [middleViewController.view removeFromSuperview];
+    [self.view insertSubview:bottomViewController.view atIndex:0];
+
 }
 
 

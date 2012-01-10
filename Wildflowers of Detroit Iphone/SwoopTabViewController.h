@@ -18,13 +18,17 @@
     UIImage * middleBackground;
     UIImage * bottomBackground;
     
+    UIViewController * topViewController;
+    UIViewController * middleViewController;
+    UIViewController * bottomViewController;
+    
 }
 
-/*
+
 @property (strong, nonatomic) UIViewController * topViewController;
 @property (strong, nonatomic) UIViewController * middleViewController;
 @property (strong, nonatomic) UIViewController * bottomViewController;
-*/
+
 
 @property (strong, nonatomic) IBOutlet UIButton * topButton;
 @property (strong, nonatomic) IBOutlet UIButton * middleButton;

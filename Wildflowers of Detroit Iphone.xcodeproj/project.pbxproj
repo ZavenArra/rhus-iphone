@@ -17,6 +17,12 @@
 		A6D3AC9214BBC85F005BB81D /* GalleryIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */; };
 		A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8F14BBC85F005BB81D /* MapIconT.png */; };
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
+		F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */; };
+		F4A84C8A14BBD3EB00EF9627 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */; };
+		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
+		F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
+		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
+		F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -29,7 +35,6 @@
 		F4D392B614BBA6660051E831 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4D392B414BBA6660051E831 /* InfoPlist.strings */; };
 		F4D392B914BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */; };
 		F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */; };
-		F4D392DD14BBC7310051E831 /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D392DC14BBC7310051E831 /* swoopBarMiddle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,15 @@
 		A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GalleryIconT.png; path = graphics/GalleryIconT.png; sourceTree = SOURCE_ROOT; };
 		A6D3AC8F14BBC85F005BB81D /* MapIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapIconT.png; path = graphics/MapIconT.png; sourceTree = SOURCE_ROOT; };
 		A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarMiddle.png; path = graphics/swoopBarMiddle.png; sourceTree = SOURCE_ROOT; };
+		F4A84C8614BBD3EA00EF9627 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		F4A84C9114BBD41A00EF9627 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		F4A84C9214BBD41A00EF9627 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		F4A84C9314BBD41A00EF9627 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,7 +85,6 @@
 		F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Wildflowers_of_Detroit_IphoneTests.m; sourceTree = "<group>"; };
 		F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwoopTabViewController.h; sourceTree = "<group>"; };
 		F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwoopTabViewController.m; sourceTree = "<group>"; };
-		F4D392DC14BBC7310051E831 /* swoopBarMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swoopBarMiddle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +167,15 @@
 				F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */,
 				F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */,
 				A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */,
+				F4A84C8614BBD3EA00EF9627 /* GalleryViewController.h */,
+				F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */,
+				F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */,
+				F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */,
+				F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */,
+				F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */,
+				F4A84C9114BBD41A00EF9627 /* MapViewController.h */,
+				F4A84C9214BBD41A00EF9627 /* MapViewController.m */,
+				F4A84C9314BBD41A00EF9627 /* MapViewController.xib */,
 			);
 			path = "Wildflowers of Detroit Iphone";
 			sourceTree = "<group>";
@@ -269,6 +291,9 @@
 				A6D3AC9214BBC85F005BB81D /* GalleryIconT.png in Resources */,
 				A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */,
 				A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */,
+				F4A84C8A14BBD3EB00EF9627 /* GalleryViewController.xib in Resources */,
+				F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */,
+				F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +331,9 @@
 				F4D392A014BBA6660051E831 /* main.m in Sources */,
 				F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */,
 				F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */,
+				F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */,
+				F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */,
+				F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
