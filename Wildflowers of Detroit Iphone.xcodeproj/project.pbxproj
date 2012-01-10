@@ -25,6 +25,7 @@
 		F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
 		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
+		F4C05DDD14BCE1EF0008FBB5 /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModel.m */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -71,6 +72,8 @@
 		F4A84C9114BBD41A00EF9627 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F4A84C9214BBD41A00EF9627 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F4A84C9314BBD41A00EF9627 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		F4C05DDB14BCE1EF0008FBB5 /* MapDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModel.h; sourceTree = "<group>"; };
+		F4C05DDC14BCE1EF0008FBB5 /* MapDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModel.m; sourceTree = "<group>"; };
 		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,15 @@
 			name = Graphics;
 			sourceTree = "<group>";
 		};
+		F4C05DDA14BCE1A50008FBB5 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4C05DDB14BCE1EF0008FBB5 /* MapDataModel.h */,
+				F4C05DDC14BCE1EF0008FBB5 /* MapDataModel.m */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +178,11 @@
 		F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */ = {
 			isa = PBXGroup;
 			children = (
+				F4C05DDA14BCE1A50008FBB5 /* Data Models */,
 				A6A620D814BBBB670096CA01 /* Graphics */,
 				F4D392A214BBA6660051E831 /* AppDelegate.h */,
-				F4D392A314BBA6660051E831 /* AppDelegate.m */,
 				F4D3929A14BBA6660051E831 /* Supporting Files */,
+				F4D392A314BBA6660051E831 /* AppDelegate.m */,
 				F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */,
 				F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */,
 				A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */,
@@ -342,6 +355,7 @@
 				F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */,
 				F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */,
 				F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */,
+				F4C05DDD14BCE1EF0008FBB5 /* MapDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +421,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -429,7 +443,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -442,9 +456,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -456,8 +472,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

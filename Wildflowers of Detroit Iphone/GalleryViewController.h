@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface GalleryViewController : UIViewController
+{
+    UIScrollView * galleryScrollView;
+    UIScrollView * detailScrollView;
 
+}
+@property(strong, nonatomic) IBOutlet UIScrollView * galleryScrollView;
+@property(strong, nonatomic) IBOutlet UIScrollView * detailScrollView;
+
+
+- (IBAction)didTouchThumbnail:(id)sender;
 @end

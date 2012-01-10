@@ -7,8 +7,19 @@
 //
 
 #import "GalleryViewController.h"
+#import "MapDataModel.h"
+
+#define kRowHeight 100
+#define kRowWidth 422
+#define kThumbnailPaddingLeft 20
+#define kThumbnailPaddingVertical 10
+#define kThumbnailWidth 106
+#define kThumbnailHeight 106
+#define kThumbnailsPerRow 3
 
 @implementation GalleryViewController
+
+@synthesize galleryScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +44,32 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Get user documents and lay out their thumbnails
+    NSArray * userDocuments = [MapDataModel getUserDocuments];
+    int scrollViewRows = ceil([userDocuments count] / 3);
+    CGRect frame = self.galleryScrollView.frame;
+    
+    [self.galleryScrollView setContentSize:CGSizeMake(frame.size.width , scrollViewRows * kRowHeight)];
+    
+    for(int i=0; i<[userDocuments count]; i++){
+        UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        CGRect frame;
+        frame.size.width = kThumbnailWidth;
+        frame.size.height = kThumbnailHeight;
+        frame.origin.x = (i % kThumbnailsPerRow) * (kThumbnailPaddingLeft + kThumbnailWidth);
+        frame.origin.y = (i / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical;
+        thumbnailButton.frame = frame;
+        
+        [thumbnailButton setBackgroundImage:[UIImage imageNamed:@"Default"] forState:UIControlStateNormal];
+        
+        [thumbnailButton addTarget:self action:@selector(didTouchThumbnail) forControlEvents:UIControlEventTouchUpInside];
+        
+        thumbnailButton.tag = i;
+        
+        
+        [self.galleryScrollView addSubview:thumbnailButton];
+    }
 }
 
 - (void)viewDidUnload
@@ -48,4 +85,17 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - IBActions
+
+- (IBAction)didTouchThumbnail:(id)sender{
+    //place detail scroll view
+    CGRect frame;
+    frame.origin.x = kThumbnailPaddingLeft;
+    frame.origin.x = kThumbnailPaddingVertical;
+    frame.size.width = kThumbnailWidth;
+    frame.size.height = kThumbnailHeight;
+    self.detailScrollView.frame = frame;
+    
+    [self.view addSubview:self.detailScrollView];
+}
 @end
