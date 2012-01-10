@@ -42,7 +42,7 @@
 							<object class="IBUIButton" id="785204289">
 								<reference key="NSNextResponder" ref="792737719"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{8, 133}, {44, 44}}</string>
+								<string key="NSFrame">{{7, 133}, {44, 44}}</string>
 								<reference key="NSSuperview" ref="792737719"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="299917698"/>
@@ -103,7 +103,7 @@
 							<object class="IBUIButton" id="299917698">
 								<reference key="NSNextResponder" ref="792737719"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{6, 263}, {46, 37}}</string>
+								<string key="NSFrame">{{7, 259}, {44, 45}}</string>
 								<reference key="NSSuperview" ref="792737719"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -218,8 +218,11 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="5.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
