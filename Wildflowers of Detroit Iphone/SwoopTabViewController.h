@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FullscreenTransitionDelegate.h"
 
 @interface SwoopTabViewController : UIViewController
+<FullscreenTransitionDelegate>
 {
     UIButton * topButton;
     UIButton * middleButton;
     UIButton * bottomButton;
+    UIView * controlsView;
     UIImageView * controlsBackgroundImage;
     UIImage * topBackground;
     UIImage * middleBackground;
@@ -21,6 +24,7 @@
     UIViewController * topViewController;
     UIViewController * middleViewController;
     UIViewController * bottomViewController;
+    
     
 }
 
@@ -33,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UIButton * topButton;
 @property (strong, nonatomic) IBOutlet UIButton * middleButton;
 @property (strong, nonatomic) IBOutlet UIButton * bottomButton;
+@property (strong, nonatomic) IBOutlet UIView * controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView * controlsBackgroundImage;
 
 

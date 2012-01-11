@@ -15,7 +15,7 @@
 @implementation SwoopTabViewController
 
 @synthesize topButton, middleButton, bottomButton;
-@synthesize controlsBackgroundImage;
+@synthesize controlsBackgroundImage, controlsView  ;
 @synthesize topBackground, middleBackground, bottomBackground;
 @synthesize topViewController, middleViewController, bottomViewController;
 
@@ -124,6 +124,29 @@
             controlsBackgroundImage.image = self.bottomBackground;
             break;
     }
+}
+
+
+- (void) createHideTabsAnimation{
+    CGRect frame = self.controlsView.frame;
+    frame.origin.x = -100;
+    self.controlsView.frame = frame;
+}
+
+- (void) createShowTabsAnimation{
+    CGRect frame = self.controlsView.frame;
+    frame.origin.x = 0;
+    self.controlsView.frame = frame;
+    
+}
+
+#pragma mark - Fullscreen Transition Delegate functions
+-(void) subviewRequestingFullscreen {
+    [self createHideTabsAnimation];
+}
+
+-(void) subviewReleasingFullscreen {
+    [self createShowTabsAnimation];
 }
 
 @end
