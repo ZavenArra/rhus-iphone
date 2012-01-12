@@ -16,7 +16,7 @@
     UIView * detailView;
     UIScrollView * detailScrollView;
     
-    UIImageView * anImageView;
+    UIImageView * zoomView;
 
 }
 
@@ -25,7 +25,7 @@
 @property(strong, nonatomic) IBOutlet UIScrollView * detailScrollView;
 @property(strong, nonatomic) IBOutlet UIView * detailView;
 
-@property(strong, nonatomic) IBOutlet     UIImageView * anImageView;
+@property(strong, nonatomic) IBOutlet     UIImageView * zoomView;
 
 
 

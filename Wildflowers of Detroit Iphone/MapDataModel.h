@@ -12,12 +12,8 @@
 @interface MapDataModel : NSObject
 {
     OrderedDictionary * userDocuments;
-    NSMutableDictionary * thumbnailCache;
-    NSMutableDictionary * imageCache;
 }
 @property(nonatomic, strong) OrderedDictionary * userDocuments;
-@property(nonatomic, strong) NSMutableDictionary * thumbnailCache;
-@property(nonatomic, strong) NSMutableDictionary * imageCache;
 
 + (MapDataModel *)instance;
 + (NSArray *) getUserDocuments;

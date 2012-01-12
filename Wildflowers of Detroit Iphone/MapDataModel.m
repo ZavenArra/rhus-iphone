@@ -12,7 +12,6 @@
 @implementation MapDataModel
 
 @synthesize userDocuments;
-@synthesize thumbnailCache, imageCache;
 
 + (MapDataModel *)instance
 {
@@ -51,35 +50,22 @@
 }
 
 + (UIImage *) getThumbnailForId: (NSString *) documentId {
-    UIImage * cachedImage = [[self instance].thumbnailCache objectForKey:documentId];
-    if(cachedImage != nil){
-        //TODO: update image cache access stack
-        return cachedImage;
-    } else {
-        NSDictionary * document = [self getDocumentById:documentId];
-        
-        NSString * thumbnailName = [NSString stringWithFormat:@"thumbnail_%@", [document objectForKey:@"plantImage"] ];
-        UIImage * image = [UIImage imageNamed:thumbnailName];
-        [[self instance].thumbnailCache setObject:image forKey:documentId];
-        //TODO: update image cache access stack
-        return image;
-    }
+    
+    NSDictionary * document = [self getDocumentById:documentId];
+    
+    NSString * thumbnailName = [NSString stringWithFormat:@"thumbnail_%@", [document objectForKey:@"plantImage"] ];
+    UIImage * image = [UIImage imageNamed:thumbnailName];
+    return image;
+    
 }
 
 + (UIImage *) getImageForId: (NSString *) documentId {    
-    UIImage * cachedImage = [[self instance].imageCache objectForKey:documentId];
-    if(cachedImage != nil){
-        //TODO: update image cache access stack
-        return cachedImage;
-    } else {
-        NSDictionary * document = [self getDocumentById:documentId];
-
-        NSString * imageName = [document objectForKey:@"plantImage"];
-        UIImage * image = [UIImage imageNamed:imageName];
-        [[self instance].imageCache setObject:image forKey:documentId];
-        //TODO: update image cache access stack
-        return image;
-    }
+    
+    NSDictionary * document = [self getDocumentById:documentId];
+    
+    NSString * imageName = [document objectForKey:@"plantImage"];
+    UIImage * image = [UIImage imageNamed:imageName];
+    return image;
     
 }
 

@@ -17,12 +17,13 @@
 #define kThumbnailHeight 106
 #define kThumbnailsPerRow 3
 #define kTabBarWidth 58
+#define kUserDocumentsPerPage 50
 
 @implementation GalleryViewController
 
 @synthesize galleryScrollView, detailScrollView, detailView;
 @synthesize fullscreenTransitionDelegate;
-@synthesize anImageView;
+@synthesize zoomView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,8 +49,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //Get user documents and lay out their thumbnails
-    NSArray * userDocuments = [MapDataModel getUserDocuments];
+    //Get first 50 user documents and lay out their thumbnails
+    NSArray * userDocuments = [MapDataModel getUserDocumentsWithOffset:0 andLimit:kUserDocumentsPerPage];
     int scrollViewRows = ceil([userDocuments count] / 3);
     CGRect frame = self.galleryScrollView.frame;
     
@@ -57,6 +58,7 @@
     self.galleryScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     for(int i=0; i<[userDocuments count]; i++){
+        NSDictionary * document = [userDocuments objectAtIndex:i];
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
         CGRect frame;
         frame.size.width = kThumbnailWidth;
@@ -65,20 +67,24 @@
         frame.origin.y = (i / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical;
         thumbnailButton.frame = frame;
         
-        [thumbnailButton setBackgroundImage:[UIImage imageNamed:@"106x106"] forState:UIControlStateNormal];
+        UIImage * image = [MapDataModel getThumbnailForId:[document objectForKey:@"id"]];
+        [thumbnailButton setBackgroundImage:image
+                                   forState:UIControlStateNormal];
         
         [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
         
-        thumbnailButton.tag = i;
+        thumbnailButton.tag =  [[document objectForKey:@"id"] intValue];
        
+        /*
         thumbnailButton.autoresizingMask = UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleLeftMargin |
         UIViewAutoresizingFlexibleRightMargin |
         UIViewAutoresizingFlexibleTopMargin | 
         UIViewAutoresizingFlexibleBottomMargin;
-       
-        thumbnailButton.contentMode = UIViewContentModeTopLeft;
+       */
+         
+        thumbnailButton.contentMode = UIViewContentModeScaleAspectFit;
         
         [self.galleryScrollView addSubview:thumbnailButton];
     }
@@ -101,17 +107,24 @@
 
 - (IBAction)didTouchThumbnail:(id)sender{
     
+    UIButton * senderButton = (UIButton *) sender;
+    UIImage * zoomImage = [MapDataModel getImageForId:[NSString stringWithFormat:@"%d", senderButton.tag]];
+    self.zoomView.image = zoomImage;
+    
+    CGPoint senderOrigin = [senderButton.superview convertPoint:senderButton.frame.origin toView:nil];
+// User this sender origin to place the zoom view
+    
     //place detail scroll view
     CGRect frame;
-    frame.origin.x = kThumbnailPaddingLeft + kTabBarWidth;
-    frame.origin.y = kThumbnailPaddingVertical    
+    frame.origin.x = senderButton.frame.origin.x + 58;
+    frame.origin.y = senderButton.frame.origin.y ;    
        + (kThumbnailHeight - kThumbnailWidth * 320 / 480) / 2; // this term is the vert offset of the actual image
     frame.size.width = kThumbnailWidth;
     frame.size.height = 320 * kThumbnailWidth / 480;
     
-    self.detailView.frame = frame;
+    self.zoomView.frame = frame;
     
-   // [self.view addSubview:self.detailView];
+    [self.view addSubview:self.zoomView];
 
     
     self.detailScrollView.autoresizingMask = 0;
@@ -137,12 +150,12 @@
    // viewFrame.size.height = 320 * 480 / kThumbnailWidth;
    // self.view.frame = viewFrame;
 
-    CGRect detailFrame = self.detailView.frame;
-    detailFrame.origin.x = 0;
-    detailFrame.origin.y = 0;
-    detailFrame.size.width = 480;
-    detailFrame.size.height = 320;
-    self.detailView.frame = detailFrame;
+    CGRect zoomFrame= self.zoomView.frame;
+    zoomFrame.origin.x = 0;
+    zoomFrame.origin.y = 0;
+    zoomFrame.size.width = 480;
+    zoomFrame.size.height = 320;
+    self.zoomView.frame = zoomFrame;
     
 
     [UIView commitAnimations];	
