@@ -7,7 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FullscreenTransitionDelegate.h"
 
 @interface GalleryViewController : UIViewController
+{
+    id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
+    UIScrollView * galleryScrollView;
+    UIView * detailView;
+    UIScrollView * detailScrollView;
+    
+    UIImageView * anImageView;
 
+}
+
+@property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
+@property(strong, nonatomic) IBOutlet UIScrollView * galleryScrollView;
+@property(strong, nonatomic) IBOutlet UIScrollView * detailScrollView;
+@property(strong, nonatomic) IBOutlet UIView * detailView;
+
+@property(strong, nonatomic) IBOutlet     UIImageView * anImageView;
+
+
+
+
+- (IBAction)didTouchThumbnail:(id)sender;
 @end
