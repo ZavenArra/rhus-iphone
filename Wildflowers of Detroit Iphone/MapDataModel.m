@@ -36,14 +36,14 @@
     return [[self instance].userDocuments objectForKey:documentId];
 }
 
-+ (NSDictionary *) getNextObject: (NSString *) documentId{
++ (NSDictionary *) getNextDocument: (NSString *) documentId{
     NSDictionary * currObject = [self getDocumentById:documentId];
     NSInteger indexOfObject = [[self instance].userDocuments indexOfObject:currObject];
     id key = [[self instance].userDocuments keyAtIndex:indexOfObject+1];
     return [[self instance].userDocuments objectForKey:key];
 }
 
-+ (NSDictionary *) getPrevObject: (NSString *) documentId{
++ (NSDictionary *) getPrevDocument: (NSString *) documentId{
     NSDictionary * currObject = [self getDocumentById:documentId];
     NSInteger indexOfObject = [[self instance].userDocuments indexOfObject:currObject];
     id key = [[self instance].userDocuments keyAtIndex:indexOfObject-1];
@@ -58,7 +58,7 @@
     } else {
         NSDictionary * document = [self getDocumentById:documentId];
         
-        NSString * thumbnailName = [NSString stringWithFormat:@"thumbnail_%@", [document objectForKey:@"image"] ];
+        NSString * thumbnailName = [NSString stringWithFormat:@"thumbnail_%@", [document objectForKey:@"plantImage"] ];
         UIImage * image = [UIImage imageNamed:thumbnailName];
         [[self instance].thumbnailCache setObject:image forKey:documentId];
         //TODO: update image cache access stack
@@ -74,7 +74,8 @@
     } else {
         NSDictionary * document = [self getDocumentById:documentId];
 
-        UIImage * image = [UIImage imageNamed:[document objectForKey:@"image"]];
+        NSString * imageName = [document objectForKey:@"plantImage"];
+        UIImage * image = [UIImage imageNamed:imageName];
         [[self instance].imageCache setObject:image forKey:documentId];
         //TODO: update image cache access stack
         return image;
@@ -85,7 +86,10 @@
 
 
 - (id) init {
-  //  [self.userDocuments alloc];
+    NSString * fullPath = [[NSBundle mainBundle] pathForResource:@"testdataplist" ofType:@"plist"];
+    NSDictionary * plist;
+    plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+    self.userDocuments = [OrderedDictionary dictionaryWithDictionary:[plist objectForKey:@"Documents"]];
     return self;
 }
 

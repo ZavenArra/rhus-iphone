@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <GHUnitIOS/GHUnit.h> 
 
-@interface Wildflowers_of_Detroit_IphoneTests : SenTestCase
+@interface Wildflowers_of_Detroit_IphoneTests : GHTestCase
 
 @end

@@ -151,7 +151,8 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 }
 
 - (NSUInteger) indexOfObject:(id)anObject{
-    [array indexOfObject:anObject];
+    NSUInteger index = [array indexOfObject:anObject];
+    return index;
 }
 
 

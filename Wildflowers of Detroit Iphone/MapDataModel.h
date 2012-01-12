@@ -23,8 +23,8 @@
 + (NSArray *) getUserDocuments;
 + (NSArray *) getUserDocumentsWithOffset: (NSInteger) offset andLimit: (NSInteger) limit;
 + (NSDictionary *) getDocumentById: (NSString *) documentId;
-+ (NSDictionary *) getNextObject: (NSString *) documentId;
-+ (NSDictionary *) getPrevObject: (NSString *) documentId;
++ (NSDictionary *) getNextDocument: (NSString *) documentId;
++ (NSDictionary *) getPrevDocument: (NSString *) documentId;
 
 + (UIImage *) getThumbnailForId: (NSString *) documentId;
 + (UIImage *) getImageForId: (NSString *) documentId;
