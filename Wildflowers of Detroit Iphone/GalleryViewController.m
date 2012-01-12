@@ -111,7 +111,7 @@
     
     self.detailView.frame = frame;
     
-    [self.view addSubview:self.detailView];
+   // [self.view addSubview:self.detailView];
 
     
     self.detailScrollView.autoresizingMask = 0;

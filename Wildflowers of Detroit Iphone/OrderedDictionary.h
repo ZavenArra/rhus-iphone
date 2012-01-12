@@ -12,6 +12,8 @@
 //  appreciated but not required.
 //
 
+NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent);
+
 
 @interface OrderedDictionary : NSMutableDictionary
 {
@@ -22,5 +24,7 @@
 - (void)insertObject:(id)anObject forKey:(id)aKey atIndex:(NSUInteger)anIndex;
 - (id)keyAtIndex:(NSUInteger)anIndex;
 - (NSEnumerator *)reverseKeyEnumerator;
+- (OrderedDictionary *)subsetWithOffset: (NSInteger) offset andLimit: (NSInteger) limit;
+- (NSUInteger) indexOfObject:(id)anObject;
 
 @end

@@ -7,9 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OrderedDictionary.h"
 
 @interface MapDataModel : NSObject
+{
+    OrderedDictionary * userDocuments;
+    NSMutableDictionary * thumbnailCache;
+    NSMutableDictionary * imageCache;
+}
+@property(nonatomic, strong) OrderedDictionary * userDocuments;
+@property(nonatomic, strong) NSMutableDictionary * thumbnailCache;
+@property(nonatomic, strong) NSMutableDictionary * imageCache;
 
++ (MapDataModel *)instance;
 + (NSArray *) getUserDocuments;
++ (NSArray *) getUserDocumentsWithOffset: (NSInteger) offset andLimit: (NSInteger) limit;
++ (NSDictionary *) getDocumentById: (NSString *) documentId;
++ (NSDictionary *) getNextObject: (NSString *) documentId;
++ (NSDictionary *) getPrevObject: (NSString *) documentId;
 
++ (UIImage *) getThumbnailForId: (NSString *) documentId;
++ (UIImage *) getImageForId: (NSString *) documentId;
+
+
+
+- (id) init;
 @end

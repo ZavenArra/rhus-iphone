@@ -138,4 +138,21 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 	return description;
 }
 
+#pragma mark - Deepwinter Additions
+- (OrderedDictionary *)subsetWithOffset: (NSInteger) offset andLimit: (NSInteger) limit {
+
+    OrderedDictionary * subsetDictionary = [OrderedDictionary dictionary];
+    for(NSInteger index = 0; index < limit; index++){
+        
+        [subsetDictionary setObject:[self objectForKey:[self keyAtIndex:offset + index]]
+                              forKey:[self keyAtIndex:offset + index]];
+    }
+    return subsetDictionary;
+}
+
+- (NSUInteger) indexOfObject:(id)anObject{
+    [array indexOfObject:anObject];
+}
+
+
 @end
