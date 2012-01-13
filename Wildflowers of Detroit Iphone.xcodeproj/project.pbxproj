@@ -30,6 +30,7 @@
 		A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACB714BBDDF8005BB81D /* icon.png */; };
 		A6D3ACBC14BBDFD1005BB81D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACBB14BBDFD1005BB81D /* Default.png */; };
 		F4593A0E14BFB0B90019D4FC /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */; };
+		F486C26714BFEEF400C318BF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F486C26614BFEEF400C318BF /* MapKit.framework */; };
 		F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */; };
 		F4A84C8A14BBD3EB00EF9627 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */; };
 		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
@@ -766,6 +767,7 @@
 		A6D3ACBB14BBDFD1005BB81D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F4593A0C14BFB0B90019D4FC /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
+		F486C26614BFEEF400C318BF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4A84C8614BBD3EA00EF9627 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
@@ -1167,6 +1169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F486C26714BFEEF400C318BF /* MapKit.framework in Frameworks */,
 				F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */,
 				F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */,
 				F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */,
@@ -1609,6 +1612,7 @@
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
+				F486C26614BFEEF400C318BF /* MapKit.framework */,
 				F4C0622514BE605C0008FBB5 /* Framework */,
 				A6D3ACBB14BBDFD1005BB81D /* Default.png */,
 				F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */,
