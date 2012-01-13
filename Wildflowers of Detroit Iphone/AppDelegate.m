@@ -27,7 +27,9 @@
     GalleryViewController * galleryViewController = [[GalleryViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     self.swoopTabViewController.topViewController = galleryViewController;
-    self.swoopTabViewController.middleViewController = [[CameraViewController alloc]init];
+    CameraViewController * cameraViewController = [[CameraViewController alloc]init];
+    self.swoopTabViewController.middleViewController = cameraViewController; 
+    cameraViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     self.swoopTabViewController.bottomViewController = [[MapViewController alloc]init];
 
     

@@ -7,6 +7,7 @@
 //
 
 #import "SwoopTabViewController.h"
+#import "CameraViewController.h" /*TODO: refactor this out, once camera controls are figured out*/
 
 #define kTop 1
 #define kMiddle 2
@@ -86,6 +87,12 @@
 }
 
 - (IBAction)didTouchMiddleButton:(id)sender{
+    if(self.middleButton.selected == YES){
+        [(CameraViewController *) self.middleViewController secondTapTabButton];
+        return;
+    }
+    
+    
     [self updateTabBackground:kMiddle];
     self.topButton.selected = NO;
     self.middleButton.selected = YES;
@@ -129,7 +136,7 @@
 
 - (void) createHideTabsAnimation{
     CGRect frame = self.controlsView.frame;
-    frame.origin.x = -100;
+    frame.origin.x = -frame.size.width;
     self.controlsView.frame = frame;
 }
 
