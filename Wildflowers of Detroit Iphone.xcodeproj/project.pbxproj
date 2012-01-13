@@ -12,6 +12,7 @@
 		A61F478D14BFA51D00A37E06 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F478914BFA51D00A37E06 /* right.png */; };
 		A61F478E14BFA51D00A37E06 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F478A14BFA51D00A37E06 /* up.png */; };
 		A61F479114BFAE9D00A37E06 /* submitBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479014BFAE9D00A37E06 /* submitBackground.png */; };
+		A61F479314BFB90200A37E06 /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479214BFB90200A37E06 /* send.png */; };
 		A6A620D214BBB7FC0096CA01 /* SwoopTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */; };
 		A6A620D614BBBB180096CA01 /* swoopBarBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D414BBBB180096CA01 /* swoopBarBottom.png */; };
 		A6A620D714BBBB180096CA01 /* swoopBarTop.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D514BBBB180096CA01 /* swoopBarTop.png */; };
@@ -741,6 +742,7 @@
 		A61F478914BFA51D00A37E06 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = graphics/right.png; sourceTree = SOURCE_ROOT; };
 		A61F478A14BFA51D00A37E06 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = graphics/up.png; sourceTree = SOURCE_ROOT; };
 		A61F479014BFAE9D00A37E06 /* submitBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submitBackground.png; path = graphics/submitBackground.png; sourceTree = SOURCE_ROOT; };
+		A61F479214BFB90200A37E06 /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send.png; path = graphics/send.png; sourceTree = SOURCE_ROOT; };
 		A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwoopTabViewController.xib; sourceTree = "<group>"; };
 		A6A620D414BBBB180096CA01 /* swoopBarBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarBottom.png; path = ../graphics/swoopBarBottom.png; sourceTree = "<group>"; };
 		A6A620D514BBBB180096CA01 /* swoopBarTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarTop.png; path = ../graphics/swoopBarTop.png; sourceTree = "<group>"; };
@@ -1166,6 +1168,7 @@
 		A6A620D814BBBB670096CA01 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				A61F479214BFB90200A37E06 /* send.png */,
 				A61F479014BFAE9D00A37E06 /* submitBackground.png */,
 				A61F478714BFA51D00A37E06 /* info.png */,
 				A61F478814BFA51D00A37E06 /* left.png */,
@@ -2456,6 +2459,7 @@
 				A61F478D14BFA51D00A37E06 /* right.png in Resources */,
 				A61F478E14BFA51D00A37E06 /* up.png in Resources */,
 				A61F479114BFAE9D00A37E06 /* submitBackground.png in Resources */,
+				A61F479314BFB90200A37E06 /* send.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
