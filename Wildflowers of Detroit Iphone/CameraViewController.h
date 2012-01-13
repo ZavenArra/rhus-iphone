@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CameraViewController : UIViewController
+<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    UIImagePickerController * imagePicker;
+}
+@property(strong, nonatomic)     UIImagePickerController * imagePicker;
 
 @end

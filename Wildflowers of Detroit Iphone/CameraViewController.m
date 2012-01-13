@@ -10,6 +10,8 @@
 
 @implementation CameraViewController
 
+@synthesize imagePicker;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,7 +34,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    self.imagePicker.delegate = self;
+    self.imagePicker.allowsEditing = NO;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+#if !TARGET_IPHONE_SIMULATOR
+		imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
+#endif
+	}
+//    self.imagePicker.view.orien
+    [self.view addSubview:self.imagePicker.view];
+
 }
 
 - (void)viewDidUnload
@@ -47,5 +60,7 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark Interface Methods
 
 @end
