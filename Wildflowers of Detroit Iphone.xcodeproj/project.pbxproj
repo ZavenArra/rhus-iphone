@@ -13,6 +13,10 @@
 		A61F478E14BFA51D00A37E06 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F478A14BFA51D00A37E06 /* up.png */; };
 		A61F479114BFAE9D00A37E06 /* submitBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479014BFAE9D00A37E06 /* submitBackground.png */; };
 		A61F479314BFB90200A37E06 /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479214BFB90200A37E06 /* send.png */; };
+		A61F479D14BFD3C900A37E06 /* cameraPop.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479914BFD3C900A37E06 /* cameraPop.png */; };
+		A61F479E14BFD3C900A37E06 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479A14BFD3C900A37E06 /* Default.png */; };
+		A61F479F14BFD3C900A37E06 /* retakeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479B14BFD3C900A37E06 /* retakeButton.png */; };
+		A61F47A014BFD3C900A37E06 /* uploadButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A61F479C14BFD3C900A37E06 /* uploadButton.png */; };
 		A6A620D214BBB7FC0096CA01 /* SwoopTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */; };
 		A6A620D614BBBB180096CA01 /* swoopBarBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D414BBBB180096CA01 /* swoopBarBottom.png */; };
 		A6A620D714BBBB180096CA01 /* swoopBarTop.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D514BBBB180096CA01 /* swoopBarTop.png */; };
@@ -744,6 +748,10 @@
 		A61F478A14BFA51D00A37E06 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = graphics/up.png; sourceTree = SOURCE_ROOT; };
 		A61F479014BFAE9D00A37E06 /* submitBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submitBackground.png; path = graphics/submitBackground.png; sourceTree = SOURCE_ROOT; };
 		A61F479214BFB90200A37E06 /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send.png; path = graphics/send.png; sourceTree = SOURCE_ROOT; };
+		A61F479914BFD3C900A37E06 /* cameraPop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cameraPop.png; path = graphics/cameraPop.png; sourceTree = SOURCE_ROOT; };
+		A61F479A14BFD3C900A37E06 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = graphics/Default.png; sourceTree = SOURCE_ROOT; };
+		A61F479B14BFD3C900A37E06 /* retakeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retakeButton.png; path = graphics/retakeButton.png; sourceTree = SOURCE_ROOT; };
+		A61F479C14BFD3C900A37E06 /* uploadButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadButton.png; path = graphics/uploadButton.png; sourceTree = SOURCE_ROOT; };
 		A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwoopTabViewController.xib; sourceTree = "<group>"; };
 		A6A620D414BBBB180096CA01 /* swoopBarBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarBottom.png; path = ../graphics/swoopBarBottom.png; sourceTree = "<group>"; };
 		A6A620D514BBBB180096CA01 /* swoopBarTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarTop.png; path = ../graphics/swoopBarTop.png; sourceTree = "<group>"; };
@@ -1171,6 +1179,10 @@
 		A6A620D814BBBB670096CA01 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				A61F479914BFD3C900A37E06 /* cameraPop.png */,
+				A61F479A14BFD3C900A37E06 /* Default.png */,
+				A61F479B14BFD3C900A37E06 /* retakeButton.png */,
+				A61F479C14BFD3C900A37E06 /* uploadButton.png */,
 				A61F479214BFB90200A37E06 /* send.png */,
 				A61F479014BFAE9D00A37E06 /* submitBackground.png */,
 				A61F478714BFA51D00A37E06 /* info.png */,
@@ -2465,6 +2477,10 @@
 				A61F478E14BFA51D00A37E06 /* up.png in Resources */,
 				A61F479114BFAE9D00A37E06 /* submitBackground.png in Resources */,
 				A61F479314BFB90200A37E06 /* send.png in Resources */,
+				A61F479D14BFD3C900A37E06 /* cameraPop.png in Resources */,
+				A61F479E14BFD3C900A37E06 /* Default.png in Resources */,
+				A61F479F14BFD3C900A37E06 /* retakeButton.png in Resources */,
+				A61F47A014BFD3C900A37E06 /* uploadButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
