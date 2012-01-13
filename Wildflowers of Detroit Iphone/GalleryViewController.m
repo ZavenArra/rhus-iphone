@@ -18,12 +18,13 @@
 #define kThumbnailsPerRow 3
 #define kTabBarWidth 58
 #define kUserDocumentsPerPage 50
+#define kDetailScrollPreloadCount 5
 
 @implementation GalleryViewController
 
 @synthesize galleryScrollView, detailScrollView, detailView;
 @synthesize fullscreenTransitionDelegate;
-@synthesize zoomView;
+@synthesize zoomView, infoTextView, infoView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,11 +56,12 @@
     CGRect frame = self.galleryScrollView.frame;
     
     [self.galleryScrollView setContentSize:CGSizeMake(frame.size.width , scrollViewRows * kRowHeight)];
-    self.galleryScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     for(int i=0; i<[userDocuments count]; i++){
         NSDictionary * document = [userDocuments objectAtIndex:i];
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+        
         CGRect frame;
         frame.size.width = kThumbnailWidth;
         frame.size.height = kThumbnailHeight;
@@ -68,24 +70,19 @@
         thumbnailButton.frame = frame;
         
         UIImage * image = [MapDataModel getThumbnailForId:[document objectForKey:@"id"]];
-        [thumbnailButton setBackgroundImage:image
+        
+
+        
+        [thumbnailButton setImage:image
                                    forState:UIControlStateNormal];
         
         [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
         
         thumbnailButton.tag =  [[document objectForKey:@"id"] intValue];
        
-        /*
-        thumbnailButton.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-        UIViewAutoresizingFlexibleHeight |
-        UIViewAutoresizingFlexibleLeftMargin |
-        UIViewAutoresizingFlexibleRightMargin |
-        UIViewAutoresizingFlexibleTopMargin | 
-        UIViewAutoresizingFlexibleBottomMargin;
-       */
-         
-        thumbnailButton.contentMode = UIViewContentModeScaleAspectFit;
-        
+        thumbnailButton.contentMode = UIViewContentModeCenter;
+        thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
+
         [self.galleryScrollView addSubview:thumbnailButton];
     }
 }
@@ -103,6 +100,79 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)showDetailView{
+    /*
+     layout some scroll images for demoing
+     */
+    NSArray * userDocuments = [MapDataModel getUserDocumentsWithOffset:0 andLimit:10];
+    int scrollViewPages = [userDocuments count];
+    
+    [self.detailScrollView setContentSize:CGSizeMake( scrollViewPages * 480, 320)];
+    
+    for(int i=0; i<[userDocuments count]; i++){
+        NSDictionary * document = [userDocuments objectAtIndex:i];
+        
+        UIImage * image = [MapDataModel getImageForId:[document objectForKey:@"id"]];
+        UIImageView * scrollPage = [[UIImageView alloc]init ];
+        scrollPage.image = image;
+        
+        scrollPage.tag =  [[document objectForKey:@"id"] intValue];
+        
+        CGRect pageFrame = scrollPage.frame;
+        pageFrame.origin.x = i*480;
+        pageFrame.origin.y = 0;
+        pageFrame.size.width = 480;
+        pageFrame.size.height = 320;
+        scrollPage.frame = pageFrame;
+        
+        [self.detailScrollView addSubview:scrollPage];
+    }
+    
+    
+    [self.view addSubview: self.detailView];
+    [self.zoomView removeFromSuperview];
+}
+
+- (void)hideDetailView{
+    [self.detailView removeFromSuperview];
+    [fullscreenTransitionDelegate subviewReleasingFullscreen];
+
+}
+
+- (void)layoutDetailView{
+    [self.detailScrollView setContentSize:CGSizeMake(480 * kDetailScrollPreloadCount, 320)];
+    //???
+}
+
+- (void)showInfoView{
+    CGRect frame = self.infoView.frame;
+    frame.origin.x = (480 - frame.size.width) / 2;
+    frame.origin.y = (320 - frame.size.height) /2;
+    self.infoView.frame = frame;
+    [self.view addSubview:self.infoView];
+}
+
+- (void)hideInfoView{
+    [self.infoView removeFromSuperview];
+}
+
+- (IBAction)didTouchRightScrollButton:(id)sender{
+    CGPoint offset = self.detailScrollView.contentOffset;
+    if(offset.x < self.detailScrollView.contentSize.width){
+        offset.x += 480;
+        self.detailScrollView.contentOffset = offset;
+    }
+}
+
+- (IBAction)didTouchLeftScrollButton:(id)sender{
+    CGPoint offset = self.detailScrollView.contentOffset;
+    if(offset.x > 0){
+        offset.x -= 480;
+        self.detailScrollView.contentOffset = offset;
+    }
+}
+
+
 #pragma mark - IBActions
 
 - (IBAction)didTouchThumbnail:(id)sender{
@@ -111,16 +181,16 @@
     UIImage * zoomImage = [MapDataModel getImageForId:[NSString stringWithFormat:@"%d", senderButton.tag]];
     self.zoomView.image = zoomImage;
     
-    CGPoint senderOrigin = [senderButton.superview convertPoint:senderButton.frame.origin toView:nil];
+    CGPoint senderOrigin = [senderButton.superview convertPoint:senderButton.frame.origin toView:self.view];
 // User this sender origin to place the zoom view
     
     //place detail scroll view
     CGRect frame;
-    frame.origin.x = senderButton.frame.origin.x + 58;
-    frame.origin.y = senderButton.frame.origin.y ;    
-       + (kThumbnailHeight - kThumbnailWidth * 320 / 480) / 2; // this term is the vert offset of the actual image
+    frame.origin.x = senderOrigin.x;
+    frame.origin.y = senderOrigin.y ;    
+  //     + (kThumbnailHeight - kThumbnailWidth * 320 / 480) / 2; // this term is the vert offset of the actual image
     frame.size.width = kThumbnailWidth;
-    frame.size.height = 320 * kThumbnailWidth / 480;
+    frame.size.height = frame.size.width; // 320 * kThumbnailWidth / 480;
     
     self.zoomView.frame = frame;
     
@@ -157,9 +227,23 @@
     zoomFrame.size.height = 320;
     self.zoomView.frame = zoomFrame;
     
-
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(showDetailView)];
     [UIView commitAnimations];	
     
-    
-   }
+}
+
+- (IBAction)didTouchDetailCloseButton:(id)sender{
+    [self hideDetailView];
+}
+
+- (IBAction)didTouchDetailInfoButton:(id)sender {
+    [self showInfoView];
+}
+
+- (IBAction)didTouchInfoCloseButton:(id)sender{
+    [self hideInfoView];
+}
+
+
 @end

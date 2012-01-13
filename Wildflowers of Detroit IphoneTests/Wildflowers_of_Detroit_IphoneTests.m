@@ -54,6 +54,13 @@
     
 }
 
+- (void)testDataModelGetDocumentAtIndex
+{
+    NSDictionary * document = [MapDataModel getDocumentAtIndex:4];
+    GHAssertTrue(document != nil, @"Document is nil");
+    
+}
+
 - (void)testDataModelGetNextDocument
 {
     NSDictionary * document = [MapDataModel getNextDocument:@"472"];

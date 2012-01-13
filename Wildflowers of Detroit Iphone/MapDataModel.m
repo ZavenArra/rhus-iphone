@@ -49,6 +49,11 @@
     return [[self instance].userDocuments objectForKey:key];
 }
 
++ (NSDictionary *) getDocumentAtIndex: (NSUInteger) index {
+    NSString * key = [[self instance].userDocuments keyAtIndex:index];
+    return [[self instance].userDocuments objectForKey:key]; 
+}
+
 + (UIImage *) getThumbnailForId: (NSString *) documentId {
     
     NSDictionary * document = [self getDocumentById:documentId];

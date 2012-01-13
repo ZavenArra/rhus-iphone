@@ -17,6 +17,8 @@
     UIScrollView * detailScrollView;
     
     UIImageView * zoomView;
+    UIView * infoView;
+    UITextView * infoTextView;
 
 }
 
@@ -25,10 +27,25 @@
 @property(strong, nonatomic) IBOutlet UIScrollView * detailScrollView;
 @property(strong, nonatomic) IBOutlet UIView * detailView;
 
-@property(strong, nonatomic) IBOutlet     UIImageView * zoomView;
+@property(strong, nonatomic) IBOutlet   UIImageView * zoomView;
+@property(strong, nonatomic) IBOutlet   UIView * infoView;
+@property(strong, nonatomic) IBOutlet   UITextView * infoTextView;
 
 
+- (void)showDetailView;
+- (void)hideDetailView;
+- (void)showInfoView;
+- (void)hideInfoView;
 
 
 - (IBAction)didTouchThumbnail:(id)sender;
+- (IBAction)didTouchDetailCloseButton:(id)sender;
+- (IBAction)didTouchDetailInfoButton:(id)sender;
+- (IBAction)didTouchInfoCloseButton:(id)sender;
+- (IBAction)didTouchLeftScrollButton:(id)sender;
+- (IBAction)didTouchRightScrollButton:(id)sender;
+
+
+
+
 @end

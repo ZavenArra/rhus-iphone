@@ -19,6 +19,7 @@
 + (NSArray *) getUserDocuments;
 + (NSArray *) getUserDocumentsWithOffset: (NSInteger) offset andLimit: (NSInteger) limit;
 + (NSDictionary *) getDocumentById: (NSString *) documentId;
++ (NSDictionary *) getDocumentAtIndex: (NSUInteger) index;
 + (NSDictionary *) getNextDocument: (NSString *) documentId;
 + (NSDictionary *) getPrevDocument: (NSString *) documentId;
 
