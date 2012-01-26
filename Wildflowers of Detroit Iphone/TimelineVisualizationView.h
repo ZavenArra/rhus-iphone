@@ -8,6 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimelineVisualizationView : UIView
+@protocol TimelineVisualizationViewDelegate <NSObject>
+
+/*
+ - (NSArray *) dataForVisualization
+ Function must return an NSArray of CGPointMake objects, stored as NSValue
+ i.e. [data addObject: [NSValue valueWithCGPoint: CGPointMake(i, level)]];
+ */
+- (NSArray *) dataForVisualization;
+- (CGFloat) dataRange;
+- (CGFloat) dataDomain;
+
 
 @end
+
+@interface TimelineVisualizationView : UIView
+{
+    NSArray * data;  // Array of CGPoint objects
+    id <TimelineVisualizationViewDelegate> delegate;
+}
+@property(nonatomic, strong) NSArray * data;
+@property(nonatomic, strong) id <TimelineVisualizationViewDelegate> delegate;
+
+@end
+

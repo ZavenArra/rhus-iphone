@@ -26,6 +26,7 @@
 @synthesize mapView, timelineView, timelineControlsView;
 @synthesize fullscreenTransitionDelegate;
 @synthesize mapInsetButton;
+@synthesize timelineVisualizationView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,7 +80,8 @@
     //spoof an overlay geometry
     WOverlay * overlay = [[WOverlay alloc] init];
     [self.mapView addOverlay:overlay];
-    
+ 
+    self.timelineVisualizationView.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -190,6 +192,8 @@
 #pragma make MapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation{
+    MKAnnotationView * annotationView = [[MKAnnotationView alloc] init ];
+    //annotationView.image;
     return nil; // will use standard pin
 }
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id < MKOverlay >)overlay{
@@ -200,6 +204,34 @@
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
     [self transitionFromMapToTimeline];
+}
+
+#pragma mark - 
+#pragma make TimelineVisualizationView
+
+//TODO: This function currently spoofs data that should be loaded from the data layer
+- (NSArray *) dataForVisualization{
+    NSMutableArray * data = [NSMutableArray array];
+    
+    int numLevels = 4;
+    for(int i=0; i<52; i++){
+        
+        int level = arc4random() % numLevels;
+//        float randy;
+//        randy = (level)/numLevels;
+        
+
+        [data addObject: [NSValue valueWithCGPoint:
+                          CGPointMake(i, level)]];
+    }
+
+    return data;
+}
+- (CGFloat) dataRange {
+    return 51;
+}
+- (CGFloat) dataDomain{
+    return 4;
 }
 
 
