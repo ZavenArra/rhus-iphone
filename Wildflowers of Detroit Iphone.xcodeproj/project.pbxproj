@@ -761,6 +761,7 @@
 		F4D392A014BBA6660051E831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392A314BBA6660051E831 /* AppDelegate.m */; };
 		F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */; };
+		F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */; };
 		F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4F02F8214CFA6250041492E /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
@@ -1196,6 +1197,8 @@
 		F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Wildflowers_of_Detroit_IphoneTests.m; path = "../Wildflowers of Detroit IphoneTests/Wildflowers_of_Detroit_IphoneTests.m"; sourceTree = "<group>"; };
 		F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwoopTabViewController.h; sourceTree = "<group>"; };
 		F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwoopTabViewController.m; sourceTree = "<group>"; };
+		F4EDE02614D0EB7800242082 /* TimelineVisualizationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVisualizationView.h; sourceTree = "<group>"; };
+		F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVisualizationView.m; sourceTree = "<group>"; };
 		F4F02F7814CF97EE0041492E /* SSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMapAnnotation.h; sourceTree = "<group>"; };
 		F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMapAnnotation.m; sourceTree = "<group>"; };
 		F4F02F7C14CFA3D00041492E /* WOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOverlayView.h; sourceTree = "<group>"; };
@@ -1739,6 +1742,8 @@
 				F4A84C9114BBD41A00EF9627 /* MapViewController.h */,
 				F4A84C9214BBD41A00EF9627 /* MapViewController.m */,
 				F4A84C9314BBD41A00EF9627 /* MapViewController.xib */,
+				F4EDE02614D0EB7800242082 /* TimelineVisualizationView.h */,
+				F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */,
 			);
 			path = "Wildflowers of Detroit Iphone";
 			sourceTree = "<group>";
@@ -2625,6 +2630,7 @@
 				F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */,
 				F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */,
 				F4F02F8214CFA6250041492E /* WOverlay.m in Sources */,
+				F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

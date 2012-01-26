@@ -9,17 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "FullscreenTransitionDelegate.h"
+#import "TimelineVisualizationView.h"
 
 
 
 @interface MapViewController : UIViewController
-<MKMapViewDelegate>
+<MKMapViewDelegate, TimelineVisualizationViewDelegate>
 {
     id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
 
     IBOutlet MKMapView * mapView;
     IBOutlet UIView * timelineView;
     IBOutlet UIView * timelineControlsView;
+    IBOutlet TimelineVisualizationView * timelineVisualizationView;
     
     UIButton * mapInsetButton;
 }
@@ -29,6 +31,7 @@
 @property(nonatomic, strong) UIView * timelineView;
 @property(nonatomic, strong) UIView *timelineControlsView;
 @property(nonatomic, strong) UIButton *mapInsetButton;
+@property(nonatomic, strong) TimelineVisualizationView * timelineVisualizationView;
 
 
 -(void) didTapMapInsetButton:(id)sender;

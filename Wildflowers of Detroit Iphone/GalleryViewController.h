@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FullscreenTransitionDelegate.h"
+#import "TimelineVisualizationView.h"
 
 @interface GalleryViewController : UIViewController
 {
@@ -19,6 +20,7 @@
     UIImageView * zoomView;
     UIView * infoView;
     UITextView * infoTextView;
+    TimelineVisualizationView * visualization;
 
 }
 
@@ -30,6 +32,8 @@
 @property(strong, nonatomic) IBOutlet   UIImageView * zoomView;
 @property(strong, nonatomic) IBOutlet   UIView * infoView;
 @property(strong, nonatomic) IBOutlet   UITextView * infoTextView;
+
+@property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
 
 
 - (void)showDetailView;
