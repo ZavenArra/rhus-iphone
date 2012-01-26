@@ -25,6 +25,7 @@
 @synthesize galleryScrollView, detailScrollView, detailView;
 @synthesize fullscreenTransitionDelegate;
 @synthesize zoomView, infoTextView, infoView;
+@synthesize visualization;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
