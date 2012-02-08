@@ -167,6 +167,25 @@
     return [self.instance _getUserDocuments];
 }
 
++ (void) addDocument: (NSDictionary *) document {
+    //Add any additional properties
+    
+    // Save the document, asynchronously:
+    CouchDocument* doc = [self.instance.database untitledDocument];
+    RESTOperation* op = [doc putProperties:document];
+    [op onCompletion: ^{
+        if (op.error)
+            NSAssert(false, @"ERROR");
+           // AppDelegate needs to observer MapData for connection errors.
+           // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
+        // Re-run the query:
+		//[self.dataSource.query start];
+        [self.instance.query start];
+	}];
+    [op start];
+
+}
+
 
 // Display an error alert, without blocking.
 // If 'fatal' is true, the app will quit when it's pressed.

@@ -54,8 +54,8 @@
     
     MKCoordinateRegion coordinateRegion;
     CLLocationCoordinate2D center;
-    center.latitude = 42.3;
-    center.longitude = -83;
+    center.latitude = 42.35;
+    center.longitude = -83.07;
     coordinateRegion.center = center;
     MKCoordinateSpan span;
     span.latitudeDelta = fullLatitudeDelta;
@@ -85,7 +85,9 @@
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [object objectForKey:@"lattitude"] floatValue];
         coordinate.longitude = [ (NSString*) [object objectForKey:@"longitude"] floatValue];
-        [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate title:@"Hey Fucker"]];
+        [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate title:
+                                     [object objectForKey:@"reporter"]
+                                     ]];
     }
     
     //spoof an overlay geometry

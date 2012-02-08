@@ -16,11 +16,17 @@
     UIImagePickerController * imagePicker;
     UIView * pictureDialog;
     UIView * pictureInfo;
+    UITextField * reporter;
+    UITextField * comment;
+
 }
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
 @property(strong, nonatomic)  UIImagePickerController * imagePicker;
 @property(strong, nonatomic)  IBOutlet   UIView * pictureDialog;
 @property(strong, nonatomic)  IBOutlet   UIView * pictureInfo;
+@property(strong, nonatomic)  IBOutlet   UITextField * reporter;
+@property(strong, nonatomic)  IBOutlet   UITextField * comment;
+
 
 - (void) secondTapTabButton;
 

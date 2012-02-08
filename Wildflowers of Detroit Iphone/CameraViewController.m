@@ -7,12 +7,14 @@
 //
 
 #import "CameraViewController.h"
+#import "MapDataModel.h"
 
 @implementation CameraViewController
 
 @synthesize imagePicker;
 @synthesize pictureDialog, pictureInfo;
 @synthesize fullscreenTransitionDelegate;
+@synthesize reporter, comment;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -140,6 +142,23 @@
 
 - (IBAction) didTouchSendButton:(id)sender{
 
+    
+     float latHigh = 42.362+1;
+     float latLow = 42.293+1;
+     float longHigh = -83.101;
+     float longLow = -82.935;
+     float lattitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
+     float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
+    
+    
+    NSDictionary * newDocument = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  self.reporter.text, @"reporter",
+                                  self.comment.text, @"comment",
+                                  [[NSNumber numberWithFloat: lattitude] stringValue], @"lattitude", 
+                                  [[NSNumber numberWithFloat: longitude] stringValue], @"longitude",
+                                  nil];
+    [MapDataModel addDocument:newDocument];
+    
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
     CGRect frame = self.pictureInfo.frame;

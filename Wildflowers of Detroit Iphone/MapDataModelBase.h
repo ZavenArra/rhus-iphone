@@ -23,6 +23,8 @@
 + (UIImage *) getThumbnailForId: (NSString *) documentId;
 + (UIImage *) getImageForId: (NSString *) documentId;
 
++ (void) addDocument: (NSDictionary *) document;
+
 
 
 - (id) init;
