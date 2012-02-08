@@ -11,15 +11,16 @@
 #import "SSMapAnnotation.h"
 #import "WOverlay.h"
 #import "WOverlayView.h"
+#import "MapDataModel.h"
 
 #define mapInsetOriginX 10
 #define mapInsetOriginY 10
 #define mapInsetWidth 97
 #define mapInsetHeight 63
-#define fullLatitudeDelta .1
-#define fullLongitudeDelta .1
-#define insetLatitudeDelta .05
-#define insetLongitudeDelta .05
+#define fullLatitudeDelta .05
+#define fullLongitudeDelta .05
+#define insetLatitudeDelta .03
+#define insetLongitudeDelta .03
 
 @implementation MapViewController
 
@@ -64,6 +65,9 @@
     
     //spoof map data
     //later on read this spoofed data from the data layer
+    
+    NSArray * items = [MapDataModel getUserDocuments];
+    /*
     float latHigh = 42.362;
     float latLow = 42.293;
     float longHigh = -83.101;
@@ -74,7 +78,14 @@
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = lattitude;
         coordinate.longitude = longitude;
-        [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate] ];
+        [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate title:@"Hey Fucker"] ];
+    }*/
+    
+    for( NSDictionary * object in items){
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = [ (NSString*) [object objectForKey:@"lattitude"] floatValue];
+        coordinate.longitude = [ (NSString*) [object objectForKey:@"longitude"] floatValue];
+        [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate title:@"Hey Fucker"]];
     }
     
     //spoof an overlay geometry
@@ -193,18 +204,26 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation{
     MKAnnotationView * annotationView = [[MKAnnotationView alloc] init ];
-    //annotationView.image;
-    return nil; // will use standard pin
+    annotationView.image = [UIImage imageNamed:@"mapPoint"];
+    annotationView.leftCalloutAccessoryView = [[UIImageView alloc]initWithImage:
+        [UIImage imageNamed:@"mapPointPopup"]
+    ];
+    annotationView.canShowCallout = YES;
+
+    return annotationView; 
 }
+
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id < MKOverlay >)overlay{
     WOverlayView * overlayView = [[WOverlayView alloc] initWithOverlay:overlay];
     return overlayView;
 }
+/*
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
     [self transitionFromMapToTimeline];
 }
+ */
 
 #pragma mark - 
 #pragma make TimelineVisualizationView

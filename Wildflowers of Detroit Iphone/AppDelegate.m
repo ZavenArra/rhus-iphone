@@ -10,6 +10,7 @@
 #import "GalleryViewController.h"
 #import "CameraViewController.h"
 #import "MapViewController.h"
+#import "MapDataModel.h"
 
 @implementation AppDelegate
 
@@ -18,9 +19,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initializeDataModel];
+}
+
+- (void) initializeDataModel {
+    [MapDataModel instance];
+}
+
+- (void) initializeAppDelegateAndLaunch {
+    
+    
+    [[MapDataModel instance] updateSyncURL];
+
+//    [[MapDataModel instance] test];
+    
+    [[MapDataModel instance] initializeQuery];
+
+
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //[self.window makeKeyAndVisible];
+
+    //return;
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
     
@@ -34,13 +57,16 @@
     MapViewController * mapViewController = [[MapViewController alloc]init];
     mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     self.swoopTabViewController.bottomViewController = mapViewController;
-
+    
     
     [self.window addSubview:swoopTabViewController.view];
-	    
+    
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
