@@ -172,6 +172,7 @@
     frame = self.pictureDialog.frame;
     frame.origin.x = -frame.size.width;
     self.pictureDialog.frame = frame;
+    
     [UIView setAnimationDuration:0.50];
     [UIView setAnimationDelay:0.0];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -197,9 +198,25 @@
     CGRect frame = self.pictureDialog.frame;
     frame.origin.x = 0;
     self.pictureDialog.frame = frame;
+    
+    
+    //Moved from animate show info box
+    frame = self.pictureInfo.frame;
+    frame.origin.x = 480;
+    self.pictureInfo.frame = frame;
+    [self.view addSubview:self.pictureInfo];
+    //[UIView beginAnimations:@"anim" context:nil];
+    frame = self.pictureInfo.frame;
+    frame.origin.x = 0;
+    self.pictureInfo.frame = frame;
+    
+    frame = self.pictureDialog.frame;
+    frame.origin.x = -frame.size.width;
+    self.pictureDialog.frame = frame;
+    
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animateShowInfoBox)];
+   // [UIView setAnimationDidStopSelector:@selector(animateShowInfoBox)];
     [UIView commitAnimations];
     
 }
@@ -215,7 +232,36 @@
      float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
     
     
-    NSData * imageDataJpeg = UIImageJPEGRepresentation(currentImage, 0.0);
+ 
+    
+    CGSize thumbSize;
+    thumbSize.width = 100;
+    thumbSize.height = 100;
+    
+    CGSize contentSize;
+    contentSize.width = 500;
+    contentSize.height = 500;
+    
+    // Create a bitmap graphics context
+    // This will also set it as the current context
+    UIGraphicsBeginImageContext(thumbSize);
+    
+    // Draw the scaled image in the current context
+    /*
+    [currentImage drawInRect:CGRectMake(3200/2 - contentSize.width/2  , 4800/2 - contentSize.height/2,
+                                        contentSize.width, contentSize.height)];
+    */
+    [currentImage drawInRect:CGRectMake(0, 0, 100, 100)];
+     
+    // Create a new image from current context
+    UIImage* thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Pop the current context from the stack
+    UIGraphicsEndImageContext();
+    
+    NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(currentImage, 0.0);
+    NSData * thumbImageDataJpeg = UIImageJPEGRepresentation(thumbImage, .8);
+
                                                 
     /*
     UIGraphicsBeginImageContext( newSize );
@@ -247,13 +293,13 @@
     [MapDataModel addDocument:newDocument 
                   withAttachments: [NSArray arrayWithObjects:
                                     [NSDictionary dictionaryWithObjectsAndKeys:
-                                     imageDataJpeg,  @"data", 
+                                     thumbImageDataJpeg,  @"data", 
                                      @"thumb.jpg", @"name", 
                                      @"image/jpeg", @"contentType",
                                      nil
                                      ],
                                     [NSDictionary dictionaryWithObjectsAndKeys:
-                                     imageDataJpeg,  @"data", 
+                                     mediumImageDataJpeg,  @"data", 
                                      @"medium.jpg",  @"name", 
                                      @"image/jpeg", @"contentType", 
                                      nil

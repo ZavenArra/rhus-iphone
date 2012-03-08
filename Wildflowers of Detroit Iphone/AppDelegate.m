@@ -28,8 +28,9 @@
 
 - (void) initializeAppDelegateAndLaunch {
     
-    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+ //   [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
 
+    [self initializeInBackground];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
