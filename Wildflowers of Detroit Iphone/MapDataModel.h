@@ -2,31 +2,24 @@
 //  MapDataModel.h
 //  Wildflowers of Detroit Iphone
 //
-//  Created by Deep Winter on 1/10/12.
+//  Created by Deep Winter on 2/1/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "OrderedDictionary.h"
 
-@interface MapDataModel : NSObject
-{
-    OrderedDictionary * userDocuments;
-}
-@property(nonatomic, strong) OrderedDictionary * userDocuments;
+//Uncomment this line to use data spoofing
+//#define UseMapDataModelSpoof
 
-+ (MapDataModel *)instance;
-+ (NSArray *) getUserDocuments;
-+ (NSArray *) getUserDocumentsWithOffset: (NSInteger) offset andLimit: (NSInteger) limit;
-+ (NSDictionary *) getDocumentById: (NSString *) documentId;
-+ (NSDictionary *) getDocumentAtIndex: (NSUInteger) index;
-+ (NSDictionary *) getNextDocument: (NSString *) documentId;
-+ (NSDictionary *) getPrevDocument: (NSString *) documentId;
+#ifdef UseMapDataModelSpoof
 
-+ (UIImage *) getThumbnailForId: (NSString *) documentId;
-+ (UIImage *) getImageForId: (NSString *) documentId;
+#import "MapDataModelSpoof.h"
+@interface MapDataModel : MapDataModelSpoof
 
+#else
 
+#import "MapCouchbaseDataModel.h"
+@interface MapDataModel : MapCouchbaseDataModel
 
-- (id) init;
+#endif
+
 @end

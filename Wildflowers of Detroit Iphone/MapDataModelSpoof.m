@@ -1,0 +1,86 @@
+//
+//  MapDataModel.m
+//  Wildflowers of Detroit Iphone
+//
+//  Created by Deep Winter on 1/10/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "MapDataModelSpoof.h"
+
+#import <CouchCocoa/CouchCocoa.h>
+
+@implementation MapDataModelSpoof
+
+@synthesize userDocuments;
+
++ (MapDataModelSpoof *) instance {
+    return (MapDataModelSpoof *) [super instance];
+}
+
++ (NSArray *) getUserDocuments {
+    return [ ( (MapDataModelSpoof *) [self instance] ).userDocuments allValues];
+}
+
++ (NSArray *) getUserDocumentsWithOffset: (NSInteger) offset andLimit: (NSInteger) limit {
+    
+    OrderedDictionary * subset = [[self instance].userDocuments subsetWithOffset:offset andLimit:limit]; 
+    return [subset allValues];
+    
+}
+
++ (NSDictionary *) getDocumentById: (NSString *) documentId{
+    return [[self instance].userDocuments objectForKey:documentId];
+}
+
++ (NSDictionary *) getNextDocument: (NSString *) documentId{
+    NSDictionary * currObject = [self getDocumentById:documentId];
+    NSInteger indexOfObject = [[self instance].userDocuments indexOfObject:currObject];
+    id key = [[self instance].userDocuments keyAtIndex:indexOfObject+1];
+    return [[self instance].userDocuments objectForKey:key];
+}
+
++ (NSDictionary *) getPrevDocument: (NSString *) documentId{
+    NSDictionary * currObject = [self getDocumentById:documentId];
+    NSInteger indexOfObject = [[self instance].userDocuments indexOfObject:currObject];
+    id key = [[self instance].userDocuments keyAtIndex:indexOfObject-1];
+    return [[self instance].userDocuments objectForKey:key];
+}
+
++ (NSDictionary *) getDocumentAtIndex: (NSUInteger) index {
+    NSString * key = [[self instance].userDocuments keyAtIndex:index];
+    return [[self instance].userDocuments objectForKey:key]; 
+}
+
++ (UIImage *) getThumbnailForId: (NSString *) documentId {
+    
+    NSDictionary * document = [self getDocumentById:documentId];
+    
+    NSString * thumbnailName = [NSString stringWithFormat:@"thumbnail_%@", [document objectForKey:@"plantImage"] ];
+    UIImage * image = [UIImage imageNamed:thumbnailName];
+    return image;
+    
+}
+
++ (UIImage *) getImageForId: (NSString *) documentId {    
+    
+    NSDictionary * document = [self getDocumentById:documentId];
+    
+    NSString * imageName = [document objectForKey:@"plantImage"];
+    UIImage * image = [UIImage imageNamed:imageName];
+    return image;
+    
+}
+
+
+
+- (id) init {
+    NSString * fullPath = [[NSBundle mainBundle] pathForResource:@"testdataplist" ofType:@"plist"];
+    NSDictionary * plist;
+    plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+    self.userDocuments = [OrderedDictionary dictionaryWithDictionary:[plist objectForKey:@"Documents"]];
+    return self;
+}
+
+
+@end

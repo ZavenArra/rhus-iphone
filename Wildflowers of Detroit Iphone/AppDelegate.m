@@ -10,6 +10,7 @@
 #import "GalleryViewController.h"
 #import "CameraViewController.h"
 #import "MapViewController.h"
+#import "MapDataModel.h"
 
 @implementation AppDelegate
 
@@ -18,9 +19,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initializeDataModel];
+}
+
+- (void) initializeDataModel {
+    [MapDataModel instance];
+}
+
+- (void) initializeAppDelegateAndLaunch {
+    
+ //   [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+
+    [self initializeInBackground];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //[self.window makeKeyAndVisible];
+
+    //return;
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
     
@@ -34,13 +52,31 @@
     MapViewController * mapViewController = [[MapViewController alloc]init];
     mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     self.swoopTabViewController.bottomViewController = mapViewController;
-
+    
     
     [self.window addSubview:swoopTabViewController.view];
-	    
+    
     [self.window makeKeyAndVisible];
-    return YES;
+    
 }
+
+//Start couchBase in the background.  Calls to the datamodel will be asynchronous, allowing the database to
+//start serving whenever it's ready.
+- (void) initializeInBackground{
+    
+   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    
+    [[MapDataModel instance] updateSyncURL];
+    
+    //    [[MapDataModel instance] test];
+    
+    [[MapDataModel instance] initializeQuery];
+
+  //  [pool release];
+
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

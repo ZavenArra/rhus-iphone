@@ -57,7 +57,8 @@
     CGRect frame = self.galleryScrollView.frame;
     
     [self.galleryScrollView setContentSize:CGSizeMake(frame.size.width , scrollViewRows * kRowHeight)];
-    
+    NSLog(@"Not rendering gallery");
+    return;
     for(int i=0; i<[userDocuments count]; i++){
         NSDictionary * document = [userDocuments objectAtIndex:i];
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
