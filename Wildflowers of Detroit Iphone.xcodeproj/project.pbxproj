@@ -55,6 +55,8 @@
 		F4593A0E14BFB0B90019D4FC /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */; };
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F48E254F150881E400A021AE /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
+		F48E26621508E49000A021AE /* RhusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F48E26611508E48E00A021AE /* RhusAnnotationView.m */; };
+		F48E26641508E52100A021AE /* RhusAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48E26631508E52000A021AE /* RhusAnnotationView.xib */; };
 		F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */; };
 		F4A84C8A14BBD3EB00EF9627 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */; };
 		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
@@ -470,6 +472,9 @@
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F4593A0C14BFB0B90019D4FC /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
+		F48E26601508E48D00A021AE /* RhusAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusAnnotationView.h; sourceTree = "<group>"; };
+		F48E26611508E48E00A021AE /* RhusAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusAnnotationView.m; sourceTree = "<group>"; };
+		F48E26631508E52000A021AE /* RhusAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RhusAnnotationView.xib; sourceTree = "<group>"; };
 		F4A84C8614BBD3EA00EF9627 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
@@ -1360,7 +1365,8 @@
 				F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */,
 				F4C0623714BE6C0F0008FBB5 /* Supporting Files */,
 			);
-			path = "GHUnit Tests";
+			name = "GHUnit Tests";
+			path = "../GHUnit Tests";
 			sourceTree = "<group>";
 		};
 		F4C0623714BE6C0F0008FBB5 /* Supporting Files */ = {
@@ -1385,7 +1391,6 @@
 				F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */,
 				F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */,
 				F4D392B114BBA6660051E831 /* Wildflowers of Detroit IphoneTests */,
-				F4C0623614BE6C0F0008FBB5 /* GHUnit Tests */,
 				F4D3929214BBA6660051E831 /* Frameworks */,
 				F4D3929014BBA6660051E831 /* Products */,
 				F4AA410114DA5C0000ED3CCE /* Wildflowers of Detroit Iphone copy2-Info.plist */,
@@ -1436,9 +1441,13 @@
 				F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */,
 				F4A84C9114BBD41A00EF9627 /* MapViewController.h */,
 				F4A84C9214BBD41A00EF9627 /* MapViewController.m */,
+				F48E26601508E48D00A021AE /* RhusAnnotationView.h */,
+				F48E26611508E48E00A021AE /* RhusAnnotationView.m */,
+				F48E26631508E52000A021AE /* RhusAnnotationView.xib */,
 				F4A84C9314BBD41A00EF9627 /* MapViewController.xib */,
 				F4EDE02614D0EB7800242082 /* TimelineVisualizationView.h */,
 				F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */,
+				F4C0623614BE6C0F0008FBB5 /* GHUnit Tests */,
 			);
 			path = "Wildflowers of Detroit Iphone";
 			sourceTree = "<group>";
@@ -1942,6 +1951,7 @@
 				F4AA41F714DA5D2900ED3CCE /* thumbnail_IMG_0597.jpg in Resources */,
 				F4AA41F814DA5D2900ED3CCE /* thumbnail_IMG_0599.jpg in Resources */,
 				F48E254F150881E400A021AE /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
+				F48E26641508E52100A021AE /* RhusAnnotationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2032,6 +2042,7 @@
 				F4AA3F4814DA551D00ED3CCE /* MapDataModelBase.m in Sources */,
 				F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */,
 				F48E254E150881DC00A021AE /* main.m in Sources */,
+				F48E26621508E49000A021AE /* RhusAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

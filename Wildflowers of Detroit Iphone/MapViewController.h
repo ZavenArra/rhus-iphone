@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "FullscreenTransitionDelegate.h"
 #import "TimelineVisualizationView.h"
+#import "RhusAnnotationView.h"
 
 
 
@@ -32,6 +33,7 @@
 @property(nonatomic, strong) UIView *timelineControlsView;
 @property(nonatomic, strong) UIButton *mapInsetButton;
 @property(nonatomic, strong) TimelineVisualizationView * timelineVisualizationView;
+@property(nonatomic, assign) IBOutlet RhusAnnotationView * rhusAnnotationView;
 
 
 -(void) didTapMapInsetButton:(id)sender;

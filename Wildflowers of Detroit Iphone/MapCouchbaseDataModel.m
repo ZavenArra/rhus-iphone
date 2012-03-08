@@ -16,7 +16,7 @@
 // The default remote database URL to sync with, if the user hasn't set a different one as a pref.
 //#define kDefaultSyncDbURL @"http://couchbase.iriscouch.com/grocery-sync"
 //#define kDefaultSyncDbURL @"http://50.112.114.185:8091/couchBase/default"
-#define kDefaultSyncDbURL @"http://admin:Rfur55@ec2-50-112-24-87.us-west-2.compute.amazonaws.com:5984/iphonetest"
+#define kDefaultSyncDbURL @"http://admin:Rfur55@ec2-50-112-24-87.us-west-2.compute.amazonaws.com:5984/documents2"
 
 // Set this to 1 to install a pre-built database from a ".couch" resource file on first run.
 #define INSTALL_CANNED_DATABASE 0

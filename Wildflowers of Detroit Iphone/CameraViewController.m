@@ -224,12 +224,12 @@
 - (IBAction) didTouchSendButton:(id)sender{
 
     
-     float latHigh = 42.362+1;
-     float latLow = 42.293+1;
-     float longHigh = -83.101;
-     float longLow = -82.935;
-     float lattitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
-     float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
+     float latHigh = 42.454865;
+     float latLow = 42.340973;
+     float longHigh = -83.157413;
+     float longLow = -82.930849;
+    float lattitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
+    float longitude = longLow + (longHigh-longLow)* ( arc4random() % 1000 )/1000;
     
     
  

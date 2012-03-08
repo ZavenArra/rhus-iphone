@@ -28,6 +28,7 @@
 @synthesize fullscreenTransitionDelegate;
 @synthesize mapInsetButton;
 @synthesize timelineVisualizationView;
+@synthesize rhusAnnotationView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -205,7 +206,13 @@
 #pragma make MapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation{
+    /*[[NSBundle mainBundle] loadNibNamed:@"RhusAnnotationView" owner:self options:nil];
+    RhusAnnotationView * annotationView = self.rhusAnnotationView;
+    self.rhusAnnotationView = nil;
+    */
+    
     MKAnnotationView * annotationView = [[MKAnnotationView alloc] init ];
+
     annotationView.image = [UIImage imageNamed:@"mapPoint"];
     annotationView.leftCalloutAccessoryView = [[UIImageView alloc]initWithImage:
         [UIImage imageNamed:@"mapPointPopup"]
