@@ -22,5 +22,7 @@
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;
 
+- (void) initializeInBackground;
+
 
 @end

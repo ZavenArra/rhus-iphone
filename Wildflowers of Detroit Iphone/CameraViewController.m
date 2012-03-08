@@ -9,12 +9,27 @@
 #import "CameraViewController.h"
 #import "MapDataModel.h"
 
+#define kThreePetal 101
+#define kFourPetal 102
+#define kFivePetal 103
+#define kSixPetal 104
+#define kManyPetal 105
+
+#define kIrregular 106
+#define kComposite 107
+#define kTree 108
+#define kFruit 109
+
+#define TESTING 1
+
 @implementation CameraViewController
 
 @synthesize imagePicker;
 @synthesize pictureDialog, pictureInfo;
 @synthesize fullscreenTransitionDelegate;
 @synthesize reporter, comment;
+@synthesize imageView, currentImage;
+@synthesize attributeTranslation, selectedAttributes;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,29 +54,66 @@
 {
     [super viewDidLoad];
     
+    self.attributeTranslation = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"ThreePetal",[NSNumber numberWithInt:kThreePetal] ,
+                                  @"FourPetal",[NSNumber numberWithInt:kFourPetal] ,
+                                  @"FivePetal",[NSNumber numberWithInt:kFivePetal] ,
+                                  @"SixPetal",[NSNumber numberWithInt:kSixPetal] ,
+                                  @"ManyPetal",[NSNumber numberWithInt:kManyPetal] ,
+                                  @"Irregular",[NSNumber numberWithInt:kIrregular] ,
+                                  @"Composite",[NSNumber numberWithInt:kComposite] ,
+                                  @"Tree",[NSNumber numberWithInt:kTree] ,
+                                  @"Fruit",[NSNumber numberWithInt:kFruit] ,
+                                 nil];
+    
+    self.selectedAttributes = [NSMutableArray array];
+
+                           
+
+    
     self.imagePicker = [[UIImagePickerController alloc] init];
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = NO;
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-#if !TARGET_IPHONE_SIMULATOR
-	//	self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
+    
+ //   http://stackoverflow.com/questions/7520971/applications-are-expected-to-have-a-root-view-controller-at-the-end-of-applicati
+    
+#ifndef TESTING
+    [self showImagePickerView];
 #endif
-	}
-    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    CGRect frame = self.imagePicker.view.frame;
-    frame.origin.x = 0;
-    frame.origin.y = 0;
-    frame.size.width = 480;
-    frame.size.height = 320;
-    self.imagePicker.view.frame = frame;
-    //[self.view addSubview:self.imagePicker.view];
     
     //SET cameraOverlayView on imagePicker if it is displaying on top of menu bar.
     
     //self.imagePicker.takePicture;
     
     // [self presentViewController:self.imagePicker animated:NO completion:nil];
-    [self presentModalViewController:self.imagePicker animated:YES];
+ //   [self presentModalViewController:self.imagePicker animated:YES];
+
+}
+
+- (void) showImagePickerView {
+    self.imagePicker.delegate = self;
+    self.imagePicker.allowsEditing = NO;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+#if !TARGET_IPHONE_SIMULATOR
+		self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
+        self.imagePicker.showsCameraControls = NO;
+        
+#else
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+#endif
+	}
+    self.imagePicker.view.transform =  
+    CGAffineTransformScale (
+                            CGAffineTransformTranslate(
+                                                       CGAffineTransformMakeRotation(M_PI/2),
+                                                       -90, -15),
+                            // -25, 255),                           
+                            // -50, 175), //half
+                            // -100,350), //without scale
+                            
+                            //1.2,1.2) // this is closer to correct
+                            1.25, 1.25)
+    ;
+    
+    [self.view addSubview:self.imagePicker.view];
 
 }
 
@@ -75,15 +127,21 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
+
 
 #pragma mark Interface Methods
 
 - (void) secondTapTabButton{
-    //[self.imagePicker takePicture];
+#ifndef TESTING
+    [self.imagePicker takePicture];    
+#else
+    self.currentImage = [UIImage imageNamed:@"IMG_0015.jpg"];
+    [imageView setImage:currentImage];
     [self showPictureDialog];
-    
+
+#endif
 }
 
 /*TODO: this function should be called by imagePickerController:didFinishPickingMediaWithInfo:*/
@@ -98,6 +156,7 @@
 
 - (void) hidePictureDialog {
     [self.pictureDialog removeFromSuperview];
+
 }
 
 - (void) animateShowInfoBox {
@@ -122,6 +181,11 @@
 #pragma mark IBActions
 - (IBAction) didTouchRetakeButton:(id)sender{
     [self hidePictureDialog];
+    [self.view exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+}
+
+- (IBAction) didTouchCancelUploadButton:(id)sender{
+    [self.pictureInfo removeFromSuperview];
 }
 
 - (IBAction) didTouchUploadButton:(id)sender{
@@ -151,13 +215,55 @@
      float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
     
     
-    NSDictionary * newDocument = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  self.reporter.text, @"reporter",
-                                  self.comment.text, @"comment",
-                                  [[NSNumber numberWithFloat: lattitude] stringValue], @"lattitude", 
-                                  [[NSNumber numberWithFloat: longitude] stringValue], @"longitude",
-                                  nil];
-    [MapDataModel addDocument:newDocument];
+    NSData * imageDataJpeg = UIImageJPEGRepresentation(currentImage, 0.0);
+                                                
+    /*
+    UIGraphicsBeginImageContext( newSize );
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+*/
+    //Move some of this into a model for the app
+    //Would be usefull to have a scenario like
+    // [Document init]
+    // [Document addAttachment]
+    // [Document addAttachment]
+    // [Document save]
+    //  We want Rhus to be able to support easily writing a custom model
+    //  The model could be queried for dynamic form setup
+    NSMutableDictionary * newDocument = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         self.reporter.text, @"reporter",
+                                         self.comment.text, @"comment",
+                                         [[NSNumber numberWithFloat: lattitude] stringValue], @"lattitude", 
+                                         [[NSNumber numberWithFloat: longitude] stringValue], @"longitude",
+                                         [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
+                                         nil];
+
+    for(NSString * attribute in selectedAttributes){
+        [newDocument setObject:@"true" forKey:attribute];
+    }
+    
+    /* */
+    [MapDataModel addDocument:newDocument 
+                  withAttachments: [NSArray arrayWithObjects:
+                                    [NSDictionary dictionaryWithObjectsAndKeys:
+                                     imageDataJpeg,  @"data", 
+                                     @"thumb.jpg", @"name", 
+                                     @"image/jpeg", @"contentType",
+                                     nil
+                                     ],
+                                    [NSDictionary dictionaryWithObjectsAndKeys:
+                                     imageDataJpeg,  @"data", 
+                                     @"medium.jpg",  @"name", 
+                                     @"image/jpeg", @"contentType", 
+                                     nil
+                                     ],
+                                    nil
+                                    ]
+     ];
+   /* */
+    
+    //[MapDataModel addDocument:newDocument];
     
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
@@ -167,6 +273,10 @@
     
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
     [UIView commitAnimations];
+    
+    [self clearFormFields];
+
+    [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:0];
 
 }
 
@@ -174,9 +284,74 @@
     [self resignFirstResponder];
 }
 
+
+- (void) setToggleButtonState:(UIButton *) button{
+   // NSLog(@"Setting %d", button.tag);
+
+    if(button.selected){
+        button.selected = NO;
+        NSString * attribute = (NSString *) [attributeTranslation objectForKey:[NSNumber numberWithInt:button.tag]];
+        [selectedAttributes removeObject:attribute];
+
+    } else {
+        button.selected = YES;
+        NSString * attribute = (NSString *) [attributeTranslation objectForKey:[NSNumber numberWithInt:button.tag]];
+        [selectedAttributes addObject:attribute];
+        
+    }
+}
+
+
+//Generalize/Superclass
+- (IBAction) didTouchPetalRadio:(id)sender{
+    UIButton * button = (UIButton *) sender;
+    
+    [self setToggleButtonState: button];
+    
+    int radioFields[5] = {kThreePetal, kFourPetal, kFivePetal, kSixPetal, kManyPetal};
+    for(int i=0; i<5; i++){
+        int tag = radioFields[i];
+    //    NSLog(@"%d", tag);
+        if(radioFields[i]!=button.tag){
+            UIButton * aButton = (UIButton *) [self.view viewWithTag:radioFields[i]];
+            if(aButton.selected){
+                aButton.selected = NO;
+                NSString * attribute = (NSString *) [attributeTranslation objectForKey:[NSNumber numberWithInt:tag]];
+                [selectedAttributes removeObject:attribute];
+            }
+        }
+    }
+    
+
+}
+
+- (IBAction) didTouchAttributeCheckbox:(id)sender{
+    UIButton * button = (UIButton *) sender;
+    [self setToggleButtonState: button ];
+}
+
+//abstract?
+- (void) clearFormFields {
+    int radioFields[9] = {kThreePetal, kFourPetal, kFivePetal, kSixPetal, kManyPetal,kIrregular,kComposite,kTree,kFruit};
+    for(int i=0; i<9; i++){
+        
+        UIButton * button = (UIButton *) [self.view viewWithTag:radioFields[i]];
+        button.selected = NO;
+        NSString * attribute = (NSString *) [attributeTranslation objectForKey:[NSNumber numberWithInt:i]];
+        [selectedAttributes removeObject:attribute];
+        
+    }
+    
+}
+
+
 #pragma mark UIImagePickerControllerDelegate Methods
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-
+    currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [imageView setImage:currentImage];
+    [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:0];
+    [self showPictureDialog];
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

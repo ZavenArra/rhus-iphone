@@ -16,7 +16,7 @@
 // The default remote database URL to sync with, if the user hasn't set a different one as a pref.
 //#define kDefaultSyncDbURL @"http://couchbase.iriscouch.com/grocery-sync"
 //#define kDefaultSyncDbURL @"http://50.112.114.185:8091/couchBase/default"
-#define kDefaultSyncDbURL @"http://admin:Rfur55@50.112.114.185:5984/items"
+#define kDefaultSyncDbURL @"http://admin:Rfur55@ec2-50-112-24-87.us-west-2.compute.amazonaws.com:5984/iphonetest"
 
 // Set this to 1 to install a pre-built database from a ".couch" resource file on first run.
 #define INSTALL_CANNED_DATABASE 0
@@ -185,6 +185,58 @@
     [op start];
 
 }
+
++ (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments{
+    
+    // Save the document, asynchronously:
+    CouchDocument* doc = [self.instance.database untitledDocument];
+    CouchModel * documentModel = doc.modelObject;    
+
+    RESTOperation* op = [doc putProperties:document];
+    [op onCompletion: ^{
+        NSLog(@"OnCompletion of the addDocument");
+        if (op.error)
+            NSAssert(false, @"ERROR");
+        
+//        CouchModel * documentModel = doc.modelObject; 
+        RESTBody * 	responseBody = op.responseBody;
+        NSLog([op.responseBody asString]);
+        
+        NSDictionary * object = (NSDictionary *)responseBody.fromJSON;
+        NSLog([object objectForKey:@"id"]);
+        NSLog([object objectForKey:@"rev"]);
+        
+           
+        for(NSDictionary * attachmentValues in attachments ){
+            CouchDocument * doc = [self.instance.database documentWithID:[object objectForKey:@"id"]];
+            CouchRevision * revision = doc.currentRevision;
+            
+            NSString * contentType = (NSString *) [attachmentValues objectForKey:@"contentType"];
+            NSString * attachmentName = (NSString *) [attachmentValues objectForKey:@"name"];
+            NSData * attachmentData = (NSData *) [attachmentValues objectForKey:@"data"];
+
+            
+            CouchAttachment * newAttachment = [revision createAttachmentWithName:attachmentName
+                                               type:contentType ];
+                                              
+            RESTOperation * op2 = [newAttachment PUT:attachmentData contentType:contentType];
+            [op2 start]; //run this synchronously
+            [op2 wait];
+        }
+        
+        
+        // AppDelegate needs to observer MapData for connection errors.
+        // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
+        // Re-run the query:
+		//[self.dataSource.query start];
+        [self.instance.query start];
+        
+       	}];
+    [op start];
+
+}
+
+
 
 
 // Display an error alert, without blocking.

@@ -24,6 +24,7 @@
 + (UIImage *) getImageForId: (NSString *) documentId;
 
 + (void) addDocument: (NSDictionary *) document;
++ (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments;
 
 
 

@@ -28,13 +28,7 @@
 
 - (void) initializeAppDelegateAndLaunch {
     
-    
-    [[MapDataModel instance] updateSyncURL];
-
-//    [[MapDataModel instance] test];
-    
-    [[MapDataModel instance] initializeQuery];
-
+    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
 
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -63,8 +57,23 @@
     
     [self.window makeKeyAndVisible];
     
+}
+
+//Start couchBase in the background.  Calls to the datamodel will be asynchronous, allowing the database to
+//start serving whenever it's ready.
+- (void) initializeInBackground{
     
-    return YES;
+   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    
+    [[MapDataModel instance] updateSyncURL];
+    
+    //    [[MapDataModel instance] test];
+    
+    [[MapDataModel instance] initializeQuery];
+
+  //  [pool release];
+
 }
 
 
