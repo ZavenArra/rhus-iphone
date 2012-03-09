@@ -27,6 +27,9 @@
 + (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments;
 
 
++ (NSData *) getDocumentThumbnailData: (NSString *) key;
+
+
 
 - (id) init;
 

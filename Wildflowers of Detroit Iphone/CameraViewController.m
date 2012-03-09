@@ -75,10 +75,7 @@
     
  //   http://stackoverflow.com/questions/7520971/applications-are-expected-to-have-a-root-view-controller-at-the-end-of-applicati
     
-#ifndef TESTING
-    [self showImagePickerView];
-#endif
-    
+
     //SET cameraOverlayView on imagePicker if it is displaying on top of menu bar.
     
     //self.imagePicker.takePicture;
@@ -86,6 +83,14 @@
     // [self presentViewController:self.imagePicker animated:NO completion:nil];
  //   [self presentModalViewController:self.imagePicker animated:YES];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+#ifndef TESTING
+    [self showImagePickerView];
+#endif
+    
 }
 
 - (void) showImagePickerView {
@@ -307,10 +312,7 @@
                                     nil
                                     ]
      ];
-   /* */
-    
-    //[MapDataModel addDocument:newDocument];
-    
+
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
     CGRect frame = self.pictureInfo.frame;

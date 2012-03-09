@@ -71,7 +71,7 @@
     
     //    [[MapDataModel instance] test];
     
-    [[MapDataModel instance] initializeQuery];
+    [MapDataModel instance];
 
   //  [pool release];
 
