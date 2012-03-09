@@ -11,10 +11,10 @@
 			<string key="NS.object.0">933</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
-			<string>IBUIButton</string>
-			<string>IBUIImageView</string>
 			<string>IBUIView</string>
 			<string>IBProxyObject</string>
+			<string>IBUIImageView</string>
+			<string>IBUIButton</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -153,7 +153,7 @@
 								<reference key="IBUIFont" ref="398291503"/>
 							</object>
 						</array>
-						<string key="NSFrameSize">{58, 320}</string>
+						<string key="NSFrame">{{422, 0}, {58, 320}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="870139133">
@@ -187,14 +187,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">controlsBackgroundImage</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="25998765"/>
-					</object>
-					<int key="connectionID">20</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">middleButton</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="975395587"/>
@@ -224,6 +216,14 @@
 						<reference key="destination" ref="203454563"/>
 					</object>
 					<int key="connectionID">27</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">controlsBackgroundImage</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="25998765"/>
+					</object>
+					<int key="connectionID">20</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -293,11 +293,6 @@
 						<string key="objectName">Controls View</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">12</int>
-						<reference key="object" ref="25998765"/>
-						<reference key="parent" ref="203454563"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
 						<reference key="object" ref="975395587"/>
 						<reference key="parent" ref="203454563"/>
@@ -314,6 +309,11 @@
 						<reference key="object" ref="785204289"/>
 						<reference key="parent" ref="203454563"/>
 						<string key="objectName">Middle Button</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">12</int>
+						<reference key="object" ref="25998765"/>
+						<reference key="parent" ref="203454563"/>
 					</object>
 				</array>
 			</object>
@@ -404,12 +404,12 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="CameraIconT.png">{88, 90}</string>
-			<string key="GalleryIcon.png">{88, 90}</string>
-			<string key="GalleryIconT.png">{88, 90}</string>
+			<string key="GalleryIcon.png">{43, 48}</string>
+			<string key="GalleryIconT.png">{43, 48}</string>
 			<string key="MapIcon.png">{88, 90}</string>
-			<string key="MapIconT.png">{88, 90}</string>
+			<string key="MapIconT.png">{46, 46}</string>
 			<string key="cameraIcon.png">{88, 90}</string>
-			<string key="swoopBarMiddle.png">{116, 640}</string>
+			<string key="swoopBarMiddle.png">{58, 320}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
