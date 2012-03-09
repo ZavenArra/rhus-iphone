@@ -33,9 +33,19 @@
 @property(nonatomic, strong) UIButton *mapInsetButton;
 @property(nonatomic, strong) TimelineVisualizationView * timelineVisualizationView;
 
+@property(nonatomic, strong) NSMutableArray * nextDocumentSet;
+@property(nonatomic, strong) NSMutableArray * activeDocuments;
+@property(nonatomic, strong) NSMutableArray * prevDocumentSet;
+
 
 -(void) didTapMapInsetButton:(id)sender;
 -(void) placeMapInsetButton;
 -(void) centerMapOnAnnotation:(CLLocationCoordinate2D) coordinate;
+-(void) addAnnotations;
+
+
+-(void) transitionFromMapToTimelin;
+-(void) transitionFromMapToTimelineWithIndex: (NSInteger) index;
+-(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline;
 
 @end

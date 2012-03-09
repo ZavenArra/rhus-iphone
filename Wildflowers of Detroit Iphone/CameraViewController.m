@@ -75,10 +75,7 @@
     
  //   http://stackoverflow.com/questions/7520971/applications-are-expected-to-have-a-root-view-controller-at-the-end-of-applicati
     
-#ifndef TESTING
-    [self showImagePickerView];
-#endif
-    
+
     //SET cameraOverlayView on imagePicker if it is displaying on top of menu bar.
     
     //self.imagePicker.takePicture;
@@ -86,6 +83,14 @@
     // [self presentViewController:self.imagePicker animated:NO completion:nil];
  //   [self presentModalViewController:self.imagePicker animated:YES];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+#ifndef TESTING
+    [self showImagePickerView];
+#endif
+    
 }
 
 - (void) showImagePickerView {
@@ -224,12 +229,12 @@
 - (IBAction) didTouchSendButton:(id)sender{
 
     
-     float latHigh = 42.362+1;
-     float latLow = 42.293+1;
-     float longHigh = -83.101;
-     float longLow = -82.935;
-     float lattitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
-     float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
+     float latHigh = 42.454865;
+     float latLow = 42.340973;
+     float longHigh = -83.157413;
+     float longLow = -82.930849;
+    float latitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
+    float  longitude = longLow + (longHigh-longLow)* ( arc4random() % 1000 )/1000;
     
     
  
@@ -280,9 +285,11 @@
     NSMutableDictionary * newDocument = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                          self.reporter.text, @"reporter",
                                          self.comment.text, @"comment",
-                                         [[NSNumber numberWithFloat: lattitude] stringValue], @"lattitude", 
+                                         [[NSNumber numberWithFloat: latitude] stringValue], @"latitude", 
                                          [[NSNumber numberWithFloat: longitude] stringValue], @"longitude",
                                          [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
+                                         @"", @"thumb",
+                                         @"", @"medium",
                                          nil];
 
     for(NSString * attribute in selectedAttributes){
@@ -307,10 +314,7 @@
                                     nil
                                     ]
      ];
-   /* */
-    
-    //[MapDataModel addDocument:newDocument];
-    
+
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
     CGRect frame = self.pictureInfo.frame;

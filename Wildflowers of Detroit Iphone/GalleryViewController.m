@@ -27,6 +27,8 @@
 @synthesize zoomView, infoTextView, infoView;
 @synthesize visualization;
 
+@synthesize activeDocuments, nextDocumentSet, prevDocumentSet;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -51,18 +53,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    activeDocuments = [[NSMutableArray alloc] init];
+    
     //Get first 50 user documents and lay out their thumbnails
-    NSArray * userDocuments = [MapDataModel getUserDocumentsWithOffset:0 andLimit:kUserDocumentsPerPage];
+    NSArray * userDocuments = [MapDataModel
+                               
+                               getGalleryDocumentsWithStartKey: nil andLimit: nil];
     int scrollViewRows = ceil([userDocuments count] / 3);
     CGRect frame = self.galleryScrollView.frame;
     
     [self.galleryScrollView setContentSize:CGSizeMake(frame.size.width , scrollViewRows * kRowHeight)];
-    NSLog(@"Not rendering gallery");
-    return;
+
+    
     for(int i=0; i<[userDocuments count]; i++){
         NSDictionary * document = [userDocuments objectAtIndex:i];
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
+        [activeDocuments addObject:document];
         
         CGRect frame;
         frame.size.width = kThumbnailWidth;
@@ -71,16 +78,13 @@
         frame.origin.y = (i / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical;
         thumbnailButton.frame = frame;
         
-        UIImage * image = [MapDataModel getThumbnailForId:[document objectForKey:@"id"]];
-        
-
-        
-        [thumbnailButton setImage:image
+    
+        [thumbnailButton setImage: [document valueForKey:@"thumb"]
                                    forState:UIControlStateNormal];
         
         [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
         
-        thumbnailButton.tag =  [[document objectForKey:@"id"] intValue];
+        thumbnailButton.tag =  [activeDocuments indexOfObject:document];
        
         thumbnailButton.contentMode = UIViewContentModeCenter;
         thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
@@ -106,19 +110,23 @@
     /*
      layout some scroll images for demoing
      */
-    NSArray * userDocuments = [MapDataModel getUserDocumentsWithOffset:0 andLimit:10];
+    NSArray * userDocuments = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil ];
     int scrollViewPages = [userDocuments count];
     
     [self.detailScrollView setContentSize:CGSizeMake( scrollViewPages * 480, 320)];
     
     for(int i=0; i<[userDocuments count]; i++){
         NSDictionary * document = [userDocuments objectAtIndex:i];
+        if([document objectForKey:@"medium"] == nil){
+            continue;
+        }
         
-        UIImage * image = [MapDataModel getImageForId:[document objectForKey:@"id"]];
+        UIImage * image = [document objectForKey:@"medium"];
+        
         UIImageView * scrollPage = [[UIImageView alloc]init ];
         scrollPage.image = image;
         
-        scrollPage.tag =  [[document objectForKey:@"id"] intValue];
+        scrollPage.tag =  [[document objectForKey:@"_id"] intValue];
         
         CGRect pageFrame = scrollPage.frame;
         pageFrame.origin.x = i*480;
@@ -180,7 +188,8 @@
 - (IBAction)didTouchThumbnail:(id)sender{
     
     UIButton * senderButton = (UIButton *) sender;
-    UIImage * zoomImage = [MapDataModel getImageForId:[NSString stringWithFormat:@"%d", senderButton.tag]];
+    NSDictionary * relevantDocument =  (NSDictionary *) [activeDocuments objectAtIndex:senderButton.tag];
+    UIImage * zoomImage = [relevantDocument objectForKey:@"medium"];
     self.zoomView.image = zoomImage;
     
     CGPoint senderOrigin = [senderButton.superview convertPoint:senderButton.frame.origin toView:self.view];

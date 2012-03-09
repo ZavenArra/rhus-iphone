@@ -16,7 +16,7 @@
 // The default remote database URL to sync with, if the user hasn't set a different one as a pref.
 //#define kDefaultSyncDbURL @"http://couchbase.iriscouch.com/grocery-sync"
 //#define kDefaultSyncDbURL @"http://50.112.114.185:8091/couchBase/default"
-#define kDefaultSyncDbURL @"http://admin:Rfur55@ec2-50-112-24-87.us-west-2.compute.amazonaws.com:5984/iphonetest"
+#define kDefaultSyncDbURL @"http://admin:Rfur55@ec2-50-112-24-87.us-west-2.compute.amazonaws.com:5984/iphonetest2"
 
 // Set this to 1 to install a pre-built database from a ".couch" resource file on first run.
 #define INSTALL_CANNED_DATABASE 0
@@ -147,19 +147,99 @@
 }
 
 
-- (NSArray *) _getUserDocuments {
++ (NSData *) getDocumentThumbnailData: (NSString *) key {
+    CouchDocument* doc = [[self.instance database] documentWithID: key];
+    CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
+    CouchAttachment * thumbnail = [model attachmentNamed:@"thumb.jpg"];
+    return thumbnail.body;
+}
+
++ (NSData *) getDocumentImageData: (NSString *) key {
+    CouchDocument* doc = [[self.instance database] documentWithID: key];
+    CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
+    CouchAttachment * thumbnail = [model attachmentNamed:@"medium.jpg"];
+    return thumbnail.body;
+}
+
+
+
++ (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
+    
+    //Create view;
+    CouchDatabase * database = [self.instance database];
+    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    NSAssert(design, @"Couldn't find design document");
+    design.language = kCouchLanguageJavaScript;
+    [design defineViewNamed: @"galleryDocuments"
+                        map: @"function(doc) { emit([doc._id, doc.created_on],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude} );}"];
+
+    NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
+    
+    //Making this editable..
+    NSMutableArray * myArray = [[NSMutableArray alloc] init ];
+    for(int i=0; i<[r count]; i++){
+        NSDictionary * d = [r objectAtIndex:i];
+        NSMutableDictionary * m = [NSMutableDictionary dictionaryWithDictionary:d];
+        [myArray addObject:m];
+    }
+    r = [NSArray arrayWithArray:myArray];
+    
+    for(int i=0; i<[r count]; i++){
+        NSDictionary * d = [r objectAtIndex:i];
+        UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
+        //getDocumentThumbnailData
+        [d setValue:thumb forKey:@"thumb"];
+        UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
+        //getDocumentImageData
+        [d setValue:mediumImage forKey:@"medium"];
+    }
+    return r;
+}
+
++ (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {
+    CouchDatabase * database = [self.instance database];
+
+    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    NSAssert(design, @"Couldn't find design document");
+    design.language = kCouchLanguageJavaScript;
+    [design defineViewNamed: @"detailDocuments"
+                        map: @"function(doc) { emit([doc._id, doc.created_on], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+    
+    NSArray * r = [ (MapCouchbaseDataModel * ) self.instance getView:@"detailDocuments" ];
+    for(int i=0; i<[r count]; i++){
+        NSDictionary * d = [r objectAtIndex:i];
+        UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
+        //getDocumentImageData
+        [d setValue:mediumImage forKey:@"medium"];
+    }
+    return r;
+
+}
+
+- (NSArray *) getView: (NSString *) viewName {
+    
+    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    self.query = [design queryViewNamed: viewName]; //asLiveQuery];
+    query.descending = YES;
+    [query start];
+    
+    
     CouchQueryEnumerator * enumerator = [query rows];
- //   NSAssert(enumerator, @"Enumerator False");
+    if(!enumerator){
+        return [NSArray array];
+    }
     CouchQueryRow * row;
     NSMutableArray * data = [NSMutableArray array];
     while( (row =[enumerator nextRow]) ){
         [data addObject: (NSDictionary *) row.value];
     }
     return data;
+
 }
 
+
 + (NSArray *) getUserDocuments {
-    return [self.instance _getUserDocuments];
+    return [self getGalleryDocumentsWithStartKey:nil andLimit:nil];
 }
 
 + (NSArray *) getUserDocumentsWithOffset:(NSInteger)offset andLimit:(NSInteger)limit {
@@ -198,7 +278,8 @@
         if (op.error)
             NSAssert(false, @"ERROR");
         
-//        CouchModel * documentModel = doc.modelObject; 
+//        CouchModel * documentModel = doc.modelObject;
+        
         RESTBody * 	responseBody = op.responseBody;
         NSLog([op.responseBody asString]);
         
