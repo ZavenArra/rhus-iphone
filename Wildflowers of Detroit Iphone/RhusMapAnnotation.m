@@ -10,6 +10,7 @@
 
 
 @implementation RhusMapAnnotation
-@synthesize key;
+
+@synthesize tag;
 
 @end

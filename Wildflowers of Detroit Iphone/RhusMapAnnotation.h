@@ -10,7 +10,9 @@
 
 
 @interface RhusMapAnnotation : SSMapAnnotation
-@property(nonatomic, strong) NSString * key;
+{
+}
+@property(nonatomic) NSInteger tag;
 
 
 @end

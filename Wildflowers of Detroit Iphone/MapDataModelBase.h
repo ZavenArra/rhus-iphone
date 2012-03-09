@@ -20,14 +20,17 @@
 + (NSDictionary *) getNextDocument: (NSString *) documentId;
 + (NSDictionary *) getPrevDocument: (NSString *) documentId;
 
-+ (UIImage *) getThumbnailForId: (NSString *) documentId;
-+ (UIImage *) getImageForId: (NSString *) documentId;
+//+ (UIImage *) getThumbnailForId: (NSString *) documentId;
+//+ (UIImage *) getImageForId: (NSString *) documentId;
 
 + (void) addDocument: (NSDictionary *) document;
 + (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments;
 
 
-+ (NSData *) getDocumentThumbnailData: (NSString *) key;
++ (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;
++ (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;
+
+
 
 
 

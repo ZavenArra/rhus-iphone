@@ -11,7 +11,7 @@
 #import "WOverlay.h"
 #import "WOverlayView.h"
 #import "MapDataModel.h"
-#import "RhusMapAnnotation.h";
+#import "RhusMapAnnotation.h"
 
 #define mapInsetOriginX 10
 #define mapInsetOriginY 10
@@ -30,6 +30,7 @@
 @synthesize fullscreenTransitionDelegate;
 @synthesize mapInsetButton;
 @synthesize timelineVisualizationView;
+@synthesize activeDocuments;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,10 +85,10 @@
      float longHigh = -83.101;
      float longLow = -82.935;
      for(int i=0; i<10; i++){
-     float lattitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
+     float latitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
      float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
      CLLocationCoordinate2D coordinate;
-     coordinate.latitude = lattitude;
+     coordinate.latitude = latitude;
      coordinate.longitude = longitude;
      [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate title:@"Hey Guy!"] ];
      }*/
@@ -103,24 +104,38 @@
             [mapView removeAnnotation:[mapView.annotations objectAtIndex:i]]; 
         } 
     }
+    self.activeDocuments = nil;
+    self.activeDocuments = [[NSMutableArray alloc] init ];
 
     
-    NSArray * items = [MapDataModel getUserDocuments];
+    NSArray * documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
 
-    for( NSDictionary * object in items){
+    for( NSDictionary * document in documents){
         CLLocationCoordinate2D coordinate;
-        coordinate.latitude = [ (NSString*) [object objectForKey:@"lattitude"] floatValue];
-        coordinate.longitude = [ (NSString*) [object objectForKey:@"longitude"] floatValue];
+        coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
+        coordinate.longitude = [ (NSString*) [document objectForKey:@"longitude"] floatValue];
         
         //Constructor should be cleaned up
+        NSString * created_at = [document objectForKey:@"created_at"];
+        NSString * reports = [document objectForKey:@"reporter"];
+        if(created_at == @"(null)"){
+            created_at = @"";
+        }
+        if(reports == @"(null)"){
+            reports = @"";
+        }
         NSString * annotationText = [NSString stringWithFormat:@"%@ %@", 
-                                     [object objectForKey:@"created_at"],
-                                     [object objectForKey:@"reporter"]
+                                     [document objectForKey:@"created_at"],
+                                     [document objectForKey:@"reporter"]
                                      ];
         RhusMapAnnotation * rhusMapAnnotation = [RhusMapAnnotation mapAnnotationWithCoordinate:coordinate title:
                                                  annotationText
                                                  ];
-        rhusMapAnnotation.key = (NSString *)[object objectForKey:@"_id"];
+        
+        [activeDocuments addObject:document];
+        
+        NSInteger tag = [activeDocuments indexOfObject:document];
+        rhusMapAnnotation.tag = tag;
         [self.mapView addAnnotation:rhusMapAnnotation];
     }
     
@@ -148,13 +163,13 @@
 #pragma make Interface Methods
 
 -(void) transitionFromMapToTimeline {
-     [self transitionFromMapToTimelineWithKey: nil andTimeline: nil];
+     [self transitionFromMapToTimelineWithIndex: nil andTimeline: nil];
 }
 
--(void) transitionFromMapToTimelineWithKey: (NSString *) key {
-    [self transitionFromMapToTimelineWithKey: key andTimeline: nil];
+-(void) transitionFromMapToTimelineWithIndex: (NSInteger) index {
+    [self transitionFromMapToTimelineWithIndex: index andTimeline: nil];
 }
--(void) transitionFromMapToTimelineWithKey: (NSString *) key andTimeline: (NSString *) timeline {
+-(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline {
     
     [self.view insertSubview:self.timelineView belowSubview: self.mapView];
     
@@ -245,7 +260,7 @@
 #pragma mark - 
 #pragma make MapViewDelegate
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation{
+- (MKAnnotationView *)MapView:(MKMapView *)MapView viewForAnnotation:(id < MKAnnotation >)annotation{
     
     //Here is the answer to implementing a custom callout
     //Basically the idea is to add a 2nd annotation view when an annotation is selected
@@ -255,17 +270,9 @@
     
     RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) annotation;
     
-    //ask database for the image file..
-    NSString * key = (NSString *)rhusMapAnnotation.key;
-    UIImage * thumbnailImage = nil;
-    if(key != nil){
-        NSData * thumbnailData = [MapDataModel getDocumentThumbnailData:key];
-        // UIImage * objectImage = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"];
-        thumbnailImage = [UIImage imageWithData:thumbnailData];
-    }
-    
+    //ask database for the image file..       
     NSString * rhusMapAnnotationIdentifier = @"rhusMapAnnotationIdentifier";
-    MKAnnotationView * annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:rhusMapAnnotationIdentifier];
+    MKAnnotationView * annotationView = [MapView dequeueReusableAnnotationViewWithIdentifier:rhusMapAnnotationIdentifier];
     if(annotationView == nil){
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:rhusMapAnnotation reuseIdentifier:rhusMapAnnotationIdentifier];
     }
@@ -279,10 +286,12 @@
     UIButton * calloutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     calloutButton.contentMode = UIViewContentModeScaleToFill;
     calloutButton.frame = frame;
-    [calloutButton setBackgroundImage:thumbnailImage forState:UIControlStateNormal];
+    UIImage * calloutImage = [[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"thumb"];
+    [calloutButton setBackgroundImage:calloutImage forState:UIControlStateNormal];
     
     annotationView.leftCalloutAccessoryView = calloutButton;
     annotationView.canShowCallout = YES;
+   // annotationView.tag = rhusMapAnnotation.tag;
 
     return annotationView; 
 }
@@ -295,7 +304,8 @@
 - (void)mapView:(MKMapView *)lMapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
-    [self transitionFromMapToTimelineWithKey: [(RhusMapAnnotation *) view.annotation key ] ];
+    //NSString * key = [(NSDictionary *) [activeDocuments objectAtIndex:view.tag] objectForKey:@"_id"];
+    [self transitionFromMapToTimelineWithIndex:view.tag andTimeline:nil ];
     [lMapView deselectAnnotation:view.annotation animated:YES];
 }
 

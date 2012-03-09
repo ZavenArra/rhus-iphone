@@ -35,6 +35,10 @@
 
 @property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
 
+@property(nonatomic, strong) NSMutableArray * nextDocumentSet;
+@property(nonatomic, strong) NSMutableArray * activeDocuments;
+@property(nonatomic, strong) NSMutableArray * prevDocumentSet;
+
 
 - (void)showDetailView;
 - (void)hideDetailView;
