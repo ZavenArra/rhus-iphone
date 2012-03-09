@@ -260,8 +260,9 @@
 #pragma mark - 
 #pragma make MapViewDelegate
 
-- (MKAnnotationView *)MapView:(MKMapView *)MapView viewForAnnotation:(id < MKAnnotation >)annotation{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
     
+
     //Here is the answer to implementing a custom callout
     //Basically the idea is to add a 2nd annotation view when an annotation is selected
     //Not going to do this for the beta, unless I get excited.
@@ -272,7 +273,7 @@
     
     //ask database for the image file..       
     NSString * rhusMapAnnotationIdentifier = @"rhusMapAnnotationIdentifier";
-    MKAnnotationView * annotationView = [MapView dequeueReusableAnnotationViewWithIdentifier:rhusMapAnnotationIdentifier];
+    MKAnnotationView * annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:rhusMapAnnotationIdentifier];
     if(annotationView == nil){
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:rhusMapAnnotation reuseIdentifier:rhusMapAnnotationIdentifier];
     }
@@ -301,12 +302,12 @@
     return overlayView;
 }
 
-- (void)mapView:(MKMapView *)lMapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
     //NSString * key = [(NSDictionary *) [activeDocuments objectAtIndex:view.tag] objectForKey:@"_id"];
     [self transitionFromMapToTimelineWithIndex:view.tag andTimeline:nil ];
-    [lMapView deselectAnnotation:view.annotation animated:YES];
+    [mapView deselectAnnotation:view.annotation animated:YES];
 }
 
 

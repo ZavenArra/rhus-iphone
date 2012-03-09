@@ -117,8 +117,11 @@
     
     for(int i=0; i<[userDocuments count]; i++){
         NSDictionary * document = [userDocuments objectAtIndex:i];
+        if([document objectForKey:@"medium"] == nil){
+            continue;
+        }
         
-        UIImage * image = [UIImage imageWithData:[document objectForKey:@"medium"]];
+        UIImage * image = [document objectForKey:@"medium"];
         
         UIImageView * scrollPage = [[UIImageView alloc]init ];
         scrollPage.image = image;
