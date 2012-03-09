@@ -187,6 +187,7 @@
     for(int i=0; i<[r count]; i++){
         NSDictionary * d = [r objectAtIndex:i];
         UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
+        
         //getDocumentThumbnailData
         [d setValue:thumb forKey:@"thumb"];
         UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof

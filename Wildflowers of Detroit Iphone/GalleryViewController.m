@@ -11,11 +11,11 @@
 
 #define kRowHeight 100
 #define kRowWidth 422
-#define kThumbnailPaddingLeft 20
+#define kThumbnailPaddingLeft 10
 #define kThumbnailPaddingVertical 10
-#define kThumbnailWidth 106
-#define kThumbnailHeight 106
-#define kThumbnailsPerRow 3
+#define kThumbnailWidth 50
+#define kThumbnailHeight 50
+#define kThumbnailsPerRow 7
 #define kTabBarWidth 58
 #define kUserDocumentsPerPage 50
 #define kDetailScrollPreloadCount 5
@@ -48,10 +48,7 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+- (void) setupGalleryScrollView{
     
     activeDocuments = [[NSMutableArray alloc] init];
     
@@ -59,38 +56,47 @@
     NSArray * userDocuments = [MapDataModel
                                
                                getGalleryDocumentsWithStartKey: nil andLimit: nil];
-    int scrollViewRows = ceil([userDocuments count] / 3);
+    float count = [userDocuments count];
+    int scrollViewPages = ceil( count / 21.0);
     CGRect frame = self.galleryScrollView.frame;
     
-    [self.galleryScrollView setContentSize:CGSizeMake(frame.size.width , scrollViewRows * kRowHeight)];
-
+    [self.galleryScrollView setContentSize:CGSizeMake(kRowWidth * scrollViewPages , frame.size.height)];
+    
     
     for(int i=0; i<[userDocuments count]; i++){
         NSDictionary * document = [userDocuments objectAtIndex:i];
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
+        
         [activeDocuments addObject:document];
         
         CGRect frame;
         frame.size.width = kThumbnailWidth;
         frame.size.height = kThumbnailHeight;
-        frame.origin.x = (i % kThumbnailsPerRow) * kThumbnailWidth + (i % kThumbnailsPerRow +1) * kThumbnailPaddingLeft;
-        frame.origin.y = (i / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical;
+        frame.origin.x = (i % kThumbnailsPerRow) * kThumbnailWidth + (i % kThumbnailsPerRow +1) * kThumbnailPaddingLeft
+        + kRowWidth * (i / 21);
+        frame.origin.y = ((i%21 / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical);
         thumbnailButton.frame = frame;
         
-    
+        
         [thumbnailButton setImage: [document valueForKey:@"thumb"]
-                                   forState:UIControlStateNormal];
+                         forState:UIControlStateNormal];
         
         [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
         
         thumbnailButton.tag =  [activeDocuments indexOfObject:document];
-       
+        
         thumbnailButton.contentMode = UIViewContentModeCenter;
         thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
-
+        
         [self.galleryScrollView addSubview:thumbnailButton];
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+
 }
 
 - (void)viewDidUnload
@@ -99,6 +105,11 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self setupGalleryScrollView];
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
