@@ -54,7 +54,6 @@
     
     //Get first 50 user documents and lay out their thumbnails
     NSArray * userDocuments = [MapDataModel
-                               
                                getGalleryDocumentsWithStartKey: nil andLimit: nil];
     float count = [userDocuments count];
     int scrollViewPages = ceil( count / 21.0);

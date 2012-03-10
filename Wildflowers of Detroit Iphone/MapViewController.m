@@ -12,7 +12,9 @@
 #import "WOverlayView.h"
 #import "MapDataModel.h"
 #import "RhusMapAnnotation.h"
+#import "RhusDocument.h"
 
+//Map Settings
 #define mapInsetOriginX 10
 #define mapInsetOriginY 10
 #define mapInsetWidth 97
@@ -24,6 +26,21 @@
 #define kMapCenterOnLoadLatitude 42.3
 #define kMapCenterOnLoadLongitude -83.1
 
+//Gallery Settings
+#define kGalleryRowHeight 60
+#define kGalleryPageWidth 430
+#define kThumbnailPaddingLeft 10
+#define kThumbnailPaddingVertical 10
+#define kThumbnailWidth 50
+#define kThumbnailHeight 50
+#define kThumbnailsPerRow 7
+#define kTabBarWidth 58
+#define kUserDocumentsPerPage 50
+#define kDetailScrollPreloadCount 5
+
+#define kDetailScrollViewTag 1001
+#define kGalleryScrollViewTag 1002
+
 @implementation MapViewController
 
 @synthesize mapView, timelineView, timelineControlsView;
@@ -31,6 +48,12 @@
 @synthesize mapInsetButton;
 @synthesize timelineVisualizationView;
 @synthesize activeDocuments;
+@synthesize galleryScrollView, detailScrollView, detailView;
+@synthesize zoomView, infoView;
+@synthesize visualization;
+@synthesize comment, location, reporter;
+@synthesize currentDetailIndex, currentGalleryPage;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,7 +76,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    //Set up some tags
+    self.detailScrollView.tag = kDetailScrollViewTag;
+    self.galleryScrollView.tag = kGalleryScrollViewTag;
+    
+    
     
     MKCoordinateRegion coordinateRegion;
     CLLocationCoordinate2D center;
@@ -74,6 +102,50 @@
 
  
     self.timelineVisualizationView.delegate = self;
+}
+
+
+- (void) setupGalleryScrollView{
+    
+    activeDocuments = [[NSMutableArray alloc] init];
+    
+    //Get first 50 user documents and lay out their thumbnails
+    NSArray * userDocuments = [MapDataModel
+                               getGalleryDocumentsWithStartKey: nil andLimit: nil];
+    float count = [userDocuments count];
+    int scrollViewPages = ceil( count / 21.0);
+    CGRect frame = self.galleryScrollView.frame;
+    
+    [self.galleryScrollView setContentSize:CGSizeMake(kGalleryPageWidth * scrollViewPages , frame.size.height)];
+    
+    
+    for(int i=0; i<[userDocuments count]; i++){
+        NSDictionary * document = [userDocuments objectAtIndex:i];
+        UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [activeDocuments addObject:document];
+        
+        CGRect frame;
+        frame.size.width = kThumbnailWidth;
+        frame.size.height = kThumbnailHeight;
+        frame.origin.x = (i % kThumbnailsPerRow) * kThumbnailWidth + (i % kThumbnailsPerRow +1) * kThumbnailPaddingLeft
+        + kGalleryPageWidth * (i / 21);
+        frame.origin.y = ((i%21 / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical);
+        thumbnailButton.frame = frame;
+        
+        
+        [thumbnailButton setImage: [document valueForKey:@"thumb"]
+                         forState:UIControlStateNormal];
+        
+        [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
+        
+        thumbnailButton.tag =  [activeDocuments indexOfObject:document];
+        
+        thumbnailButton.contentMode = UIViewContentModeCenter;
+        thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
+        
+        [self.galleryScrollView addSubview:thumbnailButton];
+    }
 }
 
 - (void) populateTestingData{
@@ -143,6 +215,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self addAnnotations];
+    
+    //TODO: Obviously both of these shouldn't be called
+    [self setupGalleryScrollView];
+
 }
 
 - (void)viewDidUnload
@@ -159,8 +235,7 @@
 }
 
 
-#pragma mark - 
-#pragma make Interface Methods
+#pragma mark - Interface Methods
 
 -(void) transitionFromMapToTimeline {
      [self transitionFromMapToTimelineWithIndex: nil andTimeline: nil];
@@ -187,12 +262,14 @@
     frame.size.height = mapInsetHeight;
     self.mapView.frame = frame;
     
+    /*
     MKCoordinateRegion coordinateRegion = self.mapView.region;
     MKCoordinateSpan span;
     span.latitudeDelta = insetLatitudeDelta;
     span.longitudeDelta = insetLongitudeDelta;
     coordinateRegion.span = span;
     self.mapView.region = coordinateRegion;
+    */
     
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(placeMapInsetButton)];
@@ -220,13 +297,15 @@
     frame.size.height = 320;
     self.mapView.frame = frame;
     
+    /*
     MKCoordinateRegion coordinateRegion = self.mapView.region;
     MKCoordinateSpan span;
     span.latitudeDelta = fullLatitudeDelta;
     span.longitudeDelta = fullLongitudeDelta;
     coordinateRegion.span = span;
     self.mapView.region = coordinateRegion;
-    
+    */
+     
     [UIView commitAnimations];
 
 }
@@ -251,15 +330,16 @@
     self.mapView.centerCoordinate = coordinate;
 }
 
-#pragma mark - IBActions
--(void) didTapMapInsetButton:(id)sender{
-    [self transitionFromTimelineToMap];
+-(void) centerMapAtLatitude: (float) latitude andLongitude:(float) longitude {
+    CLLocationCoordinate2D center;
+    center.latitude = latitude; 
+    center.longitude = longitude; 
+    [self centerMapOnCoodinates:center];
 }
 
 
-#pragma mark - 
-#pragma make MapViewDelegate
 
+#pragma mark MapViewDelegate
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
     
 
@@ -333,8 +413,155 @@
  */
 
 
-#pragma mark - 
-#pragma make TimelineVisualizationView
+#pragma mark - gallery methods
+
+//Gallery View Methods
+- (void)showDetailViewForIndex: (NSInteger) index{
+    /*
+     layout some scroll images for demoing
+     */
+    int scrollViewPages = [activeDocuments count];
+    
+    [self.detailScrollView setContentSize:CGSizeMake( scrollViewPages * 480, 320)];
+    
+    for(int i=0; i<[activeDocuments count]; i++){
+        NSDictionary * document = [activeDocuments objectAtIndex:i];
+        if([document objectForKey:@"medium"] == nil){
+            continue;
+        }
+        
+        UIImage * image = [document objectForKey:@"medium"];
+        
+        UIImageView * scrollPage = [[UIImageView alloc]init ];
+        scrollPage.image = image;
+        scrollPage.tag = index;
+        scrollPage.contentMode = UIViewContentModeScaleAspectFit;
+        
+        CGRect pageFrame = scrollPage.frame;
+        pageFrame.origin.x = i*480;
+        pageFrame.origin.y = 0;
+        pageFrame.size.width = 480;
+        pageFrame.size.height = 320;
+        scrollPage.frame = pageFrame;
+        
+        
+        
+        [self.detailScrollView addSubview:scrollPage];
+    }
+    
+    
+    [self.timelineView insertSubview: self.detailView belowSubview:self.zoomView];
+    [self.zoomView removeFromSuperview];
+}
+
+- (void)showDetailView {
+    [self showDetailViewForIndex:self.currentDetailIndex];
+}
+
+- (void)hideDetailView{
+    [self.detailView removeFromSuperview];
+    
+}
+
+- (void)layoutDetailView{
+    [self.detailScrollView setContentSize:CGSizeMake(480 * kDetailScrollPreloadCount, 320)];
+    //???
+}
+
+- (void)showInfoViewForIndex: (NSInteger) index{
+    RhusDocument * document = [activeDocuments objectAtIndex:index];
+    
+    CGRect frame = self.infoView.frame;
+    frame.origin.x = (480 - frame.size.width) / 2;
+    frame.origin.y = (320 - frame.size.height) /2;
+    self.infoView.frame = frame;
+    
+
+    self.comment.text = [document getComment];
+    self.reporter.text = [document getReporter];
+    self.location.text = [document getLocationString];
+    
+    [self.view addSubview:self.infoView];
+}
+
+- (void)hideInfoView{
+    [self.infoView removeFromSuperview];
+}
+
+
+#pragma mark - IBActions
+
+-(void) didTapMapInsetButton:(id)sender{
+    [self transitionFromTimelineToMap];
+}
+
+- (IBAction)didTouchThumbnail:(id)sender{
+    
+    UIButton * senderButton = (UIButton *) sender;
+    NSDictionary * relevantDocument =  (NSDictionary *) [activeDocuments objectAtIndex:senderButton.tag];
+    UIImage * zoomImage = [relevantDocument objectForKey:@"medium"];
+    self.zoomView.image = zoomImage;
+    
+    CGPoint senderOrigin = [senderButton.superview convertPoint:senderButton.frame.origin toView:self.view];
+    // User this sender origin to place the zoom view
+    
+    int tag = senderButton.tag;
+    self.currentDetailIndex = tag;
+    
+    //place detail scroll view
+    CGRect frame;
+    frame.origin.x = senderOrigin.x;
+    frame.origin.y = senderOrigin.y ;    
+    //     + (kThumbnailHeight - kThumbnailWidth * 320 / 480) / 2; // this term is the vert offset of the actual image
+    frame.size.width = kThumbnailWidth;
+    frame.size.height = frame.size.width; // 320 * kThumbnailWidth / 480;
+    
+    self.zoomView.frame = frame;
+    
+    [self.timelineView insertSubview:self.zoomView belowSubview:self.timelineControlsView];    
+    
+    CGPoint detailScrollContentOffset;
+    detailScrollContentOffset.y = 0;
+    detailScrollContentOffset.x = senderButton.tag * 480;
+    [self.detailScrollView setContentOffset:detailScrollContentOffset  animated:NO];
+
+    
+    //animate the zoom in, making the detail scroll view fill the screen
+    [UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration: 0.50];
+        
+    [fullscreenTransitionDelegate subviewRequestingFullscreen];
+    
+    CGRect zoomFrame= self.zoomView.frame;
+    zoomFrame.origin.x = 0;
+    zoomFrame.origin.y = 0;
+    zoomFrame.size.width = 480;
+    zoomFrame.size.height = 320;
+    self.zoomView.frame = zoomFrame;
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(showDetailView)];
+    [UIView commitAnimations];	
+    
+}
+
+- (IBAction)didTouchDetailCloseButton:(id)sender{
+    [self hideDetailView];
+}
+
+- (IBAction)didTouchDetailInfoButton:(id)sender {
+    [self showInfoViewForIndex: currentDetailIndex];
+}
+
+- (IBAction)didTouchInfoCloseButton:(id)sender{
+    [self hideInfoView];
+}
+
+
+
+
+
+#pragma mark - TimelineVisualizationView
 
 //TODO: This function currently spoofs data that should be loaded from the data layer
 - (NSArray *) dataForVisualization{
@@ -361,5 +588,37 @@
     return 4;
 }
 
+- (void) asyncLoadNextGalleryPage{
+    NSLog(@"asyncLoadNextGalleryPage not yet implemented");
+}
+
+
+#pragma mark - UIScrollViewDelegate Functions
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+	CGFloat x = scrollView.contentOffset.x;
+    if(scrollView.tag == kDetailScrollViewTag){
+        //Set current index/tag of this detail view
+        currentDetailIndex = x / 480;
+        NSInteger page = currentDetailIndex / 21;
+        CGPoint contentOffset;
+        contentOffset.y = 0;
+        contentOffset.x = page * kGalleryPageWidth;
+        [self.galleryScrollView setContentOffset:contentOffset animated:NO];
+        //async load next gallery page of data!
+        currentGalleryPage = page;
+        
+        RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+        [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
+        
+
+        
+    } else if(scrollView.tag == kGalleryScrollViewTag){
+        NSInteger page;
+
+        page = x / kGalleryPageWidth;
+    }
+    
+    
+}
 
 @end

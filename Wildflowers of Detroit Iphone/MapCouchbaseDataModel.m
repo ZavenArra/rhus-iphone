@@ -8,6 +8,7 @@
 
 #import "MapCouchbaseDataModel.h"
 #import "AppDelegate.h"
+#import "RhusDocument.h"
 
 
 // The name of the database the app will use.
@@ -162,6 +163,22 @@
 }
 
 
+- (NSArray *) runQuery: (CouchQuery *) query {
+    
+    CouchQueryEnumerator * enumerator = [query rows];
+    if(!enumerator){
+        return [NSArray array];
+    }
+    CouchQueryRow * row;
+    NSMutableArray * data = [NSMutableArray array];
+    while( (row =[enumerator nextRow]) ){
+        [data addObject: [[RhusDocument alloc] initWithDictionary: (NSDictionary *) row.value]];
+    }
+    return data;
+    
+}
+         
+         
 
 + (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
     
@@ -171,19 +188,14 @@
     NSAssert(design, @"Couldn't find design document");
     design.language = kCouchLanguageJavaScript;
     [design defineViewNamed: @"galleryDocuments"
-                        map: @"function(doc) { emit([doc._id, doc.created_on],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude} );}"];
+                        map: @"function(doc) { emit([doc._id, doc.created_on],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
 
-    NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
-    
-    //Making this editable..
-    NSMutableArray * myArray = [[NSMutableArray alloc] init ];
-    for(int i=0; i<[r count]; i++){
-        NSDictionary * d = [r objectAtIndex:i];
-        NSMutableDictionary * m = [NSMutableDictionary dictionaryWithDictionary:d];
-        [myArray addObject:m];
-    }
-    r = [NSArray arrayWithArray:myArray];
-    
+  //  NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
+ 
+    CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
+    query.descending = NO;
+    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
+        
     for(int i=0; i<[r count]; i++){
         NSDictionary * d = [r objectAtIndex:i];
         UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
@@ -205,8 +217,14 @@
     design.language = kCouchLanguageJavaScript;
     [design defineViewNamed: @"detailDocuments"
                         map: @"function(doc) { emit([doc._id, doc.created_on], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+    [design saveChanges];
     
-    NSArray * r = [ (MapCouchbaseDataModel * ) self.instance getView:@"detailDocuments" ];
+   // NSArray * r = [ (MapCouchbaseDataModel * ) self.instance getView:@"detailDocuments" ];
+    
+    CouchQuery * query = [design queryViewNamed: @"detailDocuments"]; //asLiveQuery];
+    query.descending = NO;
+    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery: query];
+    
     for(int i=0; i<[r count]; i++){
         NSDictionary * d = [r objectAtIndex:i];
         UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
@@ -217,12 +235,12 @@
 
 }
 
+
 - (NSArray *) getView: (NSString *) viewName {
     
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     self.query = [design queryViewNamed: viewName]; //asLiveQuery];
     query.descending = YES;
-    [query start];
     
     
     CouchQueryEnumerator * enumerator = [query rows];

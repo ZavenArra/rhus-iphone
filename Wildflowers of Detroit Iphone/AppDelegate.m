@@ -36,15 +36,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    //[self.window makeKeyAndVisible];
-
-    //return;
+  
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
     
-    GalleryViewController * galleryViewController = [[GalleryViewController alloc]init];
+        
+    MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
-    self.swoopTabViewController.topViewController = galleryViewController;
+    self.swoopTabViewController.bottomViewController = galleryViewController;
+    
+    
     CameraViewController * cameraViewController = [[CameraViewController alloc]init];
     cameraViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     self.swoopTabViewController.middleViewController = cameraViewController; 

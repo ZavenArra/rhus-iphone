@@ -73,11 +73,8 @@
 		F43540DE14D1140D00C206CA /* mapPointPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DC14D1140D00C206CA /* mapPointPopup.png */; };
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
-		F4593A0E14BFB0B90019D4FC /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */; };
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F48E254F150881E400A021AE /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
-		F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */; };
-		F4A84C8A14BBD3EB00EF9627 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */; };
 		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
 		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
@@ -93,12 +90,10 @@
 		F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4AA3F5714DA5BFE00ED3CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392A314BBA6660051E831 /* AppDelegate.m */; };
 		F4AA3F5814DA5BFE00ED3CCE /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */; };
-		F4AA3F5914DA5BFE00ED3CCE /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */; };
 		F4AA3F5A14DA5BFE00ED3CCE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4AA3F5B14DA5BFE00ED3CCE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4AA3F5C14DA5BFE00ED3CCE /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
 		F4AA3F5D14DA5BFE00ED3CCE /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F4AA3F5E14DA5BFE00ED3CCE /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */; };
 		F4AA3F5F14DA5BFE00ED3CCE /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4AA3F6014DA5BFE00ED3CCE /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4AA3F6114DA5BFE00ED3CCE /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
@@ -126,7 +121,6 @@
 		F4AA3F7B14DA5BFE00ED3CCE /* GalleryIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */; };
 		F4AA3F7C14DA5BFE00ED3CCE /* MapIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8F14BBC85F005BB81D /* MapIconT.png */; };
 		F4AA3F7D14DA5BFE00ED3CCE /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
-		F4AA3F7E14DA5BFE00ED3CCE /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */; };
 		F4AA3F7F14DA5BFE00ED3CCE /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
 		F4AA3F8014DA5BFE00ED3CCE /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
 		F4AA3F8114DA5BFE00ED3CCE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACB714BBDDF8005BB81D /* icon.png */; };
@@ -429,6 +423,7 @@
 		F4C0624814BE6E480008FBB5 /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
 		F4C0624914BE6E590008FBB5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4C0624A14BE70C00008FBB5 /* testdataplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C061A914BE5DE90008FBB5 /* testdataplist.plist */; };
+		F4CE8732150AE1E7009AE0FC /* RhusDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8731150AE1E7009AE0FC /* RhusDocument.m */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -509,11 +504,6 @@
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
-		F4593A0C14BFB0B90019D4FC /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
-		F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
-		F4A84C8614BBD3EA00EF9627 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
-		F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
@@ -889,6 +879,8 @@
 		F4C0623C14BE6C0F0008FBB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4C0623E14BE6C0F0008FBB5 /* GHUnit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUnit Tests-Prefix.pch"; sourceTree = "<group>"; };
 		F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../IphoneDevelopment/Libs/gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
+		F4CE8730150AE1E7009AE0FC /* RhusDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RhusDocument.h; sourceTree = "<group>"; };
+		F4CE8731150AE1E7009AE0FC /* RhusDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusDocument.m; sourceTree = "<group>"; };
 		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1047,6 +1039,8 @@
 				F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */,
 				F4AA3F4914DA567300ED3CCE /* MapDataModel.h */,
 				F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */,
+				F4CE8730150AE1E7009AE0FC /* RhusDocument.h */,
+				F4CE8731150AE1E7009AE0FC /* RhusDocument.m */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -1058,8 +1052,6 @@
 				F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */,
 				F4C05EEF14BD08590008FBB5 /* FullscreenTransitionDelegate.h */,
 				F4C05EFE14BE37B70008FBB5 /* SharedInstanceMacro.h */,
-				F4593A0C14BFB0B90019D4FC /* ImageScrollView.h */,
-				F4593A0D14BFB0B90019D4FC /* ImageScrollView.m */,
 			);
 			name = "Categories and Delegates";
 			sourceTree = "<group>";
@@ -1487,9 +1479,6 @@
 				F4D392C614BBB5CA0051E831 /* SwoopTabViewController.h */,
 				F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */,
 				A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */,
-				F4A84C8614BBD3EA00EF9627 /* GalleryViewController.h */,
-				F4A84C8714BBD3EA00EF9627 /* GalleryViewController.m */,
-				F4A84C8814BBD3EB00EF9627 /* GalleryViewController.xib */,
 				F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */,
 				F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */,
 				F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */,
@@ -1645,7 +1634,6 @@
 				F4AA3F7B14DA5BFE00ED3CCE /* GalleryIconT.png in Resources */,
 				F4AA3F7C14DA5BFE00ED3CCE /* MapIconT.png in Resources */,
 				F4AA3F7D14DA5BFE00ED3CCE /* swoopBarMiddle.png in Resources */,
-				F4AA3F7E14DA5BFE00ED3CCE /* GalleryViewController.xib in Resources */,
 				F4AA3F7F14DA5BFE00ED3CCE /* CameraViewController.xib in Resources */,
 				F4AA3F8014DA5BFE00ED3CCE /* MapViewController.xib in Resources */,
 				F4AA3F8114DA5BFE00ED3CCE /* icon.png in Resources */,
@@ -1713,7 +1701,6 @@
 				A6D3AC9214BBC85F005BB81D /* GalleryIconT.png in Resources */,
 				A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */,
 				A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */,
-				F4A84C8A14BBD3EB00EF9627 /* GalleryViewController.xib in Resources */,
 				F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */,
 				F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */,
 				A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */,
@@ -2065,12 +2052,10 @@
 			files = (
 				F4AA3F5714DA5BFE00ED3CCE /* AppDelegate.m in Sources */,
 				F4AA3F5814DA5BFE00ED3CCE /* SwoopTabViewController.m in Sources */,
-				F4AA3F5914DA5BFE00ED3CCE /* GalleryViewController.m in Sources */,
 				F4AA3F5A14DA5BFE00ED3CCE /* CameraViewController.m in Sources */,
 				F4AA3F5B14DA5BFE00ED3CCE /* MapViewController.m in Sources */,
 				F4AA3F5C14DA5BFE00ED3CCE /* MapDataModelSpoof.m in Sources */,
 				F4AA3F5D14DA5BFE00ED3CCE /* OrderedDictionary.m in Sources */,
-				F4AA3F5E14DA5BFE00ED3CCE /* ImageScrollView.m in Sources */,
 				F4AA3F5F14DA5BFE00ED3CCE /* SSMapAnnotation.m in Sources */,
 				F4AA3F6014DA5BFE00ED3CCE /* WOverlayView.m in Sources */,
 				F4AA3F6114DA5BFE00ED3CCE /* WOverlay.m in Sources */,
@@ -2098,12 +2083,10 @@
 			files = (
 				F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */,
 				F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */,
-				F4A84C8914BBD3EB00EF9627 /* GalleryViewController.m in Sources */,
 				F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */,
 				F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */,
 				F4C05DDD14BCE1EF0008FBB5 /* MapDataModelSpoof.m in Sources */,
 				F4C05EF914BE335A0008FBB5 /* OrderedDictionary.m in Sources */,
-				F4593A0E14BFB0B90019D4FC /* ImageScrollView.m in Sources */,
 				F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */,
 				F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */,
 				F4F02F8214CFA6250041492E /* WOverlay.m in Sources */,
@@ -2113,6 +2096,7 @@
 				F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */,
 				F48E254E150881DC00A021AE /* main.m in Sources */,
 				F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */,
+				F4CE8732150AE1E7009AE0FC /* RhusDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

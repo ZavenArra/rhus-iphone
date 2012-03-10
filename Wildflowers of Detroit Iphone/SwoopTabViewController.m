@@ -136,13 +136,13 @@
 
 - (void) createHideTabsAnimation{
     CGRect frame = self.controlsView.frame;
-    frame.origin.x = -frame.size.width;
+    frame.origin.x += frame.size.width;
     self.controlsView.frame = frame;
 }
 
 - (void) createShowTabsAnimation{
     CGRect frame = self.controlsView.frame;
-    frame.origin.x = 0;
+    frame.origin.x -= frame.size.width;
     self.controlsView.frame = frame;
     
 }
