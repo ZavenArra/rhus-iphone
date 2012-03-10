@@ -8,6 +8,8 @@
 
 #import "CameraViewController.h"
 #import "MapDataModel.h"
+#import "DeviceUser.h"
+#import "RHLocation.h"
 
 #define kThreePetal 101
 #define kFourPetal 102
@@ -55,15 +57,15 @@
     [super viewDidLoad];
     
     self.attributeTranslation = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"ThreePetal",[NSNumber numberWithInt:kThreePetal] ,
-                                  @"FourPetal",[NSNumber numberWithInt:kFourPetal] ,
-                                  @"FivePetal",[NSNumber numberWithInt:kFivePetal] ,
-                                  @"SixPetal",[NSNumber numberWithInt:kSixPetal] ,
-                                  @"ManyPetal",[NSNumber numberWithInt:kManyPetal] ,
-                                  @"Irregular",[NSNumber numberWithInt:kIrregular] ,
-                                  @"Composite",[NSNumber numberWithInt:kComposite] ,
-                                  @"Tree",[NSNumber numberWithInt:kTree] ,
-                                  @"Fruit",[NSNumber numberWithInt:kFruit] ,
+                                  @"three_petal",[NSNumber numberWithInt:kThreePetal] ,
+                                  @"four_petal",[NSNumber numberWithInt:kFourPetal] ,
+                                  @"five_petal",[NSNumber numberWithInt:kFivePetal] ,
+                                  @"six_petal",[NSNumber numberWithInt:kSixPetal] ,
+                                  @"many_petal",[NSNumber numberWithInt:kManyPetal] ,
+                                  @"irregulat",[NSNumber numberWithInt:kIrregular] ,
+                                  @"composite",[NSNumber numberWithInt:kComposite] ,
+                                  @"tree",[NSNumber numberWithInt:kTree] ,
+                                  @"fruit",[NSNumber numberWithInt:kFruit] ,
                                  nil];
     
     self.selectedAttributes = [NSMutableArray array];
@@ -229,13 +231,15 @@
 - (IBAction) didTouchSendButton:(id)sender{
 
     
+    //Generate testing coordinates
+    /*
      float latHigh = 42.454865;
      float latLow = 42.340973;
      float longHigh = -83.157413;
      float longLow = -82.930849;
      float latitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
      float  longitude = longLow + (longHigh-longLow)* ( arc4random() % 1000 )/1000;
-    
+    */
     
     CGSize thumbSize;
     thumbSize.width = 100;
@@ -280,14 +284,18 @@
     // [Document save]
     //  We want Rhus to be able to support easily writing a custom model
     //  The model could be queried for dynamic form setup
+    
+
+    
     NSMutableDictionary * newDocument = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                          self.reporter.text, @"reporter",
                                          self.comment.text, @"comment",
-                                         [[NSNumber numberWithFloat: latitude] stringValue], @"latitude", 
-                                         [[NSNumber numberWithFloat: longitude] stringValue], @"longitude",
+                                         [RHLocation getLatitudeString], @"latitude", 
+                                         [RHLocation getLongitudeString], @"longitude",
                                          [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
                                          @"", @"thumb",
                                          @"", @"medium",
+                                         [DeviceUser uniqueIdentifier], @"deviceuser_identifier",
                                          nil];
 
     for(NSString * attribute in selectedAttributes){

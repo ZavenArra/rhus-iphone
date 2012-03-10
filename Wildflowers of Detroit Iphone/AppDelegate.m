@@ -11,6 +11,7 @@
 #import "CameraViewController.h"
 #import "MapViewController.h"
 #import "MapDataModel.h"
+#import "RHLocation.h"
 
 @implementation AppDelegate
 
@@ -43,7 +44,7 @@
         
     MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
-    self.swoopTabViewController.bottomViewController = galleryViewController;
+    self.swoopTabViewController.topViewController = galleryViewController;
     
     
     CameraViewController * cameraViewController = [[CameraViewController alloc]init];
@@ -73,6 +74,8 @@
     //    [[MapDataModel instance] test];
     
     [MapDataModel instance];
+    
+    [RHLocation instance];
 
   //  [pool release];
 
