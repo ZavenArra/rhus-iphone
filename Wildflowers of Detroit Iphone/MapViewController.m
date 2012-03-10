@@ -19,12 +19,29 @@
 #define mapInsetOriginY 10
 #define mapInsetWidth 97
 #define mapInsetHeight 63
-#define fullLatitudeDelta .1
-#define fullLongitudeDelta .1
+
 #define insetLatitudeDelta .03
 #define insetLongitudeDelta .03
+
+//TODO: Target preferences via specific implementation and class methods
+//http://stackoverflow.com/questions/3323816/xcode-multiple-targets-ifdefs-running-over
+
+//Detroit
+//#define DETROIT 1
+#ifdef DETROIT
+#define fullLatitudeDelta .1
+#define fullLongitudeDelta .1
 #define kMapCenterOnLoadLatitude 42.3
 #define kMapCenterOnLoadLongitude -83.1
+
+#else
+//other
+#define fullLatitudeDelta 50
+#define fullLongitudeDelta 50
+#define kMapCenterOnLoadLatitude 42.3
+#define kMapCenterOnLoadLongitude -83.1
+
+#endif
 
 //Gallery Settings
 #define kGalleryRowHeight 60
@@ -620,5 +637,6 @@
     
     
 }
+
 
 @end

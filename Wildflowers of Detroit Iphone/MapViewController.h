@@ -13,6 +13,7 @@
 
 
 
+
 @interface MapViewController : UIViewController
 <MKMapViewDelegate, TimelineVisualizationViewDelegate, UIScrollViewDelegate>
 {
@@ -42,6 +43,8 @@
 @property(nonatomic, strong) NSMutableArray * prevDocumentSet;
 @property(nonatomic) NSInteger currentDetailIndex;
 @property(nonatomic) NSInteger currentGalleryPage;
+
+
 
 //Gallery View Properties
 @property(strong, nonatomic) IBOutlet UIScrollView * galleryScrollView;

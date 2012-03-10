@@ -9,6 +9,7 @@
 #import "MapCouchbaseDataModel.h"
 #import "AppDelegate.h"
 #import "RhusDocument.h"
+#import "DeviceUser.h"
 
 
 // The name of the database the app will use.
@@ -17,7 +18,15 @@
 // The default remote database URL to sync with, if the user hasn't set a different one as a pref.
 //#define kDefaultSyncDbURL @"http://couchbase.iriscouch.com/grocery-sync"
 //#define kDefaultSyncDbURL @"http://50.112.114.185:8091/couchBase/default"
-#define kDefaultSyncDbURL @"http://admin:Rfur55@ec2-50-112-24-87.us-west-2.compute.amazonaws.com:5984/iphonetest2"
+
+
+//TODO: handle multi-target setup via strategy: 
+//http://stackoverflow.com/questions/3323816/xcode-multiple-targets-ifdefs-running-over
+
+#define kDefaultSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/squirrels_of_the_earth"
+
+
+
 
 // Set this to 1 to install a pre-built database from a ".couch" resource file on first run.
 #define INSTALL_CANNED_DATABASE 0
@@ -177,7 +186,39 @@
     return data;
     
 }
-         
+    
+
++ (NSArray *) getUserGalleryDocumentsWithStartKey: (NSString *) startKey 
+                                         andLimit: (NSInteger) limit 
+                                         andUserIdentifer: (NSString *) userIdentifier {
+    
+    //Create view;
+    CouchDatabase * database = [self.instance database];
+    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    NSAssert(design, @"Couldn't find design document");
+    design.language = kCouchLanguageJavaScript;
+    [design defineViewNamed: @"galleryDocuments"
+                        map: @"function(doc) { emit([doc._id, doc.created_on, doc.deviceuser_identifier],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+        
+    CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
+    query.descending = NO;
+    //how to specify multi value key???  array key, with match all entries
+    query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
+    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
+    
+    for(int i=0; i<[r count]; i++){
+        NSDictionary * d = [r objectAtIndex:i];
+        UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
+        
+        //getDocumentThumbnailData
+        [d setValue:thumb forKey:@"thumb"];
+        UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
+        //getDocumentImageData
+        [d setValue:mediumImage forKey:@"medium"];
+    }
+    return r;
+}
+
          
 
 + (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {

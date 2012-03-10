@@ -424,6 +424,9 @@
 		F4C0624914BE6E590008FBB5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4C0624A14BE70C00008FBB5 /* testdataplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C061A914BE5DE90008FBB5 /* testdataplist.plist */; };
 		F4CE8732150AE1E7009AE0FC /* RhusDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8731150AE1E7009AE0FC /* RhusDocument.m */; };
+		F4CE8841150B0B40009AE0FC /* DeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8840150B0B40009AE0FC /* DeviceUser.m */; };
+		F4CE8856150C01E1009AE0FC /* RHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8855150C01E1009AE0FC /* RHLocation.m */; };
+		F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -879,8 +882,13 @@
 		F4C0623C14BE6C0F0008FBB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4C0623E14BE6C0F0008FBB5 /* GHUnit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUnit Tests-Prefix.pch"; sourceTree = "<group>"; };
 		F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../IphoneDevelopment/Libs/gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
-		F4CE8730150AE1E7009AE0FC /* RhusDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RhusDocument.h; sourceTree = "<group>"; };
+		F4CE8730150AE1E7009AE0FC /* RhusDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusDocument.h; sourceTree = "<group>"; };
 		F4CE8731150AE1E7009AE0FC /* RhusDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusDocument.m; sourceTree = "<group>"; };
+		F4CE883F150B0B40009AE0FC /* DeviceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUser.h; sourceTree = "<group>"; };
+		F4CE8840150B0B40009AE0FC /* DeviceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUser.m; sourceTree = "<group>"; };
+		F4CE8854150C01E0009AE0FC /* RHLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHLocation.h; sourceTree = "<group>"; };
+		F4CE8855150C01E1009AE0FC /* RHLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLocation.m; sourceTree = "<group>"; };
+		F4CE8857150C08A3009AE0FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -940,6 +948,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */,
 				F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */,
 				F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */,
@@ -1041,6 +1050,8 @@
 				F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */,
 				F4CE8730150AE1E7009AE0FC /* RhusDocument.h */,
 				F4CE8731150AE1E7009AE0FC /* RhusDocument.m */,
+				F4CE883F150B0B40009AE0FC /* DeviceUser.h */,
+				F4CE8840150B0B40009AE0FC /* DeviceUser.m */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -1429,6 +1440,7 @@
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
+				F4CE8857150C08A3009AE0FC /* CoreLocation.framework */,
 				F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */,
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
 				F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */,
@@ -1488,6 +1500,8 @@
 				F4EDE02614D0EB7800242082 /* TimelineVisualizationView.h */,
 				F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */,
 				F4C0623614BE6C0F0008FBB5 /* GHUnit Tests */,
+				F4CE8854150C01E0009AE0FC /* RHLocation.h */,
+				F4CE8855150C01E1009AE0FC /* RHLocation.m */,
 			);
 			path = "Wildflowers of Detroit Iphone";
 			sourceTree = "<group>";
@@ -2097,6 +2111,8 @@
 				F48E254E150881DC00A021AE /* main.m in Sources */,
 				F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */,
 				F4CE8732150AE1E7009AE0FC /* RhusDocument.m in Sources */,
+				F4CE8841150B0B40009AE0FC /* DeviceUser.m in Sources */,
+				F4CE8856150C01E1009AE0FC /* RHLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
