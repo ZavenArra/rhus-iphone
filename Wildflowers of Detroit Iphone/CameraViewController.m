@@ -154,7 +154,7 @@
 /*TODO: this function should be called by imagePickerController:didFinishPickingMediaWithInfo:*/
 - (void) showPictureDialog {
     CGRect frame = self.pictureDialog.frame;
-    frame.origin.x = 58;
+    frame.origin.x = 480 - 58 - self.pictureDialog.frame.size.width;
     frame.origin.y = 108;
     self.pictureDialog.frame = frame;
     [self.view addSubview:self.pictureDialog];
@@ -168,12 +168,12 @@
 
 - (void) animateShowInfoBox {
     CGRect frame = self.pictureInfo.frame;
-    frame.origin.x = 480;
+    frame.origin.x = -480;
     self.pictureInfo.frame = frame;
     [self.view addSubview:self.pictureInfo];
     [UIView beginAnimations:@"anim" context:nil];
     frame = self.pictureInfo.frame;
-    frame.origin.x = 0;
+    frame.origin.x = -frame.size.width;
     self.pictureInfo.frame = frame;
     
     frame = self.pictureDialog.frame;

@@ -15,22 +15,8 @@
 // The name of the database the app will use.
 #define kDatabaseName @"default"
 
-// The default remote database URL to sync with, if the user hasn't set a different one as a pref.
-//#define kDefaultSyncDbURL @"http://couchbase.iriscouch.com/grocery-sync"
-//#define kDefaultSyncDbURL @"http://50.112.114.185:8091/couchBase/default"
 
-
-//TODO: handle multi-target setup via strategy: 
-//http://stackoverflow.com/questions/3323816/xcode-multiple-targets-ifdefs-running-over
-
-#define kDefaultSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/squirrels_of_the_earth"
-
-
-
-
-// Set this to 1 to install a pre-built database from a ".couch" resource file on first run.
-#define INSTALL_CANNED_DATABASE 0
-
+//Set up Testing to use remote
 // Define this to use a server at a specific URL, instead of the embedded Couchbase Mobile.
 // This can be useful for debugging, since you can use the admin console (futon) to inspect
 // or modify the database contents.
