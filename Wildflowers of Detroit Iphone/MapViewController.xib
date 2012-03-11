@@ -779,23 +779,23 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUIView" id="821290894">
+			<object class="IBUIView" id="785330322">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUIButton" id="1014153931">
-						<reference key="NSNextResponder" ref="821290894"/>
+					<object class="IBUIButton" id="1053242681">
+						<reference key="NSNextResponder" ref="785330322"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{460, 320}</string>
-						<reference key="NSSuperview" ref="821290894"/>
+						<string key="NSFrameSize">{480, 320}</string>
+						<reference key="NSSuperview" ref="785330322"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
-						<reference key="IBUIBackgroundColor" ref="143657789"/>
+						<reference key="NSNextKeyView" ref="742826326"/>
+						<reference key="IBUIBackgroundColor" ref="816853549"/>
 						<bool key="IBUIOpaque">NO</bool>
+						<float key="IBUIAlpha">0.5</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<reference key="IBUIHighlightedTitleColor" ref="371461942"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -805,22 +805,22 @@
 						<reference key="IBUIFontDescription" ref="1026745246"/>
 						<reference key="IBUIFont" ref="1062819592"/>
 					</object>
-					<object class="IBUIView" id="952067422">
-						<reference key="NSNextResponder" ref="821290894"/>
+					<object class="IBUIView" id="742826326">
+						<reference key="NSNextResponder" ref="785330322"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{422, 0}, {38, 320}}</string>
-						<reference key="NSSuperview" ref="821290894"/>
+						<string key="NSFrame">{{424, 0}, {58, 320}}</string>
+						<reference key="NSSuperview" ref="785330322"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="816853549"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{460, 320}</string>
+				<string key="NSFrameSize">{480, 320}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="1014153931"/>
-				<reference key="IBUIBackgroundColor" ref="816853549"/>
-				<float key="IBUIAlpha">0.25</float>
+				<reference key="NSNextKeyView" ref="1053242681"/>
+				<reference key="IBUIBackgroundColor" ref="143657789"/>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="IBUIInterfaceOrientation">3</int>
 					<int key="interfaceOrientation">3</int>
@@ -946,7 +946,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">overlayView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="821290894"/>
+						<reference key="destination" ref="785330322"/>
 					</object>
 					<int key="connectionID">97</int>
 				</object>
@@ -1018,6 +1018,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">89</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">didTapOverlay:</string>
+						<reference key="source" ref="1053242681"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">99</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1295,23 +1304,24 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">94</int>
-						<reference key="object" ref="821290894"/>
+						<reference key="object" ref="785330322"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="1014153931"/>
-							<reference ref="952067422"/>
+							<reference ref="742826326"/>
+							<reference ref="1053242681"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Overlay View</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">96</int>
-						<reference key="object" ref="1014153931"/>
-						<reference key="parent" ref="821290894"/>
+						<int key="objectID">98</int>
+						<reference key="object" ref="742826326"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="785330322"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">98</int>
-						<reference key="object" ref="952067422"/>
-						<reference key="parent" ref="821290894"/>
+						<int key="objectID">96</int>
+						<reference key="object" ref="1053242681"/>
+						<reference key="parent" ref="785330322"/>
 					</object>
 				</array>
 			</object>
@@ -1378,7 +1388,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">98</int>
+			<int key="maxID">100</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1389,6 +1399,7 @@
 						<string key="didRequestMapView:">id</string>
 						<string key="didRequestMenu:">id</string>
 						<string key="didTapGalleryButton:">id</string>
+						<string key="didTapOverlay:">id</string>
 						<string key="didTouchDetailCloseButton:">id</string>
 						<string key="didTouchDetailInfoButton:">id</string>
 						<string key="didTouchInfoCloseButton:">id</string>
@@ -1407,6 +1418,10 @@
 						</object>
 						<object class="IBActionInfo" key="didTapGalleryButton:">
 							<string key="name">didTapGalleryButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="didTapOverlay:">
+							<string key="name">didTapOverlay:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="didTouchDetailCloseButton:">

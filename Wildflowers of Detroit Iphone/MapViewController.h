@@ -103,6 +103,7 @@
 - (IBAction)didRequestMapView:(id)sender;
 - (IBAction)didRequestMenu:(id)sender;
 - (IBAction)didTapGalleryButton:(id)sender;
+- (IBAction)didTapOverlay:(id)sender;
 
 
 

@@ -44,9 +44,10 @@
 
 //Declare Private Methods
 @interface MapViewController()
-- (void)setMapViewToInset;
-- (void)placeInGalleryMode;
+- (void) setMapViewToInset;
+- (void) placeInGalleryMode;
 - (void) centerMapAtLatitude: (float) latitude andLongitude:(float) longitude;
+- (void) transitionToFullScreen;
 
 @end
 
@@ -124,6 +125,14 @@
     if(launchInGalleryMode){
         [self placeInGalleryMode];
     }
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    if(launchInGalleryMode ) {
+        [self transitionToFullScreen];
+    }
+
 }
 
 - (void) placeInGalleryMode{
@@ -536,6 +545,14 @@
     [self.infoView removeFromSuperview];
 }
 
+- (void)transitionToFullScreen {
+    
+    [UIView beginAnimations:nil context:nil];
+    [fullscreenTransitionDelegate subviewRequestingFullscreen];
+    [self.overlayView removeFromSuperview];
+    [UIView commitAnimations];
+
+}
 
 #pragma mark - IBActions
 - (IBAction)didTapGalleryButton:(id)sender {
@@ -612,12 +629,12 @@
 - (IBAction)didRequestMenu:(id)sender{
     [UIView beginAnimations:nil context:nil];
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
-    [self.view insertSubview:self.overlayView atIndex:0];
+    [self.view addSubview:self.overlayView];
     [UIView commitAnimations];
 }
 
-- (IBAction)tappedOveraly:(id)sender{
-    [self.overlayView removeFromSuperview];
+- (IBAction)didTapOverlay:(id)sender{
+    [self transitionToFullScreen];
 }
 
 #pragma mark - TimelineVisualizationView
