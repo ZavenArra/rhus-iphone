@@ -19,13 +19,13 @@
 @synthesize controlsBackgroundImage, controlsView  ;
 @synthesize topBackground, middleBackground, bottomBackground;
 @synthesize topViewController, middleViewController, bottomViewController;
-@synthesize tabsHidden;
+@synthesize tabsHidden, currentTab;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        currentTab = kMiddle;
     }
     return self;
 }
@@ -72,7 +72,15 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    if(currentTab == kMiddle){
+        if (interfaceOrientation == UIInterfaceOrientationPortrait
+            || interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+            return true;
+        }
+        return false;
+    } else {
+        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    }
 }
 
 #pragma mark - IBActions
@@ -85,6 +93,8 @@
     [middleViewController.view removeFromSuperview];
     [bottomViewController.view removeFromSuperview];
     [self.view insertSubview:topViewController.view atIndex:0];
+    
+    currentTab = kTop;
 }
 
 - (IBAction)didTouchMiddleButton:(id)sender{
@@ -102,6 +112,8 @@
     [topViewController.view removeFromSuperview];
     [bottomViewController.view removeFromSuperview];
     [self.view insertSubview:middleViewController.view atIndex:0];
+    
+    currentTab = kMiddle;
 }
 
 - (IBAction)didTouchBottomButton:(id)sender{
@@ -114,6 +126,9 @@
     [topViewController.view removeFromSuperview];
     [middleViewController.view removeFromSuperview];
     [self.view insertSubview:bottomViewController.view atIndex:0];
+    
+    currentTab = kBottom;
+
 
 }
 

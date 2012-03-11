@@ -21,6 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self initializeDataModel];
+    
+   // [[UIDevice currentDevice] setOrientation:UIInterfaceOrientationLandscapeRight];
 }
 
 - (void) initializeDataModel {

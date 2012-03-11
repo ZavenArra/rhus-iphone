@@ -40,6 +40,7 @@
 @property(nonatomic, strong) UIView *timelineControlsView;
 @property(nonatomic, strong) UIButton *mapInsetButton;
 @property(nonatomic, strong) TimelineVisualizationView * timelineVisualizationView;
+@property(nonatomic, strong) IBOutlet UIView * overlayView;
 
 @property(nonatomic, strong) NSMutableArray * nextDocumentSet;
 @property(nonatomic, strong) NSMutableArray * activeDocuments;

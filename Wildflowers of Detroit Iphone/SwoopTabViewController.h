@@ -27,6 +27,8 @@
     
     BOOL tabsHidden;
     
+    NSInteger currentTab;
+    
 }
 
 
@@ -47,6 +49,8 @@
 @property (strong, nonatomic) UIImage * bottomBackground;
 
 @property (nonatomic) BOOL tabsHidden;
+
+@property (nonatomic) NSInteger currentTab;
 
 
 #pragma mark - IBActions

@@ -58,6 +58,7 @@
 @synthesize timelineVisualizationView;
 @synthesize activeDocuments;
 @synthesize galleryScrollView, detailScrollView, detailView;
+@synthesize overlayView;
 @synthesize zoomView, infoView;
 @synthesize visualization;
 @synthesize comment, location, reporter;
@@ -66,6 +67,7 @@
 @synthesize launchInGalleryMode;
 @synthesize firstView;
 @synthesize detailDate;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -126,8 +128,8 @@
 
 - (void) placeInGalleryMode{
     [self.view insertSubview:self.timelineView belowSubview: self.mapView];
-    [self setMapViewToInset];
-    [self placeMapInsetButton];
+    [mapView removeFromSuperview];
+    //[self placeMapInsetButton];
 
 }
 
@@ -610,9 +612,13 @@
 - (IBAction)didRequestMenu:(id)sender{
     [UIView beginAnimations:nil context:nil];
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
+    [self.view insertSubview:self.overlayView atIndex:0];
     [UIView commitAnimations];
 }
 
+- (IBAction)tappedOveraly:(id)sender{
+    [self.overlayView removeFromSuperview];
+}
 
 #pragma mark - TimelineVisualizationView
 

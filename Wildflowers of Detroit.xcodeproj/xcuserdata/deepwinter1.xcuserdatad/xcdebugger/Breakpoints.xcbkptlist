@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/SwoopTabViewController.m"
-         timestampString = "353129507.318034"
+         timestampString = "353144631.968241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "118"
+         endingLineNumber = "118"
          landmarkName = "@implementation SwoopTabViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -1003,11 +1003,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/AppDelegate.m"
-         timestampString = "353110193.907055"
+         timestampString = "353150436.677676"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-initializeAppDelegateAndLaunch"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1337,11 +1337,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/SwoopTabViewController.m"
-         timestampString = "353134317.337896"
+         timestampString = "353144631.968241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
          landmarkName = "-subviewRequestingFullscreen"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1427,6 +1427,48 @@
          startingLineNumber = "330"
          endingLineNumber = "330"
          landmarkName = "-transitionFromTimelineToMap"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/SwoopTabViewController.m"
+         timestampString = "353144161.002626"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
+         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/SwoopTabViewController.m"
+         timestampString = "353144631.968241"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "@implementation SwoopTabViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/SwoopTabViewController.m"
+         timestampString = "353144610.897836"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
+         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
