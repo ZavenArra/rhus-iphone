@@ -65,6 +65,7 @@
 @synthesize userDataOnly;
 @synthesize launchInGalleryMode;
 @synthesize firstView;
+@synthesize detailDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -205,26 +206,15 @@
         documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
     }
         
-    for( NSDictionary * document in documents){
+    for( RhusDocument * document in documents){
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
         coordinate.longitude = [ (NSString*) [document objectForKey:@"longitude"] floatValue];
-        
-        //Constructor should be cleaned up
-        NSString * created_at = [document objectForKey:@"created_at"];
-        NSString * reports = [document objectForKey:@"reporter"];
-        if(created_at == @"(null)"){
-            created_at = @"";
-        }
-        if(reports == @"(null)"){
-            reports = @"";
-        }
-        NSString * annotationText = [NSString stringWithFormat:@"%@ %@", 
-                                     [document objectForKey:@"created_at"],
-                                     [document objectForKey:@"reporter"]
-                                     ];
-        RhusMapAnnotation * rhusMapAnnotation = [RhusMapAnnotation mapAnnotationWithCoordinate:coordinate title:
-                                                 annotationText
+     
+        RhusMapAnnotation * rhusMapAnnotation = [RhusMapAnnotation 
+                                                 mapAnnotationWithCoordinate: coordinate
+                                                 title:  [document getDateString]
+                                                 subtitle:  [document getReporter]
                                                  ];
         
         [activeDocuments addObject:document];
@@ -286,23 +276,19 @@
     
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
     
+    MKCoordinateRegion coordinateRegion = self.mapView.region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = insetLatitudeDelta;
+    span.longitudeDelta = insetLongitudeDelta;
+    coordinateRegion.span = span;
+    self.mapView.region = coordinateRegion;
+    
     [self setMapViewToInset];
-    
-    
-    
-     MKCoordinateRegion coordinateRegion = self.mapView.region;
-     MKCoordinateSpan span;
-     span.latitudeDelta = insetLatitudeDelta;
-     span.longitudeDelta = insetLongitudeDelta;
-     coordinateRegion.span = span;
-     self.mapView.region = coordinateRegion;
-     
     
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(placeMapInsetButton)];
     [UIView commitAnimations];
     
-    //when the anim completes, add an invisible button on top of shrunken map.
 }
 
 
@@ -371,8 +357,7 @@
     
     
     [timelineView removeFromSuperview];
-    [detailView removeFromSuperview];
-    [zoomView removeFromSuperview];
+
     [self.view addSubview:mapView];
 
 }
@@ -491,7 +476,7 @@
     [self.detailScrollView setContentSize:CGSizeMake( scrollViewPages * 480, 320)];
     
     for(int i=0; i<[activeDocuments count]; i++){
-        NSDictionary * document = [activeDocuments objectAtIndex:i];
+        RhusDocument * document = [activeDocuments objectAtIndex:i];
         if([document objectForKey:@"medium"] == nil){
             continue;
         }
@@ -510,7 +495,7 @@
         pageFrame.size.height = 320;
         scrollPage.frame = pageFrame;
         
-        
+        [self.detailDate setText:[document getDateString]];
         
         [self.detailScrollView addSubview:scrollPage];
     }

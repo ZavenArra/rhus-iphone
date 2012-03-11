@@ -63,6 +63,8 @@
 
 @property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
 
+//detailView
+@property(strong, nonatomic) IBOutlet   UILabel * detailDate;
 
 //infoView
 @property(strong, nonatomic) IBOutlet   UIView * infoView;
