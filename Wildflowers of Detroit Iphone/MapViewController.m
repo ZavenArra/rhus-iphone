@@ -277,34 +277,24 @@
     
 }
 
--(void) transitionFromMapToTimeline {
-     [self transitionFromMapToTimelineWithIndex: nil andTimeline: nil];
-}
-
--(void) transitionFromMapToTimelineWithIndex: (NSInteger) index {
-    [self transitionFromMapToTimelineWithIndex: index andTimeline: nil];
-}
--(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline {
-    
-    [self.view insertSubview:self.timelineView belowSubview: self.mapView];
-    
+-(void) mapToTimelineAnimation {
     
     [UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration: 0.50];
     
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
-
+    
     [self setMapViewToInset];
     
-
+    
     /*
-    MKCoordinateRegion coordinateRegion = self.mapView.region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = insetLatitudeDelta;
-    span.longitudeDelta = insetLongitudeDelta;
-    coordinateRegion.span = span;
-    self.mapView.region = coordinateRegion;
-    */
+     MKCoordinateRegion coordinateRegion = self.mapView.region;
+     MKCoordinateSpan span;
+     span.latitudeDelta = insetLatitudeDelta;
+     span.longitudeDelta = insetLongitudeDelta;
+     coordinateRegion.span = span;
+     self.mapView.region = coordinateRegion;
+     */
     
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(placeMapInsetButton)];
@@ -313,7 +303,32 @@
     //when the anim completes, add an invisible button on top of shrunken map.
 }
 
+
+-(void) detailToGallery {
+    [self.view insertSubview:self.timelineView aboveSubview: self.detailView];
+    [self.detailView removeFromSuperview];
+}
+
+-(void) transitionFromMapToTimeline {
+    [self.view insertSubview:self.timelineView belowSubview: self.mapView];
+    [self mapToTimelineAnimation];
+}
+
+-(void) transitionFromMapToTimelineWithIndex: (NSInteger) index {
+    [self transitionFromMapToTimelineWithIndex: index andTimeline: nil];
+}
+-(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline {
+    [self.view insertSubview:self.timelineView belowSubview: self.mapView];
+    self.currentDetailIndex = index;
+    [self showDetailViewForIndex: index];
+    [self mapToTimelineAnimation];
+
+
+}
+
+
 -(void) transitionFromTimelineToMap{
+
     
     if(self.mapInsetButton){
         [mapInsetButton removeFromSuperview];
@@ -325,12 +340,12 @@
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
     
     
-    CGRect frame = self.mapView.frame;
+    CGRect frame = mapView.frame;
     frame.origin.x = 0;
     frame.origin.y = 0;
     frame.size.width = 480;
     frame.size.height = 320;
-    self.mapView.frame = frame;
+    mapView.frame = frame;
     
     /*
     MKCoordinateRegion coordinateRegion = self.mapView.region;
@@ -340,7 +355,10 @@
     coordinateRegion.span = span;
     self.mapView.region = coordinateRegion;
     */
-     
+    
+    [timelineView removeFromSuperview];
+    
+    [self.view insertSubview:mapView atIndex:0];
     [UIView commitAnimations];
 
 }
@@ -356,7 +374,7 @@
         self.mapInsetButton.frame = frame;
     }
     
-    [self.mapInsetButton addTarget:self action:@selector(didTapMapInsetButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mapInsetButton addTarget:self action:@selector(didRequestMapView:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.mapInsetButton];
 }
@@ -420,7 +438,6 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
-    //NSString * key = [(NSDictionary *) [activeDocuments objectAtIndex:view.tag] objectForKey:@"_id"];
     [self transitionFromMapToTimelineWithIndex:view.tag andTimeline:nil ];
     [mapView deselectAnnotation:view.annotation animated:YES];
 }
@@ -498,11 +515,6 @@
     
 }
 
-- (void)layoutDetailView{
-    [self.detailScrollView setContentSize:CGSizeMake(480 * kDetailScrollPreloadCount, 320)];
-    //???
-}
-
 - (void)showInfoViewForIndex: (NSInteger) index{
     RhusDocument * document = [activeDocuments objectAtIndex:index];
     
@@ -525,6 +537,9 @@
 
 
 #pragma mark - IBActions
+- (IBAction)didTapGalleryButton:(id)sender {
+    [self detailToGallery];
+}
 
 -(IBAction) didRequestMapView:(id)sender{
     [self transitionFromTimelineToMap];
@@ -592,8 +607,11 @@
     [self hideInfoView];
 }
 
-
-
+- (IBAction)didRequestMenu:(id)sender{
+    [UIView beginAnimations:nil context:nil];
+    [fullscreenTransitionDelegate subviewReleasingFullscreen];
+    [UIView commitAnimations];
+}
 
 
 #pragma mark - TimelineVisualizationView

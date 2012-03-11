@@ -347,11 +347,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "413"
-         endingLineNumber = "413"
+         startingLineNumber = "431"
+         endingLineNumber = "431"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -389,11 +389,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "286"
-         endingLineNumber = "286"
+         startingLineNumber = "319"
+         endingLineNumber = "319"
          landmarkName = "-transitionFromMapToTimelineWithIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -403,25 +403,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "423"
-         endingLineNumber = "423"
-         landmarkName = "-mapView:annotationView:calloutAccessoryControlTapped:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "349"
-         endingLineNumber = "349"
+         startingLineNumber = "367"
+         endingLineNumber = "367"
          landmarkName = "-placeMapInsetButton"
          landmarkType = "5">
       </FileBreakpoint>
@@ -443,11 +429,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "346"
-         endingLineNumber = "346"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
          landmarkName = "-transitionFromTimelineToMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -457,11 +443,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "419"
-         endingLineNumber = "419"
+         startingLineNumber = "437"
+         endingLineNumber = "437"
          landmarkName = "@implementation MapViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -499,11 +485,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "600"
-         endingLineNumber = "600"
+         startingLineNumber = "618"
+         endingLineNumber = "618"
          landmarkName = "@implementation MapViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -555,11 +541,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "415"
-         endingLineNumber = "415"
+         startingLineNumber = "429"
+         endingLineNumber = "429"
          landmarkName = "-updateSyncURL"
          landmarkType = "5">
       </FileBreakpoint>
@@ -569,11 +555,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "416"
-         endingLineNumber = "416"
+         startingLineNumber = "430"
+         endingLineNumber = "430"
          landmarkName = "-updateSyncURL"
          landmarkType = "5">
       </FileBreakpoint>
@@ -583,11 +569,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "312"
-         endingLineNumber = "312"
+         startingLineNumber = "326"
+         endingLineNumber = "326"
          landmarkName = "+addDocument:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -597,11 +583,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "324"
-         endingLineNumber = "324"
+         startingLineNumber = "338"
+         endingLineNumber = "338"
          landmarkName = "+addDocument:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -611,11 +597,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "325"
-         endingLineNumber = "325"
+         startingLineNumber = "339"
+         endingLineNumber = "339"
          landmarkName = "+addDocument:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -695,11 +681,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "348"
-         endingLineNumber = "348"
+         startingLineNumber = "362"
+         endingLineNumber = "362"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -709,11 +695,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "328"
-         endingLineNumber = "328"
+         startingLineNumber = "342"
+         endingLineNumber = "342"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -723,11 +709,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "333"
-         endingLineNumber = "333"
+         startingLineNumber = "347"
+         endingLineNumber = "347"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -737,11 +723,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "357"
-         endingLineNumber = "357"
+         startingLineNumber = "371"
+         endingLineNumber = "371"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -751,11 +737,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "361"
-         endingLineNumber = "361"
+         startingLineNumber = "375"
+         endingLineNumber = "375"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -765,11 +751,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "370"
-         endingLineNumber = "370"
+         startingLineNumber = "384"
+         endingLineNumber = "384"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -807,11 +793,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "362"
-         endingLineNumber = "362"
+         startingLineNumber = "376"
+         endingLineNumber = "376"
          landmarkName = "+addDocument:withAttachments:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -835,11 +821,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "393"
-         endingLineNumber = "393"
+         startingLineNumber = "411"
+         endingLineNumber = "411"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -877,11 +863,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "403"
-         endingLineNumber = "403"
+         startingLineNumber = "421"
+         endingLineNumber = "421"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -905,11 +891,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "252"
-         endingLineNumber = "252"
+         startingLineNumber = "266"
+         endingLineNumber = "266"
          landmarkName = "+getDetailDocumentsWithStartKey:andLimit:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -919,11 +905,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "383"
-         endingLineNumber = "383"
+         startingLineNumber = "401"
+         endingLineNumber = "401"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -961,11 +947,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "379"
-         endingLineNumber = "379"
+         startingLineNumber = "397"
+         endingLineNumber = "397"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -975,11 +961,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "387"
-         endingLineNumber = "387"
+         startingLineNumber = "405"
+         endingLineNumber = "405"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -989,11 +975,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "260"
-         endingLineNumber = "260"
+         startingLineNumber = "274"
+         endingLineNumber = "274"
          landmarkName = "+getDetailDocumentsWithStartKey:andLimit:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1059,11 +1045,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "534"
-         endingLineNumber = "534"
+         startingLineNumber = "549"
+         endingLineNumber = "549"
          landmarkName = "-didTouchThumbnail:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1073,11 +1059,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "463"
-         endingLineNumber = "463"
+         startingLineNumber = "480"
+         endingLineNumber = "480"
          landmarkName = "-showDetailViewForIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1087,11 +1073,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "507"
-         endingLineNumber = "507"
+         startingLineNumber = "519"
+         endingLineNumber = "519"
          landmarkName = "-showInfoViewForIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1115,11 +1101,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
-         timestampString = "353131462.245243"
+         timestampString = "353138219.420006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "636"
-         endingLineNumber = "636"
+         startingLineNumber = "654"
+         endingLineNumber = "654"
          landmarkName = "-scrollViewDidEndDecelerating:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1183,11 +1169,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353140032.146129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "405"
-         endingLineNumber = "405"
+         startingLineNumber = "419"
+         endingLineNumber = "419"
          landmarkName = "-updateSyncURL"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1225,11 +1211,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353139966.426208"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
          landmarkName = "+getUserGalleryDocumentsWithStartKey:andLimit:andUserIdentifer:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1323,11 +1309,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
-         timestampString = "353133037.840705"
+         timestampString = "353139966.426208"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
+         startingLineNumber = "214"
+         endingLineNumber = "214"
          landmarkName = "+getUserGalleryDocumentsWithStartKey:andLimit:andUserIdentifer:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1346,7 +1332,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -1357,6 +1343,76 @@
          startingLineNumber = "154"
          endingLineNumber = "154"
          landmarkName = "-subviewRequestingFullscreen"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
+         timestampString = "353138219.420006"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "333"
+         endingLineNumber = "333"
+         landmarkName = "-transitionFromTimelineToMap"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/MapViewController.m"
+         timestampString = "353138219.420006"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "321"
+         endingLineNumber = "321"
+         landmarkName = "-transitionFromMapToTimelineWithIndex:andTimeline:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
+         timestampString = "353139829.406732"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
+         landmarkName = "-runQuery:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
+         timestampString = "353139989.74178"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-runQuery:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/MapCouchbaseDataModel.m"
+         timestampString = "353140060.852144"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
+         landmarkName = "-runQuery:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

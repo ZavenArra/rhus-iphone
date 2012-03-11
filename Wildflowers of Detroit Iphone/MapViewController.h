@@ -86,6 +86,8 @@
 - (void)showDetailView;
 - (void)hideDetailView;
 - (void)showInfoViewForIndex: (NSInteger) index;
+- (void)showDetailViewForIndex: (NSInteger) index;
+
 - (void)hideInfoView;
 
 
@@ -95,7 +97,9 @@
 - (IBAction)didTouchInfoCloseButton:(id)sender;
 - (IBAction)didTouchLeftScrollButton:(id)sender;
 - (IBAction)didTouchRightScrollButton:(id)sender;
-- (IBAction) didRequestMapView:(id)sender;
+- (IBAction)didRequestMapView:(id)sender;
+- (IBAction)didRequestMenu:(id)sender;
+- (IBAction)didTapGalleryButton:(id)sender;
 
 
 
