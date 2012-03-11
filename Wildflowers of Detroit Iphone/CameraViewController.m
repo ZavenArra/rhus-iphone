@@ -173,11 +173,11 @@
     [self.view addSubview:self.pictureInfo];
     [UIView beginAnimations:@"anim" context:nil];
     frame = self.pictureInfo.frame;
-    frame.origin.x = -frame.size.width;
+    frame.origin.x = 0;
     self.pictureInfo.frame = frame;
     
     frame = self.pictureDialog.frame;
-    frame.origin.x = -frame.size.width;
+    frame.origin.x = 480;
     self.pictureDialog.frame = frame;
     
     [UIView setAnimationDuration:0.50];

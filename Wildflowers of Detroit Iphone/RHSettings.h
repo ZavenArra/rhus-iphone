@@ -10,6 +10,26 @@
 
 @interface RHSettings : NSObject
 
+//Sync Server
 + (NSString *) couchRemoteSyncURL;
 
+//Database for App
++ (NSString *) databaseName;
++ (BOOL) useRemoteServer;
++ (NSString *) couchRemoteServer;
+
 @end
+
+//Base implementation
+/*
+@implementation RHSettings
++ (BOOL) useRemoteServer{
+    return false;
+}
+
++ (NSString *) couchRemoteServer{
+    return nil;
+}
+
+@end
+ */
