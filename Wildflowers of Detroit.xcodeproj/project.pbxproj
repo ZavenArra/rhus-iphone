@@ -1711,9 +1711,6 @@
 				A6B74F0F150A1DD800D1B133 /* uploadButtonP.png */,
 				A6B74EF8150A1B7A00D1B133 /* cancelButtton.png */,
 				A6B74EFA150A1B7A00D1B133 /* galleryButton.psd */,
-				A6B74EFB150A1B7A00D1B133 /* Iconx2.png */,
-				A6B74EFC150A1B7A00D1B133 /* ipad~icon.png */,
-				A6B74EFD150A1B7A00D1B133 /* ipad~iconx2.png */,
 				A6B74EFE150A1B7A00D1B133 /* LockScreen.png */,
 				A6B74EFF150A1B7A00D1B133 /* LockScreenx2.png */,
 				A6B74F00150A1B7A00D1B133 /* orangeOverlay.png */,
@@ -1755,7 +1752,6 @@
 				F4C05EF514BD24330008FBB5 /* 106x106.png */,
 				F4C05EF114BD1A900008FBB5 /* Northern%2BShrike%2BRenews%2528blog%2529.jpg */,
 				A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */,
-				A6D3ACB714BBDDF8005BB81D /* icon.png */,
 				A6D3AC8D14BBC85F005BB81D /* CameraIconT.png */,
 				A6D3AC8F14BBC85F005BB81D /* MapIconT.png */,
 				A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */,
@@ -2195,6 +2191,10 @@
 		F4CE8B33150C10AB009AE0FC /* Wildflowers */ = {
 			isa = PBXGroup;
 			children = (
+				A6D3ACB714BBDDF8005BB81D /* icon.png */,
+				A6B74EFC150A1B7A00D1B133 /* ipad~icon.png */,
+				A6B74EFD150A1B7A00D1B133 /* ipad~iconx2.png */,
+				A6B74EFB150A1B7A00D1B133 /* Iconx2.png */,
 				F4CE8B34150C10AB009AE0FC /* Default.png */,
 				F4CE8B35150C10AB009AE0FC /* Defaultx2.png */,
 			);
