@@ -27,11 +27,12 @@
     
     
     self.loadingViewController = [[LoadingViewController alloc] init];
-    [loadingViewController.loadingImageView setImage: [UIImage imageNamed:@"Loading"]];
-    //[self.window addSubview:loadingViewController.loadingView];
 
-    [loadingViewController.view addSubview:loadingViewController.rotateView];
+
+    [loadingViewController.view addSubview:loadingViewController.loadingView];
     [self.window addSubview:loadingViewController.view];
+    UIImage * loadingImage = [UIImage imageNamed:@"Loading"];
+    loadingViewController.loadingImageView.image = loadingImage;
     [self.window makeKeyAndVisible];
     
       // [self.window addSubview:loadingViewController.rotateView];
