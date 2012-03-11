@@ -191,7 +191,7 @@
         UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
         [d setValue:thumb forKey:@"thumb"];
        // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
+        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentImageData:[d objectForKey:@"_id"]] ];
         [d setValue:mediumImage forKey:@"medium"];
     }
     return r;
@@ -223,7 +223,7 @@
         UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
         [d setValue:thumb forKey:@"thumb"];
         // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
+        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentImageData:[d objectForKey:@"_id"]] ];
         [d setValue:mediumImage forKey:@"medium"];
     }
     return r;
