@@ -98,6 +98,9 @@
 		F49D333B150C3E8900BC1D7D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E29D62150C3A9000B797F3 /* Defaultx2.png */; };
 		F49D3346150C8E5100BC1D7D /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
+		F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
+		F49D3456150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
+		F49D3457150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
 		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
 		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
@@ -1225,6 +1228,8 @@
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
+		F49D3453150CAF6000BC1D7D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		F49D3454150CAF6100BC1D7D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
@@ -2316,6 +2321,8 @@
 				F4CE885A150C0B80009AE0FC /* RHSettings_Wildflowers.m */,
 				F4CE885D150C0BD1009AE0FC /* RHSettings_Squirrels.m */,
 				F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */,
+				F49D3453150CAF6000BC1D7D /* LoadingViewController.h */,
+				F49D3454150CAF6100BC1D7D /* LoadingViewController.m */,
 			);
 			path = "Wildflowers of Detroit Iphone";
 			sourceTree = "<group>";
@@ -3649,6 +3656,7 @@
 				F4CE89DA150C0E24009AE0FC /* DeviceUser.m in Sources */,
 				F4CE89DB150C0E24009AE0FC /* RHLocation.m in Sources */,
 				F422E2C6150C288D009317E5 /* RHSettings_Squirrels.m in Sources */,
+				F49D3456150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3675,6 +3683,7 @@
 				F4CE8841150B0B40009AE0FC /* DeviceUser.m in Sources */,
 				F4CE8856150C01E1009AE0FC /* RHLocation.m in Sources */,
 				F422E2C7150C2890009317E5 /* RHSettings_Wildflowers.m in Sources */,
+				F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3701,6 +3710,7 @@
 				F4EB1FBD150C24B90041A957 /* DeviceUser.m in Sources */,
 				F4EB1FBE150C24B90041A957 /* RHLocation.m in Sources */,
 				F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */,
+				F49D3457150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

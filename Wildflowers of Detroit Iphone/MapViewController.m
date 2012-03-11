@@ -68,6 +68,7 @@
 @synthesize launchInGalleryMode;
 @synthesize firstView;
 @synthesize detailDate;
+@synthesize mapShowing;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -124,12 +125,14 @@
     
     if(launchInGalleryMode){
         [self placeInGalleryMode];
+    } else {
+        mapShowing = TRUE;
     }
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    if(launchInGalleryMode ) {
+    if(launchInGalleryMode || !mapShowing ) {
         [self transitionToFullScreen];
     }
 
@@ -312,6 +315,8 @@
 -(void) transitionFromMapToTimeline {
     [self.view insertSubview:self.timelineView belowSubview: self.mapView];
     [self mapToTimelineAnimation];
+    mapShowing = FALSE;
+    
     
 }
 
@@ -331,6 +336,7 @@
     RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
     [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
 
+    mapShowing = FALSE;
 }
 
 
@@ -371,6 +377,8 @@
 
     [self.view addSubview:mapView];
 
+    
+    mapShowing = TRUE;
 }
 
 -(void) placeMapInsetButton{
@@ -560,7 +568,6 @@
 }
 
 -(IBAction) didRequestMapView:(id)sender{
-    NSLog(@"didRequestMapView");
     [self transitionFromTimelineToMap];
 }
 
@@ -627,10 +634,14 @@
 }
 
 - (IBAction)didRequestMenu:(id)sender{
+    
+        
     [UIView beginAnimations:nil context:nil];
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
     [self.view addSubview:self.overlayView];
     [UIView commitAnimations];
+        
+    
 }
 
 - (IBAction)didTapOverlay:(id)sender{

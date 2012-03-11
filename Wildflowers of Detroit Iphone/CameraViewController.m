@@ -206,7 +206,7 @@
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
     
     CGRect frame = self.pictureDialog.frame;
-    frame.origin.x = 0;
+    frame.origin.x = 480;
     self.pictureDialog.frame = frame;
     
     
@@ -220,9 +220,7 @@
     frame.origin.x = 0;
     self.pictureInfo.frame = frame;
     
-    frame = self.pictureDialog.frame;
-    frame.origin.x = -frame.size.width;
-    self.pictureDialog.frame = frame;
+ 
     
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDelegate:self];
