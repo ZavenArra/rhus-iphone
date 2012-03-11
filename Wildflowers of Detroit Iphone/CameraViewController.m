@@ -332,12 +332,13 @@
                                      @"image/jpeg", @"contentType", 
                                      nil
                                      ],
+                                    /*
                                     [NSDictionary dictionaryWithObjectsAndKeys:
                                      UIImageJPEGRepresentation(currentImage, 1.0),  @"data", 
                                      @"full.jpg",  @"name", 
                                      @"image/jpeg", @"contentType", 
                                      nil
-                                     ],
+                                     ],*/
                                     nil
                                     ]
      ];
