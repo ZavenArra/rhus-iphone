@@ -10,18 +10,7 @@
 #import "AppDelegate.h"
 #import "RhusDocument.h"
 #import "DeviceUser.h"
-
-
-// The name of the database the app will use.
-#define kDatabaseName @"default"
-
-
-//Set up Testing to use remote
-// Define this to use a server at a specific URL, instead of the embedded Couchbase Mobile.
-// This can be useful for debugging, since you can use the admin console (futon) to inspect
-// or modify the database contents.
-//#define USE_REMOTE_SERVER @"http://50.112.114.185:8091"
-//#define USE_REMOTE_SERVER @"http://couchbase.iriscouch.com"
+#import "RHSettings.h"
 
 
 @implementation MapCouchbaseDataModel
@@ -31,27 +20,25 @@
 
 
 - (id) init {
-#ifdef kDefaultSyncDbURL
-    // Register the default value of the pref for the remote database URL to sync with:
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *appdefaults = [NSDictionary dictionaryWithObject:kDefaultSyncDbURL
-                                                            forKey:@"syncpoint"];
-    [defaults registerDefaults:appdefaults];
-    [defaults synchronize];
-#endif
+
     
     // Start the Couchbase Mobile server:
     // gCouchLogLevel = 1;
     [CouchbaseMobile class];  // prevents dead-stripping
     CouchEmbeddedServer* server;
-#ifdef USE_REMOTE_SERVER
-    server = [[CouchEmbeddedServer alloc] initWithURL: [NSURL URLWithString: USE_REMOTE_SERVER]];
-#else
-    server = [[CouchEmbeddedServer alloc] init];
-#endif
+    
+    if(![RHSettings useRemoteServer]){
+        server = [[CouchEmbeddedServer alloc] init];
+    } else {
+        server = [[CouchEmbeddedServer alloc] initWithURL: [NSURL URLWithString: [RHSettings couchRemoteServer]]];
+        /*
+         Set Admin Credential Somehow??
+        server.couchbase.adminCredential = [NSURLCredential credentialWithUser:@"winterroot" password:@"dieis8835nd" persistence:NSURLCredentialPersistenceForSession];
+         */
+    }
     
 #if INSTALL_CANNED_DATABASE
-    NSString* dbPath = [[NSBundle mainBundle] pathForResource: kDatabaseName ofType: @"couch"];
+    NSString* dbPath = [[NSBundle mainBundle] pathForResource: [RHSettings databaseName] ofType: @"couch"];
     NSAssert(dbPath, @"Couldn't find "kDatabaseName".couch");
     [server installDefaultDatabase: dbPath];
 #endif
@@ -65,17 +52,19 @@
        // NSError ** outError; 
        // NSString * version = [server getVersion: outError];
       //  NSArray * databases = [server getDatabases];
-        self.database = [server databaseNamed: kDatabaseName];
+        self.database = [server databaseNamed: [RHSettings databaseName]];
         NSAssert(database, @"Database Is NULL!");
         
-#if !INSTALL_CANNED_DATABASE && !defined(USE_REMOTE_SERVER)
-        // Create the database on the first run of the app.
-        NSError* error;
-        if (![self.database ensureCreated: &error]) {
-            [self showAlert: @"Couldn't create local database." error: error fatal: YES];
-            return;
+        
+        if(![RHSettings useRemoteServer]){
+            // Create the database on the first run of the app.
+            NSError* error;
+            if (![self.database ensureCreated: &error]) {
+                [self showAlert: @"Couldn't create local database." error: error fatal: YES];
+                return;
+            }
+            
         }
-#endif
         
         database.tracksChanges = YES;
         
@@ -386,10 +375,12 @@
     NSInteger count = [self.database getDocumentCount];
 
     
-    if (!self.database)
+    if (!self.database){
+        NSLog(@"No Database in updateSyncURL");
         return;
+    }
     NSURL* newRemoteURL = nil;
-    NSString *syncpoint = [[NSUserDefaults standardUserDefaults] objectForKey:@"syncpoint"];
+    NSString *syncpoint = [RHSettings couchRemoteSyncURL];
     if (syncpoint.length > 0)
         newRemoteURL = [NSURL URLWithString:syncpoint];
     

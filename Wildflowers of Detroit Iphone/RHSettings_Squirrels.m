@@ -17,5 +17,21 @@
     return kSyncDbURL;
 }
 
++ (NSString *) databaseName {
+    return @"squirrels";
+}
+
+
++ (BOOL) useRemoteServer{
+    return false;
+}
+
++ (NSString *) couchRemoteServer{
+    return nil;
+}
+
++ (BOOL) useCamera {
+    return true;
+}
 
 @end

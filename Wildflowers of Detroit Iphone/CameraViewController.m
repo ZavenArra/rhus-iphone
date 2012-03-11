@@ -10,6 +10,8 @@
 #import "MapDataModel.h"
 #import "DeviceUser.h"
 #import "RHLocation.h"
+#import "RHSettings.h"
+
 
 #define kThreePetal 101
 #define kFourPetal 102
@@ -21,8 +23,6 @@
 #define kComposite 107
 #define kTree 108
 #define kFruit 109
-
-#define TESTING 1
 
 @implementation CameraViewController
 
@@ -88,10 +88,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
-#ifndef TESTING
-    [self showImagePickerView];
-#endif
+
+    if([RHSettings useCamera]) {
+        [self showImagePickerView];
+    }
     
 }
 
@@ -141,14 +141,15 @@
 #pragma mark Interface Methods
 
 - (void) secondTapTabButton{
-#ifndef TESTING
-    [self.imagePicker takePicture];    
-#else
-    self.currentImage = [UIImage imageNamed:@"IMG_0015.jpg"];
-    [imageView setImage:currentImage];
-    [self showPictureDialog];
 
-#endif
+    if([RHSettings useCamera]){
+        [self.imagePicker takePicture];
+    } else {
+        //TODO: move testing data to RHSettings
+        self.currentImage = [UIImage imageNamed:@"IMG_0015.jpg"];
+        [imageView setImage:currentImage];
+        [self showPictureDialog];
+    }
 }
 
 /*TODO: this function should be called by imagePickerController:didFinishPickingMediaWithInfo:*/
@@ -173,11 +174,11 @@
     [self.view addSubview:self.pictureInfo];
     [UIView beginAnimations:@"anim" context:nil];
     frame = self.pictureInfo.frame;
-    frame.origin.x = -frame.size.width;
+    frame.origin.x = 0;
     self.pictureInfo.frame = frame;
     
     frame = self.pictureDialog.frame;
-    frame.origin.x = -frame.size.width;
+    frame.origin.x = 480;
     self.pictureDialog.frame = frame;
     
     [UIView setAnimationDuration:0.50];

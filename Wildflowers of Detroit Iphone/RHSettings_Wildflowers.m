@@ -8,6 +8,31 @@
 
 #import "RHSettings.h"
 
+#define kSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/iphonetest2"
+
+
 @implementation RHSettings
+
++ (NSString *) couchRemoteSyncURL {
+    return kSyncDbURL;
+}
+
++ (NSString *) databaseName {
+    return @"iphonetest2";
+}
+
+
++ (BOOL) useRemoteServer{
+    return false;
+}
+
++ (NSString *) couchRemoteServer{
+    return nil;
+}
+
+
++ (BOOL) useCamera {
+    return true;
+}
 
 @end
