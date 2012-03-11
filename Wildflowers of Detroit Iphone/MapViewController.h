@@ -30,6 +30,7 @@
     NSInteger currentGalleryPage;
 
     BOOL userDataOnly;
+    BOOL launchInGalleryMode;
 }
 
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
@@ -44,6 +45,9 @@
 @property(nonatomic, strong) NSMutableArray * prevDocumentSet;
 @property(nonatomic) NSInteger currentDetailIndex;
 @property(nonatomic) NSInteger currentGalleryPage;
+@property(nonatomic) BOOL userDataOnly;
+@property(nonatomic) BOOL launchInGalleryMode;
+
 
 
 
@@ -70,7 +74,7 @@
 -(void) addAnnotations;
 
 
--(void) transitionFromMapToTimelin;
+-(void) transitionFromMapToTimeline;
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index;
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline;
 

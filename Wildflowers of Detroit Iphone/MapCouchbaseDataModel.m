@@ -136,14 +136,22 @@
     CouchDocument* doc = [[self.instance database] documentWithID: key];
     CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
     CouchAttachment * thumbnail = [model attachmentNamed:@"thumb.jpg"];
-    return thumbnail.body;
+    if(thumbnail != nil){
+        return thumbnail.body;
+    } else {
+        return nil;
+    }
 }
 
 + (NSData *) getDocumentImageData: (NSString *) key {
     CouchDocument* doc = [[self.instance database] documentWithID: key];
     CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
     CouchAttachment * thumbnail = [model attachmentNamed:@"medium.jpg"];
-    return thumbnail.body;
+    if(thumbnail != nil){
+        return thumbnail.body;
+    } else {
+        return nil;
+    }
 }
 
 
@@ -162,6 +170,21 @@
     
 }
     
++ (NSArray *) readAttachments: (NSArray *) r {
+    
+    for(int i=0; i<[r count]; i++){
+        NSDictionary * d = [r objectAtIndex:i];
+        //  UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
+        
+        //getDocumentThumbnailData
+        UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"id"]] ];
+        [d setValue:thumb forKey:@"thumb"];
+        // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
+        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentImageData:[d objectForKey:@"id"]] ];
+        [d setValue:mediumImage forKey:@"medium"];
+    }
+    return r;
+}
 
 + (NSArray *) getUserGalleryDocumentsWithStartKey: (NSString *) startKey 
                                          andLimit: (NSInteger) limit 
@@ -178,24 +201,23 @@
     CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
     query.descending = NO;
     query.startKey = [NSArray arrayWithObjects:userIdentifier, 0, nil];
-    query.endKey = [NSArray arrayWithObjects:userIdentifier, "{}", nil];
+    query.endKey = [NSArray arrayWithObjects:userIdentifier, @"{}", nil];
     //how to specify multi value key???  array key, with match all entries
     query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
     
-    for(int i=0; i<[r count]; i++){
-        NSDictionary * d = [r objectAtIndex:i];
-      //  UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
-        
-        //getDocumentThumbnailData
-        UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
-        [d setValue:thumb forKey:@"thumb"];
-       // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentImageData:[d objectForKey:@"_id"]] ];
-        [d setValue:mediumImage forKey:@"medium"];
-    }
-    return r;
+    return [self readAttachments: r];
+    
+
 }
+
++ (NSArray *) getDeviceUserGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
+    return [self getUserGalleryDocumentsWithStartKey: startKey 
+                                            andLimit: limit 
+                                    andUserIdentifer:  [DeviceUser uniqueIdentifier]];
+    
+}
+
 
          
 
@@ -215,18 +237,7 @@
     query.descending = NO;
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
         
-    for(int i=0; i<[r count]; i++){
-        NSDictionary * d = [r objectAtIndex:i];
-        //  UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
-        
-        //getDocumentThumbnailData
-        UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
-        [d setValue:thumb forKey:@"thumb"];
-        // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentImageData:[d objectForKey:@"_id"]] ];
-        [d setValue:mediumImage forKey:@"medium"];
-    }
-    return r;
+    return [self readAttachments: r];
 }
 
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {

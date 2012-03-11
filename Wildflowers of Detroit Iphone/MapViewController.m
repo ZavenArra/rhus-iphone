@@ -41,6 +41,12 @@
 #define kDetailScrollViewTag 1001
 #define kGalleryScrollViewTag 1002
 
+
+//Declare Private Methods
+@interface MapViewController()
+- (void)setMapViewToInset;
+@end
+
 @implementation MapViewController
 
 @synthesize mapView, timelineView, timelineControlsView;
@@ -53,12 +59,14 @@
 @synthesize visualization;
 @synthesize comment, location, reporter;
 @synthesize currentDetailIndex, currentGalleryPage;
-
+@synthesize userDataOnly;
+@synthesize launchInGalleryMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.userDataOnly = false;
     }
     return self;
 }
@@ -72,6 +80,7 @@
 }
 
 #pragma mark - View lifecycle
+
 
 - (void)viewDidLoad
 {
@@ -102,6 +111,12 @@
 
  
     self.timelineVisualizationView.delegate = self;
+    
+    if(launchInGalleryMode){
+        [self.view insertSubview:self.timelineView belowSubview: self.mapView];
+        [self setMapViewToInset];
+        [self placeMapInsetButton];
+    }
 }
 
 
@@ -179,9 +194,13 @@
     self.activeDocuments = nil;
     self.activeDocuments = [[NSMutableArray alloc] init ];
 
-    
-    NSArray * documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
-
+    NSArray * documents;
+    if(self.userDataOnly){
+        documents = [MapDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
+    } else {
+        documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
+    }
+        
     for( NSDictionary * document in documents){
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
@@ -235,7 +254,20 @@
 }
 
 
+
+
 #pragma mark - Interface Methods
+
+-(void) setMapViewToInset{
+    
+    CGRect frame = self.mapView.frame;
+    frame.origin.x = mapInsetOriginX;
+    frame.origin.y = mapInsetOriginY;
+    frame.size.width = mapInsetWidth;
+    frame.size.height = mapInsetHeight;
+    self.mapView.frame = frame;
+    
+}
 
 -(void) transitionFromMapToTimeline {
      [self transitionFromMapToTimelineWithIndex: nil andTimeline: nil];
@@ -254,14 +286,9 @@
     
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
 
+    [self setMapViewToInset];
     
-    CGRect frame = self.mapView.frame;
-    frame.origin.x = mapInsetOriginX;
-    frame.origin.y = mapInsetOriginY;
-    frame.size.width = mapInsetWidth;
-    frame.size.height = mapInsetHeight;
-    self.mapView.frame = frame;
-    
+
     /*
     MKCoordinateRegion coordinateRegion = self.mapView.region;
     MKCoordinateSpan span;

@@ -44,6 +44,8 @@
         
     MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
+    galleryViewController.userDataOnly = YES;
+    galleryViewController.launchInGalleryMode = YES;
     self.swoopTabViewController.topViewController = galleryViewController;
     
     
@@ -53,6 +55,7 @@
     
     MapViewController * mapViewController = [[MapViewController alloc]init];
     mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
+
     self.swoopTabViewController.bottomViewController = mapViewController;
     
     
