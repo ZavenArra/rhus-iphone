@@ -526,7 +526,7 @@
 
 #pragma mark - IBActions
 
--(void) didTapMapInsetButton:(id)sender{
+-(IBAction) didRequestMapView:(id)sender{
     [self transitionFromTimelineToMap];
 }
 
