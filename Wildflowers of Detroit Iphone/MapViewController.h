@@ -32,6 +32,7 @@
     BOOL userDataOnly;
     BOOL launchInGalleryMode;
     BOOL firstView;
+    BOOL mapShowing;
 }
 
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
@@ -50,6 +51,8 @@
 @property(nonatomic) BOOL userDataOnly;
 @property(nonatomic) BOOL launchInGalleryMode;
 @property(nonatomic) BOOL firstView;
+@property(nonatomic) BOOL mapShowing;
+
 
 
 
