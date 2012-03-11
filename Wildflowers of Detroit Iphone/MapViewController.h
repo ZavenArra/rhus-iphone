@@ -29,6 +29,7 @@
     NSInteger currentDetailIndex;
     NSInteger currentGalleryPage;
 
+    BOOL userDataOnly;
 }
 
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;

@@ -173,10 +173,12 @@
     NSAssert(design, @"Couldn't find design document");
     design.language = kCouchLanguageJavaScript;
     [design defineViewNamed: @"galleryDocuments"
-                        map: @"function(doc) { emit([doc._id, doc.created_on, doc.deviceuser_identifier],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+                        map: @"function(doc) { emit([doc.deviceuser_identifier,  Date.parse(doc.created_at).getTime()],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
         
     CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
     query.descending = NO;
+    query.startKey = [NSArray arrayWithObjects:userIdentifier, 0, nil];
+    query.endKey = [NSArray arrayWithObjects:userIdentifier, "{}", nil];
     //how to specify multi value key???  array key, with match all entries
     query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
@@ -215,12 +217,13 @@
         
     for(int i=0; i<[r count]; i++){
         NSDictionary * d = [r objectAtIndex:i];
-        UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
+        //  UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
         
         //getDocumentThumbnailData
+        UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
         [d setValue:thumb forKey:@"thumb"];
-        UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        //getDocumentImageData
+        // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
+        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
         [d setValue:mediumImage forKey:@"medium"];
     }
     return r;
