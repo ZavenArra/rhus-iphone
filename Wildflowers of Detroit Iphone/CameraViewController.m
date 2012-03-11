@@ -278,9 +278,9 @@
     mediumSize.width = 480;
     mediumSize.height = 320;
     
-    UIGraphicsBeginImageContext(thumbSize);
+    UIGraphicsBeginImageContext(mediumSize);
     [currentImage drawInRect:CGRectMake(0, 0, 480, 320)];
-    UIImage* medium = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage* mediumImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(mediumImage, .8);
 
