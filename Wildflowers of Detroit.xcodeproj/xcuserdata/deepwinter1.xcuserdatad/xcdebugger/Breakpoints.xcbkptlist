@@ -1463,11 +1463,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/AppDelegate.m"
-         timestampString = "353157243.134441"
+         timestampString = "353202836.65847"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
          landmarkName = "-initializeAppDelegateAndLaunch"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1476,13 +1476,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Wildflowers of Detroit Iphone/AppDelegate.m"
-         timestampString = "353157243.134441"
+         filePath = "Wildflowers of Detroit Iphone/LoadingViewController.m"
+         timestampString = "353159512.237838"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
-         landmarkName = "-initializeInBackground"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
+         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1490,27 +1490,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Wildflowers of Detroit Iphone/AppDelegate.m"
-         timestampString = "353157243.134441"
+         filePath = "Wildflowers of Detroit Iphone/LoadingViewController.m"
+         timestampString = "353159512.237838"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Wildflowers of Detroit Iphone/AppDelegate.m"
-         timestampString = "353157243.134441"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

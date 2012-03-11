@@ -25,17 +25,6 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    
-    self.loadingViewController = [[LoadingViewController alloc] init];
-
-
-    [loadingViewController.view addSubview:loadingViewController.loadingView];
-    [self.window addSubview:loadingViewController.view];
-    UIImage * loadingImage = [UIImage imageNamed:@"Loading"];
-    loadingViewController.loadingImageView.image = loadingImage;
-    [self.window makeKeyAndVisible];
-    
-      // [self.window addSubview:loadingViewController.rotateView];
     [self initializeAppDelegateAndLaunch];
     
     return TRUE;    
@@ -64,18 +53,10 @@
     
     self.swoopTabViewController.bottomViewController = mapViewController;
     
-  
-   /* 
-    [self.loadingViewController.view insertSubview:loadingViewController.rotateView belowSubview:loadingViewController.loadingView ];
-    [self.window insertSubview:swoopTabViewController.view belowSubview:loadingViewController.rotateView];
-    
-    // [self.window insertSubview:loadingViewController.rotateView belowSubview:loadingViewController.loadingView]//;
-*/
+    [self.window addSubview:self.swoopTabViewController.view];
     [self.window makeKeyAndVisible];
 
     
-//    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
-//    return;
     
     [self initializeInBackground];
     
@@ -88,8 +69,6 @@
 //start serving whenever it's ready.
 - (void) initializeInBackground{
     
-   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
     
     [[MapDataModel instance] updateSyncURL];
     
@@ -100,13 +79,7 @@
     [RHLocation instance];
 
     
-    
 
-  //  [self.loadingViewController.loadingView removeFromSuperview];
-    [self.window makeKeyAndVisible];
-
-    
-  //  [pool release];
 
 }
 
