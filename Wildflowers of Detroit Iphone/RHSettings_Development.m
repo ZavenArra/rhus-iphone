@@ -31,6 +31,9 @@
     return @"rhus_development_remote";
 }
 
++ (BOOL) useCamera {
+    return true;
+}
 
 
 @end

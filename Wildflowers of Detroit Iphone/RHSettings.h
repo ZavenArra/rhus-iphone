@@ -18,6 +18,10 @@
 + (BOOL) useRemoteServer;
 + (NSString *) couchRemoteServer;
 
+//Development
+
++ (BOOL) useCamera;
+
 @end
 
 //Base implementation

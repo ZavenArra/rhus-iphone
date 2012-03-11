@@ -30,4 +30,9 @@
     return nil;
 }
 
+
++ (BOOL) useCamera {
+    return true;
+}
+
 @end
