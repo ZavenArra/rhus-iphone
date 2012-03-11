@@ -13,7 +13,7 @@
 @implementation RHSettings
 
 + (BOOL) useRemoteServer {
-    return true;
+    return false;
 //    return false;
 }
 
@@ -28,11 +28,11 @@
 }
 
 + (NSString *) databaseName {
-    return @"rhus_development_remote";
+    return @"rhusdevelopment";
 }
 
 + (BOOL) useCamera {
-    return true;
+    return false;
 }
 
 
