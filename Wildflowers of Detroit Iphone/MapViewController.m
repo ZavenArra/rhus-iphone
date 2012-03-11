@@ -46,6 +46,8 @@
 @interface MapViewController()
 - (void)setMapViewToInset;
 - (void)placeInGalleryMode;
+- (void) centerMapAtLatitude: (float) latitude andLongitude:(float) longitude;
+
 @end
 
 @implementation MapViewController
@@ -287,14 +289,14 @@
     [self setMapViewToInset];
     
     
-    /*
+    
      MKCoordinateRegion coordinateRegion = self.mapView.region;
      MKCoordinateSpan span;
      span.latitudeDelta = insetLatitudeDelta;
      span.longitudeDelta = insetLongitudeDelta;
      coordinateRegion.span = span;
      self.mapView.region = coordinateRegion;
-     */
+     
     
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(placeMapInsetButton)];
@@ -309,20 +311,28 @@
     [self.detailView removeFromSuperview];
 }
 
+
 -(void) transitionFromMapToTimeline {
     [self.view insertSubview:self.timelineView belowSubview: self.mapView];
     [self mapToTimelineAnimation];
+    
 }
+
+
 
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index {
     [self transitionFromMapToTimelineWithIndex: index andTimeline: nil];
 }
+
+
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline {
     [self.view insertSubview:self.timelineView belowSubview: self.mapView];
     self.currentDetailIndex = index;
     [self showDetailViewForIndex: index];
     [self mapToTimelineAnimation];
-
+    
+    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+    [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
 
 }
 
@@ -347,19 +357,23 @@
     frame.size.height = 320;
     mapView.frame = frame;
     
-    /*
+    
     MKCoordinateRegion coordinateRegion = self.mapView.region;
     MKCoordinateSpan span;
-    span.latitudeDelta = fullLatitudeDelta;
-    span.longitudeDelta = fullLongitudeDelta;
+    span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; ;
+    span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; ;
     coordinateRegion.span = span;
     self.mapView.region = coordinateRegion;
-    */
+    
+ 
+   // [self.view insertSubview:mapView atIndex:0];
+    [UIView commitAnimations];
+    
     
     [timelineView removeFromSuperview];
-    
-    [self.view insertSubview:mapView atIndex:0];
-    [UIView commitAnimations];
+    [detailView removeFromSuperview];
+    [zoomView removeFromSuperview];
+    [self.view addSubview:mapView];
 
 }
 
@@ -392,7 +406,7 @@
 
 
 
-#pragma mark MapViewDelegate
+#pragma mark - MapViewDelegate
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
     
 
@@ -542,6 +556,7 @@
 }
 
 -(IBAction) didRequestMapView:(id)sender{
+    NSLog(@"didRequestMapView");
     [self transitionFromTimelineToMap];
 }
 
