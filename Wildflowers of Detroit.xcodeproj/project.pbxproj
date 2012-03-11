@@ -34,6 +34,9 @@
 		A629268114CE2A1E00266C22 /* fruitDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267914CE2A1D00266C22 /* fruitDefault.png */; };
 		A629268214CE2A1E00266C22 /* compositeDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267A14CE2A1D00266C22 /* compositeDown.png */; };
 		A629268314CE2A1E00266C22 /* compositeDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267B14CE2A1E00266C22 /* compositeDefault.png */; };
+		A6583054150C35E300AC1E55 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583052150C35E300AC1E55 /* Loading.png */; };
+		A6583055150C35E300AC1E55 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583053150C35E300AC1E55 /* Loadingx2.png */; };
+		A6583057150C37B300AC1E55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		A674B14314D0E6BE0087B912 /* galleryButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A674B14214D0E6BE0087B912 /* galleryButton.png */; };
 		A674B14714D0E6C90087B912 /* timelineSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = A674B14514D0E6C90087B912 /* timelineSelected.png */; };
 		A674B14814D0E6C90087B912 /* timelineBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A674B14614D0E6C90087B912 /* timelineBack.png */; };
@@ -1174,6 +1177,9 @@
 		A629267914CE2A1D00266C22 /* fruitDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fruitDefault.png; path = graphics/fruitDefault.png; sourceTree = SOURCE_ROOT; };
 		A629267A14CE2A1D00266C22 /* compositeDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compositeDown.png; path = graphics/compositeDown.png; sourceTree = SOURCE_ROOT; };
 		A629267B14CE2A1E00266C22 /* compositeDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compositeDefault.png; path = graphics/compositeDefault.png; sourceTree = SOURCE_ROOT; };
+		A6583052150C35E300AC1E55 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
+		A6583053150C35E300AC1E55 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loadingx2.png; sourceTree = "<group>"; };
+		A6583056150C37B300AC1E55 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A674B14214D0E6BE0087B912 /* galleryButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = galleryButton.png; path = graphics/galleryButton.png; sourceTree = SOURCE_ROOT; };
 		A674B14514D0E6C90087B912 /* timelineSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timelineSelected.png; path = graphics/timelineSelected.png; sourceTree = SOURCE_ROOT; };
 		A674B14614D0E6C90087B912 /* timelineBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timelineBack.png; path = graphics/timelineBack.png; sourceTree = SOURCE_ROOT; };
@@ -2233,13 +2239,13 @@
 		F4CE8B33150C10AB009AE0FC /* Wildflowers */ = {
 			isa = PBXGroup;
 			children = (
+				A6583056150C37B300AC1E55 /* Default.png */,
+				A6583052150C35E300AC1E55 /* Loading.png */,
+				A6583053150C35E300AC1E55 /* Loadingx2.png */,
 				A6D3ACB714BBDDF8005BB81D /* icon.png */,
 				A6B74EFC150A1B7A00D1B133 /* ipad~icon.png */,
 				A6B74EFD150A1B7A00D1B133 /* ipad~iconx2.png */,
 				A6B74EFB150A1B7A00D1B133 /* Iconx2.png */,
-				F4CE8B34150C10AB009AE0FC /* Default.png */,
-				F4CE8B35150C10AB009AE0FC /* Defaultx2.png */,
-
 			);
 			path = Wildflowers;
 			sourceTree = "<group>";
@@ -3208,6 +3214,9 @@
 				A6B74F1E150A20F300D1B133 /* MenuReturnButton.png in Resources */,
 				F422E2F6150C3359009317E5 /* Default.png in Resources */,
 				F422E2F7150C3359009317E5 /* Defaultx2.png in Resources */,
+				A6583054150C35E300AC1E55 /* Loading.png in Resources */,
+				A6583055150C35E300AC1E55 /* Loadingx2.png in Resources */,
+				A6583057150C37B300AC1E55 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
