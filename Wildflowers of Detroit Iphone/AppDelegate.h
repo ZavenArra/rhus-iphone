@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SwoopTabViewController.h"
+#import "LoadingViewController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -18,6 +19,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SwoopTabViewController * swoopTabViewController;
+@property (strong, nonatomic) LoadingViewController * loadingViewController;
 
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;

@@ -17,33 +17,36 @@
 
 @synthesize window = _window;
 @synthesize swoopTabViewController;
+@synthesize loadingViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self initializeDataModel];
-    
-   // [[UIDevice currentDevice] setOrientation:UIInterfaceOrientationLandscapeRight];
-}
-
-- (void) initializeDataModel {
-    [MapDataModel instance];
-}
-
-- (void) initializeAppDelegateAndLaunch {
-    
- //   [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
-
-    [self initializeInBackground];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-  
+    
+    self.loadingViewController = [[LoadingViewController alloc] init];
+    [loadingViewController.loadingImageView setImage: [UIImage imageNamed:@"Loading"]];
+    //[self.window addSubview:loadingViewController.loadingView];
+
+    [loadingViewController.view addSubview:loadingViewController.rotateView];
+    [self.window addSubview:loadingViewController.view];
+    [self.window makeKeyAndVisible];
+    
+      // [self.window addSubview:loadingViewController.rotateView];
+    [self initializeAppDelegateAndLaunch];
+    
+    return TRUE;    
+}
+
+- (void) initializeAppDelegateAndLaunch {
+    
+    
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
     
-        
+    
     MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     galleryViewController.userDataOnly = YES;
@@ -57,14 +60,27 @@
     
     MapViewController * mapViewController = [[MapViewController alloc]init];
     mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
-
+    
     self.swoopTabViewController.bottomViewController = mapViewController;
     
+  
+   /* 
+    [self.loadingViewController.view insertSubview:loadingViewController.rotateView belowSubview:loadingViewController.loadingView ];
+    [self.window insertSubview:swoopTabViewController.view belowSubview:loadingViewController.rotateView];
     
-    [self.window addSubview:swoopTabViewController.view];
-    
+    // [self.window insertSubview:loadingViewController.rotateView belowSubview:loadingViewController.loadingView]//;
+*/
     [self.window makeKeyAndVisible];
+
     
+//    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+//    return;
+    
+    [self initializeInBackground];
+    
+
+  
+        
 }
 
 //Start couchBase in the background.  Calls to the datamodel will be asynchronous, allowing the database to
@@ -82,6 +98,13 @@
     
     [RHLocation instance];
 
+    
+    
+
+  //  [self.loadingViewController.loadingView removeFromSuperview];
+    [self.window makeKeyAndVisible];
+
+    
   //  [pool release];
 
 }

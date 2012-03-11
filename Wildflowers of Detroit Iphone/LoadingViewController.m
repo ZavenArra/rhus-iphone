@@ -10,6 +10,8 @@
 
 @implementation LoadingViewController
 
+@synthesize rotateView, rotateImageView, loadingView, loadingImageView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,8 +55,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if(interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+       // [self.view removeFromSuperview];
+    }
+    
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight );
 }
 
 @end

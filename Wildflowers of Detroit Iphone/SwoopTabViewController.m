@@ -72,15 +72,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if(currentTab == kMiddle){
-        if (interfaceOrientation == UIInterfaceOrientationPortrait
-            || interfaceOrientation == UIInterfaceOrientationLandscapeRight){
-            return true;
-        }
-        return false;
-    } else {
-        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-    }
+ 
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    
 }
 
 #pragma mark - IBActions
