@@ -648,7 +648,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="113063239">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="1056206988">
@@ -656,6 +656,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 1}, {369, 214}}</string>
 						<reference key="NSSuperview" ref="113063239"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="17923956"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -669,6 +670,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 84}, {322, 64}}</string>
 						<reference key="NSSuperview" ref="113063239"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
@@ -677,6 +679,7 @@
 						<float key="IBUIAlpha">0.5</float>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
 						<object class="NSColor" key="IBUITextColor" id="678279090">
 							<int key="NSColorSpace">1</int>
@@ -701,6 +704,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{345, 1}, {24, 21}}</string>
 						<reference key="NSSuperview" ref="113063239"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="826069659"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -718,6 +722,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 20}, {317, 21}}</string>
 						<reference key="NSSuperview" ref="113063239"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="463362942"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -746,6 +751,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 49}, {317, 21}}</string>
 						<reference key="NSSuperview" ref="113063239"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="780789319"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -762,6 +768,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{369, 215}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="1056206988"/>
 				<reference key="IBUIBackgroundColor" ref="143657789"/>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
