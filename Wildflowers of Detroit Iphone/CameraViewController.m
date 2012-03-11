@@ -108,8 +108,7 @@
             self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
 	}
-    self.imagePicker.view.transform =  
-    CGAffineTransform flipVertical = CGAffineTransformInvert(
+    self.imagePicker.view.transform =  CGAffineTransformInvert(
                                                          
     CGAffineTransformScale (
                             CGAffineTransformTranslate(
