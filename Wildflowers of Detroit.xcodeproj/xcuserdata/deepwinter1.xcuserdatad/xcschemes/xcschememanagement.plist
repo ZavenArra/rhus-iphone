@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Development.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>GHUnit Tests old.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>GHUnit Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Squirrels copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Squirrels.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Wildflowers of Detroit Iphone.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F40DC65714C106FA0096466A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4AA3F5414DA5BFE00ED3CCE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4C0623014BE6C0F0008FBB5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4CE8861150C0D8B009AE0FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4CE89C8150C0E24009AE0FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4D3928E14BBA6660051E831</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4D392A914BBA6660051E831</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4EB1E44150C154E0041A957</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4EB1FAB150C24B90041A957</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
