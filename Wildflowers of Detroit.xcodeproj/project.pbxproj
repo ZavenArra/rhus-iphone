@@ -92,9 +92,9 @@
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
-		F48E254F150881E400A021AE /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
 		F49D333B150C3E8900BC1D7D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E29D62150C3A9000B797F3 /* Defaultx2.png */; };
+		F49D3346150C8E5100BC1D7D /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
 		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
 		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
@@ -769,7 +769,6 @@
 		F4CE8B10150C0E24009AE0FC /* thumbnail_IMG_0596.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05FF514BE5CC90008FBB5 /* thumbnail_IMG_0596.jpg */; };
 		F4CE8B11150C0E24009AE0FC /* thumbnail_IMG_0597.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05FF614BE5CC90008FBB5 /* thumbnail_IMG_0597.jpg */; };
 		F4CE8B12150C0E24009AE0FC /* thumbnail_IMG_0599.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05FF714BE5CC90008FBB5 /* thumbnail_IMG_0599.jpg */; };
-		F4CE8B13150C0E24009AE0FC /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
 		F4CE8B14150C0E24009AE0FC /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
 		F4CE8B15150C0E24009AE0FC /* cancelButtton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EF8150A1B7A00D1B133 /* cancelButtton.png */; };
 		F4CE8B17150C0E24009AE0FC /* galleryButton.psd in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFA150A1B7A00D1B133 /* galleryButton.psd */; };
@@ -1116,7 +1115,6 @@
 		F4EB20F2150C24B90041A957 /* thumbnail_IMG_0596.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05FF514BE5CC90008FBB5 /* thumbnail_IMG_0596.jpg */; };
 		F4EB20F3150C24B90041A957 /* thumbnail_IMG_0597.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05FF614BE5CC90008FBB5 /* thumbnail_IMG_0597.jpg */; };
 		F4EB20F4150C24B90041A957 /* thumbnail_IMG_0599.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05FF714BE5CC90008FBB5 /* thumbnail_IMG_0599.jpg */; };
-		F4EB20F5150C24B90041A957 /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
 		F4EB20F6150C24B90041A957 /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
 		F4EB20F7150C24B90041A957 /* cancelButtton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EF8150A1B7A00D1B133 /* cancelButtton.png */; };
 		F4EB20F8150C24B90041A957 /* galleryButton.psd in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFA150A1B7A00D1B133 /* galleryButton.psd */; };
@@ -2846,7 +2844,6 @@
 				F4CE8B10150C0E24009AE0FC /* thumbnail_IMG_0596.jpg in Resources */,
 				F4CE8B11150C0E24009AE0FC /* thumbnail_IMG_0597.jpg in Resources */,
 				F4CE8B12150C0E24009AE0FC /* thumbnail_IMG_0599.jpg in Resources */,
-				F4CE8B13150C0E24009AE0FC /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 				F4CE8B14150C0E24009AE0FC /* orangeOverlay.png in Resources */,
 				F4CE8B15150C0E24009AE0FC /* cancelButtton.png in Resources */,
 				F4CE8B17150C0E24009AE0FC /* galleryButton.psd in Resources */,
@@ -3175,7 +3172,6 @@
 				F4AA41F614DA5D2900ED3CCE /* thumbnail_IMG_0596.jpg in Resources */,
 				F4AA41F714DA5D2900ED3CCE /* thumbnail_IMG_0597.jpg in Resources */,
 				F4AA41F814DA5D2900ED3CCE /* thumbnail_IMG_0599.jpg in Resources */,
-				F48E254F150881E400A021AE /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 				F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */,
 				A6B74F03150A1B7A00D1B133 /* cancelButtton.png in Resources */,
 				A6B74F05150A1B7A00D1B133 /* galleryButton.psd in Resources */,
@@ -3199,6 +3195,7 @@
 				A6583055150C35E300AC1E55 /* Loadingx2.png in Resources */,
 				F49D333B150C3E8900BC1D7D /* Default.png in Resources */,
 				F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */,
+				F49D3346150C8E5100BC1D7D /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3502,7 +3499,6 @@
 				F4EB20F2150C24B90041A957 /* thumbnail_IMG_0596.jpg in Resources */,
 				F4EB20F3150C24B90041A957 /* thumbnail_IMG_0597.jpg in Resources */,
 				F4EB20F4150C24B90041A957 /* thumbnail_IMG_0599.jpg in Resources */,
-				F4EB20F5150C24B90041A957 /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 				F4EB20F6150C24B90041A957 /* orangeOverlay.png in Resources */,
 				F4EB20F7150C24B90041A957 /* cancelButtton.png in Resources */,
 				F4EB20F8150C24B90041A957 /* galleryButton.psd in Resources */,

@@ -44,9 +44,10 @@
 
 //Declare Private Methods
 @interface MapViewController()
-- (void)setMapViewToInset;
-- (void)placeInGalleryMode;
+- (void) setMapViewToInset;
+- (void) placeInGalleryMode;
 - (void) centerMapAtLatitude: (float) latitude andLongitude:(float) longitude;
+- (void) transitionToFullScreen;
 
 @end
 
@@ -58,6 +59,7 @@
 @synthesize timelineVisualizationView;
 @synthesize activeDocuments;
 @synthesize galleryScrollView, detailScrollView, detailView;
+@synthesize overlayView;
 @synthesize zoomView, infoView;
 @synthesize visualization;
 @synthesize comment, location, reporter;
@@ -66,6 +68,7 @@
 @synthesize launchInGalleryMode;
 @synthesize firstView;
 @synthesize detailDate;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -124,10 +127,18 @@
     }
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    if(launchInGalleryMode ) {
+        [self transitionToFullScreen];
+    }
+
+}
+
 - (void) placeInGalleryMode{
     [self.view insertSubview:self.timelineView belowSubview: self.mapView];
-    [self setMapViewToInset];
-    [self placeMapInsetButton];
+    [mapView removeFromSuperview];
+    //[self placeMapInsetButton];
 
 }
 
@@ -534,6 +545,14 @@
     [self.infoView removeFromSuperview];
 }
 
+- (void)transitionToFullScreen {
+    
+    [UIView beginAnimations:nil context:nil];
+    [fullscreenTransitionDelegate subviewRequestingFullscreen];
+    [self.overlayView removeFromSuperview];
+    [UIView commitAnimations];
+
+}
 
 #pragma mark - IBActions
 - (IBAction)didTapGalleryButton:(id)sender {
@@ -610,9 +629,13 @@
 - (IBAction)didRequestMenu:(id)sender{
     [UIView beginAnimations:nil context:nil];
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
+    [self.view addSubview:self.overlayView];
     [UIView commitAnimations];
 }
 
+- (IBAction)didTapOverlay:(id)sender{
+    [self transitionToFullScreen];
+}
 
 #pragma mark - TimelineVisualizationView
 
