@@ -8,12 +8,15 @@
 
 #import "RHSettings.h"
 
-
+#define fullLatitudeDelta 50
+#define fullLongitudeDelta 50
+#define kMapCenterOnLoadLatitude 42.3
+#define kMapCenterOnLoadLongitude -83.1
 
 @implementation RHSettings
 
 + (BOOL) useRemoteServer {
-    return true;
+    return false;
 //    return false;
 }
 
@@ -28,11 +31,29 @@
 }
 
 + (NSString *) databaseName {
-    return @"rhus_development_remote";
+    return @"rhusdevelopment";
 }
 
 + (BOOL) useCamera {
-    return true;
+    return false;
+}
+
+
+//Map
++ (float) mapCenterLatitudeOnLoad{
+    return kMapCenterOnLoadLatitude;
+}
+
++ (float) mapCenterLongitudeOnLoad{
+    return kMapCenterOnLoadLongitude;
+}
+
++ (float) mapDeltaLatitudeOnLoad{
+    return fullLatitudeDelta;
+}
+
++ (float) mapDeltaLongitudeOnLoad{
+    return fullLongitudeDelta;
 }
 
 

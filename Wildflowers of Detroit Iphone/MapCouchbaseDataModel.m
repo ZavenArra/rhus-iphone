@@ -183,12 +183,13 @@
     
     for(int i=0; i<[r count]; i++){
         NSDictionary * d = [r objectAtIndex:i];
-        UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
+      //  UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
         
         //getDocumentThumbnailData
+        UIImage * thumb = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
         [d setValue:thumb forKey:@"thumb"];
-        UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        //getDocumentImageData
+       // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
+        UIImage * mediumImage = [UIImage imageWithData: [self getDocumentThumbnailData:[d objectForKey:@"_id"]] ];
         [d setValue:mediumImage forKey:@"medium"];
     }
     return r;
