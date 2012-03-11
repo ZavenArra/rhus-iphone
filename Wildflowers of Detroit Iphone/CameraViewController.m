@@ -269,8 +269,20 @@
     // Pop the current context from the stack
     UIGraphicsEndImageContext();
     
-    NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(currentImage, 0.0);
     NSData * thumbImageDataJpeg = UIImageJPEGRepresentation(thumbImage, .8);
+
+    
+    
+    //Medium size
+    CGSize mediumSize;
+    mediumSize.width = 480;
+    mediumSize.height = 320;
+    
+    UIGraphicsBeginImageContext(thumbSize);
+    [currentImage drawInRect:CGRectMake(0, 0, 480, 320)];
+    UIImage* medium = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(mediumImage, 0.0);
 
                                                 
     /*

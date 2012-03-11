@@ -156,8 +156,10 @@
 
 
 - (NSArray *) runQuery: (CouchQuery *) query {
-    
+    RESTOperation * op = [query start];
+
     CouchQueryEnumerator * enumerator = [query rows];
+    NSLog(op.dump);
     if(!enumerator){
         return [NSArray array];
     }
@@ -201,13 +203,13 @@
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
     design.language = kCouchLanguageJavaScript;
-    [design defineViewNamed: @"galleryDocuments"
-                        map: @"function(doc) { emit([doc.deviceuser_identifier,  Date.parse(doc.created_at).getTime()],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+    [design defineViewNamed: @"deviceUserGalleryDocuments"
+                        map: @"function(doc) { emit([doc.deviceuser_identifier,  Date.parse(doc.created_at)],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
         
-    CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
+    CouchQuery * query = [design queryViewNamed: @"deviceUserGalleryDocuments"]; //asLiveQuery];
     query.descending = NO;
-    query.startKey = [NSArray arrayWithObjects:userIdentifier, 0, nil];
-    query.endKey = [NSArray arrayWithObjects:userIdentifier, @"{}", nil];
+    query.startKey = [NSArray arrayWithObjects:userIdentifier, [NSNumber numberWithInt: 0], nil];
+    query.endKey = [NSArray arrayWithObjects:userIdentifier, [NSNumber numberWithInt: 0], nil];
     //how to specify multi value key???  array key, with match all entries
     query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
