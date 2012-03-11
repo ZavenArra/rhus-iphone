@@ -35,6 +35,7 @@
 {
     
     NSLog(@"Not Drawing Visualization");
+    return;
     
     // Drawing code
     CGContextRef context    = UIGraphicsGetCurrentContext();

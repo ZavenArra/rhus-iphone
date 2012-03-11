@@ -19,6 +19,7 @@
 @synthesize controlsBackgroundImage, controlsView  ;
 @synthesize topBackground, middleBackground, bottomBackground;
 @synthesize topViewController, middleViewController, bottomViewController;
+@synthesize tabsHidden;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -149,11 +150,17 @@
 
 #pragma mark - Fullscreen Transition Delegate functions
 -(void) subviewRequestingFullscreen {
-    [self createHideTabsAnimation];
+    if(!tabsHidden){
+        [self createHideTabsAnimation];
+        tabsHidden = TRUE;
+    }
 }
 
 -(void) subviewReleasingFullscreen {
-    [self createShowTabsAnimation];
+    if(tabsHidden){
+        [self createShowTabsAnimation];
+        tabsHidden = FALSE;
+    }
 }
 
 @end

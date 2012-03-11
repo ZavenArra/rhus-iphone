@@ -31,6 +31,7 @@
 
     BOOL userDataOnly;
     BOOL launchInGalleryMode;
+    BOOL firstView;
 }
 
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
@@ -47,6 +48,8 @@
 @property(nonatomic) NSInteger currentGalleryPage;
 @property(nonatomic) BOOL userDataOnly;
 @property(nonatomic) BOOL launchInGalleryMode;
+@property(nonatomic) BOOL firstView;
+
 
 
 

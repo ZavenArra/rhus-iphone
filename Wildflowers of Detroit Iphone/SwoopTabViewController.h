@@ -25,6 +25,7 @@
     UIViewController * middleViewController;
     UIViewController * bottomViewController;
     
+    BOOL tabsHidden;
     
 }
 
@@ -44,6 +45,8 @@
 @property (strong, nonatomic) UIImage * topBackground;
 @property (strong, nonatomic) UIImage * middleBackground;
 @property (strong, nonatomic) UIImage * bottomBackground;
+
+@property (nonatomic) BOOL tabsHidden;
 
 
 #pragma mark - IBActions

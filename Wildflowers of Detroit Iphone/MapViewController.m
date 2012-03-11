@@ -45,6 +45,7 @@
 //Declare Private Methods
 @interface MapViewController()
 - (void)setMapViewToInset;
+- (void)placeInGalleryMode;
 @end
 
 @implementation MapViewController
@@ -61,6 +62,7 @@
 @synthesize currentDetailIndex, currentGalleryPage;
 @synthesize userDataOnly;
 @synthesize launchInGalleryMode;
+@synthesize firstView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -85,6 +87,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    firstView = true;
     
     //Set up some tags
     self.detailScrollView.tag = kDetailScrollViewTag;
@@ -113,32 +117,25 @@
     self.timelineVisualizationView.delegate = self;
     
     if(launchInGalleryMode){
-        [self.view insertSubview:self.timelineView belowSubview: self.mapView];
-        [self setMapViewToInset];
-        [self placeMapInsetButton];
+        [self placeInGalleryMode];
     }
+}
+
+- (void) placeInGalleryMode{
+    [self.view insertSubview:self.timelineView belowSubview: self.mapView];
+    [self setMapViewToInset];
+    [self placeMapInsetButton];
+
 }
 
 
 - (void) setupGalleryScrollView{
     
-    activeDocuments = [[NSMutableArray alloc] init];
-    
-    //Get first 50 user documents and lay out their thumbnails
-    NSArray * userDocuments = [MapDataModel
-                               getGalleryDocumentsWithStartKey: nil andLimit: nil];
-    float count = [userDocuments count];
-    int scrollViewPages = ceil( count / 21.0);
-    CGRect frame = self.galleryScrollView.frame;
-    
-    [self.galleryScrollView setContentSize:CGSizeMake(kGalleryPageWidth * scrollViewPages , frame.size.height)];
-    
-    
-    for(int i=0; i<[userDocuments count]; i++){
-        NSDictionary * document = [userDocuments objectAtIndex:i];
+    for(RhusDocument * document in activeDocuments){
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        [activeDocuments addObject:document];
+                
+        int index = [activeDocuments indexOfObject:document];
+        int i = index;
         
         CGRect frame;
         frame.size.width = kThumbnailWidth;
@@ -148,19 +145,24 @@
         frame.origin.y = ((i%21 / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical);
         thumbnailButton.frame = frame;
         
-        
-        [thumbnailButton setImage: [document valueForKey:@"thumb"]
-                         forState:UIControlStateNormal];
-        
+        UIImage * thumbnailImage = [document valueForKey:@"thumb"];
+        if(thumbnailImage != nil){
+            [thumbnailButton setImage: thumbnailImage
+                             forState:UIControlStateNormal];
+        }
+            
         [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
         
-        thumbnailButton.tag =  [activeDocuments indexOfObject:document];
+        thumbnailButton.tag =  index;
         
         thumbnailButton.contentMode = UIViewContentModeCenter;
         thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
         
         [self.galleryScrollView addSubview:thumbnailButton];
     }
+    return;
+    
+
 }
 
 - (void) populateTestingData{
@@ -237,7 +239,13 @@
     
     //TODO: Obviously both of these shouldn't be called
     [self setupGalleryScrollView];
-
+    
+    if(launchInGalleryMode && firstView) {
+        [UIView beginAnimations:nil context:NULL];
+        [fullscreenTransitionDelegate subviewRequestingFullscreen];
+        [UIView commitAnimations];
+        firstView = FALSE;
+    }
 }
 
 - (void)viewDidUnload
