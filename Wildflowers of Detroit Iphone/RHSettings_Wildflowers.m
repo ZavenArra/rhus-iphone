@@ -10,6 +10,10 @@
 
 #define kSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/iphonetest2"
 
+#define fullLatitudeDelta .1
+#define fullLongitudeDelta .1
+#define kMapCenterOnLoadLatitude 42.3
+#define kMapCenterOnLoadLongitude -83.1
 
 @implementation RHSettings
 
@@ -34,5 +38,23 @@
 + (BOOL) useCamera {
     return true;
 }
+
+//Map
++ (float) mapCenterLatitudeOnLoad{
+    return kMapCenterOnLoadLatitude;
+}
+
++ (float) mapCenterLongitudeOnLoad{
+    return kMapCenterOnLoadLongitude;
+}
+
++ (float) mapDeltaLatitudeOnLoad{
+    return fullLatitudeDelta;
+}
+
++ (float) mapDeltaLongitudeOnLoad{
+    return fullLongitudeDelta;
+}
+
 
 @end

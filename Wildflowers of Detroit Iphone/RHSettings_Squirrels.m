@@ -11,6 +11,11 @@
 #define kSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/squirrels_of_the_earth"
 
 
+#define fullLatitudeDelta 50
+#define fullLongitudeDelta 50
+#define kMapCenterOnLoadLatitude 42.3
+#define kMapCenterOnLoadLongitude -83.1
+
 @implementation RHSettings
 
 + (NSString *) couchRemoteSyncURL {
@@ -33,5 +38,24 @@
 + (BOOL) useCamera {
     return true;
 }
+
+//Map
++ (float) mapCenterLatitudeOnLoad{
+    return kMapCenterOnLoadLatitude;
+}
+
++ (float) mapCenterLongitudeOnLoad{
+    return kMapCenterOnLoadLongitude;
+}
+
++ (float) mapDeltaLatitudeOnLoad{
+    return fullLatitudeDelta;
+}
+
++ (float) mapDeltaLongitudeOnLoad{
+    return fullLongitudeDelta;
+}
+
+
 
 @end

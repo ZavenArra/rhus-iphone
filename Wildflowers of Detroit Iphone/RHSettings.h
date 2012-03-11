@@ -10,6 +10,13 @@
 
 @interface RHSettings : NSObject
 
+//Map Settings
++ (float) mapCenterLatitudeOnLoad;
++ (float) mapCenterLongitudeOnLoad;
++ (float) mapDeltaLatitudeOnLoad;
++ (float) mapDeltaLongitudeOnLoad;
+
+
 //Sync Server
 + (NSString *) couchRemoteSyncURL;
 
