@@ -99,13 +99,14 @@
     self.imagePicker.delegate = self;
     self.imagePicker.allowsEditing = NO;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-#if !TARGET_IPHONE_SIMULATOR
-		self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
-        self.imagePicker.showsCameraControls = NO;
-        
-#else
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-#endif
+        if([RHSettings useCamera]) {
+            
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
+            self.imagePicker.showsCameraControls = NO;
+            
+        }else {       
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
 	}
     self.imagePicker.view.transform =  
     CGAffineTransformScale (
