@@ -319,11 +319,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "419"
-         endingLineNumber = "419"
+         startingLineNumber = "437"
+         endingLineNumber = "437"
          landmarkName = "@implementation CameraViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -625,11 +625,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "366"
-         endingLineNumber = "366"
+         startingLineNumber = "384"
+         endingLineNumber = "384"
          landmarkName = "-didTouchPetalRadio:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -639,11 +639,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "304"
-         endingLineNumber = "304"
+         startingLineNumber = "316"
+         endingLineNumber = "316"
          landmarkName = "-didTouchSendButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -653,11 +653,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "388"
-         endingLineNumber = "388"
+         startingLineNumber = "406"
+         endingLineNumber = "406"
          landmarkName = "-didTouchAttributeCheckbox:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -667,11 +667,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "379"
-         endingLineNumber = "379"
+         startingLineNumber = "397"
+         endingLineNumber = "397"
          landmarkName = "-didTouchPetalRadio:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -681,11 +681,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "380"
-         endingLineNumber = "380"
+         startingLineNumber = "398"
+         endingLineNumber = "398"
          landmarkName = "-didTouchPetalRadio:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -779,11 +779,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Wildflowers of Detroit Iphone/CameraViewController.m"
-         timestampString = "353124947.464572"
+         timestampString = "353133628.327265"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "309"
-         endingLineNumber = "309"
+         startingLineNumber = "321"
+         endingLineNumber = "321"
          landmarkName = "-didTouchSendButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1343,6 +1343,20 @@
          startingLineNumber = "200"
          endingLineNumber = "200"
          landmarkName = "+getUserGalleryDocumentsWithStartKey:andLimit:andUserIdentifer:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Wildflowers of Detroit Iphone/SwoopTabViewController.m"
+         timestampString = "353134317.337896"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
+         landmarkName = "-subviewRequestingFullscreen"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

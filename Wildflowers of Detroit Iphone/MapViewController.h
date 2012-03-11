@@ -71,7 +71,7 @@
 @property(strong, nonatomic) IBOutlet   UILabel * reporter;
 
 //Map Functions
--(void) didTapMapInsetButton:(id)sender;
+-(void) didRequestMapView:(id)sender;
 -(void) placeMapInsetButton;
 -(void) centerMapOnAnnotation:(CLLocationCoordinate2D) coordinate;
 -(void) addAnnotations;
@@ -95,6 +95,8 @@
 - (IBAction)didTouchInfoCloseButton:(id)sender;
 - (IBAction)didTouchLeftScrollButton:(id)sender;
 - (IBAction)didTouchRightScrollButton:(id)sender;
+- (IBAction) didRequestMapView:(id)sender;
+
 
 
 @end
