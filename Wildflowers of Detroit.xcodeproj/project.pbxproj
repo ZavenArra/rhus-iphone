@@ -34,6 +34,8 @@
 		A629268114CE2A1E00266C22 /* fruitDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267914CE2A1D00266C22 /* fruitDefault.png */; };
 		A629268214CE2A1E00266C22 /* compositeDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267A14CE2A1D00266C22 /* compositeDown.png */; };
 		A629268314CE2A1E00266C22 /* compositeDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267B14CE2A1E00266C22 /* compositeDefault.png */; };
+		A6428BB0150C3FE700CC0D03 /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6428BAB150C3FA400CC0D03 /* SquirrelsOfTheEarth-Info.plist */; };
+		A6428BB1150C3FF100CC0D03 /* RhusDevelopment-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */; };
 		A6583054150C35E300AC1E55 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583052150C35E300AC1E55 /* Loading.png */; };
 		A6583055150C35E300AC1E55 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583053150C35E300AC1E55 /* Loadingx2.png */; };
 		A674B14314D0E6BE0087B912 /* galleryButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A674B14214D0E6BE0087B912 /* galleryButton.png */; };
@@ -784,7 +786,6 @@
 		F4CE8B25150C0E24009AE0FC /* MapIconTx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F18150A20F300D1B133 /* MapIconTx2.png */; };
 		F4CE8B26150C0E24009AE0FC /* MapIconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F19150A20F300D1B133 /* MapIconx2.png */; };
 		F4CE8B27150C0E24009AE0FC /* MenuReturnButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F1A150A20F300D1B133 /* MenuReturnButton.png */; };
-		F4CE8B2E150C0EDF009AE0FC /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4AA410114DA5C0000ED3CCE /* SquirrelsOfTheEarth-Info.plist */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -1132,7 +1133,6 @@
 		F4EB2106150C24B90041A957 /* MapIconTx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F18150A20F300D1B133 /* MapIconTx2.png */; };
 		F4EB2107150C24B90041A957 /* MapIconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F19150A20F300D1B133 /* MapIconx2.png */; };
 		F4EB2108150C24B90041A957 /* MenuReturnButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F1A150A20F300D1B133 /* MenuReturnButton.png */; };
-		F4EB2109150C24B90041A957 /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4AA410114DA5C0000ED3CCE /* SquirrelsOfTheEarth-Info.plist */; };
 		F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */; };
 		F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
@@ -1167,6 +1167,8 @@
 		A629267914CE2A1D00266C22 /* fruitDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fruitDefault.png; path = graphics/fruitDefault.png; sourceTree = SOURCE_ROOT; };
 		A629267A14CE2A1D00266C22 /* compositeDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compositeDown.png; path = graphics/compositeDown.png; sourceTree = SOURCE_ROOT; };
 		A629267B14CE2A1E00266C22 /* compositeDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compositeDefault.png; path = graphics/compositeDefault.png; sourceTree = SOURCE_ROOT; };
+		A6428BAB150C3FA400CC0D03 /* SquirrelsOfTheEarth-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SquirrelsOfTheEarth-Info.plist"; sourceTree = "<group>"; };
+		A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RhusDevelopment-Info.plist"; sourceTree = "<group>"; };
 		A6583052150C35E300AC1E55 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		A6583053150C35E300AC1E55 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loadingx2.png; sourceTree = "<group>"; };
 		A6583056150C37B300AC1E55 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -1240,7 +1242,6 @@
 		F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		F4AA40FF14DA5BFE00ED3CCE /* Wildflowers of Detroit Iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4AA410114DA5C0000ED3CCE /* SquirrelsOfTheEarth-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SquirrelsOfTheEarth-Info.plist"; path = "/Users/deepwinter1/WildflowersOfDetroit/Wildflowers of Detroit Iphone/SquirrelsOfTheEarth-Info.plist"; sourceTree = "<absolute>"; };
 		F4C05DDB14BCE1EF0008FBB5 /* MapDataModelSpoof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModelSpoof.h; sourceTree = "<group>"; };
 		F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModelSpoof.m; sourceTree = "<group>"; };
 		F4C05EEF14BD08590008FBB5 /* FullscreenTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenTransitionDelegate.h; sourceTree = "<group>"; };
@@ -1627,7 +1628,6 @@
 		F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwoopTabViewController.m; sourceTree = "<group>"; };
 		F4E29D62150C3A9000B797F3 /* Defaultx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Defaultx2.png; sourceTree = "<group>"; };
 		F4EB210D150C24B90041A957 /* RhusDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhusDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4EB210F150C24B90041A957 /* RhusDevelopment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RhusDevelopment-Info.plist"; path = "/Users/deepwinter1/WildflowersOfDetroit/Wildflowers of Detroit Iphone/RhusDevelopment-Info.plist"; sourceTree = "<absolute>"; };
 		F4EDE02614D0EB7800242082 /* TimelineVisualizationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVisualizationView.h; sourceTree = "<group>"; };
 		F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVisualizationView.m; sourceTree = "<group>"; };
 		F4F02F7814CF97EE0041492E /* SSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMapAnnotation.h; sourceTree = "<group>"; };
@@ -2254,8 +2254,8 @@
 				F4D3929214BBA6660051E831 /* Frameworks */,
 				F4D3929014BBA6660051E831 /* Products */,
 				F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */,
-				F4AA410114DA5C0000ED3CCE /* SquirrelsOfTheEarth-Info.plist */,
-				F4EB210F150C24B90041A957 /* RhusDevelopment-Info.plist */,
+				A6428BAB150C3FA400CC0D03 /* SquirrelsOfTheEarth-Info.plist */,
+				A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2863,7 +2863,6 @@
 				F4CE8B25150C0E24009AE0FC /* MapIconTx2.png in Resources */,
 				F4CE8B26150C0E24009AE0FC /* MapIconx2.png in Resources */,
 				F4CE8B27150C0E24009AE0FC /* MenuReturnButton.png in Resources */,
-				F4CE8B2E150C0EDF009AE0FC /* SquirrelsOfTheEarth-Info.plist in Resources */,
 				F422E2E2150C331A009317E5 /* Default.png in Resources */,
 				F422E2E3150C331A009317E5 /* Defaultx2.png in Resources */,
 				F422E2E4150C331A009317E5 /* icon.png in Resources */,
@@ -2871,6 +2870,7 @@
 				F422E2E6150C331A009317E5 /* Loading.png in Resources */,
 				F422E2E7150C331A009317E5 /* Loadingx2.png in Resources */,
 				F422E2E8150C331A009317E5 /* StoreIcon.png in Resources */,
+				A6428BB0150C3FE700CC0D03 /* SquirrelsOfTheEarth-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3519,13 +3519,13 @@
 				F4EB2106150C24B90041A957 /* MapIconTx2.png in Resources */,
 				F4EB2107150C24B90041A957 /* MapIconx2.png in Resources */,
 				F4EB2108150C24B90041A957 /* MenuReturnButton.png in Resources */,
-				F4EB2109150C24B90041A957 /* SquirrelsOfTheEarth-Info.plist in Resources */,
 				F422E2E9150C331F009317E5 /* Default.png in Resources */,
 				F422E2EA150C331F009317E5 /* Defaultx2.png in Resources */,
 				F422E2EB150C331F009317E5 /* Icon.png in Resources */,
 				F422E2EC150C331F009317E5 /* Iconx2.png in Resources */,
 				F422E2ED150C331F009317E5 /* Loading.png in Resources */,
 				F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */,
+				A6428BB1150C3FF100CC0D03 /* RhusDevelopment-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
