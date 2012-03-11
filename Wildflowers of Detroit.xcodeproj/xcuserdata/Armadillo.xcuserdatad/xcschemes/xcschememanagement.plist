@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>RhusDevelopment.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Squirrels.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -53,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>F4EB1E44150C154E0041A957</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4EB1FAB150C24B90041A957</key>
 		<dict>
 			<key>primary</key>
 			<true/>
