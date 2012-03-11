@@ -108,7 +108,8 @@
             self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
 	}
-    self.imagePicker.view.transform =  
+    self.imagePicker.view.transform =  CGAffineTransformInvert(
+                                                         
     CGAffineTransformScale (
                             CGAffineTransformTranslate(
                                                        CGAffineTransformMakeRotation(M_PI/2),
@@ -119,6 +120,7 @@
                             
                             //1.2,1.2) // this is closer to correct
                             1.25, 1.25)
+    )
     ;
     
     [self.view addSubview:self.imagePicker.view];
