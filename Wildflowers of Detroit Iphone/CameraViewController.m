@@ -73,15 +73,17 @@
     self.selectedAttributes = [NSMutableArray array];
     self.imagePicker = [[UIImagePickerController alloc] init];
 
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-
+    
     [RHLocation instance];
-
+    
     if([RHSettings useCamera]) {
         [self showImagePickerView];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    //TODO: This isn't being called on the IPad
+
     
 }
 
