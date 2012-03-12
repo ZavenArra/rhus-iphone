@@ -113,13 +113,13 @@
     CGAffineTransformScale (
                             CGAffineTransformTranslate(
                                                        CGAffineTransformMakeRotation(-M_PI/2),
-                                                       -90, -15),
+                                                       70, 110),
                             // -25, 255),                           
                             // -50, 175), //half
                             // -100,350), //without scale
                             
                             //1.2,1.2) // this is closer to correct
-                            1.25, 1.25)
+                            1.2, 1.2)
     ;
     
     [self.view addSubview:self.imagePicker.view];
