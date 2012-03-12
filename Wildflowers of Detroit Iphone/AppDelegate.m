@@ -17,23 +17,18 @@
 
 @synthesize window = _window;
 @synthesize swoopTabViewController;
+@synthesize loadingViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self initializeDataModel];
+    [self initializeAppDelegateAndLaunch];
     
-   // [[UIDevice currentDevice] setOrientation:UIInterfaceOrientationLandscapeRight];
+    return true;
 }
 
-- (void) initializeDataModel {
-    [MapDataModel instance];
-}
 
 - (void) initializeAppDelegateAndLaunch {
-    
- //   [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
 
-    [self initializeInBackground];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -61,9 +56,20 @@
     self.swoopTabViewController.bottomViewController = mapViewController;
     
     
-    [self.window addSubview:swoopTabViewController.view];
+   [self.window addSubview:swoopTabViewController.view];
+    self.loadingViewController = [[LoadingViewController alloc] init];
+    [swoopTabViewController.view addSubview:loadingViewController.view];
+    loadingViewController.loadingImageView.image = [UIImage imageNamed:@"Loading"];
+
+    
     
     [self.window makeKeyAndVisible];
+    
+    [RHLocation instance];
+
+    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+    
+    //[self initializeInBackground];
     
 }
 
@@ -73,18 +79,43 @@
     
    // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-    
-    [[MapDataModel instance] updateSyncURL];
-    
-    //    [[MapDataModel instance] test];
-    
-    [MapDataModel instance];
-    
-    [RHLocation instance];
+    @autoreleasepool {
+        NSLog(@"%@", @"Starting app resources in background");
+        
+        [MapDataModel instance];
+        
+        
+        NSLog(@"%@", @"Done");
 
+    }
+    
   //  [pool release];
 
 }
+
+- (void) receivedRotate {
+    if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
+        [loadingViewController.view removeFromSuperview];
+        loadingViewController = nil;
+        [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+        
+    }
+}
+
+- (void) doneStartingUp {
+    if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
+        [loadingViewController.view removeFromSuperview];
+        loadingViewController = nil;
+    } else {
+        [[MapDataModel instance] updateSyncURL];
+        
+        [loadingViewController.loadingView removeFromSuperview];
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
+    }
+}
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

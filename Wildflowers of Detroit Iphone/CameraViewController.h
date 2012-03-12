@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "FullscreenTransitionDelegate.h"
 
+
+#define kLandscapePhoto 1
+#define kPortraitPhoto 2
+
 @interface CameraViewController : UIViewController
 <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
@@ -18,7 +22,7 @@
     UIView * pictureInfo;
     UITextField * reporter;
     UITextField * comment;
-    
+    NSInteger activeImageOrientation;
 }
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
 @property(strong, nonatomic)  UIImagePickerController * imagePicker;
@@ -28,6 +32,8 @@
 @property(strong, nonatomic)  IBOutlet   UITextField * comment;
 @property(strong, nonatomic)  IBOutlet   UIImageView * imageView;
 @property(strong, nonatomic)  UIImage * currentImage;
+@property(strong, nonatomic)  IBOutlet   UIView * shutterView;
+@property(nonatomic) NSInteger activeImageOrientation;
 
 //Generalized / Superclass
 @property(strong, nonatomic)  NSDictionary * attributeTranslation;

@@ -19,9 +19,8 @@
 @synthesize query;
 
 
+//- (id) initWithBlock:( void ( ^ )() ) didStartBlock {
 - (id) init {
-
-    
     // Start the Couchbase Mobile server:
     // gCouchLogLevel = 1;
     [CouchbaseMobile class];  // prevents dead-stripping
@@ -67,10 +66,15 @@
         }
         
         database.tracksChanges = YES;
+                
+      //  NSLog(@"%@", @"Calling did start block");
+       // didStartBlock();
         
-        [(AppDelegate *) [[UIApplication sharedApplication] delegate] initializeAppDelegateAndLaunch];
+        //TODO: Reorganize to use a block
+        [(AppDelegate *) [[UIApplication sharedApplication] delegate] doneStartingUp];
         
     }];
+    NSLog(@"%@", @"Started...");
     NSAssert(started, @"didnt start");
     
     return self;
@@ -159,10 +163,13 @@
     RESTOperation * op = [query start];
 
     CouchQueryEnumerator * enumerator = [query rows];
-    NSLog(op.dump);
+    
+    NSLog(@"op = %@", op.dump);
     if(!enumerator){
         return [NSArray array];
     }
+    NSLog(@"count = %i", [enumerator count]);
+  
     CouchQueryRow * row;
     NSMutableArray * data = [NSMutableArray array];
     while( (row =[enumerator nextRow]) ){
@@ -251,7 +258,7 @@
     NSAssert(design, @"Couldn't find design document");
     design.language = kCouchLanguageJavaScript;
     [design defineViewNamed: @"galleryDocuments"
-                        map: @"function(doc) { emit([doc._id, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+                        map: @"function(doc) { emit([doc._id, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
 
   //  NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
  

@@ -14,6 +14,7 @@
 #import "RhusMapAnnotation.h"
 #import "RhusDocument.h"
 #import "RHSettings.h"
+#import "DeviceUser.h"
 
 //Map Settings
 #define mapInsetOriginX 10
@@ -429,8 +430,13 @@
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:rhusMapAnnotation reuseIdentifier:rhusMapAnnotationIdentifier];
     }
 
-    annotationView.image = [UIImage imageNamed:@"mapPoint"];
-    
+    if([[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"]
+       == [DeviceUser uniqueIdentifier]){
+        annotationView.image = [UIImage imageNamed:@"mapDeviceUserPoint"];
+    } else {
+        annotationView.image = [UIImage imageNamed:@"mapPoint"];
+    }
+        
     CGRect frame;
     frame.size.width = 32;
     frame.size.height = 32;
@@ -443,8 +449,7 @@
     
     annotationView.leftCalloutAccessoryView = calloutButton;
     annotationView.canShowCallout = YES;
-   // annotationView.tag = rhusMapAnnotation.tag;
-
+   
     return annotationView; 
 }
 
