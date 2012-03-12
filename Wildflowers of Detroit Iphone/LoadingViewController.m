@@ -55,6 +55,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    
     if(interfaceOrientation == UIInterfaceOrientationLandscapeRight){
        // [self.view removeFromSuperview];
     }

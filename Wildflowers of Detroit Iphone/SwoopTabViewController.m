@@ -58,7 +58,7 @@
     self.middleBackground = [UIImage imageNamed:@"swoopBarMiddle"];
     self.bottomBackground = [UIImage imageNamed:@"swoopBarBottom"];
     
-    [self didTouchMiddleButton:self];
+  //  [self didTouchMiddleButton:self];
 
 }
 
