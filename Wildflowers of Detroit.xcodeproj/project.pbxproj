@@ -991,7 +991,6 @@
 				A6A620D114BBB7FC0096CA01 /* SwoopTabViewController.xib */,
 				F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */,
 				F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */,
-				A6428BE3150CAF4800CC0D03 /* LoadingViewController.xib */,
 				F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */,
 				F4A84C9114BBD41A00EF9627 /* MapViewController.h */,
 				F4A84C9214BBD41A00EF9627 /* MapViewController.m */,
@@ -1005,6 +1004,7 @@
 				F4CE885A150C0B80009AE0FC /* RHSettings_Wildflowers.m */,
 				F4CE885D150C0BD1009AE0FC /* RHSettings_Squirrels.m */,
 				F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */,
+				A6428BE3150CAF4800CC0D03 /* LoadingViewController.xib */,
 				F49D3453150CAF6000BC1D7D /* LoadingViewController.h */,
 				F49D3454150CAF6100BC1D7D /* LoadingViewController.m */,
 			);

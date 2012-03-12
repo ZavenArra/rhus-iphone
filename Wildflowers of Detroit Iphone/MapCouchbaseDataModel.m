@@ -19,9 +19,8 @@
 @synthesize query;
 
 
+//- (id) initWithBlock:( void ( ^ )() ) didStartBlock {
 - (id) init {
-
-    
     // Start the Couchbase Mobile server:
     // gCouchLogLevel = 1;
     [CouchbaseMobile class];  // prevents dead-stripping
@@ -67,10 +66,15 @@
         }
         
         database.tracksChanges = YES;
+                
+      //  NSLog(@"%@", @"Calling did start block");
+       // didStartBlock();
         
-        [(AppDelegate *) [[UIApplication sharedApplication] delegate] initializeAppDelegateAndLaunch];
+        //TODO: Reorganize to use a block
+        [(AppDelegate *) [[UIApplication sharedApplication] delegate] doneStartingUp];
         
     }];
+    NSLog(@"%@", @"Started...");
     NSAssert(started, @"didnt start");
     
     return self;
