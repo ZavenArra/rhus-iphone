@@ -79,7 +79,6 @@
 								<string key="NSFrameSize">{480, 320}</string>
 								<reference key="NSSuperview" ref="276464238"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
@@ -278,7 +277,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">LockScreen.png</string>
-			<string key="NS.object.0">{320, 480}</string>
+			<string key="NS.object.0">{480, 320}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
