@@ -423,7 +423,7 @@
     currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:currentImage];
     if(self.activeImageOrientation == kPortraitPhoto){
-        imageView.transform = CGAffineTransformMakeRotation(-M_PI/2);
+    //    imageView.transform = CGAffineTransformMakeRotation(-M_PI/2);
     }
     [self.view insertSubview:imageView belowSubview:shutterView];
     [self showPictureDialog];
