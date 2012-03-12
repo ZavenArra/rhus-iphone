@@ -34,8 +34,6 @@
 		A629268114CE2A1E00266C22 /* fruitDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267914CE2A1D00266C22 /* fruitDefault.png */; };
 		A629268214CE2A1E00266C22 /* compositeDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267A14CE2A1D00266C22 /* compositeDown.png */; };
 		A629268314CE2A1E00266C22 /* compositeDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A629267B14CE2A1E00266C22 /* compositeDefault.png */; };
-		A6428BB0150C3FE700CC0D03 /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6428BAB150C3FA400CC0D03 /* SquirrelsOfTheEarth-Info.plist */; };
-		A6428BB1150C3FF100CC0D03 /* RhusDevelopment-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */; };
 		A6428BE4150CAF4800CC0D03 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6428BE3150CAF4800CC0D03 /* LoadingViewController.xib */; };
 		A6428BE5150CAF4800CC0D03 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6428BE3150CAF4800CC0D03 /* LoadingViewController.xib */; };
 		A6428BE6150CAF4800CC0D03 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6428BE3150CAF4800CC0D03 /* LoadingViewController.xib */; };
@@ -97,7 +95,6 @@
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F49D333B150C3E8900BC1D7D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E29D62150C3A9000B797F3 /* Defaultx2.png */; };
-		F49D3346150C8E5100BC1D7D /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */; };
 		F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
 		F49D3456150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
 		F49D3457150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
@@ -1273,7 +1270,6 @@
 				F422E2E6150C331A009317E5 /* Loading.png in Resources */,
 				F422E2E7150C331A009317E5 /* Loadingx2.png in Resources */,
 				F422E2E8150C331A009317E5 /* StoreIcon.png in Resources */,
-				A6428BB0150C3FE700CC0D03 /* SquirrelsOfTheEarth-Info.plist in Resources */,
 				A6428BE5150CAF4800CC0D03 /* LoadingViewController.xib in Resources */,
 				F4F2857D150DB751009A24C9 /* shutter.png in Resources */,
 			);
@@ -1365,7 +1361,6 @@
 				A6583055150C35E300AC1E55 /* Loadingx2.png in Resources */,
 				F49D333B150C3E8900BC1D7D /* Default.png in Resources */,
 				F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */,
-				F49D3346150C8E5100BC1D7D /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 				A6428BE4150CAF4800CC0D03 /* LoadingViewController.xib in Resources */,
 				F4F2857B150DADBC009A24C9 /* shutter.png in Resources */,
 			);
@@ -1456,7 +1451,6 @@
 				F422E2EC150C331F009317E5 /* Iconx2.png in Resources */,
 				F422E2ED150C331F009317E5 /* Loading.png in Resources */,
 				F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */,
-				A6428BB1150C3FF100CC0D03 /* RhusDevelopment-Info.plist in Resources */,
 				A6428BE6150CAF4800CC0D03 /* LoadingViewController.xib in Resources */,
 				F4F2857E150DB751009A24C9 /* shutter.png in Resources */,
 			);
@@ -1778,7 +1772,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "SquirrelsOfTheEarth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = SquirrelsOfTheEarth;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1804,7 +1798,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "SquirrelsOfTheEarth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = SquirrelsOfTheEarth;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
