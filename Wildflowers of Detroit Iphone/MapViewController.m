@@ -243,7 +243,7 @@
         if(coordinate.latitude == 0 && coordinate.longitude==0){
             continue;
         }
-        NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
+        //NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
         RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) [RhusMapAnnotation 
                                                  mapAnnotationWithCoordinate: coordinate
                                                  title:  [document getDateString]
