@@ -76,7 +76,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
+    [super viewDidAppear:animated];
+    
     [RHLocation instance];
 
     if([RHSettings useCamera]) {

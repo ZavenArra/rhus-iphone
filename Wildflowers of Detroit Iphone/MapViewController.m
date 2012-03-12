@@ -140,8 +140,7 @@
     }
 }
 
-
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     if(launchInGalleryMode || !mapShowing ) {
         [self transitionToFullScreen];
     }
@@ -259,7 +258,9 @@
     
    }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     [self addAnnotations];
     
     //TODO: Obviously both of these shouldn't be called

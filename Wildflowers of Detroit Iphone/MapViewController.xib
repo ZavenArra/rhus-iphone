@@ -476,7 +476,7 @@
 						<reference key="IBUIFontDescription" ref="961295082"/>
 						<reference key="IBUIFont" ref="948734034"/>
 					</object>
-					<object class="IBUILabel" id="692469735">
+					<object class="IBUILabel" id="862288118">
 						<reference key="NSNextResponder" ref="490449960"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 14}, {68, 22}}</string>
@@ -1022,7 +1022,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">myDataHeadingGallery</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="692469735"/>
+						<reference key="destination" ref="862288118"/>
 					</object>
 					<int key="connectionID">105</int>
 				</object>
@@ -1142,7 +1142,7 @@
 							<reference ref="940329440"/>
 							<reference ref="642578738"/>
 							<reference ref="846218631"/>
-							<reference ref="692469735"/>
+							<reference ref="862288118"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Timeline View</string>
@@ -1408,7 +1408,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">104</int>
-						<reference key="object" ref="692469735"/>
+						<reference key="object" ref="862288118"/>
 						<reference key="parent" ref="490449960"/>
 					</object>
 				</array>

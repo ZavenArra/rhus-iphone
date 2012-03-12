@@ -576,7 +576,7 @@
 		F4CE885D150C0BD1009AE0FC /* RHSettings_Squirrels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Squirrels.m; sourceTree = "<group>"; };
 		F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Development.m; sourceTree = "<group>"; };
 		F4CE8B2B150C0E24009AE0FC /* SquirrelsOfTheEarth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquirrelsOfTheEarth.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D3928F14BBA6660051E831 /* Wild Detroit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild Detroit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4D3929514BBA6660051E831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4D3929714BBA6660051E831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -903,7 +903,7 @@
 		F4D3929014BBA6660051E831 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */,
+				F4D3928F14BBA6660051E831 /* Wild Detroit.app */,
 				F4C0623114BE6C0F0008FBB5 /* GHUnit Tests.app */,
 				F4AA40FF14DA5BFE00ED3CCE /* Wildflowers of Detroit Iphone copy.app */,
 				F4CE8B2B150C0E24009AE0FC /* SquirrelsOfTheEarth.app */,
@@ -1074,7 +1074,7 @@
 			);
 			name = "Wildflowers of Detroit Iphone";
 			productName = "Wildflowers of Detroit Iphone";
-			productReference = F4D3928F14BBA6660051E831 /* Wildflowers of Detroit Iphone.app */;
+			productReference = F4D3928F14BBA6660051E831 /* Wild Detroit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F4EB1FAB150C24B90041A957 /* RhusDevelopment */ = {
@@ -1893,8 +1893,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				PRODUCT_NAME = "Wild Detroit";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -1919,8 +1919,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				PRODUCT_NAME = "Wild Detroit";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
