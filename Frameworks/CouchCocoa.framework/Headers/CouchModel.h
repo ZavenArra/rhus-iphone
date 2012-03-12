@@ -12,9 +12,10 @@
 
 /** Generic model class for Couch documents.
     There's a 1::1 mapping between these and CouchDocuments; call +modelForDocument: to get (or create) a model object for a document, and .document to get the document of a model.
-    You should subclass this and declare properties in the subclass's @interface. As with NSManagedObject, you don't need to implement their accessor methods or declare instance variables; simply note them as '@dynamic' in the @implementation. The property value will automatically be fetched from or stored to the document, using the same name.
+    You should subclass this and declare properties in the subclass's @@interface. As with NSManagedObject, you don't need to implement their accessor methods or declare instance variables; simply note them as '@@dynamic' in the class @@implementation. The property value will automatically be fetched from or stored to the document, using the same name.
     Supported scalar types are bool, char, short, int, double. These map to JSON numbers, except 'bool' which maps to JSON 'true' and 'false'. (Use bool instead of BOOL.)
-    Supported object types are NSString, NSNumber, NSData, NSDate, NSArray, NSDictionary. (NSData and NSDate are not native JSON; they will be automatically converted to/from strings in base64 and ISO date formats, respectively.) */
+    Supported object types are NSString, NSNumber, NSData, NSDate, NSArray, NSDictionary. (NSData and NSDate are not native JSON; they will be automatically converted to/from strings in base64 and ISO date formats, respectively.)
+    Additionally, a property's type can be a pointer to a CouchModel subclass. This provides references between model objects. The raw property value in the document must be a string whose value is interpreted as a document ID. */
 @interface CouchModel : CouchDynamicObject
 {
     @private
@@ -30,7 +31,9 @@
 }
 
 /** Returns the CouchModel associated with a CouchDocument, or creates & assigns one if necessary.
-    Don't call this on CouchModel itself, rather on the subclass you want to instantiate for that document, e.g. [MyWidgetModel modelForDocument: doc]. It always returns an instance of the class it's called on. */
+    If the CouchDocument already has an associated model, it's returned. Otherwise a new one is instantiated.
+    If you call this on CouchModel itself, it'll delegate to the CouchModelFactory to decide what class to instantiate; this lets you map different classes to different "type" property values, for instance.
+    If you call this method on a CouchModel subclass, it will always instantiate an instance of that class; e.g. [MyWidgetModel modelForDocument: doc] always creates a MyWidgetModel. */
 + (id) modelForDocument: (CouchDocument*)document;
 
 /** Creates a new "untitled" model with a new unsaved document.
@@ -77,16 +80,24 @@
     This value can be used to highlight recently-changed objects in the UI. */
 @property (readonly) NSTimeInterval timeSinceExternallyChanged;
 
+/** Bulk-saves changes to multiple model objects (which must all be in the same database).
+    This invokes -[CouchDatabase putChanges:], which sends a single request to _bulk_docs.
+    Any unchanged models in the array are ignored.
+    @param models  An array of CouchModel objects, which must all be in the same database.
+    @return  A RESTOperation that saves all changes, or nil if none of the models need saving. */
++ (RESTOperation*) saveModels: (NSArray*)models;
+
+/** Resets the timeSinceExternallyChanged property to zero. */
 - (void) markExternallyChanged;
 
 #pragma mark - PROPERTIES & ATTACHMENTS:
 
 /** Gets a property by name.
-    You can use this for document properties that you haven't added @property declarations for. */
+    You can use this for document properties that you haven't added @@property declarations for. */
 - (id) getValueOfProperty: (NSString*)property;
 
 /** Sets a property by name.
-    You can use this for document properties that you haven't added @property declarations for. */
+    You can use this for document properties that you haven't added @@property declarations for. */
 - (BOOL) setValue: (id)value ofProperty: (NSString*)property;
 
 
@@ -125,5 +136,9 @@
 /** Called when the model's properties are reloaded from the document.
     This happens both when initialized from a document, and after an external change. */
 - (void) didLoadFromDocument;
+
+/** Returns the database in which to look up the document ID of a model-valued property.
+    Defaults to the same database as the receiver's document. You should override this if a document property contains the ID of a document in a different database. */
+- (CouchDatabase*) databaseForModelProperty: (NSString*)propertyName;
 
 @end

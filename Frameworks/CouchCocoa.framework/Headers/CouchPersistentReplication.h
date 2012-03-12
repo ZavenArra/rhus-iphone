@@ -52,11 +52,14 @@ typedef enum {
     Should be a JSON-compatible dictionary. */
 @property (copy) NSDictionary* query_params;
 
+/** Sets the documents to specify as part of the replication. */
+@property (copy) NSArray *doc_ids;
+
 /** Sets the "user_ctx" property of the replication, which identifies what privileges it will run with when accessing the local server. To replicate design documents, this should be set to a value with "_admin" in the list of roles.
     The server will not let you specify privileges you don't have, so the request to create the replication must be made with credentials that match what you're setting here, unless the server is in no-authentication "admin party" mode.
     See <https://gist.github.com/832610>, section 8, for details.
     If both 'user' and 'roles' are nil, the user_ctx will be cleared.
-    @param user  A server username, or nil
+    @param username  A server username, or nil
     @param roles  An array of CouchDB role name strings, or nil */
 - (void) actAsUser: (NSString*)username withRoles: (NSArray*)roles;
 

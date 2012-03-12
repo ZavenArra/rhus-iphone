@@ -117,8 +117,8 @@
     
 
     //spoof an overlay geometry
-    WOverlay * overlay = [[WOverlay alloc] init];
-    [self.mapView addOverlay:overlay];
+    //WOverlay * overlay = [[WOverlay alloc] init];
+    //self.mapView addOverlay:overlay];
 
 
  
