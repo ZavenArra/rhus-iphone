@@ -66,6 +66,7 @@
 @property(strong, nonatomic) IBOutlet   UIImageView * zoomView;
 
 @property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
+@property(strong, nonatomic) IBOutlet   UILabel * galleryHeading2;
 
 //detailView
 @property(strong, nonatomic) IBOutlet   UILabel * detailDate;

@@ -24,6 +24,9 @@
 
 #define insetLatitudeDelta .03
 #define insetLongitudeDelta .03
+#define kLargeLatitudeDelta 1
+#define kLargeLongitudeDelta 1
+
 
 
 
@@ -71,6 +74,7 @@
 @synthesize detailDate;
 @synthesize mapShowing;
 @synthesize heading2;
+@synthesize galleryHeading2;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -104,18 +108,19 @@
     self.galleryScrollView.tag = kGalleryScrollViewTag;
     
     
-    
-    MKCoordinateRegion coordinateRegion;
-    CLLocationCoordinate2D center;
-    center.latitude = [RHSettings mapCenterLatitudeOnLoad]; 
-    center.longitude = [RHSettings mapCenterLongitudeOnLoad]; 
-    coordinateRegion.center = center;
-    MKCoordinateSpan span;
-    span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; 
-    span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; 
-    coordinateRegion.span = span;
-    self.mapView.region = coordinateRegion;
-    
+    if(!launchInGalleryMode) {
+        MKCoordinateRegion coordinateRegion;
+        CLLocationCoordinate2D center;
+        center.latitude = [RHSettings mapCenterLatitudeOnLoad]; 
+        center.longitude = [RHSettings mapCenterLongitudeOnLoad]; 
+        coordinateRegion.center = center;
+        MKCoordinateSpan span;
+        span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; 
+        span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; 
+        coordinateRegion.span = span;
+        self.mapView.region = coordinateRegion;
+    }
+        
 
     //spoof an overlay geometry
     WOverlay * overlay = [[WOverlay alloc] init];
@@ -226,13 +231,15 @@
     } else {
         documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
     }
+    
+    self.galleryHeading2.text = [NSString stringWithFormat:@"%i Images", [documents count]];
         
     for( RhusDocument * document in documents){
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
         coordinate.longitude = [ (NSString*) [document objectForKey:@"longitude"] floatValue];
      
-        RhusMapAnnotation * rhusMapAnnotation = [RhusMapAnnotation 
+        RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) [RhusMapAnnotation 
                                                  mapAnnotationWithCoordinate: coordinate
                                                  title:  [document getDateString]
                                                  subtitle:  [document getReporter]
@@ -297,14 +304,16 @@
     
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
     
-    MKCoordinateRegion coordinateRegion = self.mapView.region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = insetLatitudeDelta;
-    span.longitudeDelta = insetLongitudeDelta;
-    coordinateRegion.span = span;
-    self.mapView.region = coordinateRegion;
+    if(!launchInGalleryMode){
+        MKCoordinateRegion coordinateRegion = self.mapView.region;
+        MKCoordinateSpan span;
+        span.latitudeDelta = insetLatitudeDelta;
+        span.longitudeDelta = insetLongitudeDelta;
+        coordinateRegion.span = span;
+        self.mapView.region = coordinateRegion;
     
-    [self setMapViewToInset];
+        [self setMapViewToInset];
+    }
     
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(placeMapInsetButton)];
@@ -373,8 +382,8 @@
     
     MKCoordinateRegion coordinateRegion = self.mapView.region;
     MKCoordinateSpan span;
-    span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; ;
-    span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; ;
+    span.latitudeDelta = kLargeLatitudeDelta;
+    span.longitudeDelta = kLargeLongitudeDelta;
     coordinateRegion.span = span;
     self.mapView.region = coordinateRegion;
     
@@ -459,6 +468,7 @@
     
     annotationView.leftCalloutAccessoryView = calloutButton;
     annotationView.canShowCallout = YES;
+    annotationView.tag = rhusMapAnnotation.tag;
    
     return annotationView; 
 }
@@ -471,7 +481,8 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
-    [self transitionFromMapToTimelineWithIndex:view.tag andTimeline:nil ];
+    NSInteger tag = view.tag;
+    [self transitionFromMapToTimelineWithIndex:tag andTimeline:nil ];
     [mapView deselectAnnotation:view.annotation animated:YES];
 }
 
@@ -598,14 +609,12 @@
     int tag = senderButton.tag;
     self.currentDetailIndex = tag;
     
-    //place detail scroll view
+    //place zoom view
     CGRect frame;
     frame.origin.x = senderOrigin.x;
     frame.origin.y = senderOrigin.y ;    
-    //     + (kThumbnailHeight - kThumbnailWidth * 320 / 480) / 2; // this term is the vert offset of the actual image
     frame.size.width = kThumbnailWidth;
-    frame.size.height = frame.size.width; // 320 * kThumbnailWidth / 480;
-    
+    frame.size.height = frame.size.width; // 320 * kThumbnailWidth / 480;    
     self.zoomView.frame = frame;
     
     [self.timelineView insertSubview:self.zoomView belowSubview:self.timelineControlsView];    
@@ -617,7 +626,7 @@
 
     
     //animate the zoom in, making the detail scroll view fill the screen
-    [UIView beginAnimations:nil context:NULL];
+    [UIView beginAnimations:@"Anim" context:NULL];
 	[UIView setAnimationDuration: 0.50];
         
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
@@ -715,6 +724,7 @@
         //async load next gallery page of data!
         currentGalleryPage = page;
         
+        RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
         [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
         if(!launchInGalleryMode){
            // self.heading2.text = [document objectForKey:
