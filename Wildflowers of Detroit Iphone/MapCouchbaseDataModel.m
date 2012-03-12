@@ -163,10 +163,13 @@
     RESTOperation * op = [query start];
 
     CouchQueryEnumerator * enumerator = [query rows];
-    NSLog(op.dump);
+    
+    NSLog(@"op = %@", op.dump);
     if(!enumerator){
         return [NSArray array];
     }
+    NSLog(@"count = %i", [enumerator count]);
+  
     CouchQueryRow * row;
     NSMutableArray * data = [NSMutableArray array];
     while( (row =[enumerator nextRow]) ){

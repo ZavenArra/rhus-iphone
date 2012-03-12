@@ -8,7 +8,7 @@
 
 #import "RHSettings.h"
 
-#define kSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/iphonetest2"
+#define kSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/wildflowers_of_detroit"
 
 #define fullLatitudeDelta .1
 #define fullLongitudeDelta .1
@@ -22,7 +22,7 @@
 }
 
 + (NSString *) databaseName {
-    return @"iphonetest2";
+    return @"wildflowers_of_detroit";
 }
 
 

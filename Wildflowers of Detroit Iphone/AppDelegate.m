@@ -82,10 +82,6 @@
     @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
-        [[MapDataModel instance] updateSyncURL];
-        
-        //    [[MapDataModel instance] test];
-        
         [MapDataModel instance];
         
         [RHLocation instance];
@@ -112,6 +108,8 @@
         [loadingViewController.view removeFromSuperview];
         loadingViewController = nil;
     } else {
+        [[MapDataModel instance] updateSyncURL];
+        
         [loadingViewController.loadingView removeFromSuperview];
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
