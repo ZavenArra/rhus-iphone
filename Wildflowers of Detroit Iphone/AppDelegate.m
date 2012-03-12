@@ -65,8 +65,8 @@
     
     [self.window makeKeyAndVisible];
     
-    
-    
+    [RHLocation instance];
+
     [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
     
     //[self initializeInBackground];
@@ -84,7 +84,6 @@
         
         [MapDataModel instance];
         
-        [RHLocation instance];
         
         NSLog(@"%@", @"Done");
 
