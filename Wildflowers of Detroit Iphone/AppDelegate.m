@@ -17,26 +17,33 @@
 
 @synthesize window = _window;
 @synthesize swoopTabViewController;
-@synthesize loadingViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    [self initializeDataModel];
     
-    [self initializeAppDelegateAndLaunch];
-    
-    return TRUE;    
+   // [[UIDevice currentDevice] setOrientation:UIInterfaceOrientationLandscapeRight];
+}
+
+- (void) initializeDataModel {
+    [MapDataModel instance];
 }
 
 - (void) initializeAppDelegateAndLaunch {
     
+ //   [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+
+    [self initializeInBackground];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+  
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
     
-    
+        
     MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     galleryViewController.userDataOnly = YES;
@@ -50,25 +57,22 @@
     
     MapViewController * mapViewController = [[MapViewController alloc]init];
     mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
-    
+
     self.swoopTabViewController.bottomViewController = mapViewController;
     
-    [self.window addSubview:self.swoopTabViewController.view];
+    
+    [self.window addSubview:swoopTabViewController.view];
+    
     [self.window makeKeyAndVisible];
-
     
-    
-    [self initializeInBackground];
-    
-
-  
-        
 }
 
 //Start couchBase in the background.  Calls to the datamodel will be asynchronous, allowing the database to
 //start serving whenever it's ready.
 - (void) initializeInBackground{
     
+   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
     
     [[MapDataModel instance] updateSyncURL];
     
@@ -78,8 +82,7 @@
     
     [RHLocation instance];
 
-    
-
+  //  [pool release];
 
 }
 

@@ -11,12 +11,12 @@
 			<string key="NS.object.0">933</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
+			<string>IBUITextField</string>
+			<string>IBUIView</string>
+			<string>IBProxyObject</string>
+			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUIButton</string>
-			<string>IBUIImageView</string>
-			<string>IBUIView</string>
-			<string>IBUITextField</string>
-			<string>IBProxyObject</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -44,12 +44,13 @@
 						<string key="NSFrameSize">{480, 320}</string>
 						<reference key="NSSuperview" ref="435328174"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">info.png</string>
+							<string key="NSResourceName">IMG_0992.jpg</string>
 						</object>
 					</object>
 				</array>
@@ -205,6 +206,7 @@
 						<string key="NSFrame">{{170, 341}, {140, 25}}</string>
 						<reference key="NSSuperview" ref="572333430"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -864,6 +866,7 @@
 						<string key="NSFrame">{{305, 278}, {162, 29}}</string>
 						<reference key="NSSuperview" ref="290474952"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -1379,6 +1382,7 @@
 						<string key="NSFrame">{{24, 58}, {87, 36}}</string>
 						<reference key="NSSuperview" ref="930518967"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -1428,6 +1432,7 @@
 						<string key="NSFrame">{{62, 24}, {36, 87}}</string>
 						<reference key="NSSuperview" ref="410107054"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -2418,6 +2423,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="IMG_0992.jpg">{1600, 1200}</string>
 			<string key="cameraPop.png">{135, 105}</string>
 			<string key="cancelButtton.png">{162, 30}</string>
 			<string key="compositeDefault.png">{38, 33}</string>
@@ -2428,7 +2434,6 @@
 			<string key="fourDown.png">{30, 33}</string>
 			<string key="fruitDefault.png">{30, 33}</string>
 			<string key="fruitDown.png">{30, 33}</string>
-			<string key="info.png">{22, 22}</string>
 			<string key="irregularDefault.png">{30, 33}</string>
 			<string key="irregularDown.png">{30, 33}</string>
 			<string key="manyDefault.png">{30, 33}</string>

@@ -58,7 +58,7 @@
     self.middleBackground = [UIImage imageNamed:@"swoopBarMiddle"];
     self.bottomBackground = [UIImage imageNamed:@"swoopBarBottom"];
     
-  //  [self didTouchMiddleButton:self];
+    [self didTouchMiddleButton:self];
 
 }
 
@@ -72,9 +72,15 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
- 
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-    
+    if(currentTab == kMiddle){
+        if (interfaceOrientation == UIInterfaceOrientationPortrait
+            || interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+            return true;
+        }
+        return false;
+    } else {
+        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    }
 }
 
 #pragma mark - IBActions
