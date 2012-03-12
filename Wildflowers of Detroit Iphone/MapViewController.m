@@ -178,6 +178,10 @@
         
         [self.galleryScrollView addSubview:thumbnailButton];
     }
+    CGSize gallerySize;
+    gallerySize.height = 177;
+    gallerySize.width = kGalleryPageWidth * ([activeDocuments count] / 21 + 1);
+    galleryScrollView.contentSize = gallerySize;
     return;
     
 
