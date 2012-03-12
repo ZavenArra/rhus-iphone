@@ -79,10 +79,15 @@
     [super viewDidAppear:animated];
     
     [RHLocation instance];
-
+    
     if([RHSettings useCamera]) {
         [self showImagePickerView];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    //TODO: This isn't being called on the IPad
+
     
 }
 
