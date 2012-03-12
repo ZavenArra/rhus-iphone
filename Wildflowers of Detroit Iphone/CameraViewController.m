@@ -194,7 +194,7 @@
 #pragma mark IBActions
 - (IBAction) didTouchRetakeButton:(id)sender{
     [self hidePictureDialog];
-    [self.view exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+    [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:0];
 }
 
 - (IBAction) didTouchCancelUploadButton:(id)sender{
@@ -275,11 +275,11 @@
     
     //Medium size
     CGSize mediumSize;
-    mediumSize.width = 320;
-    mediumSize.height = 480;
+    mediumSize.width = 480;
+    mediumSize.height = 320;
     
     UIGraphicsBeginImageContext(mediumSize);
-    [currentImage drawInRect:CGRectMake(0, 0, 320, 480)];
+    [currentImage drawInRect:CGRectMake(0, 0, 480, 320)];
     UIImage* mediumImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(mediumImage, .8);
