@@ -414,6 +414,7 @@
         [selectedAttributes removeObject:attribute];
         
     }
+    self.comment.text = nil;
     
 }
 

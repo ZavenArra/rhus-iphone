@@ -76,7 +76,6 @@
     didUpdateToLocation:(CLLocation *)newLocation 
            fromLocation:(CLLocation *)oldLocation {
     
-    NSLog(@"Updated Location %g %g", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
 	self.currentLocation = newLocation;
     
 }
