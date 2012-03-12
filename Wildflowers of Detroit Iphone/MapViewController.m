@@ -313,6 +313,9 @@
 
 -(void) detailToGallery {
     [self.view insertSubview:self.timelineView aboveSubview: self.detailView];
+    if(!launchInGalleryMode){
+        [self.view addSubview:mapView];
+    }
     [self.detailView removeFromSuperview];
 }
 
@@ -434,8 +437,8 @@
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:rhusMapAnnotation reuseIdentifier:rhusMapAnnotationIdentifier];
     }
 
-    if([[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"]
-       == [DeviceUser uniqueIdentifier]){
+    NSString * deviceUserIdentifier = [[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"];
+    if(deviceUserIdentifier == [DeviceUser uniqueIdentifier]){
         annotationView.image = [UIImage imageNamed:@"mapDeviceUserPoint"];
     } else {
         annotationView.image = [UIImage imageNamed:@"mapPoint"];
@@ -539,7 +542,6 @@
 
 - (void)hideDetailView{
     [self.detailView removeFromSuperview];
-    
 }
 
 - (void)showInfoViewForIndex: (NSInteger) index{

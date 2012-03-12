@@ -428,6 +428,7 @@
 		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2857D150DB751009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2857E150DB751009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
+		F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -601,6 +602,7 @@
 		F4F02F8014CFA6250041492E /* WOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOverlay.h; sourceTree = "<group>"; };
 		F4F02F8114CFA6250041492E /* WOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOverlay.m; sourceTree = "<group>"; };
 		F4F2857A150DADBC009A24C9 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shutter.png; path = graphics/shutter.png; sourceTree = SOURCE_ROOT; };
+		F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapDeviceUserPoint.png; path = graphics/mapDeviceUserPoint.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -688,6 +690,7 @@
 		A6A620D814BBBB670096CA01 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */,
 				F4F2857A150DADBC009A24C9 /* shutter.png */,
 				F43B7E7F1508F33A00584E8B /* orangeOverlay.png */,
 				A6B74F17150A20F300D1B133 /* MapIcon.psd */,
@@ -1363,6 +1366,7 @@
 				F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */,
 				A6428BE4150CAF4800CC0D03 /* LoadingViewController.xib in Resources */,
 				F4F2857B150DADBC009A24C9 /* shutter.png in Resources */,
+				F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
