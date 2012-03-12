@@ -32,6 +32,7 @@
 @synthesize reporter, comment;
 @synthesize imageView, currentImage;
 @synthesize attributeTranslation, selectedAttributes;
+@synthesize shutterView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -145,6 +146,7 @@
 - (void) secondTapTabButton{
 
     if([RHSettings useCamera]){
+        [self.view addSubview:shutterView];
         [self.imagePicker takePicture];
     } else {
         //TODO: move testing data to RHSettings
@@ -425,8 +427,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:currentImage];
-    [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:0];
+    [self.view insertSubview:imageView belowSubview:shutterView];
     [self showPictureDialog];
+    [shutterView removeFromSuperview];
     
 }
 

@@ -28,6 +28,8 @@
 @property(strong, nonatomic)  IBOutlet   UITextField * comment;
 @property(strong, nonatomic)  IBOutlet   UIImageView * imageView;
 @property(strong, nonatomic)  UIImage * currentImage;
+@property(strong, nonatomic)  IBOutlet   UIView * shutterView;
+
 
 //Generalized / Superclass
 @property(strong, nonatomic)  NSDictionary * attributeTranslation;

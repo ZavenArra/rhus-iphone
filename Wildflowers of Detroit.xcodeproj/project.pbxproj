@@ -428,6 +428,7 @@
 		F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4F02F8214CFA6250041492E /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
+		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -600,6 +601,7 @@
 		F4F02F7D14CFA3D00041492E /* WOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOverlayView.m; sourceTree = "<group>"; };
 		F4F02F8014CFA6250041492E /* WOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOverlay.h; sourceTree = "<group>"; };
 		F4F02F8114CFA6250041492E /* WOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOverlay.m; sourceTree = "<group>"; };
+		F4F2857A150DADBC009A24C9 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shutter.png; path = graphics/shutter.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,6 +689,7 @@
 		A6A620D814BBBB670096CA01 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				F4F2857A150DADBC009A24C9 /* shutter.png */,
 				F43B7E7F1508F33A00584E8B /* orangeOverlay.png */,
 				A6B74F17150A20F300D1B133 /* MapIcon.psd */,
 				A6B74F18150A20F300D1B133 /* MapIconTx2.png */,
@@ -1361,6 +1364,7 @@
 				F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */,
 				F49D3346150C8E5100BC1D7D /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 				A6428BE4150CAF4800CC0D03 /* LoadingViewController.xib in Resources */,
+				F4F2857B150DADBC009A24C9 /* shutter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
