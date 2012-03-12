@@ -70,6 +70,7 @@
 @synthesize firstView;
 @synthesize detailDate;
 @synthesize mapShowing;
+@synthesize heading2;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -128,6 +129,7 @@
         [self placeInGalleryMode];
     } else {
         mapShowing = TRUE;
+        self.heading2.hidden = TRUE;
     }
 }
 
@@ -313,6 +315,9 @@
 
 -(void) detailToGallery {
     [self.view insertSubview:self.timelineView aboveSubview: self.detailView];
+    if(!launchInGalleryMode){
+        [self.view addSubview:mapView];
+    }
     [self.detailView removeFromSuperview];
 }
 
@@ -434,8 +439,9 @@
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:rhusMapAnnotation reuseIdentifier:rhusMapAnnotationIdentifier];
     }
 
-    if([[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"]
-       == [DeviceUser uniqueIdentifier]){
+    NSString * documentDeviceUserIdentifier = [[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"];
+    NSString * deviceUserIdentifier = [DeviceUser uniqueIdentifier];
+    if([deviceUserIdentifier isEqualToString: documentDeviceUserIdentifier] ){
         annotationView.image = [UIImage imageNamed:@"mapDeviceUserPoint"];
     } else {
         annotationView.image = [UIImage imageNamed:@"mapPoint"];
@@ -539,7 +545,6 @@
 
 - (void)hideDetailView{
     [self.detailView removeFromSuperview];
-    
 }
 
 - (void)showInfoViewForIndex: (NSInteger) index{
@@ -690,6 +695,13 @@
 
 
 #pragma mark - UIScrollViewDelegate Functions
+
+- (void) updateTimestampView {
+    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+    self.detailDate.text = [document objectForKey:@"created_at"];
+
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 	CGFloat x = scrollView.contentOffset.x;
     if(scrollView.tag == kDetailScrollViewTag){
@@ -703,8 +715,10 @@
         //async load next gallery page of data!
         currentGalleryPage = page;
         
-        RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
         [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
+        if(!launchInGalleryMode){
+           // self.heading2.text = [document objectForKey:
+        }
         
 
         
@@ -716,6 +730,11 @@
     
     
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateTimestampView];   
+}
+
 
 
 @end

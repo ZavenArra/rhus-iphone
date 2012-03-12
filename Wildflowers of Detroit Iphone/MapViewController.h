@@ -69,6 +69,8 @@
 
 //detailView
 @property(strong, nonatomic) IBOutlet   UILabel * detailDate;
+@property(strong, nonatomic) IBOutlet   UILabel * heading2;
+
 
 //infoView
 @property(strong, nonatomic) IBOutlet   UIView * infoView;
