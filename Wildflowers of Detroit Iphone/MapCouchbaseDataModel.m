@@ -70,6 +70,25 @@
       //  NSLog(@"%@", @"Calling did start block");
        // didStartBlock();
         
+        //Compile views
+        CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+        NSAssert(design, @"Couldn't find design document");
+        design.language = kCouchLanguageJavaScript;
+        [design defineViewNamed: @"detailDocuments"
+                            map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+        
+        [design defineViewNamed: @"deviceUserGalleryDocuments"
+                            map: @"function(doc) { emit(doc.deviceuser_identifier,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+        
+        design.language = kCouchLanguageJavaScript;
+        [design defineViewNamed: @"galleryDocuments"
+                            map: @"function(doc) { emit([doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
+
+        design.language = kCouchLanguageJavaScript;
+        [design defineViewNamed: @"detailDocuments"
+                            map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+        [design saveChanges];
+        
         //TODO: Reorganize to use a block
         [(AppDelegate *) [[UIApplication sharedApplication] delegate] doneStartingUp];
         
@@ -104,6 +123,7 @@
     [op start];
 }
 
+/*
 - (void) initializeQuery{
     NSInteger count = [self.database getDocumentCount];
 
@@ -130,10 +150,11 @@
     // Create a query sorted by descending date, i.e. newest items first:
    // self.query = [[design queryViewNamed: @"all"] asLiveQuery];
     //CouchLiveQuery* query = [[design queryViewNamed: @"byDate"] //asLiveQuery];
-    self.query = [design queryViewNamed: @"all"]; //asLiveQuery];
+ /*   self.query = [design queryViewNamed: @"all"]; //asLiveQuery];
     query.descending = YES;
     [query start];
 }
+*/
 
 
 + (NSData *) getDocumentThumbnailData: (NSString *) key {
@@ -178,6 +199,10 @@
     return data;
     
 }
+/*
+ TODO: !!!!!!!!!  This code WILL NOT SCALE.  Saving of full vs. thumb images needs to be implemented
+ according to our plan.  This is simply to get something running..
+ */
     
 + (NSArray *) readAttachments: (NSArray *) r {
     
@@ -209,13 +234,12 @@
     CouchDatabase * database = [self.instance database];
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
-    design.language = kCouchLanguageJavaScript;
-    [design defineViewNamed: @"deviceUserGalleryDocuments"
+   // design.language = kCouchLanguageJavaScript;
+/*    [design defineViewNamed: @"deviceUserGalleryDocuments"
                         map: @"function(doc) { emit([doc.deviceuser_identifier,  Date.parse(doc.created_at)],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
-   
+  */ 
     NSLog(@"Running query without sorting");
-    [design defineViewNamed: @"deviceUserGalleryDocuments"
-                        map: @"function(doc) { emit(doc.deviceuser_identifier,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+
     
     
     CouchQuery * query = [design queryViewNamed: @"deviceUserGalleryDocuments"]; //asLiveQuery];
@@ -256,9 +280,6 @@
     CouchDatabase * database = [self.instance database];
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
-    design.language = kCouchLanguageJavaScript;
-    [design defineViewNamed: @"galleryDocuments"
-                        map: @"function(doc) { emit([doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
 
   //  NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
  
@@ -274,9 +295,7 @@
 
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
-    design.language = kCouchLanguageJavaScript;
-    [design defineViewNamed: @"detailDocuments"
-                        map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+
     [design saveChanges];
     
    // NSArray * r = [ (MapCouchbaseDataModel * ) self.instance getView:@"detailDocuments" ];

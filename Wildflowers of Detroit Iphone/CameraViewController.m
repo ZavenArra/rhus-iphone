@@ -77,6 +77,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 
+    [RHLocation instance];
+
     if([RHSettings useCamera]) {
         [self showImagePickerView];
     }

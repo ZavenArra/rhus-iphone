@@ -75,6 +75,7 @@
 @synthesize mapShowing;
 @synthesize heading2;
 @synthesize galleryHeading2;
+@synthesize myDataHeadingGallery;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -135,6 +136,7 @@
     } else {
         mapShowing = TRUE;
         self.heading2.hidden = TRUE;
+        self.myDataHeadingGallery.hidden = TRUE;
     }
 }
 
@@ -238,7 +240,10 @@
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
         coordinate.longitude = [ (NSString*) [document objectForKey:@"longitude"] floatValue];
-     
+        if(coordinate.latitude == 0 && coordinate.longitude==0){
+            continue;
+        }
+        NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
         RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) [RhusMapAnnotation 
                                                  mapAnnotationWithCoordinate: coordinate
                                                  title:  [document getDateString]
@@ -260,7 +265,7 @@
     //TODO: Obviously both of these shouldn't be called
     [self setupGalleryScrollView];
     
-    if(launchInGalleryMode && firstView) {
+    if(launchInGalleryMode) {
         [UIView beginAnimations:nil context:NULL];
         [fullscreenTransitionDelegate subviewRequestingFullscreen];
         [UIView commitAnimations];

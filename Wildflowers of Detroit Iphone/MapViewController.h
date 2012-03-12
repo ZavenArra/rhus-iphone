@@ -67,6 +67,8 @@
 
 @property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
 @property(strong, nonatomic) IBOutlet   UILabel * galleryHeading2;
+@property(strong, nonatomic) IBOutlet   UILabel * myDataHeadingGallery;
+
 
 //detailView
 @property(strong, nonatomic) IBOutlet   UILabel * detailDate;
