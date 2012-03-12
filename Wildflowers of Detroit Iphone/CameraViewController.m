@@ -33,6 +33,7 @@
 @synthesize imageView, currentImage;
 @synthesize attributeTranslation, selectedAttributes;
 @synthesize shutterView;
+@synthesize activeImageOrientation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,21 +71,7 @@
                                  nil];
     
     self.selectedAttributes = [NSMutableArray array];
-
-                           
-
-    
     self.imagePicker = [[UIImagePickerController alloc] init];
-    
- //   http://stackoverflow.com/questions/7520971/applications-are-expected-to-have-a-root-view-controller-at-the-end-of-applicati
-    
-
-    //SET cameraOverlayView on imagePicker if it is displaying on top of menu bar.
-    
-    //self.imagePicker.takePicture;
-    
-    // [self presentViewController:self.imagePicker animated:NO completion:nil];
- //   [self presentModalViewController:self.imagePicker animated:YES];
 
 }
 
@@ -147,6 +134,14 @@
 
     if([RHSettings useCamera]){
         [self.view addSubview:shutterView];
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])){
+            self.activeImageOrientation = kLandscapePhoto;
+        } else {
+            self.activeImageOrientation = kPortraitPhoto;
+        }
+        [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+        
         [self.imagePicker takePicture];
     } else {
         //TODO: move testing data to RHSettings
@@ -427,6 +422,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:currentImage];
+    if(self.activeImageOrientation == kPortraitPhoto){
+        imageView.transform = CGAffineTransformMakeRotation(-M_PI/2);
+    }
     [self.view insertSubview:imageView belowSubview:shutterView];
     [self showPictureDialog];
     [shutterView removeFromSuperview];
