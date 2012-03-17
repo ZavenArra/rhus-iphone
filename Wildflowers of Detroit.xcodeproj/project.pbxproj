@@ -1780,7 +1780,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "SquirrelsOfTheEarth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = SquirrelsOfTheEarth;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1806,7 +1806,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "SquirrelsOfTheEarth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = SquirrelsOfTheEarth;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1893,7 +1893,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "Wild Detroit";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1911,7 +1911,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WinterRoot LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WinterRoot LLC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1919,9 +1920,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "Wild Detroit";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "DCDB8554-F2B2-4DC6-8244-3AD7D6FCF1A2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DCDB8554-F2B2-4DC6-8244-3AD7D6FCF1A2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv6;
