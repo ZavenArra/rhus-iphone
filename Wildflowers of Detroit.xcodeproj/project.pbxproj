@@ -72,6 +72,7 @@
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
 		A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACB714BBDDF8005BB81D /* icon.png */; };
 		A6EFC47214C4E1DE0014ACA9 /* infoBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC47114C4E1DE0014ACA9 /* infoBack.png */; };
+		C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C395837715157E8D00B0AC3D /* libstdc++.dylib */; };
 		F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */; };
 		F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */; };
 		F422E2C6150C288D009317E5 /* RHSettings_Squirrels.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885D150C0BD1009AE0FC /* RHSettings_Squirrels.m */; };
@@ -110,13 +111,11 @@
 		F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
 		F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
-		F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4AA3F5714DA5BFE00ED3CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392A314BBA6660051E831 /* AppDelegate.m */; };
 		F4AA3F5814DA5BFE00ED3CCE /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392C714BBB5CA0051E831 /* SwoopTabViewController.m */; };
 		F4AA3F5A14DA5BFE00ED3CCE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4AA3F5B14DA5BFE00ED3CCE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4AA3F5C14DA5BFE00ED3CCE /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
-		F4AA3F5D14DA5BFE00ED3CCE /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4AA3F5F14DA5BFE00ED3CCE /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4AA3F6014DA5BFE00ED3CCE /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4AA3F6114DA5BFE00ED3CCE /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
@@ -124,7 +123,6 @@
 		F4AA3F6314DA5BFE00ED3CCE /* MapCouchbaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */; };
 		F4AA3F6414DA5BFE00ED3CCE /* MapDataModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */; };
 		F4AA3F6514DA5BFE00ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
-		F4AA3F6714DA5BFE00ED3CCE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4AA3F6B14DA5BFE00ED3CCE /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
@@ -194,17 +192,14 @@
 		F4C05DDD14BCE1EF0008FBB5 /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
 		F4C05EF214BD1A900008FBB5 /* Northern%2BShrike%2BRenews%2528blog%2529.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4C05EF114BD1A900008FBB5 /* Northern%2BShrike%2BRenews%2528blog%2529.jpg */; };
 		F4C05EF614BD24330008FBB5 /* 106x106.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C05EF514BD24330008FBB5 /* 106x106.png */; };
-		F4C05EF914BE335A0008FBB5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4C061AA14BE5DE90008FBB5 /* testdataplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C061A914BE5DE90008FBB5 /* testdataplist.plist */; };
 		F4C0623314BE6C0F0008FBB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4C0623414BE6C0F0008FBB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4C0623514BE6C0F0008FBB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
 		F4C0623B14BE6C0F0008FBB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4C0623914BE6C0F0008FBB5 /* InfoPlist.strings */; };
 		F4C0623D14BE6C0F0008FBB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0623C14BE6C0F0008FBB5 /* main.m */; };
-		F4C0624614BE6D0A0008FBB5 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */; };
 		F4C0624714BE6E1C0008FBB5 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */; };
 		F4C0624814BE6E480008FBB5 /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
-		F4C0624914BE6E590008FBB5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4C0624A14BE70C00008FBB5 /* testdataplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C061A914BE5DE90008FBB5 /* testdataplist.plist */; };
 		F4CE8732150AE1E7009AE0FC /* RhusDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8731150AE1E7009AE0FC /* RhusDocument.m */; };
 		F4CE8841150B0B40009AE0FC /* DeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8840150B0B40009AE0FC /* DeviceUser.m */; };
@@ -215,7 +210,6 @@
 		F4CE89CC150C0E24009AE0FC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4CE89CD150C0E24009AE0FC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4CE89CE150C0E24009AE0FC /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
-		F4CE89CF150C0E24009AE0FC /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4CE89D0150C0E24009AE0FC /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4CE89D1150C0E24009AE0FC /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4CE89D2150C0E24009AE0FC /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
@@ -229,7 +223,6 @@
 		F4CE89DA150C0E24009AE0FC /* DeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8840150B0B40009AE0FC /* DeviceUser.m */; };
 		F4CE89DB150C0E24009AE0FC /* RHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8855150C01E1009AE0FC /* RHLocation.m */; };
 		F4CE89DD150C0E24009AE0FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
-		F4CE89DE150C0E24009AE0FC /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4CE89E1150C0E24009AE0FC /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
@@ -323,7 +316,6 @@
 		F4EB1FAF150C24B90041A957 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4EB1FB0150C24B90041A957 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4EB1FB1150C24B90041A957 /* MapDataModelSpoof.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */; };
-		F4EB1FB2150C24B90041A957 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4EB1FB3150C24B90041A957 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
 		F4EB1FB4150C24B90041A957 /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4EB1FB5150C24B90041A957 /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
@@ -337,7 +329,6 @@
 		F4EB1FBD150C24B90041A957 /* DeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8840150B0B40009AE0FC /* DeviceUser.m */; };
 		F4EB1FBE150C24B90041A957 /* RHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE8855150C01E1009AE0FC /* RHLocation.m */; };
 		F4EB1FC0150C24B90041A957 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
-		F4EB1FC1150C24B90041A957 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4EB1FC4150C24B90041A957 /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
@@ -499,6 +490,7 @@
 		A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarMiddle.png; path = graphics/swoopBarMiddle.png; sourceTree = SOURCE_ROOT; };
 		A6D3ACB714BBDDF8005BB81D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = graphics/icon.png; sourceTree = SOURCE_ROOT; };
 		A6EFC47114C4E1DE0014ACA9 /* infoBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoBack.png; path = graphics/infoBack.png; sourceTree = SOURCE_ROOT; };
+		C395837715157E8D00B0AC3D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "/usr/lib/gcc/i686-apple-darwin10/4.0.1/libstdc++.dylib"; sourceTree = "<absolute>"; };
 		F419E4261509B6AF00DCE9A4 /* RhusMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusMapAnnotation.h; sourceTree = "<group>"; };
 		F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusMapAnnotation.m; sourceTree = "<group>"; };
 		F422E2C8150C3309009317E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -536,7 +528,6 @@
 		F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModel.m; sourceTree = "<group>"; };
 		F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		F4AA40FF14DA5BFE00ED3CCE /* Wildflowers of Detroit Iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C05DDB14BCE1EF0008FBB5 /* MapDataModelSpoof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModelSpoof.h; sourceTree = "<group>"; };
 		F4C05DDC14BCE1EF0008FBB5 /* MapDataModelSpoof.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModelSpoof.m; sourceTree = "<group>"; };
@@ -562,7 +553,6 @@
 		F4C0623A14BE6C0F0008FBB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4C0623C14BE6C0F0008FBB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4C0623E14BE6C0F0008FBB5 /* GHUnit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUnit Tests-Prefix.pch"; sourceTree = "<group>"; };
-		F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../IphoneDevelopment/Libs/gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F4CE8730150AE1E7009AE0FC /* RhusDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusDocument.h; sourceTree = "<group>"; };
 		F4CE8731150AE1E7009AE0FC /* RhusDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusDocument.m; sourceTree = "<group>"; };
 		F4CE883F150B0B40009AE0FC /* DeviceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUser.h; sourceTree = "<group>"; };
@@ -605,7 +595,6 @@
 		F4F2857A150DADBC009A24C9 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shutter.png; path = graphics/shutter.png; sourceTree = SOURCE_ROOT; };
 		F4F28584150DE29B009A24C9 /* libSystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.dylib; path = usr/lib/libSystem.dylib; sourceTree = SDKROOT; };
 		F4F28586150DE38A009A24C9 /* libSystem.B.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.B.dylib; path = usr/lib/libSystem.B.dylib; sourceTree = SDKROOT; };
-		F4F28587150DE38A009A24C9 /* libsystem_blocks.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsystem_blocks.dylib; path = usr/lib/system/libsystem_blocks.dylib; sourceTree = SDKROOT; };
 		F4F2858A150DE580009A24C9 /* PLBlocks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLBlocks.framework; path = Frameworks/PLBlocks.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -614,7 +603,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4AA3F6714DA5BFE00ED3CCE /* libstdc++.dylib in Frameworks */,
 				F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */,
 				F4AA3F6B14DA5BFE00ED3CCE /* Couchbase.framework in Frameworks */,
@@ -633,7 +621,6 @@
 				F4C0623314BE6C0F0008FBB5 /* UIKit.framework in Frameworks */,
 				F4C0623414BE6C0F0008FBB5 /* Foundation.framework in Frameworks */,
 				F4C0623514BE6C0F0008FBB5 /* CoreGraphics.framework in Frameworks */,
-				F4C0624614BE6D0A0008FBB5 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +631,6 @@
 				F4F2858B150DE580009A24C9 /* PLBlocks.framework in Frameworks */,
 				F4F28588150DE38A009A24C9 /* libSystem.B.dylib in Frameworks */,
 				F4CE89DD150C0E24009AE0FC /* CoreLocation.framework in Frameworks */,
-				F4CE89DE150C0E24009AE0FC /* libstdc++.dylib in Frameworks */,
 				F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */,
 				F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */,
 				F4CE89E1150C0E24009AE0FC /* Couchbase.framework in Frameworks */,
@@ -661,7 +647,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */,
-				F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */,
 				F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */,
 				F4AA3F4414DA2F5100ED3CCE /* Couchbase.framework in Frameworks */,
@@ -670,6 +655,7 @@
 				F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */,
 				F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */,
 				F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */,
+				C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,7 +664,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EB1FC0150C24B90041A957 /* CoreLocation.framework in Frameworks */,
-				F4EB1FC1150C24B90041A957 /* libstdc++.dylib in Frameworks */,
 				F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */,
 				F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */,
 				F4EB1FC4150C24B90041A957 /* Couchbase.framework in Frameworks */,
@@ -888,10 +873,8 @@
 			children = (
 				F4F2858A150DE580009A24C9 /* PLBlocks.framework */,
 				F4F28586150DE38A009A24C9 /* libSystem.B.dylib */,
-				F4F28587150DE38A009A24C9 /* libsystem_blocks.dylib */,
 				F4F28584150DE29B009A24C9 /* libSystem.dylib */,
 				F4CE8857150C08A3009AE0FC /* CoreLocation.framework */,
-				F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */,
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
 				F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */,
 				F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */,
@@ -904,6 +887,7 @@
 				F4D3929B14BBA6660051E831 /* Wildflowers of Detroit Iphone-Info.plist */,
 				A6428BAB150C3FA400CC0D03 /* SquirrelsOfTheEarth-Info.plist */,
 				A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */,
+				C395837715157E8D00B0AC3D /* libstdc++.dylib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -922,7 +906,6 @@
 		F4D3929214BBA6660051E831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */,
 				F4D3929314BBA6660051E831 /* UIKit.framework */,
 				F4D3929514BBA6660051E831 /* Foundation.framework */,
 				F4D3929714BBA6660051E831 /* CoreGraphics.framework */,
@@ -1112,7 +1095,6 @@
 			};
 			buildConfigurationList = F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Wildflowers of Detroit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1838,7 +1820,6 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1850,16 +1831,16 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv6";
+				VALID_ARCHS = armv6;
 			};
 			name = Debug;
 		};
@@ -1871,7 +1852,6 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -1884,7 +1864,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv6";
@@ -1908,10 +1888,14 @@
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/lib/gcc/i686-apple-darwin10/4.0.1\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv6;
 				WRAPPER_EXTENSION = app;
@@ -1934,6 +1918,10 @@
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/lib/gcc/i686-apple-darwin10/4.0.1\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
