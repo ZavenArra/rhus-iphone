@@ -36,7 +36,7 @@
 }
 
 + (BOOL) useCamera {
-    return false;
+    return true;
 }
 
 //Map

@@ -242,7 +242,7 @@
         if(coordinate.latitude == 0 && coordinate.longitude==0){
             continue;
         }
-        NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
+       // NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
         RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) [RhusMapAnnotation 
                                                  mapAnnotationWithCoordinate: coordinate
                                                  title:  [document getDateString]
@@ -261,9 +261,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self addAnnotations];
     
     //TODO: Obviously both of these shouldn't be called
+    //RE: setupGalleryScroll is called in viewWillAppear 
+    //  - actually it's not, because something isn't in place yet, and nothing loads
+    //Both should be key-value observers and already be updated
+    //by the time the user clicks on the button.
+    [self addAnnotations];
+    
     [self setupGalleryScrollView];
     
     if(launchInGalleryMode) {
