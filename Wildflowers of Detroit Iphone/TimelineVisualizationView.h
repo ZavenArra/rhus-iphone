@@ -27,8 +27,8 @@
     NSArray * data;  // Array of CGPoint objects
     id <TimelineVisualizationViewDelegate> delegate;
 }
-@property(nonatomic, strong) NSArray * data;
-@property(nonatomic, strong) id <TimelineVisualizationViewDelegate> delegate;
+@property(nonatomic, retain) NSArray * data;
+@property(nonatomic, retain) id <TimelineVisualizationViewDelegate> delegate;
 
 @end
 

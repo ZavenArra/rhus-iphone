@@ -9,6 +9,7 @@
 #import "RHLocation.h"
 #import "SharedInstanceMacro.h"
 
+static RHLocation * sharedRHLocation = NULL;
 
 @implementation RHLocation
 @synthesize currentLocation, locationManager;
@@ -16,9 +17,11 @@
 
 + (id)instance
 {
-    DEFINE_SHARED_INSTANCE_USING_BLOCK(^{
-        return [[self alloc] init];
-    });
+	if(sharedRHLocation == NULL){
+		sharedRHLocation = [[RHLocation alloc] init];
+	}
+	return sharedRHLocation;
+	
 }
 
 
@@ -58,6 +61,8 @@
 
 #pragma mark - CLLocationManagerDelegate Methods
 
+
+/*
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 	if(status != kCLAuthorizationStatusAuthorized){
 		UIAlertView *alert = [[UIAlertView alloc]						  
@@ -71,6 +76,7 @@
 		[alert show];
 	}
 }
+ */
 
 - (void)locationManager:(CLLocationManager *)manager 
     didUpdateToLocation:(CLLocation *)newLocation 

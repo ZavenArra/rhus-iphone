@@ -10,10 +10,10 @@
 
 @interface LoadingViewController : UIViewController
 
-@property(nonatomic, strong) IBOutlet UIView * loadingView;
-@property(nonatomic, strong) IBOutlet UIView * rotateView;
-@property(nonatomic, strong) IBOutlet UIImageView * loadingImageView;
-@property(nonatomic, strong) IBOutlet UIImageView * rotateImageView;
+@property(nonatomic, retain) IBOutlet UIView * loadingView;
+@property(nonatomic, retain) IBOutlet UIView * rotateView;
+@property(nonatomic, retain) IBOutlet UIImageView * loadingImageView;
+@property(nonatomic, retain) IBOutlet UIImageView * rotateImageView;
 
 
 @end

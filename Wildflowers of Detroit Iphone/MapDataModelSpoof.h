@@ -15,7 +15,7 @@
 {
     OrderedDictionary * userDocuments;
 }
-@property(nonatomic, strong) OrderedDictionary * userDocuments;
+@property(nonatomic, retain) OrderedDictionary * userDocuments;
 
 
 + (MapDataModelSpoof *) instance;

@@ -32,21 +32,21 @@
 }
 
 
-@property (strong, nonatomic) UIViewController * topViewController;
-@property (strong, nonatomic) UIViewController * middleViewController;
-@property (strong, nonatomic) UIViewController * bottomViewController;
+@property (retain, nonatomic) UIViewController * topViewController;
+@property (retain, nonatomic) UIViewController * middleViewController;
+@property (retain, nonatomic) UIViewController * bottomViewController;
 
 
-@property (strong, nonatomic) IBOutlet UIButton * topButton;
-@property (strong, nonatomic) IBOutlet UIButton * middleButton;
-@property (strong, nonatomic) IBOutlet UIButton * bottomButton;
-@property (strong, nonatomic) IBOutlet UIView * controlsView;
-@property (strong, nonatomic) IBOutlet UIImageView * controlsBackgroundImage;
+@property (retain, nonatomic) IBOutlet UIButton * topButton;
+@property (retain, nonatomic) IBOutlet UIButton * middleButton;
+@property (retain, nonatomic) IBOutlet UIButton * bottomButton;
+@property (retain, nonatomic) IBOutlet UIView * controlsView;
+@property (retain, nonatomic) IBOutlet UIImageView * controlsBackgroundImage;
 
 
-@property (strong, nonatomic) UIImage * topBackground;
-@property (strong, nonatomic) UIImage * middleBackground;
-@property (strong, nonatomic) UIImage * bottomBackground;
+@property (retain, nonatomic) UIImage * topBackground;
+@property (retain, nonatomic) UIImage * middleBackground;
+@property (retain, nonatomic) UIImage * bottomBackground;
 
 @property (nonatomic) BOOL tabsHidden;
 

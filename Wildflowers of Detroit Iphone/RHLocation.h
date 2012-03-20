@@ -13,10 +13,10 @@
 <CLLocationManagerDelegate>
 
 //Location Manager
-@property (nonatomic, strong) 	CLLocation * currentLocation;
+@property (nonatomic, retain) 	CLLocation * currentLocation;
 
 //TODO: this should be private
-@property (nonatomic, strong) 	CLLocationManager * locationManager;
+@property (nonatomic, retain) 	CLLocationManager * locationManager;
 
 
 + (id) instance;

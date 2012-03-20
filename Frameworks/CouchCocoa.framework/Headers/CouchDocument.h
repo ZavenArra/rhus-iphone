@@ -41,7 +41,7 @@
 
 /** Optional reference to an application-defined model object representing this document.
     This property is unused and uninterpreted by CouchCocoa; use it for whatever you want.
-    Note that this is not a strong/retained reference. */
+    Note that this is not a retain/retained reference. */
 @property (assign) id modelObject;
 
 #pragma mark REVISIONS:

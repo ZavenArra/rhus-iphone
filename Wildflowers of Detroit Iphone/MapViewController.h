@@ -35,17 +35,17 @@
     BOOL mapShowing;
 }
 
-@property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
-@property(nonatomic, strong) MKMapView * mapView;
-@property(nonatomic, strong) UIView * timelineView;
-@property(nonatomic, strong) UIView *timelineControlsView;
-@property(nonatomic, strong) UIButton *mapInsetButton;
-@property(nonatomic, strong) TimelineVisualizationView * timelineVisualizationView;
-@property(nonatomic, strong) IBOutlet UIView * overlayView;
+@property(retain, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
+@property(nonatomic, retain) MKMapView * mapView;
+@property(nonatomic, retain) UIView * timelineView;
+@property(nonatomic, retain) UIView *timelineControlsView;
+@property(nonatomic, retain) UIButton *mapInsetButton;
+@property(nonatomic, retain) TimelineVisualizationView * timelineVisualizationView;
+@property(nonatomic, retain) IBOutlet UIView * overlayView;
 
-@property(nonatomic, strong) NSMutableArray * nextDocumentSet;
-@property(nonatomic, strong) NSMutableArray * activeDocuments;
-@property(nonatomic, strong) NSMutableArray * prevDocumentSet;
+@property(nonatomic, retain) NSMutableArray * nextDocumentSet;
+@property(nonatomic, retain) NSMutableArray * activeDocuments;
+@property(nonatomic, retain) NSMutableArray * prevDocumentSet;
 @property(nonatomic) NSInteger currentDetailIndex;
 @property(nonatomic) NSInteger currentGalleryPage;
 @property(nonatomic) BOOL userDataOnly;
@@ -59,22 +59,22 @@
 
 
 //Gallery View Properties
-@property(strong, nonatomic) IBOutlet UIScrollView * galleryScrollView;
-@property(strong, nonatomic) IBOutlet UIScrollView * detailScrollView;
-@property(strong, nonatomic) IBOutlet UIView * detailView;
+@property(retain, nonatomic) IBOutlet UIScrollView * galleryScrollView;
+@property(retain, nonatomic) IBOutlet UIScrollView * detailScrollView;
+@property(retain, nonatomic) IBOutlet UIView * detailView;
 
-@property(strong, nonatomic) IBOutlet   UIImageView * zoomView;
+@property(retain, nonatomic) IBOutlet   UIImageView * zoomView;
 
-@property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
+@property(retain, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
 
 //detailView
-@property(strong, nonatomic) IBOutlet   UILabel * detailDate;
+@property(retain, nonatomic) IBOutlet   UILabel * detailDate;
 
 //infoView
-@property(strong, nonatomic) IBOutlet   UIView * infoView;
-@property(strong, nonatomic) IBOutlet   UITextView * comment;
-@property(strong, nonatomic) IBOutlet   UILabel * location;
-@property(strong, nonatomic) IBOutlet   UILabel * reporter;
+@property(retain, nonatomic) IBOutlet   UIView * infoView;
+@property(retain, nonatomic) IBOutlet   UITextView * comment;
+@property(retain, nonatomic) IBOutlet   UILabel * location;
+@property(retain, nonatomic) IBOutlet   UILabel * reporter;
 
 //Map Functions
 -(void) didRequestMapView:(id)sender;

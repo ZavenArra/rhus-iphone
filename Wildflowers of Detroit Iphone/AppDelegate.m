@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "GalleryViewController.h"
 #import "CameraViewController.h"
 #import "MapViewController.h"
 #import "MapDataModel.h"
@@ -77,9 +76,9 @@
 //start serving whenever it's ready.
 - (void) initializeInBackground{
     
-   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-    @autoreleasepool {
+   // @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
         [MapDataModel instance];
@@ -87,9 +86,9 @@
         
         NSLog(@"%@", @"Done");
 
-    }
+    //}
     
-  //  [pool release];
+    [pool release];
 
 }
 

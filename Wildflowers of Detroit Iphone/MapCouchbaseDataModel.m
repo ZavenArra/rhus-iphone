@@ -13,11 +13,20 @@
 #import "RHSettings.h"
 
 
+static MapCouchbaseDataModel * sharedCouchbase = NULL;
+
 @implementation MapCouchbaseDataModel
 
 @synthesize database;
 @synthesize query;
 
+
++ (MapCouchbaseDataModel *) instance{
+	if(sharedCouchbase == NULL){
+		sharedCouchbase = [[MapCouchbaseDataModel alloc] init];
+	} 
+	return sharedCouchbase;
+}
 
 //- (id) initWithBlock:( void ( ^ )() ) didStartBlock {
 - (id) init {
@@ -137,7 +146,7 @@
 
 
 + (NSData *) getDocumentThumbnailData: (NSString *) key {
-    CouchDocument* doc = [[self.instance database] documentWithID: key];
+    CouchDocument* doc = [[[self instance] database] documentWithID: key];
     CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
     CouchAttachment * thumbnail = [model attachmentNamed:@"thumb.jpg"];
     if(thumbnail != nil){
@@ -148,7 +157,7 @@
 }
 
 + (NSData *) getDocumentImageData: (NSString *) key {
-    CouchDocument* doc = [[self.instance database] documentWithID: key];
+    CouchDocument* doc = [[[self instance] database] documentWithID: key];
     CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
     CouchAttachment * thumbnail = [model attachmentNamed:@"medium.jpg"];
     if(thumbnail != nil){
@@ -206,7 +215,7 @@
                                          andUserIdentifer: (NSString *) userIdentifier {
     
     //Create view;
-    CouchDatabase * database = [self.instance database];
+    CouchDatabase * database = [[self instance] database];
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
     design.language = kCouchLanguageJavaScript;
@@ -233,7 +242,7 @@
 
     //how to specify multi value key???  array key, with match all entries
     //query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
-    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
+    NSArray * r = [(MapCouchbaseDataModel * ) [self instance] runQuery:query];
     
     return [self readAttachments: r];
     
@@ -253,24 +262,24 @@
 + (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
     
     //Create view;
-    CouchDatabase * database = [self.instance database];
+    CouchDatabase * database = [[self instance] database];
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
     design.language = kCouchLanguageJavaScript;
     [design defineViewNamed: @"galleryDocuments"
                         map: @"function(doc) { emit([doc._id, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
 
-  //  NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
+  //  NSArray * r =  [ (MapCouchbaseDataModel * ) [self instance] getView:@"galleryDocuments"];
  
     CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
     query.descending = NO;
-    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
+    NSArray * r = [(MapCouchbaseDataModel * ) [self instance] runQuery:query];
         
     return [self readAttachments: r];
 }
 
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {
-    CouchDatabase * database = [self.instance database];
+    CouchDatabase * database = [[self instance] database];
 
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
@@ -279,11 +288,11 @@
                         map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
     [design saveChanges];
     
-   // NSArray * r = [ (MapCouchbaseDataModel * ) self.instance getView:@"detailDocuments" ];
+   // NSArray * r = [ (MapCouchbaseDataModel * ) [self instance] getView:@"detailDocuments" ];
     
     CouchQuery * query = [design queryViewNamed: @"detailDocuments"]; //asLiveQuery];
     query.descending = NO;
-    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery: query];
+    NSArray * r = [(MapCouchbaseDataModel * ) [self instance] runQuery: query];
     
     for(int i=0; i<[r count]; i++){
         NSDictionary * d = [r objectAtIndex:i];
@@ -323,14 +332,14 @@
 
 + (NSArray *) getUserDocumentsWithOffset:(NSInteger)offset andLimit:(NSInteger)limit {
     NSLog(@"getUserDocumentsWithOffset just calling getUserDocuments");
-    return [self.instance _getUserDocuments];
+    return [[self instance] _getUserDocuments];
 }
 
 + (void) addDocument: (NSDictionary *) document {
     //Add any additional properties
     
     // Save the document, asynchronously:
-    CouchDocument* doc = [self.instance.database untitledDocument];
+    CouchDocument* doc = [[self instance].database untitledDocument];
     RESTOperation* op = [doc putProperties:document];
     [op onCompletion: ^{
         if (op.error)
@@ -339,7 +348,7 @@
            // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
         // Re-run the query:
 		//[self.dataSource.query start];
-        [self.instance.query start];
+        [[[self instance] query] start];
 	}];
     [op start];
 
@@ -348,7 +357,7 @@
 + (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments{
     
     // Save the document, asynchronously:
-    CouchDocument* doc = [self.instance.database untitledDocument];
+    CouchDocument* doc = [[self instance].database untitledDocument];
     CouchModel * documentModel = doc.modelObject;    
 
     RESTOperation* op = [doc putProperties:document];
@@ -368,7 +377,7 @@
         
            
         for(NSDictionary * attachmentValues in attachments ){
-            CouchDocument * doc = [self.instance.database documentWithID:[object objectForKey:@"id"]];
+            CouchDocument * doc = [[[self instance] database] documentWithID:[object objectForKey:@"id"]];
             CouchRevision * revision = doc.currentRevision;
             
             NSString * contentType = (NSString *) [attachmentValues objectForKey:@"contentType"];
@@ -389,7 +398,7 @@
         // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
         // Re-run the query:
 		//[self.dataSource.query start];
-        [self.instance.query start];
+        [ [[self instance] query] start];
         
        	}];
     [op start];

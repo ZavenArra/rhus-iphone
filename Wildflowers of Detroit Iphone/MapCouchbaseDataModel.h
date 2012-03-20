@@ -22,8 +22,8 @@
 }
 
 
-@property (nonatomic, strong) CouchDatabase *database;
-@property (nonatomic, strong) CouchLiveQuery* query;
+@property (nonatomic, retain) CouchDatabase *database;
+@property (nonatomic, retain) CouchLiveQuery* query;
 
 
 + (MapCouchbaseDataModel *)instance;

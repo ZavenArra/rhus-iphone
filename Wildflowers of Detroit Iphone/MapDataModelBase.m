@@ -13,11 +13,5 @@
 @implementation MapDataModelBase
 
 
-+ (id)instance
-{
-    DEFINE_SHARED_INSTANCE_USING_BLOCK(^{
-        return [[self alloc] init];
-    });
-}
 
 @end

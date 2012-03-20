@@ -24,20 +24,20 @@
     UITextField * comment;
     NSInteger activeImageOrientation;
 }
-@property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
-@property(strong, nonatomic)  UIImagePickerController * imagePicker;
-@property(strong, nonatomic)  IBOutlet   UIView * pictureDialog;
-@property(strong, nonatomic)  IBOutlet   UIView * pictureInfo;
-@property(strong, nonatomic)  IBOutlet   UITextField * reporter;
-@property(strong, nonatomic)  IBOutlet   UITextField * comment;
-@property(strong, nonatomic)  IBOutlet   UIImageView * imageView;
-@property(strong, nonatomic)  UIImage * currentImage;
-@property(strong, nonatomic)  IBOutlet   UIView * shutterView;
+@property(retain, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
+@property(retain, nonatomic)  UIImagePickerController * imagePicker;
+@property(retain, nonatomic)  IBOutlet   UIView * pictureDialog;
+@property(retain, nonatomic)  IBOutlet   UIView * pictureInfo;
+@property(retain, nonatomic)  IBOutlet   UITextField * reporter;
+@property(retain, nonatomic)  IBOutlet   UITextField * comment;
+@property(retain, nonatomic)  IBOutlet   UIImageView * imageView;
+@property(retain, nonatomic)  UIImage * currentImage;
+@property(retain, nonatomic)  IBOutlet   UIView * shutterView;
 @property(nonatomic) NSInteger activeImageOrientation;
 
 //Generalized / Superclass
-@property(strong, nonatomic)  NSDictionary * attributeTranslation;
-@property(strong, nonatomic)  NSMutableArray * selectedAttributes;
+@property(retain, nonatomic)  NSDictionary * attributeTranslation;
+@property(retain, nonatomic)  NSMutableArray * selectedAttributes;
 
 - (void) secondTapTabButton;
 

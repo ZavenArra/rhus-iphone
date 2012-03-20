@@ -72,6 +72,8 @@
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
 		A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACB714BBDDF8005BB81D /* icon.png */; };
 		A6EFC47214C4E1DE0014ACA9 /* infoBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC47114C4E1DE0014ACA9 /* infoBack.png */; };
+		C371953D151641AC00B59111 /* PLBlocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F2858A150DE580009A24C9 /* PLBlocks.framework */; };
+		C3719540151641CE00B59111 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; };
 		C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C395837715157E8D00B0AC3D /* libstdc++.dylib */; };
 		F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */; };
 		F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */; };
@@ -105,7 +107,6 @@
 		F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
 		F4AA3F3B14DA2E8000ED3CCE /* MapCouchbaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */; };
 		F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
-		F4AA3F4414DA2F5100ED3CCE /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4AA3F4814DA551D00ED3CCE /* MapDataModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */; };
 		F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
@@ -125,7 +126,6 @@
 		F4AA3F6514DA5BFE00ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
 		F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
-		F4AA3F6B14DA5BFE00ED3CCE /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4AA3F6C14DA5BFE00ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4AA3F6D14DA5BFE00ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4AA3F6E14DA5BFE00ED3CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
@@ -225,7 +225,6 @@
 		F4CE89DD150C0E24009AE0FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
 		F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
-		F4CE89E1150C0E24009AE0FC /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4CE89E2150C0E24009AE0FC /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4CE89E3150C0E24009AE0FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4CE89E4150C0E24009AE0FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -331,7 +330,6 @@
 		F4EB1FC0150C24B90041A957 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
 		F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
-		F4EB1FC4150C24B90041A957 /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4EB1FC5150C24B90041A957 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4EB1FC6150C24B90041A957 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4EB1FC7150C24B90041A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
@@ -520,7 +518,6 @@
 		F4AA3F3914DA2E8000ED3CCE /* MapCouchbaseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCouchbaseDataModel.h; sourceTree = "<group>"; };
 		F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCouchbaseDataModel.m; sourceTree = "<group>"; };
 		F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Couchbase.framework; path = Frameworks/Couchbase.framework; sourceTree = "<group>"; };
 		F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
 		F4AA3F4614DA551D00ED3CCE /* MapDataModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModelBase.h; sourceTree = "<group>"; };
 		F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModelBase.m; sourceTree = "<group>"; };
@@ -605,7 +602,6 @@
 			files = (
 				F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */,
-				F4AA3F6B14DA5BFE00ED3CCE /* Couchbase.framework in Frameworks */,
 				F4AA3F6C14DA5BFE00ED3CCE /* CouchCocoa.framework in Frameworks */,
 				F4AA3F6D14DA5BFE00ED3CCE /* MapKit.framework in Frameworks */,
 				F4AA3F6E14DA5BFE00ED3CCE /* UIKit.framework in Frameworks */,
@@ -633,7 +629,6 @@
 				F4CE89DD150C0E24009AE0FC /* CoreLocation.framework in Frameworks */,
 				F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */,
 				F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */,
-				F4CE89E1150C0E24009AE0FC /* Couchbase.framework in Frameworks */,
 				F4CE89E2150C0E24009AE0FC /* CouchCocoa.framework in Frameworks */,
 				F4CE89E3150C0E24009AE0FC /* MapKit.framework in Frameworks */,
 				F4CE89E4150C0E24009AE0FC /* UIKit.framework in Frameworks */,
@@ -649,13 +644,13 @@
 				F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */,
 				F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */,
-				F4AA3F4414DA2F5100ED3CCE /* Couchbase.framework in Frameworks */,
 				F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */,
 				F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */,
 				F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */,
 				F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */,
 				F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */,
 				C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */,
+				C371953D151641AC00B59111 /* PLBlocks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +661,6 @@
 				F4EB1FC0150C24B90041A957 /* CoreLocation.framework in Frameworks */,
 				F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */,
 				F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */,
-				F4EB1FC4150C24B90041A957 /* Couchbase.framework in Frameworks */,
 				F4EB1FC5150C24B90041A957 /* CouchCocoa.framework in Frameworks */,
 				F4EB1FC6150C24B90041A957 /* MapKit.framework in Frameworks */,
 				F4EB1FC7150C24B90041A957 /* UIKit.framework in Frameworks */,
@@ -877,7 +871,6 @@
 				F4CE8857150C08A3009AE0FC /* CoreLocation.framework */,
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
 				F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */,
-				F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */,
 				F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */,
 				F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */,
 				F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */,
@@ -1521,7 +1514,6 @@
 				F4AA3F5A14DA5BFE00ED3CCE /* CameraViewController.m in Sources */,
 				F4AA3F5B14DA5BFE00ED3CCE /* MapViewController.m in Sources */,
 				F4AA3F5C14DA5BFE00ED3CCE /* MapDataModelSpoof.m in Sources */,
-				F4AA3F5D14DA5BFE00ED3CCE /* OrderedDictionary.m in Sources */,
 				F4AA3F5F14DA5BFE00ED3CCE /* SSMapAnnotation.m in Sources */,
 				F4AA3F6014DA5BFE00ED3CCE /* WOverlayView.m in Sources */,
 				F4AA3F6114DA5BFE00ED3CCE /* WOverlay.m in Sources */,
@@ -1539,7 +1531,6 @@
 				F4C0623D14BE6C0F0008FBB5 /* main.m in Sources */,
 				F4C0624714BE6E1C0008FBB5 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */,
 				F4C0624814BE6E480008FBB5 /* MapDataModelSpoof.m in Sources */,
-				F4C0624914BE6E590008FBB5 /* OrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,7 +1543,6 @@
 				F4CE89CC150C0E24009AE0FC /* CameraViewController.m in Sources */,
 				F4CE89CD150C0E24009AE0FC /* MapViewController.m in Sources */,
 				F4CE89CE150C0E24009AE0FC /* MapDataModelSpoof.m in Sources */,
-				F4CE89CF150C0E24009AE0FC /* OrderedDictionary.m in Sources */,
 				F4CE89D0150C0E24009AE0FC /* SSMapAnnotation.m in Sources */,
 				F4CE89D1150C0E24009AE0FC /* WOverlayView.m in Sources */,
 				F4CE89D2150C0E24009AE0FC /* WOverlay.m in Sources */,
@@ -1579,7 +1569,6 @@
 				F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */,
 				F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */,
 				F4C05DDD14BCE1EF0008FBB5 /* MapDataModelSpoof.m in Sources */,
-				F4C05EF914BE335A0008FBB5 /* OrderedDictionary.m in Sources */,
 				F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */,
 				F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */,
 				F4F02F8214CFA6250041492E /* WOverlay.m in Sources */,
@@ -1594,6 +1583,7 @@
 				F4CE8856150C01E1009AE0FC /* RHLocation.m in Sources */,
 				F422E2C7150C2890009317E5 /* RHSettings_Wildflowers.m in Sources */,
 				F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
+				C3719540151641CE00B59111 /* OrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1606,7 +1596,6 @@
 				F4EB1FAF150C24B90041A957 /* CameraViewController.m in Sources */,
 				F4EB1FB0150C24B90041A957 /* MapViewController.m in Sources */,
 				F4EB1FB1150C24B90041A957 /* MapDataModelSpoof.m in Sources */,
-				F4EB1FB2150C24B90041A957 /* OrderedDictionary.m in Sources */,
 				F4EB1FB3150C24B90041A957 /* SSMapAnnotation.m in Sources */,
 				F4EB1FB4150C24B90041A957 /* WOverlayView.m in Sources */,
 				F4EB1FB5150C24B90041A957 /* WOverlay.m in Sources */,
@@ -1816,10 +1805,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = armv6;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1848,10 +1834,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = armv6;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -1874,12 +1857,9 @@
 		F4D392BD14BBA6660051E831 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = armv6;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Root Shultz (D7JN37B579)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1894,7 +1874,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "408D2716-C68F-4723-9FE4-A847B869C078";
 				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv6;
@@ -1905,11 +1885,9 @@
 		F4D392BE14BBA6660051E831 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = armv6;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Root Shultz (D7JN37B579)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1924,7 +1902,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "408D2716-C68F-4723-9FE4-A847B869C078";
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv6;
 				WRAPPER_EXTENSION = app;
