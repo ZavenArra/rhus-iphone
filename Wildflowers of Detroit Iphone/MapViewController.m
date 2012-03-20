@@ -9,7 +9,6 @@
 #import "MapViewController.h"
 #include <stdlib.h>
 #import "WOverlay.h"
-#import "WOverlayView.h"
 #import "MapDataModel.h"
 #import "RhusMapAnnotation.h"
 #import "RhusDocument.h"
@@ -490,10 +489,12 @@
     return annotationView; 
 }
 
+/*
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id < MKOverlay >)overlay{
     WOverlayView * overlayView = [[WOverlayView alloc] initWithOverlay:overlay];
     return overlayView;
 }
+ */
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
     

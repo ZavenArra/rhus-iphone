@@ -21,7 +21,6 @@
 @property (retain, nonatomic) LoadingViewController * loadingViewController;
 
 - (void) initializeAppDelegateAndLaunch;
-- (void) initializeDataModel;
 
 - (void) initializeInBackground;
 

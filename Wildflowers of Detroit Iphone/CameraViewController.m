@@ -312,7 +312,6 @@
                                          [DeviceUser uniqueIdentifier], @"deviceuser_identifier",
                                          nil];
     
-    NSLog(@"debuggin %@", [newDocument debugDescription]);
 
     for(NSString * attribute in selectedAttributes){
         [newDocument setObject:@"true" forKey:attribute];

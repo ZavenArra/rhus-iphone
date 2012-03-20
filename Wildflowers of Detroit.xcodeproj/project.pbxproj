@@ -75,6 +75,7 @@
 		C371953D151641AC00B59111 /* PLBlocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F2858A150DE580009A24C9 /* PLBlocks.framework */; };
 		C3719540151641CE00B59111 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; };
 		C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C395837715157E8D00B0AC3D /* libstdc++.dylib */; };
+		C3E7F21B15191474002BEC7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E7F21A15191474002BEC7B /* MapKit.framework */; };
 		F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */; };
 		F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */; };
 		F422E2C6150C288D009317E5 /* RHSettings_Squirrels.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885D150C0BD1009AE0FC /* RHSettings_Squirrels.m */; };
@@ -94,7 +95,6 @@
 		F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DB150C3313009317E5 /* Loadingx2.png */; };
 		F43540DE14D1140D00C206CA /* mapPointPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DC14D1140D00C206CA /* mapPointPopup.png */; };
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
-		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F49D333B150C3E8900BC1D7D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E29D62150C3A9000B797F3 /* Defaultx2.png */; };
@@ -106,7 +106,6 @@
 		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
 		F4AA3F3B14DA2E8000ED3CCE /* MapCouchbaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */; };
-		F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4AA3F4814DA551D00ED3CCE /* MapDataModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */; };
 		F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
@@ -127,7 +126,6 @@
 		F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4AA3F6C14DA5BFE00ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
-		F4AA3F6D14DA5BFE00ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4AA3F6E14DA5BFE00ED3CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4AA3F6F14DA5BFE00ED3CCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4AA3F7014DA5BFE00ED3CCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -226,7 +224,6 @@
 		F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4CE89E2150C0E24009AE0FC /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
-		F4CE89E3150C0E24009AE0FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4CE89E4150C0E24009AE0FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F4CE89E5150C0E24009AE0FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F4CE89E6150C0E24009AE0FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -331,7 +328,6 @@
 		F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4EB1FC5150C24B90041A957 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
-		F4EB1FC6150C24B90041A957 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4EB1FC7150C24B90041A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4EB1FC8150C24B90041A957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4EB1FC9150C24B90041A957 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
@@ -412,7 +408,6 @@
 		F4EB2108150C24B90041A957 /* MenuReturnButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F1A150A20F300D1B133 /* MenuReturnButton.png */; };
 		F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */; };
 		F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
-		F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7D14CFA3D00041492E /* WOverlayView.m */; };
 		F4F02F8214CFA6250041492E /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
 		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2857D150DB751009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
@@ -489,6 +484,7 @@
 		A6D3ACB714BBDDF8005BB81D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = graphics/icon.png; sourceTree = SOURCE_ROOT; };
 		A6EFC47114C4E1DE0014ACA9 /* infoBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoBack.png; path = graphics/infoBack.png; sourceTree = SOURCE_ROOT; };
 		C395837715157E8D00B0AC3D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "/usr/lib/gcc/i686-apple-darwin10/4.0.1/libstdc++.dylib"; sourceTree = "<absolute>"; };
+		C3E7F21A15191474002BEC7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F419E4261509B6AF00DCE9A4 /* RhusMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusMapAnnotation.h; sourceTree = "<group>"; };
 		F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusMapAnnotation.m; sourceTree = "<group>"; };
 		F422E2C8150C3309009317E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -517,7 +513,6 @@
 		F4A84C9314BBD41A00EF9627 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		F4AA3F3914DA2E8000ED3CCE /* MapCouchbaseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCouchbaseDataModel.h; sourceTree = "<group>"; };
 		F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCouchbaseDataModel.m; sourceTree = "<group>"; };
-		F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
 		F4AA3F4614DA551D00ED3CCE /* MapDataModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModelBase.h; sourceTree = "<group>"; };
 		F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModelBase.m; sourceTree = "<group>"; };
@@ -603,7 +598,6 @@
 				F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */,
 				F4AA3F6C14DA5BFE00ED3CCE /* CouchCocoa.framework in Frameworks */,
-				F4AA3F6D14DA5BFE00ED3CCE /* MapKit.framework in Frameworks */,
 				F4AA3F6E14DA5BFE00ED3CCE /* UIKit.framework in Frameworks */,
 				F4AA3F6F14DA5BFE00ED3CCE /* Foundation.framework in Frameworks */,
 				F4AA3F7014DA5BFE00ED3CCE /* CoreGraphics.framework in Frameworks */,
@@ -630,7 +624,6 @@
 				F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */,
 				F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */,
 				F4CE89E2150C0E24009AE0FC /* CouchCocoa.framework in Frameworks */,
-				F4CE89E3150C0E24009AE0FC /* MapKit.framework in Frameworks */,
 				F4CE89E4150C0E24009AE0FC /* UIKit.framework in Frameworks */,
 				F4CE89E5150C0E24009AE0FC /* Foundation.framework in Frameworks */,
 				F4CE89E6150C0E24009AE0FC /* CoreGraphics.framework in Frameworks */,
@@ -645,12 +638,12 @@
 				F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */,
 				F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */,
-				F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */,
 				F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */,
 				F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */,
 				F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */,
 				C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */,
 				C371953D151641AC00B59111 /* PLBlocks.framework in Frameworks */,
+				C3E7F21B15191474002BEC7B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +655,6 @@
 				F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */,
 				F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */,
 				F4EB1FC5150C24B90041A957 /* CouchCocoa.framework in Frameworks */,
-				F4EB1FC6150C24B90041A957 /* MapKit.framework in Frameworks */,
 				F4EB1FC7150C24B90041A957 /* UIKit.framework in Frameworks */,
 				F4EB1FC8150C24B90041A957 /* Foundation.framework in Frameworks */,
 				F4EB1FC9150C24B90041A957 /* CoreGraphics.framework in Frameworks */,
@@ -872,7 +864,6 @@
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
 				F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */,
 				F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */,
-				F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */,
 				F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */,
 				F4D392B114BBA6660051E831 /* Wildflowers of Detroit IphoneTests */,
 				F4D3929214BBA6660051E831 /* Frameworks */,
@@ -881,6 +872,7 @@
 				A6428BAB150C3FA400CC0D03 /* SquirrelsOfTheEarth-Info.plist */,
 				A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */,
 				C395837715157E8D00B0AC3D /* libstdc++.dylib */,
+				C3E7F21A15191474002BEC7B /* MapKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1325,7 +1317,6 @@
 				F4AA41B214DA5D2900ED3CCE /* thumbnail_IMG_0078.jpg in Resources */,
 				F4AA41B314DA5D2900ED3CCE /* thumbnail_IMG_0079.jpg in Resources */,
 				F4AA41B414DA5D2900ED3CCE /* thumbnail_IMG_0125.jpg in Resources */,
-				F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */,
 				A6B74F03150A1B7A00D1B133 /* cancelButtton.png in Resources */,
 				A6B74F05150A1B7A00D1B133 /* galleryButton.psd in Resources */,
 				A6B74F06150A1B7A00D1B133 /* Iconx2.png in Resources */,
@@ -1570,7 +1561,6 @@
 				F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */,
 				F4C05DDD14BCE1EF0008FBB5 /* MapDataModelSpoof.m in Sources */,
 				F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */,
-				F4F02F7E14CFA3D00041492E /* WOverlayView.m in Sources */,
 				F4F02F8214CFA6250041492E /* WOverlay.m in Sources */,
 				F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */,
 				F4AA3F3B14DA2E8000ED3CCE /* MapCouchbaseDataModel.m in Sources */,
@@ -1821,7 +1811,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos4.0;
@@ -1843,7 +1833,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
@@ -1866,8 +1856,9 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
+				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/usr/lib/gcc/i686-apple-darwin10/4.0.1\"",
@@ -1894,8 +1885,9 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
+				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/usr/lib/gcc/i686-apple-darwin10/4.0.1\"",
