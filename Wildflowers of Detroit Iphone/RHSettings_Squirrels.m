@@ -23,7 +23,7 @@
 }
 
 + (NSString *) databaseName {
-    return @"squirrels";
+    return @"squirrels_of_the_earth";
 }
 
 

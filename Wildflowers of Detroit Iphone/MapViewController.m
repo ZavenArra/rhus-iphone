@@ -102,6 +102,8 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"View Did Load!");
+    
     firstView = true;
     
     //Set up some tags
@@ -227,6 +229,7 @@
     self.activeDocuments = [[NSMutableArray alloc] init ];
 
     NSArray * documents;
+    NSLog(@"Running Query");
     if(self.userDataOnly){
         documents = [MapDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
     } else {
@@ -261,12 +264,15 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    NSLog(@"View Did Appears!");
+
     
     //TODO: Obviously both of these shouldn't be called
     //RE: setupGalleryScroll is called in viewWillAppear 
     //  - actually it's not, because something isn't in place yet, and nothing loads
     //Both should be key-value observers and already be updated
     //by the time the user clicks on the button.
+    NSLog(@"Adding Annotations");
     [self addAnnotations];
     
     [self setupGalleryScrollView];

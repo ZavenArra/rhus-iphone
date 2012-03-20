@@ -104,7 +104,6 @@
 		F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
 		F4AA3F3B14DA2E8000ED3CCE /* MapCouchbaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */; };
 		F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
-		F4AA3F4414DA2F5100ED3CCE /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4AA3F4814DA551D00ED3CCE /* MapDataModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */; };
 		F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
@@ -127,7 +126,6 @@
 		F4AA3F6714DA5BFE00ED3CCE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
-		F4AA3F6B14DA5BFE00ED3CCE /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4AA3F6C14DA5BFE00ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4AA3F6D14DA5BFE00ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4AA3F6E14DA5BFE00ED3CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
@@ -232,7 +230,6 @@
 		F4CE89DE150C0E24009AE0FC /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
-		F4CE89E1150C0E24009AE0FC /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4CE89E2150C0E24009AE0FC /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4CE89E3150C0E24009AE0FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4CE89E4150C0E24009AE0FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
@@ -340,7 +337,6 @@
 		F4EB1FC1150C24B90041A957 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
 		F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
-		F4EB1FC4150C24B90041A957 /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4EB1FC5150C24B90041A957 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4EB1FC6150C24B90041A957 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4EB1FC7150C24B90041A957 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
@@ -529,7 +525,6 @@
 		F4AA3F3914DA2E8000ED3CCE /* MapCouchbaseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCouchbaseDataModel.h; sourceTree = "<group>"; };
 		F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCouchbaseDataModel.m; sourceTree = "<group>"; };
 		F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Couchbase.framework; path = Frameworks/Couchbase.framework; sourceTree = "<group>"; };
 		F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
 		F4AA3F4614DA551D00ED3CCE /* MapDataModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModelBase.h; sourceTree = "<group>"; };
 		F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModelBase.m; sourceTree = "<group>"; };
@@ -615,7 +610,6 @@
 				F4AA3F6714DA5BFE00ED3CCE /* libstdc++.dylib in Frameworks */,
 				F4AA3F6914DA5BFE00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F6A14DA5BFE00ED3CCE /* Security.framework in Frameworks */,
-				F4AA3F6B14DA5BFE00ED3CCE /* Couchbase.framework in Frameworks */,
 				F4AA3F6C14DA5BFE00ED3CCE /* CouchCocoa.framework in Frameworks */,
 				F4AA3F6D14DA5BFE00ED3CCE /* MapKit.framework in Frameworks */,
 				F4AA3F6E14DA5BFE00ED3CCE /* UIKit.framework in Frameworks */,
@@ -643,7 +637,6 @@
 				F4CE89DE150C0E24009AE0FC /* libstdc++.dylib in Frameworks */,
 				F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */,
 				F4CE89E0150C0E24009AE0FC /* Security.framework in Frameworks */,
-				F4CE89E1150C0E24009AE0FC /* Couchbase.framework in Frameworks */,
 				F4CE89E2150C0E24009AE0FC /* CouchCocoa.framework in Frameworks */,
 				F4CE89E3150C0E24009AE0FC /* MapKit.framework in Frameworks */,
 				F4CE89E4150C0E24009AE0FC /* UIKit.framework in Frameworks */,
@@ -660,7 +653,6 @@
 				F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */,
 				F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */,
 				F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */,
-				F4AA3F4414DA2F5100ED3CCE /* Couchbase.framework in Frameworks */,
 				F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */,
 				F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */,
 				F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */,
@@ -677,7 +669,6 @@
 				F4EB1FC1150C24B90041A957 /* libstdc++.dylib in Frameworks */,
 				F4EB1FC2150C24B90041A957 /* libz.dylib in Frameworks */,
 				F4EB1FC3150C24B90041A957 /* Security.framework in Frameworks */,
-				F4EB1FC4150C24B90041A957 /* Couchbase.framework in Frameworks */,
 				F4EB1FC5150C24B90041A957 /* CouchCocoa.framework in Frameworks */,
 				F4EB1FC6150C24B90041A957 /* MapKit.framework in Frameworks */,
 				F4EB1FC7150C24B90041A957 /* UIKit.framework in Frameworks */,
@@ -887,7 +878,6 @@
 				F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */,
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
 				F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */,
-				F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */,
 				F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */,
 				F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */,
 				F4D3929914BBA6660051E831 /* Wildflowers of Detroit Iphone */,

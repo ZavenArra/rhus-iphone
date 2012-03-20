@@ -21,80 +21,41 @@
 
 //- (id) initWithBlock:( void ( ^ )() ) didStartBlock {
 - (id) init {
-    // Start the Couchbase Mobile server:
-    // gCouchLogLevel = 1;
-    [CouchbaseMobile class];  // prevents dead-stripping
-    CouchEmbeddedServer* server;
     
-    if(![RHSettings useRemoteServer]){
-        server = [[CouchEmbeddedServer alloc] init];
-    } else {
-        server = [[CouchEmbeddedServer alloc] initWithURL: [NSURL URLWithString: [RHSettings couchRemoteServer]]];
-        /*
-         Set Admin Credential Somehow??
-        server.couchbase.adminCredential = [NSURLCredential credentialWithUser:@"winterroot" password:@"dieis8835nd" persistence:NSURLCredentialPersistenceForSession];
-         */
-    }
     
-#if INSTALL_CANNED_DATABASE
-    NSString* dbPath = [[NSBundle mainBundle] pathForResource: [RHSettings databaseName] ofType: @"couch"];
-    NSAssert(dbPath, @"Couldn't find "kDatabaseName".couch");
-    [server installDefaultDatabase: dbPath];
-#endif
+    NSURL* serverURL = [NSURL URLWithString: @"http://data.winterroot.net:5984"];
+    CouchServer *server = [[CouchServer alloc] initWithURL: serverURL];
+    database = [server databaseNamed: [RHSettings databaseName]];
+    database.tracksChanges = YES;
     
-    BOOL started = [server start: ^{  // ... this block runs later on when the server has started up:
-        if (server.error) {
-            [self showAlert: @"Couldn't start Couchbase." error: server.error fatal: YES];
-            return;
-        }
-        
-       // NSError ** outError; 
-       // NSString * version = [server getVersion: outError];
-      //  NSArray * databases = [server getDatabases];
-        self.database = [server databaseNamed: [RHSettings databaseName]];
-        NSAssert(database, @"Database Is NULL!");
-        
-        
-        if(![RHSettings useRemoteServer]){
-            // Create the database on the first run of the app.
-            NSError* error;
-            if (![self.database ensureCreated: &error]) {
-                [self showAlert: @"Couldn't create local database." error: error fatal: YES];
-                return;
-            }
-            
-        }
-        
-        database.tracksChanges = YES;
-                
-      //  NSLog(@"%@", @"Calling did start block");
-       // didStartBlock();
-        
-        //Compile views
-        CouchDesignDocument* design = [database designDocumentWithName: @"design"];
-        NSAssert(design, @"Couldn't find design document");
-        design.language = kCouchLanguageJavaScript;
-        [design defineViewNamed: @"detailDocuments"
-                            map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
-        
-        [design defineViewNamed: @"deviceUserGalleryDocuments"
-                            map: @"function(doc) { emit(doc.deviceuser_identifier,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
-        
-        design.language = kCouchLanguageJavaScript;
-        [design defineViewNamed: @"galleryDocuments"
-                            map: @"function(doc) { emit([doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
-
-        design.language = kCouchLanguageJavaScript;
-        [design defineViewNamed: @"detailDocuments"
-                            map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
-        [design saveChanges];
-        
-        //TODO: Reorganize to use a block
-        [(AppDelegate *) [[UIApplication sharedApplication] delegate] doneStartingUp];
-        
-    }];
+    //  NSLog(@"%@", @"Calling did start block");
+    // didStartBlock();
+    
+    //Compile views
+    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    NSAssert(design, @"Couldn't find design document");
+    design.language = kCouchLanguageJavaScript;
+    [design defineViewNamed: @"detailDocuments"
+                        map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+    
+    [design defineViewNamed: @"deviceUserGalleryDocuments"
+                        map: @"function(doc) { emit(doc.deviceuser_identifier,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+    
+    design.language = kCouchLanguageJavaScript;
+    [design defineViewNamed: @"galleryDocuments"
+                        map: @"function(doc) { emit([doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
+    
+    design.language = kCouchLanguageJavaScript;
+    [design defineViewNamed: @"detailDocuments"
+                        map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+    [design saveChanges];
+    
+    //TODO: Reorganize to use a block
+    [(AppDelegate *) [[UIApplication sharedApplication] delegate] doneStartingUp];
+    
+    
     NSLog(@"%@", @"Started...");
-    NSAssert(started, @"didnt start");
+
     
     return self;
     
