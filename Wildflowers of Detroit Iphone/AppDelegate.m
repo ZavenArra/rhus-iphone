@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "CameraViewController.h"
-#import "MapViewController.h"
 #import "MapDataModel.h"
 #import "RHLocation.h"
 
@@ -37,22 +36,22 @@
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
     
-        
+      /*  
     MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     galleryViewController.userDataOnly = YES;
     galleryViewController.launchInGalleryMode = YES;
     self.swoopTabViewController.topViewController = galleryViewController;
-    
+    */
     
     CameraViewController * cameraViewController = [[CameraViewController alloc]init];
     cameraViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     self.swoopTabViewController.middleViewController = cameraViewController; 
     
-    MapViewController * mapViewController = [[MapViewController alloc]init];
-    mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
+   // MapViewController * mapViewController = [[MapViewController alloc]init];
+   // mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
 
-    self.swoopTabViewController.bottomViewController = mapViewController;
+    //self.swoopTabViewController.bottomViewController = mapViewController;
     
     
    [self.window addSubview:swoopTabViewController.view];

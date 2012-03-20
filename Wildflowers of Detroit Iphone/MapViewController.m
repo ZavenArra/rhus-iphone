@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #include <stdlib.h>
-#import "WOverlay.h"
+//#import "WOverlay.h"
 #import "MapDataModel.h"
 #import "RhusMapAnnotation.h"
 #import "RhusDocument.h"

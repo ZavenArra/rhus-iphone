@@ -72,10 +72,11 @@
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
 		A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACB714BBDDF8005BB81D /* icon.png */; };
 		A6EFC47214C4E1DE0014ACA9 /* infoBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC47114C4E1DE0014ACA9 /* infoBack.png */; };
-		C371953D151641AC00B59111 /* PLBlocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F2858A150DE580009A24C9 /* PLBlocks.framework */; };
 		C3719540151641CE00B59111 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */; };
-		C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C395837715157E8D00B0AC3D /* libstdc++.dylib */; };
+		C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C395837715157E8D00B0AC3D /* libstdc++.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C3E7F21B15191474002BEC7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E7F21A15191474002BEC7B /* MapKit.framework */; };
+		C3E7F25E1519196A002BEC7B /* PLBlocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E7F25D1519196A002BEC7B /* PLBlocks.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C3E7F27015191B80002BEC7B /* MapDataModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */; };
 		F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */; };
 		F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885F150C0C95009AE0FC /* RHSettings_Development.m */; };
 		F422E2C6150C288D009317E5 /* RHSettings_Squirrels.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CE885D150C0BD1009AE0FC /* RHSettings_Squirrels.m */; };
@@ -103,11 +104,9 @@
 		F49D3457150CAF6200BC1D7D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D3454150CAF6100BC1D7D /* LoadingViewController.m */; };
 		F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C8D14BBD3FB00EF9627 /* CameraViewController.m */; };
 		F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C8E14BBD3FB00EF9627 /* CameraViewController.xib */; };
-		F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A84C9214BBD41A00EF9627 /* MapViewController.m */; };
 		F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A84C9314BBD41A00EF9627 /* MapViewController.xib */; };
 		F4AA3F3B14DA2E8000ED3CCE /* MapCouchbaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F3A14DA2E8000ED3CCE /* MapCouchbaseDataModel.m */; };
 		F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
-		F4AA3F4814DA551D00ED3CCE /* MapDataModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4714DA551D00ED3CCE /* MapDataModelBase.m */; };
 		F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA3F4A14DA567300ED3CCE /* MapDataModel.m */; };
 		F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
@@ -408,12 +407,10 @@
 		F4EB2108150C24B90041A957 /* MenuReturnButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F1A150A20F300D1B133 /* MenuReturnButton.png */; };
 		F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EDE02714D0EB7800242082 /* TimelineVisualizationView.m */; };
 		F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F7914CF97EE0041492E /* SSMapAnnotation.m */; };
-		F4F02F8214CFA6250041492E /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F02F8114CFA6250041492E /* WOverlay.m */; };
 		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2857D150DB751009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2857E150DB751009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F28588150DE38A009A24C9 /* libSystem.B.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F28586150DE38A009A24C9 /* libSystem.B.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F4F2858B150DE580009A24C9 /* PLBlocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F2858A150DE580009A24C9 /* PLBlocks.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -485,6 +482,7 @@
 		A6EFC47114C4E1DE0014ACA9 /* infoBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoBack.png; path = graphics/infoBack.png; sourceTree = SOURCE_ROOT; };
 		C395837715157E8D00B0AC3D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "/usr/lib/gcc/i686-apple-darwin10/4.0.1/libstdc++.dylib"; sourceTree = "<absolute>"; };
 		C3E7F21A15191474002BEC7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C3E7F25D1519196A002BEC7B /* PLBlocks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLBlocks.framework; path = Frameworks/PLBlocks.framework; sourceTree = "<group>"; };
 		F419E4261509B6AF00DCE9A4 /* RhusMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusMapAnnotation.h; sourceTree = "<group>"; };
 		F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RhusMapAnnotation.m; sourceTree = "<group>"; };
 		F422E2C8150C3309009317E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -585,9 +583,7 @@
 		F4F02F8014CFA6250041492E /* WOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOverlay.h; sourceTree = "<group>"; };
 		F4F02F8114CFA6250041492E /* WOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOverlay.m; sourceTree = "<group>"; };
 		F4F2857A150DADBC009A24C9 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shutter.png; path = graphics/shutter.png; sourceTree = SOURCE_ROOT; };
-		F4F28584150DE29B009A24C9 /* libSystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.dylib; path = usr/lib/libSystem.dylib; sourceTree = SDKROOT; };
 		F4F28586150DE38A009A24C9 /* libSystem.B.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.B.dylib; path = usr/lib/libSystem.B.dylib; sourceTree = SDKROOT; };
-		F4F2858A150DE580009A24C9 /* PLBlocks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLBlocks.framework; path = Frameworks/PLBlocks.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,7 +614,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F2858B150DE580009A24C9 /* PLBlocks.framework in Frameworks */,
 				F4F28588150DE38A009A24C9 /* libSystem.B.dylib in Frameworks */,
 				F4CE89DD150C0E24009AE0FC /* CoreLocation.framework in Frameworks */,
 				F4CE89DF150C0E24009AE0FC /* libz.dylib in Frameworks */,
@@ -642,8 +637,8 @@
 				F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */,
 				F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */,
 				C395837815157E8D00B0AC3D /* libstdc++.dylib in Frameworks */,
-				C371953D151641AC00B59111 /* PLBlocks.framework in Frameworks */,
 				C3E7F21B15191474002BEC7B /* MapKit.framework in Frameworks */,
+				C3E7F25E1519196A002BEC7B /* PLBlocks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,9 +852,7 @@
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
-				F4F2858A150DE580009A24C9 /* PLBlocks.framework */,
 				F4F28586150DE38A009A24C9 /* libSystem.B.dylib */,
-				F4F28584150DE29B009A24C9 /* libSystem.dylib */,
 				F4CE8857150C08A3009AE0FC /* CoreLocation.framework */,
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
 				F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */,
@@ -873,6 +866,7 @@
 				A6428BAE150C3FAF00CC0D03 /* RhusDevelopment-Info.plist */,
 				C395837715157E8D00B0AC3D /* libstdc++.dylib */,
 				C3E7F21A15191474002BEC7B /* MapKit.framework */,
+				C3E7F25D1519196A002BEC7B /* PLBlocks.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1040,7 +1034,6 @@
 			buildPhases = (
 				F4D3928B14BBA6660051E831 /* Sources */,
 				F4D3928C14BBA6660051E831 /* Frameworks */,
-				F4AA3F3714DA2DD000ED3CCE /* Copy Couchbase Files */,
 				F4D3928D14BBA6660051E831 /* Resources */,
 			);
 			buildRules = (
@@ -1437,20 +1430,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F4AA3F3714DA2DD000ED3CCE /* Copy Couchbase Files */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Couchbase Files";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# The 'CouchbaseResources' subfolder of the framework contains Erlang code and other resources needed at runtime. Copy it into the app bundle:\nrsync -a \"${SRCROOT}/Frameworks/Couchbase.framework/CouchbaseResources\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"";
-		};
 		F4AA3F7114DA5BFE00ED3CCE /* Copy Couchbase Files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1558,13 +1537,10 @@
 				F4D392A414BBA6660051E831 /* AppDelegate.m in Sources */,
 				F4D392C814BBB5CA0051E831 /* SwoopTabViewController.m in Sources */,
 				F4A84C8F14BBD3FB00EF9627 /* CameraViewController.m in Sources */,
-				F4A84C9414BBD41A00EF9627 /* MapViewController.m in Sources */,
 				F4C05DDD14BCE1EF0008FBB5 /* MapDataModelSpoof.m in Sources */,
 				F4F02F7A14CF97EE0041492E /* SSMapAnnotation.m in Sources */,
-				F4F02F8214CFA6250041492E /* WOverlay.m in Sources */,
 				F4EDE02814D0EB7800242082 /* TimelineVisualizationView.m in Sources */,
 				F4AA3F3B14DA2E8000ED3CCE /* MapCouchbaseDataModel.m in Sources */,
-				F4AA3F4814DA551D00ED3CCE /* MapDataModelBase.m in Sources */,
 				F4AA3F4B14DA567300ED3CCE /* MapDataModel.m in Sources */,
 				F48E254E150881DC00A021AE /* main.m in Sources */,
 				F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */,
@@ -1574,6 +1550,7 @@
 				F422E2C7150C2890009317E5 /* RHSettings_Wildflowers.m in Sources */,
 				F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
 				C3719540151641CE00B59111 /* OrderedDictionary.m in Sources */,
+				C3E7F27015191B80002BEC7B /* MapDataModelBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
