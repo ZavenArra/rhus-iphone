@@ -24,6 +24,9 @@
 
 #define insetLatitudeDelta .03
 #define insetLongitudeDelta .03
+#define kLargeLatitudeDelta 1
+#define kLargeLongitudeDelta 1
+
 
 
 
@@ -70,6 +73,9 @@
 @synthesize firstView;
 @synthesize detailDate;
 @synthesize mapShowing;
+@synthesize heading2;
+@synthesize galleryHeading2;
+@synthesize myDataHeadingGallery;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -96,6 +102,8 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"View Did Load!");
+    
     firstView = true;
     
     //Set up some tags
@@ -103,18 +111,19 @@
     self.galleryScrollView.tag = kGalleryScrollViewTag;
     
     
-    
-    MKCoordinateRegion coordinateRegion;
-    CLLocationCoordinate2D center;
-    center.latitude = [RHSettings mapCenterLatitudeOnLoad]; 
-    center.longitude = [RHSettings mapCenterLongitudeOnLoad]; 
-    coordinateRegion.center = center;
-    MKCoordinateSpan span;
-    span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; 
-    span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; 
-    coordinateRegion.span = span;
-    self.mapView.region = coordinateRegion;
-    
+    if(!launchInGalleryMode) {
+        MKCoordinateRegion coordinateRegion;
+        CLLocationCoordinate2D center;
+        center.latitude = [RHSettings mapCenterLatitudeOnLoad]; 
+        center.longitude = [RHSettings mapCenterLongitudeOnLoad]; 
+        coordinateRegion.center = center;
+        MKCoordinateSpan span;
+        span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; 
+        span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; 
+        coordinateRegion.span = span;
+        self.mapView.region = coordinateRegion;
+    }
+        
 
     //spoof an overlay geometry
     //WOverlay * overlay = [[WOverlay alloc] init];
@@ -128,11 +137,12 @@
         [self placeInGalleryMode];
     } else {
         mapShowing = TRUE;
+        self.heading2.hidden = TRUE;
+        self.myDataHeadingGallery.hidden = TRUE;
     }
 }
 
-
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     if(launchInGalleryMode || !mapShowing ) {
         [self transitionToFullScreen];
     }
@@ -219,18 +229,24 @@
     self.activeDocuments = [[NSMutableArray alloc] init ];
 
     NSArray * documents;
+    NSLog(@"Running Query");
     if(self.userDataOnly){
         documents = [MapDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
     } else {
         documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
     }
+    
+    self.galleryHeading2.text = [NSString stringWithFormat:@"%i Images", [documents count]];
         
     for( RhusDocument * document in documents){
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
         coordinate.longitude = [ (NSString*) [document objectForKey:@"longitude"] floatValue];
-     
-        RhusMapAnnotation * rhusMapAnnotation = [RhusMapAnnotation 
+        if(coordinate.latitude == 0 && coordinate.longitude==0){
+            continue;
+        }
+       // NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
+        RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) [RhusMapAnnotation 
                                                  mapAnnotationWithCoordinate: coordinate
                                                  title:  [document getDateString]
                                                  subtitle:  [document getReporter]
@@ -245,13 +261,23 @@
     
    }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self addAnnotations];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSLog(@"View Did Appears!");
+
     
     //TODO: Obviously both of these shouldn't be called
+    //RE: setupGalleryScroll is called in viewWillAppear 
+    //  - actually it's not, because something isn't in place yet, and nothing loads
+    //Both should be key-value observers and already be updated
+    //by the time the user clicks on the button.
+    NSLog(@"Adding Annotations");
+    [self addAnnotations];
+    
     [self setupGalleryScrollView];
     
-    if(launchInGalleryMode && firstView) {
+    if(launchInGalleryMode) {
         [UIView beginAnimations:nil context:NULL];
         [fullscreenTransitionDelegate subviewRequestingFullscreen];
         [UIView commitAnimations];
@@ -295,14 +321,16 @@
     
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
     
-    MKCoordinateRegion coordinateRegion = self.mapView.region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = insetLatitudeDelta;
-    span.longitudeDelta = insetLongitudeDelta;
-    coordinateRegion.span = span;
-    self.mapView.region = coordinateRegion;
+    if(!launchInGalleryMode){
+        MKCoordinateRegion coordinateRegion = self.mapView.region;
+        MKCoordinateSpan span;
+        span.latitudeDelta = insetLatitudeDelta;
+        span.longitudeDelta = insetLongitudeDelta;
+        coordinateRegion.span = span;
+        self.mapView.region = coordinateRegion;
     
-    [self setMapViewToInset];
+        [self setMapViewToInset];
+    }
     
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(placeMapInsetButton)];
@@ -313,6 +341,9 @@
 
 -(void) detailToGallery {
     [self.view insertSubview:self.timelineView aboveSubview: self.detailView];
+    if(!launchInGalleryMode){
+        [self.view addSubview:mapView];
+    }
     [self.detailView removeFromSuperview];
 }
 
@@ -368,8 +399,8 @@
     
     MKCoordinateRegion coordinateRegion = self.mapView.region;
     MKCoordinateSpan span;
-    span.latitudeDelta = [RHSettings mapDeltaLatitudeOnLoad]; ;
-    span.longitudeDelta = [RHSettings mapDeltaLongitudeOnLoad]; ;
+    span.latitudeDelta = kLargeLatitudeDelta;
+    span.longitudeDelta = kLargeLongitudeDelta;
     coordinateRegion.span = span;
     self.mapView.region = coordinateRegion;
     
@@ -434,8 +465,9 @@
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:rhusMapAnnotation reuseIdentifier:rhusMapAnnotationIdentifier];
     }
 
-    if([[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"]
-       == [DeviceUser uniqueIdentifier]){
+    NSString * documentDeviceUserIdentifier = [[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"];
+    NSString * deviceUserIdentifier = [DeviceUser uniqueIdentifier];
+    if([deviceUserIdentifier isEqualToString: documentDeviceUserIdentifier] ){
         annotationView.image = [UIImage imageNamed:@"mapDeviceUserPoint"];
     } else {
         annotationView.image = [UIImage imageNamed:@"mapPoint"];
@@ -453,6 +485,7 @@
     
     annotationView.leftCalloutAccessoryView = calloutButton;
     annotationView.canShowCallout = YES;
+    annotationView.tag = rhusMapAnnotation.tag;
    
     return annotationView; 
 }
@@ -465,7 +498,8 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *) control {
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
-    [self transitionFromMapToTimelineWithIndex:view.tag andTimeline:nil ];
+    NSInteger tag = view.tag;
+    [self transitionFromMapToTimelineWithIndex:tag andTimeline:nil ];
     [mapView deselectAnnotation:view.annotation animated:YES];
 }
 
@@ -539,7 +573,6 @@
 
 - (void)hideDetailView{
     [self.detailView removeFromSuperview];
-    
 }
 
 - (void)showInfoViewForIndex: (NSInteger) index{
@@ -593,14 +626,12 @@
     int tag = senderButton.tag;
     self.currentDetailIndex = tag;
     
-    //place detail scroll view
+    //place zoom view
     CGRect frame;
     frame.origin.x = senderOrigin.x;
     frame.origin.y = senderOrigin.y ;    
-    //     + (kThumbnailHeight - kThumbnailWidth * 320 / 480) / 2; // this term is the vert offset of the actual image
     frame.size.width = kThumbnailWidth;
-    frame.size.height = frame.size.width; // 320 * kThumbnailWidth / 480;
-    
+    frame.size.height = frame.size.width; // 320 * kThumbnailWidth / 480;    
     self.zoomView.frame = frame;
     
     [self.timelineView insertSubview:self.zoomView belowSubview:self.timelineControlsView];    
@@ -612,7 +643,7 @@
 
     
     //animate the zoom in, making the detail scroll view fill the screen
-    [UIView beginAnimations:nil context:NULL];
+    [UIView beginAnimations:@"Anim" context:NULL];
 	[UIView setAnimationDuration: 0.50];
         
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
@@ -690,6 +721,13 @@
 
 
 #pragma mark - UIScrollViewDelegate Functions
+
+- (void) updateTimestampView {
+    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+    self.detailDate.text = [document objectForKey:@"created_at"];
+
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 	CGFloat x = scrollView.contentOffset.x;
     if(scrollView.tag == kDetailScrollViewTag){
@@ -705,6 +743,9 @@
         
         RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
         [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
+        if(!launchInGalleryMode){
+           // self.heading2.text = [document objectForKey:
+        }
         
 
         
@@ -716,6 +757,11 @@
     
     
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateTimestampView];   
+}
+
 
 
 @end

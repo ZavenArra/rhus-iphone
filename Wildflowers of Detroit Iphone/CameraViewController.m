@@ -76,11 +76,15 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //TODO: This isn't being called on the IPad
 
+    
+    [RHLocation instance];
+    
     if([RHSettings useCamera]) {
         [self showImagePickerView];
     }
-    
 }
 
 - (void) showImagePickerView {
@@ -307,12 +311,15 @@
                                          @"", @"medium",
                                          [DeviceUser uniqueIdentifier], @"deviceuser_identifier",
                                          nil];
+    
+    NSLog(@"debuggin %@", [newDocument debugDescription]);
 
     for(NSString * attribute in selectedAttributes){
         [newDocument setObject:@"true" forKey:attribute];
     }
     
     /* */
+    NSLog(@"%@", @"Adding New Document");
     [MapDataModel addDocument:newDocument 
                   withAttachments: [NSArray arrayWithObjects:
                                     [NSDictionary dictionaryWithObjectsAndKeys:
@@ -414,7 +421,7 @@
         [selectedAttributes removeObject:attribute];
         
     }
-    self.comment.text = nil;
+    self.comment.text = @"";
     
 }
 

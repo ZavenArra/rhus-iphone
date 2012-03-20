@@ -64,7 +64,6 @@
     
     [self.window makeKeyAndVisible];
     
-    [RHLocation instance];
 
     [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
     

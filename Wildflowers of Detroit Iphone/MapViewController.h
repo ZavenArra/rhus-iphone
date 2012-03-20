@@ -65,10 +65,16 @@
 
 @property(retain, nonatomic) IBOutlet   UIImageView * zoomView;
 
-@property(retain, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
+
+@property(strong, nonatomic) IBOutlet   TimelineVisualizationView * visualization;
+@property(strong, nonatomic) IBOutlet   UILabel * galleryHeading2;
+@property(strong, nonatomic) IBOutlet   UILabel * myDataHeadingGallery;
+
 
 //detailView
-@property(retain, nonatomic) IBOutlet   UILabel * detailDate;
+@property(strong, nonatomic) IBOutlet   UILabel * detailDate;
+@property(strong, nonatomic) IBOutlet   UILabel * heading2;
+
 
 //infoView
 @property(retain, nonatomic) IBOutlet   UIView * infoView;
