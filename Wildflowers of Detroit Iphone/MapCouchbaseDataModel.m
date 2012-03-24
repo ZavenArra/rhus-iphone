@@ -449,6 +449,7 @@
     
     [self forgetSync];
     
+    NSLog(@"Setting up replication %@", [newRemoteURL debugDescription]);
     NSArray* repls = [self.database replicateWithURL: newRemoteURL exclusively: YES];
     _pull = [repls objectAtIndex: 0];
     _push = [repls objectAtIndex: 1];

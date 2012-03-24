@@ -103,15 +103,17 @@
 
 - (void) doneStartingUp {
     if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
+        
         [loadingViewController.view removeFromSuperview];
         loadingViewController = nil;
     } else {
-        [[MapDataModel instance] updateSyncURL];
         
         [loadingViewController.loadingView removeFromSuperview];
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
     }
+    [[MapDataModel instance] updateSyncURL];
+
 }
 
 
