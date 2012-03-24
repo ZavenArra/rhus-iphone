@@ -499,6 +499,8 @@
     
     [self centerMapOnCoodinates:view.annotation.coordinate];
     NSInteger tag = view.tag;
+    NSLog(@"Transitioning with index: %i", tag); 
+
     [self transitionFromMapToTimelineWithIndex:tag andTimeline:nil ];
     [mapView deselectAnnotation:view.annotation animated:YES];
 }
@@ -537,6 +539,7 @@
     
     [self.detailScrollView setContentSize:CGSizeMake( scrollViewPages * 480, 320)];
     
+    //TODO: currently this reruns the layout every time you click a thumb/callout
     for(int i=0; i<[activeDocuments count]; i++){
         RhusDocument * document = [activeDocuments objectAtIndex:i];
         if([document objectForKey:@"medium"] == nil){
@@ -562,6 +565,10 @@
         [self.detailScrollView addSubview:scrollPage];
     }
     
+    CGPoint detailScrollContentOffset;
+    detailScrollContentOffset.y = 0;
+    detailScrollContentOffset.x = index * 480;
+    [self.detailScrollView setContentOffset:detailScrollContentOffset  animated:NO];
     
     [self.timelineView insertSubview: self.detailView belowSubview:self.zoomView];
     [self.zoomView removeFromSuperview];
