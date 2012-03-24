@@ -34,7 +34,6 @@
     NSURL* _cachedURL;
     
     NSURLCredential* _credential;
-    NSURLProtectionSpace* _protectionSpace;
 }
 
 /** Creates an instance with an absolute URL and no parent. */
@@ -57,9 +56,6 @@
 
 /** Sets the login credential (e.g. username/password) to be used for authentication by this resource and its children. */
 - (void) setCredential: (NSURLCredential*)credential;
-
-/** Sets a protection space for operations on this resource. */
-- (void) setProtectionSpace: (NSURLProtectionSpace*)protectionSpace;
 
 #pragma mark HTTP METHODS:
 
