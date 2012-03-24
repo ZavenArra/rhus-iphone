@@ -274,11 +274,16 @@
     
     //Medium size
     CGSize mediumSize;
-    mediumSize.width = 480;
-    mediumSize.height = 320;
+    if(currentImage.size.width > currentImage.size.height){
+        mediumSize.width = 480;
+        mediumSize.height = 320;
+    } else {
+        mediumSize.width = 320;
+        mediumSize.height = 480;
+    }
     
     UIGraphicsBeginImageContext(mediumSize);
-    [currentImage drawInRect:CGRectMake(0, 0, 480, 320)];
+    [currentImage drawInRect:CGRectMake(0, 0, mediumSize.width, mediumSize.height)];
     UIImage* mediumImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(mediumImage, .8);
