@@ -75,18 +75,18 @@
         NSAssert(design, @"Couldn't find design document");
         design.language = kCouchLanguageJavaScript;
         [design defineViewNamed: @"detailDocuments"
-                            map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+                            map: @"function(doc) { emit([doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
         
         [design defineViewNamed: @"deviceUserGalleryDocuments"
-                            map: @"function(doc) { emit(doc.deviceuser_identifier,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+                            map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
         
         design.language = kCouchLanguageJavaScript;
         [design defineViewNamed: @"galleryDocuments"
-                            map: @"function(doc) { emit([doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
+                            map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
 
         design.language = kCouchLanguageJavaScript;
         [design defineViewNamed: @"detailDocuments"
-                            map: @"function(doc) { emit([doc._id, doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+                            map: @"function(doc) { emit(doc.created_at, [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
         [design saveChanges];
         
         //TODO: Reorganize to use a block
