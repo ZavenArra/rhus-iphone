@@ -350,6 +350,11 @@
     
 }
 
+-(void)centerMapAtCurrentDocument {
+    
+    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+    [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
+}
 
 
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index {
@@ -362,10 +367,9 @@
     self.currentDetailIndex = index;
     [self showDetailViewForIndex: index];
     [self mapToTimelineAnimation];
-    
-    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
-    [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
 
+
+    [self centerMapAtCurrentDocument];
     mapShowing = FALSE;
 }
 
@@ -641,7 +645,9 @@
     detailScrollContentOffset.y = 0;
     detailScrollContentOffset.x = senderButton.tag * 480;
     [self.detailScrollView setContentOffset:detailScrollContentOffset  animated:NO];
-
+    
+    
+    [self centerMapAtCurrentDocument];
     
     //animate the zoom in, making the detail scroll view fill the screen
     [UIView beginAnimations:@"Anim" context:NULL];
