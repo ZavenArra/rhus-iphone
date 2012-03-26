@@ -241,17 +241,12 @@
     
     CouchQuery * query = [design queryViewNamed: @"deviceUserGalleryDocuments"]; //asLiveQuery];
     query.descending = NO;
-  //  query.startKey = [NSMutableArray arrayWithObjects:userIdentifier, [NSNumber numberWithInt: 0], nil];
-  //  query.endKey = [NSArray arrayWithObjects:userIdentifier, [NSNumber numberWithInt: 9999999999999999999], nil];
-   // query.startKey =  @"\['YES', 0 \]";
-   // query.endKey = @"\['NO', 99999999999999999999999999999 \]";
     
-    query.startKey =  [NSString stringWithFormat: @"\['%@', 0 \]", userIdentifier];
-    query.endKey =  [NSString stringWithFormat: @"\['%@', {} \]", userIdentifier];
+    //   query.startKey =  [NSString stringWithFormat: @"\['%@', '' \]", userIdentifier];
+    //   query.endKey =  [NSString stringWithFormat: @"\['%@', {} \]", userIdentifier];
+    query.startKey = [NSArray arrayWithObjects:userIdentifier, nil];
+    query.endKey = [NSArray arrayWithObjects:userIdentifier, [NSDictionary dictionary], nil];
     
-    query.startKey = userIdentifier;
-    query.endKey = userIdentifier;
- 
     //how to specify multi value key???  array key, with match all entries
     //query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
