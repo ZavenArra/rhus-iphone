@@ -94,7 +94,7 @@
         if([RHSettings useCamera]) {
             
             self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
-            self.imagePicker.showsCameraControls = YES;
+            self.imagePicker.showsCameraControls = NO;
             
         }else {       
             self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -114,6 +114,7 @@
                             1.2, 1.2)
     ;
     
+    [self.imagePicker.view removeFromSuperview];
     [self.view addSubview:self.imagePicker.view];
 
 }
@@ -436,7 +437,7 @@
     currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:currentImage];
     if(self.activeImageOrientation == kPortraitPhoto){
-        imageView.transform = CGAffineTransformScale ( CGAffineTransformMakeRotation(-M_PI/2), 1.2, 1.2);
+        imageView.transform = CGAffineTransformScale ( CGAffineTransformMakeRotation(-M_PI/2), 1.7, 1.7);
     } else {
         imageView.transform = CGAffineTransformScale ( CGAffineTransformIdentity, 2, 2);
     }

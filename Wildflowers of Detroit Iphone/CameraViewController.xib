@@ -1411,7 +1411,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="349097720">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="571031410">
@@ -1419,15 +1419,16 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{480, 320}</string>
 						<reference key="NSSuperview" ref="349097720"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">shutter.png</string>
-						</object>
+						<reference key="IBUIImage" ref="154751850"/>
 					</object>
 				</array>
 				<string key="NSFrameSize">{480, 320}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="571031410"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -2427,7 +2428,6 @@
 			<string key="retakeButton.png">{87, 36}</string>
 			<string key="retakeButtonP.png">{36, 87}</string>
 			<string key="send.png">{163, 30}</string>
-			<string key="shutter.png">{960, 640}</string>
 			<string key="sixDefault.png">{30, 33}</string>
 			<string key="sixDown.png">{30, 33}</string>
 			<string key="submitBackground.png">{432, 239}</string>

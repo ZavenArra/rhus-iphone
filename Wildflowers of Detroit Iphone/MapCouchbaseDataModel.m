@@ -78,7 +78,7 @@
                             map: @"function(doc) { emit([doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
         
         [design defineViewNamed: @"deviceUserGalleryDocuments"
-                            map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+                            map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
         
         design.language = kCouchLanguageJavaScript;
         [design defineViewNamed: @"galleryDocuments"
@@ -234,10 +234,7 @@
     CouchDatabase * database = [self.instance database];
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
-   // design.language = kCouchLanguageJavaScript;
-/*    [design defineViewNamed: @"deviceUserGalleryDocuments"
-                        map: @"function(doc) { emit([doc.deviceuser_identifier,  Date.parse(doc.created_at)],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
-  */ 
+  
     NSLog(@"Running query without sorting");
 
     
@@ -249,12 +246,12 @@
    // query.startKey =  @"\['YES', 0 \]";
    // query.endKey = @"\['NO', 99999999999999999999999999999 \]";
     
-    query.startKey =  [NSString stringWithFormat: @"\['%@'\]", userIdentifier];
-    query.endKey =  [NSString stringWithFormat: @"\['%@'\]", userIdentifier];
+    query.startKey =  [NSString stringWithFormat: @"\['%@', 0 \]", userIdentifier];
+    query.endKey =  [NSString stringWithFormat: @"\['%@', {} \]", userIdentifier];
     
     query.startKey = userIdentifier;
     query.endKey = userIdentifier;
-
+ 
     //how to specify multi value key???  array key, with match all entries
     //query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
