@@ -84,6 +84,8 @@
 		F422E2EC150C331F009317E5 /* Iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D9150C3313009317E5 /* Iconx2.png */; };
 		F422E2ED150C331F009317E5 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DA150C3313009317E5 /* Loading.png */; };
 		F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DB150C3313009317E5 /* Loadingx2.png */; };
+		F430E24F15225B4600B278DB /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F430E24C15225B4600B278DB /* UIImage+Alpha.m */; };
+		F430E25015225B4600B278DB /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F430E24E15225B4600B278DB /* UIImage+RoundedCorner.m */; };
 		F43540DE14D1140D00C206CA /* mapPointPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DC14D1140D00C206CA /* mapPointPopup.png */; };
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
@@ -506,6 +508,10 @@
 		F422E2D9150C3313009317E5 /* Iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx2.png; sourceTree = "<group>"; };
 		F422E2DA150C3313009317E5 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		F422E2DB150C3313009317E5 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loadingx2.png; sourceTree = "<group>"; };
+		F430E24B15225B4600B278DB /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		F430E24C15225B4600B278DB /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		F430E24D15225B4600B278DB /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		F430E24E15225B4600B278DB /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
@@ -775,6 +781,10 @@
 		F4C05EF014BD085F0008FBB5 /* Categories and Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				F430E24B15225B4600B278DB /* UIImage+Alpha.h */,
+				F430E24C15225B4600B278DB /* UIImage+Alpha.m */,
+				F430E24D15225B4600B278DB /* UIImage+RoundedCorner.h */,
+				F430E24E15225B4600B278DB /* UIImage+RoundedCorner.m */,
 				F479003F1522590A00480471 /* UIImage+Resize.m */,
 				F47900401522590A00480471 /* UIImage+Resize.h */,
 				F4C05EF714BE335A0008FBB5 /* OrderedDictionary.h */,
@@ -1601,6 +1611,8 @@
 				F422E2C7150C2890009317E5 /* RHSettings_Wildflowers.m in Sources */,
 				F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
 				F47900411522590A00480471 /* UIImage+Resize.m in Sources */,
+				F430E24F15225B4600B278DB /* UIImage+Alpha.m in Sources */,
+				F430E25015225B4600B278DB /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
