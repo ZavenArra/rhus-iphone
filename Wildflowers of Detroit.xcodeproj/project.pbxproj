@@ -86,14 +86,14 @@
 		F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DB150C3313009317E5 /* Loadingx2.png */; };
 		F43540DE14D1140D00C206CA /* mapPointPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DC14D1140D00C206CA /* mapPointPopup.png */; };
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
-		F43A98B2152159AE002A8B0E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A98B0152159AE002A8B0E /* UIImage+Resize.m */; };
-		F43A98B3152159AE002A8B0E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A98B0152159AE002A8B0E /* UIImage+Resize.m */; };
-		F43A98B4152159AE002A8B0E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A98B0152159AE002A8B0E /* UIImage+Resize.m */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
 		F479003B15218C4300480471 /* Icon@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003715218C4300480471 /* Icon@x2.png */; };
 		F479003C15218C4300480471 /* ipad~iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003815218C4300480471 /* ipad~iconx2.png */; };
 		F479003D15218C4300480471 /* ipad~icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003915218C4300480471 /* ipad~icon.png */; };
 		F479003E15218C4300480471 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003A15218C4300480471 /* Icon.png */; };
+		F47900411522590A00480471 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F479003F1522590A00480471 /* UIImage+Resize.m */; };
+		F47900421522590A00480471 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F479003F1522590A00480471 /* UIImage+Resize.m */; };
+		F47900431522590A00480471 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F479003F1522590A00480471 /* UIImage+Resize.m */; };
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F49D333B150C3E8900BC1D7D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E29D62150C3A9000B797F3 /* Defaultx2.png */; };
@@ -508,13 +508,13 @@
 		F422E2DB150C3313009317E5 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loadingx2.png; sourceTree = "<group>"; };
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
-		F43A98B0152159AE002A8B0E /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../../Downloads/UIImage-categories/UIImage+Resize.m"; sourceTree = "<group>"; };
-		F43A98B1152159AE002A8B0E /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../../Downloads/UIImage-categories/UIImage+Resize.h"; sourceTree = "<group>"; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
 		F479003715218C4300480471 /* Icon@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@x2.png"; sourceTree = "<group>"; };
 		F479003815218C4300480471 /* ipad~iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad~iconx2.png"; sourceTree = "<group>"; };
 		F479003915218C4300480471 /* ipad~icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad~icon.png"; sourceTree = "<group>"; };
 		F479003A15218C4300480471 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F479003F1522590A00480471 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		F47900401522590A00480471 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		F49D3453150CAF6000BC1D7D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		F49D3454150CAF6100BC1D7D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -775,8 +775,8 @@
 		F4C05EF014BD085F0008FBB5 /* Categories and Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				F43A98B0152159AE002A8B0E /* UIImage+Resize.m */,
-				F43A98B1152159AE002A8B0E /* UIImage+Resize.h */,
+				F479003F1522590A00480471 /* UIImage+Resize.m */,
+				F47900401522590A00480471 /* UIImage+Resize.h */,
 				F4C05EF714BE335A0008FBB5 /* OrderedDictionary.h */,
 				F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */,
 				F4C05EEF14BD08590008FBB5 /* FullscreenTransitionDelegate.h */,
@@ -1572,7 +1572,7 @@
 				F4CE89DB150C0E24009AE0FC /* RHLocation.m in Sources */,
 				F422E2C6150C288D009317E5 /* RHSettings_Squirrels.m in Sources */,
 				F49D3456150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
-				F43A98B3152159AE002A8B0E /* UIImage+Resize.m in Sources */,
+				F47900421522590A00480471 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1600,7 +1600,7 @@
 				F4CE8856150C01E1009AE0FC /* RHLocation.m in Sources */,
 				F422E2C7150C2890009317E5 /* RHSettings_Wildflowers.m in Sources */,
 				F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
-				F43A98B2152159AE002A8B0E /* UIImage+Resize.m in Sources */,
+				F47900411522590A00480471 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1628,7 +1628,7 @@
 				F4EB1FBE150C24B90041A957 /* RHLocation.m in Sources */,
 				F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */,
 				F49D3457150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
-				F43A98B4152159AE002A8B0E /* UIImage+Resize.m in Sources */,
+				F47900431522590A00480471 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
