@@ -235,20 +235,12 @@
     CouchDesignDocument* design = [database designDocumentWithName: @"design"];
     NSAssert(design, @"Couldn't find design document");
   
-    NSLog(@"Running query without sorting");
-
-    
-    
     CouchQuery * query = [design queryViewNamed: @"deviceUserGalleryDocuments"]; //asLiveQuery];
-    query.descending = NO;
+
+    query.descending = YES;
+    query.endKey = [NSArray arrayWithObjects:userIdentifier, nil];
+    query.startKey = [NSArray arrayWithObjects:userIdentifier, [NSDictionary dictionary], nil];
     
-    //   query.startKey =  [NSString stringWithFormat: @"\['%@', '' \]", userIdentifier];
-    //   query.endKey =  [NSString stringWithFormat: @"\['%@', {} \]", userIdentifier];
-    query.startKey = [NSArray arrayWithObjects:userIdentifier, nil];
-    query.endKey = [NSArray arrayWithObjects:userIdentifier, [NSDictionary dictionary], nil];
-    
-    //how to specify multi value key???  array key, with match all entries
-    //query.keys = [NSArray arrayWithObject:[DeviceUser uniqueIdentifier]];
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
     
     return [self readAttachments: r];

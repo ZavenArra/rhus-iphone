@@ -11,6 +11,7 @@
 #import "DeviceUser.h"
 #import "RHLocation.h"
 #import "RHSettings.h"
+#import "UIImage+Resize.h"
 
 
 #define kThreePetal 101
@@ -211,6 +212,13 @@
 
 - (IBAction) didTouchCancelUploadButton:(id)sender{
     [self.pictureInfo removeFromSuperview];
+    [self.imageView removeFromSuperview];
+    [UIView beginAnimations:@"anim" context:nil];
+    [UIView setAnimationDuration:0.35];
+    [fullscreenTransitionDelegate subviewReleasingFullscreen];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDelegate:self];
+    [UIView commitAnimations];
 }
 
 - (IBAction) didTouchUploadButton:(id)sender{
@@ -238,53 +246,40 @@
     
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDelegate:self];
-   // [UIView setAnimationDidStopSelector:@selector(animateShowInfoBox)];
     [UIView commitAnimations];
     
 }
 
 - (IBAction) didTouchSendButton:(id)sender{
 
+    //Crop Thumbnail
+    CGRect cropBounds;
+    cropBounds.size.width = 320;
+    cropBounds.size.height = 320;  
+    if(currentImage.size.width > currentImage.size.height){
+        cropBounds.origin.x = 80;
+        cropBounds.origin.y = 0;
+    } else {
+        cropBounds.origin.x = 0;
+        cropBounds.origin.y = 80;
+    }
+    UIImage * croppedImage = [currentImage croppedImage: cropBounds];
     
-    //Generate testing coordinates
-    /*
-     float latHigh = 42.454865;
-     float latLow = 42.340973;
-     float longHigh = -83.157413;
-     float longLow = -82.930849;
-     float latitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
-     float  longitude = longLow + (longHigh-longLow)* ( arc4random() % 1000 )/1000;
-    */
+    CGRect thumbRect;
+    thumbRect.origin.x = 0;
+    thumbRect.origin.y = 0;
+    thumbRect.size.width = 100;
+    thumbRect.size.height = 100;
+    UIGraphicsBeginImageContext(thumbRect.size);
     
-    CGSize thumbSize;
-    thumbSize.width = 100;
-    thumbSize.height = 100;
-    
-    CGSize contentSize;
-    contentSize.width = 500;
-    contentSize.height = 500;
-    
-    // Create a bitmap graphics context
-    // This will also set it as the current context
-    UIGraphicsBeginImageContext(thumbSize);
-    
-    // Draw the scaled image in the current context
-    /*
-    [currentImage drawInRect:CGRectMake(3200/2 - contentSize.width/2  , 4800/2 - contentSize.height/2,
-                                        contentSize.width, contentSize.height)];
-    */
-    [currentImage drawInRect:CGRectMake(0, 0, 100, 100)];
-     
-    // Create a new image from current context
+    //TODO: change currentImage to croppedImage, and fix scaling issues
+    [currentImage drawInRect:thumbRect];
     UIImage* thumbImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    // Pop the current context from the stack
     UIGraphicsEndImageContext();
+    
     
     NSData * thumbImageDataJpeg = UIImageJPEGRepresentation(thumbImage, .8);
 
-    
-    
     //Medium size
     CGSize mediumSize;
     if(currentImage.size.width > currentImage.size.height){
@@ -451,7 +446,7 @@
     if(self.activeImageOrientation == kPortraitPhoto){
         imageView.transform = CGAffineTransformScale ( CGAffineTransformMakeRotation(-M_PI/2), 1.7, 1.7);
     } else {
-        imageView.transform = CGAffineTransformScale ( CGAffineTransformIdentity, 2, 2);
+        imageView.transform = CGAffineTransformScale ( CGAffineTransformIdentity, 1.8, 1.8);
     }
     [self.view insertSubview:imageView belowSubview:shutterView];
     [self showPictureDialog];

@@ -45,9 +45,6 @@
 		A6A620D714BBBB180096CA01 /* swoopBarTop.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A620D514BBBB180096CA01 /* swoopBarTop.png */; };
 		A6B74F03150A1B7A00D1B133 /* cancelButtton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EF8150A1B7A00D1B133 /* cancelButtton.png */; };
 		A6B74F05150A1B7A00D1B133 /* galleryButton.psd in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFA150A1B7A00D1B133 /* galleryButton.psd */; };
-		A6B74F06150A1B7A00D1B133 /* Icon@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFB150A1B7A00D1B133 /* Icon@x2.png */; };
-		A6B74F07150A1B7A00D1B133 /* ipad~icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFC150A1B7A00D1B133 /* ipad~icon.png */; };
-		A6B74F08150A1B7A00D1B133 /* ipad~iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFD150A1B7A00D1B133 /* ipad~iconx2.png */; };
 		A6B74F09150A1B7A00D1B133 /* LockScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFE150A1B7A00D1B133 /* LockScreen.png */; };
 		A6B74F0A150A1B7A00D1B133 /* LockScreen@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74EFF150A1B7A00D1B133 /* LockScreen@x2.png */; };
 		A6B74F0B150A1B7A00D1B133 /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B74F00150A1B7A00D1B133 /* orangeOverlay.png */; };
@@ -68,7 +65,6 @@
 		A6D3AC9214BBC85F005BB81D /* GalleryIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */; };
 		A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8F14BBC85F005BB81D /* MapIconT.png */; };
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
-		A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3ACB714BBDDF8005BB81D /* icon.png */; };
 		A6EC116115210D1C000E4183 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EC116015210D1C000E4183 /* Default@2x.png */; };
 		A6EFC47214C4E1DE0014ACA9 /* infoBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC47114C4E1DE0014ACA9 /* infoBack.png */; };
 		F419E4281509B6AF00DCE9A4 /* RhusMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F419E4271509B6AF00DCE9A4 /* RhusMapAnnotation.m */; };
@@ -90,7 +86,14 @@
 		F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DB150C3313009317E5 /* Loadingx2.png */; };
 		F43540DE14D1140D00C206CA /* mapPointPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DC14D1140D00C206CA /* mapPointPopup.png */; };
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
+		F43A98B2152159AE002A8B0E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A98B0152159AE002A8B0E /* UIImage+Resize.m */; };
+		F43A98B3152159AE002A8B0E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A98B0152159AE002A8B0E /* UIImage+Resize.m */; };
+		F43A98B4152159AE002A8B0E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A98B0152159AE002A8B0E /* UIImage+Resize.m */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
+		F479003B15218C4300480471 /* Icon@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003715218C4300480471 /* Icon@x2.png */; };
+		F479003C15218C4300480471 /* ipad~iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003815218C4300480471 /* ipad~iconx2.png */; };
+		F479003D15218C4300480471 /* ipad~icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003915218C4300480471 /* ipad~icon.png */; };
+		F479003E15218C4300480471 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F479003A15218C4300480471 /* Icon.png */; };
 		F48E254E150881DC00A021AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3929F14BBA6660051E831 /* main.m */; };
 		F49D333B150C3E8900BC1D7D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6583056150C37B300AC1E55 /* Default.png */; };
 		F49D333C150C3E8C00BC1D7D /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E29D62150C3A9000B797F3 /* Defaultx2.png */; };
@@ -466,9 +469,6 @@
 		A6A620D514BBBB180096CA01 /* swoopBarTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarTop.png; path = ../graphics/swoopBarTop.png; sourceTree = "<group>"; };
 		A6B74EF8150A1B7A00D1B133 /* cancelButtton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancelButtton.png; path = graphics/cancelButtton.png; sourceTree = SOURCE_ROOT; };
 		A6B74EFA150A1B7A00D1B133 /* galleryButton.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = galleryButton.psd; path = graphics/galleryButton.psd; sourceTree = SOURCE_ROOT; };
-		A6B74EFB150A1B7A00D1B133 /* Icon@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@x2.png"; path = "graphics/Icon@x2.png"; sourceTree = SOURCE_ROOT; };
-		A6B74EFC150A1B7A00D1B133 /* ipad~icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ipad~icon.png"; path = "graphics/ipad~icon.png"; sourceTree = SOURCE_ROOT; };
-		A6B74EFD150A1B7A00D1B133 /* ipad~iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ipad~iconx2.png"; path = "graphics/ipad~iconx2.png"; sourceTree = SOURCE_ROOT; };
 		A6B74EFE150A1B7A00D1B133 /* LockScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LockScreen.png; path = graphics/LockScreen.png; sourceTree = SOURCE_ROOT; };
 		A6B74EFF150A1B7A00D1B133 /* LockScreen@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LockScreen@x2.png"; path = "graphics/LockScreen@x2.png"; sourceTree = SOURCE_ROOT; };
 		A6B74F00150A1B7A00D1B133 /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
@@ -489,7 +489,6 @@
 		A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GalleryIconT.png; path = graphics/GalleryIconT.png; sourceTree = SOURCE_ROOT; };
 		A6D3AC8F14BBC85F005BB81D /* MapIconT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapIconT.png; path = graphics/MapIconT.png; sourceTree = SOURCE_ROOT; };
 		A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarMiddle.png; path = graphics/swoopBarMiddle.png; sourceTree = SOURCE_ROOT; };
-		A6D3ACB714BBDDF8005BB81D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = graphics/icon.png; sourceTree = SOURCE_ROOT; };
 		A6EC116015210D1C000E4183 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		A6EFC47114C4E1DE0014ACA9 /* infoBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoBack.png; path = graphics/infoBack.png; sourceTree = SOURCE_ROOT; };
 		F419E4261509B6AF00DCE9A4 /* RhusMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RhusMapAnnotation.h; sourceTree = "<group>"; };
@@ -509,7 +508,13 @@
 		F422E2DB150C3313009317E5 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loadingx2.png; sourceTree = "<group>"; };
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
+		F43A98B0152159AE002A8B0E /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../../Downloads/UIImage-categories/UIImage+Resize.m"; sourceTree = "<group>"; };
+		F43A98B1152159AE002A8B0E /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../../Downloads/UIImage-categories/UIImage+Resize.h"; sourceTree = "<group>"; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
+		F479003715218C4300480471 /* Icon@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@x2.png"; sourceTree = "<group>"; };
+		F479003815218C4300480471 /* ipad~iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad~iconx2.png"; sourceTree = "<group>"; };
+		F479003915218C4300480471 /* ipad~icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad~icon.png"; sourceTree = "<group>"; };
+		F479003A15218C4300480471 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F49D3453150CAF6000BC1D7D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		F49D3454150CAF6100BC1D7D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		F4A84C8C14BBD3FB00EF9627 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -770,6 +775,8 @@
 		F4C05EF014BD085F0008FBB5 /* Categories and Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				F43A98B0152159AE002A8B0E /* UIImage+Resize.m */,
+				F43A98B1152159AE002A8B0E /* UIImage+Resize.h */,
 				F4C05EF714BE335A0008FBB5 /* OrderedDictionary.h */,
 				F4C05EF814BE335A0008FBB5 /* OrderedDictionary.m */,
 				F4C05EEF14BD08590008FBB5 /* FullscreenTransitionDelegate.h */,
@@ -858,15 +865,15 @@
 		F4CE8B33150C10AB009AE0FC /* Wildflowers */ = {
 			isa = PBXGroup;
 			children = (
+				F479003715218C4300480471 /* Icon@x2.png */,
+				F479003815218C4300480471 /* ipad~iconx2.png */,
+				F479003915218C4300480471 /* ipad~icon.png */,
+				F479003A15218C4300480471 /* Icon.png */,
 				F4E29D62150C3A9000B797F3 /* Defaultx2.png */,
 				A6EC116015210D1C000E4183 /* Default@2x.png */,
 				A6583056150C37B300AC1E55 /* Default.png */,
 				A6583052150C35E300AC1E55 /* Loading.png */,
 				A6583053150C35E300AC1E55 /* Loading@x2.png */,
-				A6D3ACB714BBDDF8005BB81D /* icon.png */,
-				A6B74EFC150A1B7A00D1B133 /* ipad~icon.png */,
-				A6B74EFD150A1B7A00D1B133 /* ipad~iconx2.png */,
-				A6B74EFB150A1B7A00D1B133 /* Icon@x2.png */,
 			);
 			path = Wildflowers;
 			sourceTree = "<group>";
@@ -1285,7 +1292,6 @@
 				A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */,
 				F4A84C9014BBD3FB00EF9627 /* CameraViewController.xib in Resources */,
 				F4A84C9514BBD41A00EF9627 /* MapViewController.xib in Resources */,
-				A6D3ACB814BBDDF8005BB81D /* icon.png in Resources */,
 				F4C05EF214BD1A900008FBB5 /* Northern%2BShrike%2BRenews%2528blog%2529.jpg in Resources */,
 				F4C05EF614BD24330008FBB5 /* 106x106.png in Resources */,
 				F4C061AA14BE5DE90008FBB5 /* testdataplist.plist in Resources */,
@@ -1332,9 +1338,6 @@
 				F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */,
 				A6B74F03150A1B7A00D1B133 /* cancelButtton.png in Resources */,
 				A6B74F05150A1B7A00D1B133 /* galleryButton.psd in Resources */,
-				A6B74F06150A1B7A00D1B133 /* Icon@x2.png in Resources */,
-				A6B74F07150A1B7A00D1B133 /* ipad~icon.png in Resources */,
-				A6B74F08150A1B7A00D1B133 /* ipad~iconx2.png in Resources */,
 				A6B74F09150A1B7A00D1B133 /* LockScreen.png in Resources */,
 				A6B74F0A150A1B7A00D1B133 /* LockScreen@x2.png in Resources */,
 				A6B74F0B150A1B7A00D1B133 /* orangeOverlay.png in Resources */,
@@ -1356,6 +1359,10 @@
 				F4F2857B150DADBC009A24C9 /* shutter.png in Resources */,
 				F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */,
 				A6EC116115210D1C000E4183 /* Default@2x.png in Resources */,
+				F479003B15218C4300480471 /* Icon@x2.png in Resources */,
+				F479003C15218C4300480471 /* ipad~iconx2.png in Resources */,
+				F479003D15218C4300480471 /* ipad~icon.png in Resources */,
+				F479003E15218C4300480471 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1565,6 +1572,7 @@
 				F4CE89DB150C0E24009AE0FC /* RHLocation.m in Sources */,
 				F422E2C6150C288D009317E5 /* RHSettings_Squirrels.m in Sources */,
 				F49D3456150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
+				F43A98B3152159AE002A8B0E /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1592,6 +1600,7 @@
 				F4CE8856150C01E1009AE0FC /* RHLocation.m in Sources */,
 				F422E2C7150C2890009317E5 /* RHSettings_Wildflowers.m in Sources */,
 				F49D3455150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
+				F43A98B2152159AE002A8B0E /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1619,6 +1628,7 @@
 				F4EB1FBE150C24B90041A957 /* RHLocation.m in Sources */,
 				F422E2C5150C288A009317E5 /* RHSettings_Development.m in Sources */,
 				F49D3457150CAF6200BC1D7D /* LoadingViewController.m in Sources */,
+				F43A98B4152159AE002A8B0E /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1895,8 +1905,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WinterRoot LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WinterRoot LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1906,8 +1916,8 @@
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "Wild Detroit";
-				PROVISIONING_PROFILE = "DCDB8554-F2B2-4DC6-8244-3AD7D6FCF1A2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DCDB8554-F2B2-4DC6-8244-3AD7D6FCF1A2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv6;
