@@ -75,8 +75,15 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+
+    
     //TODO: This isn't being called on the IPad
 
     
@@ -85,6 +92,13 @@
     if([RHSettings useCamera]) {
         [self showImagePickerView];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+
+    
 }
 
 - (void) showImagePickerView {
@@ -139,13 +153,11 @@
 
     if([RHSettings useCamera]){
         [self.view addSubview:shutterView];
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])){
             self.activeImageOrientation = kLandscapePhoto;
         } else {
             self.activeImageOrientation = kPortraitPhoto;
         }
-        [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
         
         [self.imagePicker takePicture];
     } else {

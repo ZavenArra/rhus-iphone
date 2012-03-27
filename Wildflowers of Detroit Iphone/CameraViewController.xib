@@ -1423,7 +1423,10 @@
 						<reference key="NSNextKeyView"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUIImage" ref="154751850"/>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">shutter.png</string>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrameSize">{480, 320}</string>
@@ -2428,6 +2431,7 @@
 			<string key="retakeButton.png">{87, 36}</string>
 			<string key="retakeButtonP.png">{36, 87}</string>
 			<string key="send.png">{163, 30}</string>
+			<string key="shutter.png">{960, 640}</string>
 			<string key="sixDefault.png">{30, 33}</string>
 			<string key="sixDown.png">{30, 33}</string>
 			<string key="submitBackground.png">{432, 239}</string>
