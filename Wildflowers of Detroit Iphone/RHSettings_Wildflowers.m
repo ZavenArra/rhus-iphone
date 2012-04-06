@@ -8,7 +8,7 @@
 
 #import "RHSettings.h"
 
-#define kSyncDbURL @"http://admin:Rfur55@data.winterroot.net:5984/wildflowers_of_detroit"
+#define kSyncDbURL @"http://winterroot:dieis8835nd@data.winterroot.net:5984/wildflowers_of_detroit"
 
 #define fullLatitudeDelta .1
 #define fullLongitudeDelta .1
