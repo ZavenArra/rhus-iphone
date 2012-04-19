@@ -74,9 +74,11 @@
         CouchDesignDocument* design = [database designDocumentWithName: @"design"];
         NSAssert(design, @"Couldn't find design document");
         design.language = kCouchLanguageJavaScript;
+        /*
         [design defineViewNamed: @"detailDocuments"
                             map: @"function(doc) { emit([doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
-        
+        */
+         
         [design defineViewNamed: @"deviceUserGalleryDocuments"
                             map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
         
@@ -99,62 +101,6 @@
     return self;
     
 }
-
--(void) test {
-    // Create the new document's properties:
-    NSString * text = @"Some Text";
-    NSDictionary *inDocument = [NSDictionary dictionaryWithObjectsAndKeys:text, @"text",
-                                [NSNumber numberWithBool:NO], @"check",
-                                [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
-                                nil];
-    
-    // Save the document, asynchronously:
-    CouchDocument* doc = [database untitledDocument];
-    NSString * docId = doc.documentID;
-    RESTOperation* op = [doc putProperties:inDocument];
-    [op onCompletion: ^{
-        if (op.error)
-            NSAssert(false, @"ERROR");
-           // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
-        // Re-run the query:
-        //[self.dataSource.query start];
-        [self initializeQuery];
-    }];
-    [op start];
-}
-
-/*
-- (void) initializeQuery{
-    NSInteger count = [self.database getDocumentCount];
-
-    
-    // Create a CouchDB 'view' containing list items sorted by date,
-    // and a validation function requiring parseable dates:
-    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
-    NSAssert(design, @"Couldn't find design document");
-    design.language = kCouchLanguageJavaScript;
-    
-    [design defineViewNamed: @"all"
-                        map: @"function(doc) { emit(doc._id, doc);}"];
-
-    /*
-    [design defineViewNamed: @"bData"
-                        map: @"function(doc) {if (doc.created_at) emit(doc.created_at, doc);}"];
-     */
-    
-    /*
-     design.validation = @"function(doc) {if (doc.created_at && !(Date.parse(doc.created_at) > 0))"
-    "throw({forbidden:'Invalid date'});}";
-    */
-    
-    // Create a query sorted by descending date, i.e. newest items first:
-   // self.query = [[design queryViewNamed: @"all"] asLiveQuery];
-    //CouchLiveQuery* query = [[design queryViewNamed: @"byDate"] //asLiveQuery];
- /*   self.query = [design queryViewNamed: @"all"]; //asLiveQuery];
-    query.descending = YES;
-    [query start];
-}
-*/
 
 
 + (NSData *) getDocumentThumbnailData: (NSString *) key {
@@ -180,10 +126,10 @@
 }
 
 
-- (NSArray *) runQuery: (CouchQuery *) query {
-    RESTOperation * op = [query start];
+- (NSArray *) runQuery: (CouchQuery *) couchQuery {
+    RESTOperation * op = [couchQuery start];
 
-    CouchQueryEnumerator * enumerator = [query rows];
+    CouchQueryEnumerator * enumerator = [couchQuery rows];
     
     NSLog(@"op = %@", op.dump);
     if(!enumerator){
@@ -194,37 +140,80 @@
     CouchQueryRow * row;
     NSMutableArray * data = [NSMutableArray array];
     while( (row =[enumerator nextRow]) ){
-        [data addObject: [[RhusDocument alloc] initWithDictionary: (NSDictionary *) row.value]];
+        
+        
+        //Fix Image Attachments
+        //TODO: This code can be removed once we are reasonably certain everything has been transformed
+        BOOL docNeedsSave = false;
+        CouchDocument * doc = row.document;
+        NSMutableDictionary * newProperties = [doc.properties mutableCopy ];
+
+        if( ([row.value objectForKey:@"thumb"] == NULL) || ([row.value objectForKey:@"thumb"] == @"") ){
+            NSString * docId = [row.value objectForKey:@"id"];
+            NSData * imageData = [MapCouchbaseDataModel getDocumentThumbnailData:docId];
+            if(imageData != nil){
+                NSData * thumb = imageData;
+                [newProperties setValue:[RESTBody base64WithData:thumb] forKey:@"thumb"];
+                docNeedsSave = true;
+            } else if([doc.properties objectForKey:@"thumb-android0.1"]){
+                [newProperties setValue:[doc.properties objectForKey:@"thumb-android0.1"] forKey:@"thumb"];
+            }
+        }    
+        
+        
+        if([row.value objectForKey:@"medium"] == NULL || [row.value objectForKey:@"medium"] == @""){
+            NSData * imageData = [MapCouchbaseDataModel getDocumentImageData:[row.value objectForKey:@"id"]];
+            if(imageData != nil){
+                NSData * mediumImage = imageData;
+                [newProperties setValue:[RESTBody base64WithData:mediumImage] forKey:@"medium"];
+                docNeedsSave = true;
+            } else if([doc.properties objectForKey:@"medium-android0.1"]){
+                [newProperties setValue:[doc.properties objectForKey:@"medium-android0.1"] forKey:@"medium"];
+            }
+        }
+    
+        
+        if(docNeedsSave){
+            CouchRevision* latest = doc.currentRevision;
+            //  NSLog(@"%@", [newProperties debugDescription]);
+            NSLog(@"%@", [row.value objectForKey:@"id"] );
+            RESTOperation* op = [latest putProperties:newProperties];
+            [op start];
+            [op wait]; //make it synchronous
+        }
+
+        //Translate the Base64 data into a UIImage
+        if([newProperties objectForKey:@"thumb"] != NULL && [newProperties objectForKey:@"thumb"] != @"" ){
+            NSString * base64 = [newProperties objectForKey:@"thumb"];
+            NSLog(@"%@", [row.value objectForKey:@"id"] );
+            NSData * thumb = [RESTBody dataWithBase64:base64];
+            if(thumb != NULL && [thumb length]){
+            [newProperties setObject:[UIImage imageWithData:thumb]
+                          forKey:@"thumb"];
+            } else {
+                [newProperties removeObjectForKey:@"thumb"];
+                
+            }
+        }
+        if([newProperties objectForKey:@"medium"] != NULL && [newProperties objectForKey:@"medium"] != @"" ){
+            NSString * base64 = [newProperties objectForKey:@"medium"];
+            NSLog(@"%@", [row.value objectForKey:@"id"] );
+            NSData * medium = [RESTBody dataWithBase64:base64];
+            if(medium != NULL && [medium length]){
+                [newProperties setObject:[UIImage imageWithData:medium]
+                                  forKey:@"medium"];
+            } else {
+                [newProperties removeObjectForKey:@"medium"];
+                
+            }
+        }
+        //give em the data
+        [data addObject: [[RhusDocument alloc] initWithDictionary: [NSDictionary dictionaryWithDictionary: newProperties]]];
     }
     return data;
     
 }
-/*
- TODO: !!!!!!!!!  This code WILL NOT SCALE.  Saving of full vs. thumb images needs to be implemented
- according to our plan.  This is simply to get something running..
- */
     
-+ (NSArray *) readAttachments: (NSArray *) r {
-    
-    for(int i=0; i<[r count]; i++){
-        NSDictionary * d = [r objectAtIndex:i];
-        //  UIImage * thumb = [UIImage imageNamed:@"thumbnail_IMG_0015.jpg"]; //TODO: remove spoof
-        
-        //getDocumentThumbnailData
-        NSData * imageData = [self getDocumentThumbnailData:[d objectForKey:@"id"]];
-        if(imageData != nil){
-            UIImage * thumb = [UIImage imageWithData: imageData ];
-            [d setValue:thumb forKey:@"thumb"];
-        }
-        // UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        imageData = [self getDocumentImageData:[d objectForKey:@"id"]];
-        if(imageData != nil){
-            UIImage * mediumImage = [UIImage imageWithData: imageData ];
-            [d setValue:mediumImage forKey:@"medium"];
-        }
-    }
-    return r;
-}
 
 + (NSArray *) getUserGalleryDocumentsWithStartKey: (NSString *) startKey 
                                          andLimit: (NSInteger) limit 
@@ -243,7 +232,7 @@
     
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
     
-    return [self readAttachments: r];
+    return r;
     
 
 }
@@ -252,12 +241,10 @@
     return [self getUserGalleryDocumentsWithStartKey: startKey 
                                             andLimit: limit 
                                     andUserIdentifer:  [DeviceUser uniqueIdentifier]];
-    
 }
 
 
          
-
 + (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
     
     //Create view;
@@ -271,7 +258,7 @@
     query.descending = NO;
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
         
-    return [self readAttachments: r];
+    return r;
 }
 
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {
@@ -348,56 +335,6 @@
 
 }
 
-+ (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments{
-    
-    // Save the document, asynchronously:
-    CouchDocument* doc = [self.instance.database untitledDocument];
-    CouchModel * documentModel = doc.modelObject;    
-
-    RESTOperation* op = [doc putProperties:document];
-    [op onCompletion: ^{
-        NSLog(@"OnCompletion of the addDocument");
-        if (op.error)
-            NSAssert(false, @"ERROR");
-        
-//        CouchModel * documentModel = doc.modelObject;
-        
-        RESTBody * 	responseBody = op.responseBody;
-        NSLog([op.responseBody asString]);
-        
-        NSDictionary * object = (NSDictionary *)responseBody.fromJSON;
-        NSLog([object objectForKey:@"id"]);
-        NSLog([object objectForKey:@"rev"]);
-        
-           
-        for(NSDictionary * attachmentValues in attachments ){
-            CouchDocument * doc = [self.instance.database documentWithID:[object objectForKey:@"id"]];
-            CouchRevision * revision = doc.currentRevision;
-            
-            NSString * contentType = (NSString *) [attachmentValues objectForKey:@"contentType"];
-            NSString * attachmentName = (NSString *) [attachmentValues objectForKey:@"name"];
-            NSData * attachmentData = (NSData *) [attachmentValues objectForKey:@"data"];
-
-            
-            CouchAttachment * newAttachment = [revision createAttachmentWithName:attachmentName
-                                               type:contentType ];
-                                              
-            RESTOperation * op2 = [newAttachment PUT:attachmentData contentType:contentType];
-            [op2 start]; //run this synchronously
-            [op2 wait];
-        }
-        
-        
-        // AppDelegate needs to observer MapData for connection errors.
-        // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
-        // Re-run the query:
-		//[self.dataSource.query start];
-        [self.instance.query start];
-        
-       	}];
-    [op start];
-
-}
 
 
 

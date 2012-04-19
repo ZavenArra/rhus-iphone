@@ -124,7 +124,6 @@
                             // -25, 255),                           
                             // -50, 175), //half
                             // -100,350), //without scale
-                            
                             //1.2,1.2) // this is closer to correct
                             1.2, 1.2)
     ;
@@ -296,32 +295,14 @@
     UIGraphicsEndImageContext();
     NSData * mediumImageDataJpeg = UIImageJPEGRepresentation(mediumImage, .8);
 
-                                                
-    /*
-    UIGraphicsBeginImageContext( newSize );
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-*/
-    //Move some of this into a model for the app
-    //Would be usefull to have a scenario like
-    // [Document init]
-    // [Document addAttachment]
-    // [Document addAttachment]
-    // [Document save]
-    //  We want Rhus to be able to support easily writing a custom model
-    //  The model could be queried for dynamic form setup
-    
-
-    
     NSMutableDictionary * newDocument = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                          self.reporter.text, @"reporter",
                                          self.comment.text, @"comment",
                                          [RHLocation getLatitudeString], @"latitude", 
                                          [RHLocation getLongitudeString], @"longitude",
                                          [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
-                                         @"", @"thumb",
-                                         @"", @"medium",
+                                         [RESTBody base64WithData: thumbImageDataJpeg ], @"thumb",
+                                         [RESTBody base64WithData: mediumImageDataJpeg ], @"medium",
                                          [DeviceUser uniqueIdentifier], @"deviceuser_identifier",
                                          nil];
     
@@ -332,6 +313,7 @@
     }
     
     /* */
+    /*
     NSLog(@"%@", @"Adding New Document");
     [MapDataModel addDocument:newDocument 
                   withAttachments: [NSArray arrayWithObjects:
@@ -354,9 +336,11 @@
                                      @"image/jpeg", @"contentType", 
                                      nil
                                      ],*/
+    /*
                                     nil
                                     ]
      ];
+    */
 
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
