@@ -20,6 +20,7 @@
 @synthesize topBackground, middleBackground, bottomBackground;
 @synthesize topViewController, middleViewController, bottomViewController;
 @synthesize tabsHidden, currentTab;
+@synthesize manualAppearCallbacks;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,18 @@
     if (self) {
         currentTab = kMiddle;
     }
+    return self;
+}
+
+- (id) init {
+    self = [super init];
+    NSString *ver = [[UIDevice currentDevice] systemVersion];
+    float ver_float = [ver floatValue];
+    if (ver_float < 5.0) 
+        manualAppearCallbacks = TRUE;
+    else
+        manualAppearCallbacks = FALSE;
+
     return self;
 }
 
@@ -58,7 +71,6 @@
     self.middleBackground = [UIImage imageNamed:@"swoopBarMiddle"];
     self.bottomBackground = [UIImage imageNamed:@"swoopBarBottom"];
     
-    [self didTouchMiddleButton:self];
 
 }
 
@@ -85,7 +97,11 @@
 
     [middleViewController.view removeFromSuperview];
     [bottomViewController.view removeFromSuperview];
+    if(manualAppearCallbacks)
+        [topViewController viewWillAppear:NO];
     [self.view insertSubview:topViewController.view atIndex:0];
+    if(manualAppearCallbacks)
+        [topViewController viewDidAppear:NO];
     
     currentTab = kTop;
 }
@@ -93,9 +109,12 @@
 - (IBAction)didTouchMiddleButton:(id)sender{
     if(self.middleButton.selected == YES){
         [(CameraViewController *) self.middleViewController secondTapTabButton];
+        if(manualAppearCallbacks){
+            CameraViewController * cameraViewController = (CameraViewController*) middleViewController;
+            [self presentModalViewController:cameraViewController.imagePicker animated:YES];
+        }
         return;
     }
-    
     
     [self updateTabBackground:kMiddle];
     self.topButton.selected = NO;
@@ -104,7 +123,17 @@
     
     [topViewController.view removeFromSuperview];
     [bottomViewController.view removeFromSuperview];
+    if(manualAppearCallbacks)
+        [middleViewController viewWillAppear:NO];
     [self.view insertSubview:middleViewController.view atIndex:0];
+    if(manualAppearCallbacks)
+        [middleViewController viewDidAppear:NO];
+    
+    
+    if(manualAppearCallbacks){
+        CameraViewController * cameraViewController = (CameraViewController*) middleViewController;
+        [self presentModalViewController:cameraViewController.imagePicker animated:YES];
+    }
     
     currentTab = kMiddle;
 }
@@ -118,7 +147,12 @@
     
     [topViewController.view removeFromSuperview];
     [middleViewController.view removeFromSuperview];
+    if(manualAppearCallbacks)
+        [bottomViewController viewWillAppear:NO];
     [self.view insertSubview:bottomViewController.view atIndex:0];
+    if(manualAppearCallbacks)
+        [bottomViewController viewDidAppear:NO];
+
     
     currentTab = kBottom;
 
@@ -169,6 +203,16 @@
         [self createShowTabsAnimation];
         tabsHidden = FALSE;
     }
+}
+
+#pragma mark UIImagePickerControllerDelegate Methods
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage * currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    
 }
 
 @end

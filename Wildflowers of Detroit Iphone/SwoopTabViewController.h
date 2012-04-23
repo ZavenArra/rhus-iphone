@@ -10,7 +10,7 @@
 #import "FullscreenTransitionDelegate.h"
 
 @interface SwoopTabViewController : UIViewController
-<FullscreenTransitionDelegate>
+<FullscreenTransitionDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIButton * topButton;
     UIButton * middleButton;
@@ -26,16 +26,11 @@
     UIViewController * bottomViewController;
     
     BOOL tabsHidden;
+    BOOL manualAppearCallbacks;
     
     NSInteger currentTab;
     
 }
-
-
-@property (strong, nonatomic) UIViewController * topViewController;
-@property (strong, nonatomic) UIViewController * middleViewController;
-@property (strong, nonatomic) UIViewController * bottomViewController;
-
 
 @property (strong, nonatomic) IBOutlet UIButton * topButton;
 @property (strong, nonatomic) IBOutlet UIButton * middleButton;
@@ -43,13 +38,14 @@
 @property (strong, nonatomic) IBOutlet UIView * controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView * controlsBackgroundImage;
 
-
+@property (strong, nonatomic) UIViewController * topViewController;
+@property (strong, nonatomic) UIViewController * middleViewController;
+@property (strong, nonatomic) UIViewController * bottomViewController;
 @property (strong, nonatomic) UIImage * topBackground;
 @property (strong, nonatomic) UIImage * middleBackground;
 @property (strong, nonatomic) UIImage * bottomBackground;
-
 @property (nonatomic) BOOL tabsHidden;
-
+@property (nonatomic) BOOL manualAppearCallbacks;
 @property (nonatomic) NSInteger currentTab;
 
 

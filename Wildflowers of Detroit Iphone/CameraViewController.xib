@@ -44,9 +44,14 @@
 						<string key="NSFrameSize">{480, 320}</string>
 						<reference key="NSSuperview" ref="435328174"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage" id="657876573">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">shutter.png</string>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrameSize">{480, 320}</string>
@@ -1485,10 +1490,7 @@
 						<reference key="NSWindow"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">shutter.png</string>
-						</object>
+						<reference key="IBUIImage" ref="657876573"/>
 					</object>
 				</array>
 				<string key="NSFrameSize">{480, 320}</string>

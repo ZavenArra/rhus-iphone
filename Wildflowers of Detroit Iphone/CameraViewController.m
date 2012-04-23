@@ -35,6 +35,7 @@
 @synthesize attributeTranslation, selectedAttributes;
 @synthesize shutterView;
 @synthesize activeImageOrientation;
+@synthesize useCustomCamera;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,6 +74,14 @@
     
     self.selectedAttributes = [NSMutableArray array];
     self.imagePicker = [[UIImagePickerController alloc] init];
+    NSString *ver = [[UIDevice currentDevice] systemVersion];
+    float ver_float = [ver floatValue];
+    if (ver_float < 5.0) {
+        useCustomCamera = FALSE;
+    } else {
+        useCustomCamera = TRUE;
+    }
+
 
 }
 
@@ -83,15 +92,12 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-
-    
-    //TODO: This isn't being called on the IPad
-
-    
     [RHLocation instance];
     
     if([RHSettings useCamera]) {
-        [self showImagePickerView];
+        if(useCustomCamera){
+            [self showImagePickerView];
+        }
     }
 }
 
@@ -101,6 +107,7 @@
 
     
 }
+
 
 - (void) showImagePickerView {
     self.imagePicker.delegate = self;
@@ -422,24 +429,31 @@
     
 }
 
-
-#pragma mark UIImagePickerControllerDelegate Methods
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+- (void) confirmImageWithUser: (UIImage *) currentImage {
     [imageView setImage:currentImage];
+    
     if(self.activeImageOrientation == kPortraitPhoto){
         imageView.transform = CGAffineTransformScale ( CGAffineTransformMakeRotation(-M_PI/2), 1.7, 1.7);
     } else {
         imageView.transform = CGAffineTransformScale ( CGAffineTransformIdentity, 1.8, 1.8);
     }
     [self.view insertSubview:imageView belowSubview:shutterView];
+    
     [self showPictureDialog];
     [shutterView removeFromSuperview];
-    
+
+}
+
+
+#pragma mark UIImagePickerControllerDelegate Methods
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self confirmImageWithUser:currentImage];
+       
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-
+    
 }
 
 

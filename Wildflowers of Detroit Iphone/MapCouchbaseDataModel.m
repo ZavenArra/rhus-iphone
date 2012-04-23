@@ -148,6 +148,7 @@
         CouchDocument * doc = row.document;
         NSMutableDictionary * newProperties = [doc.properties mutableCopy ];
 
+        /*
         if( ([row.value objectForKey:@"thumb"] == NULL) || ([row.value objectForKey:@"thumb"] == @"") ){
             NSString * docId = [row.value objectForKey:@"id"];
             NSData * imageData = [MapCouchbaseDataModel getDocumentThumbnailData:docId];
@@ -176,28 +177,34 @@
         if(docNeedsSave){
             CouchRevision* latest = doc.currentRevision;
             //  NSLog(@"%@", [newProperties debugDescription]);
+            NSLog(@"Fixing Document");
             NSLog(@"%@", [row.value objectForKey:@"id"] );
             RESTOperation* op = [latest putProperties:newProperties];
             [op start];
             [op wait]; //make it synchronous
         }
+        */
+        
 
         //Translate the Base64 data into a UIImage
         if([newProperties objectForKey:@"thumb"] != NULL && [newProperties objectForKey:@"thumb"] != @"" ){
             NSString * base64 = [newProperties objectForKey:@"thumb"];
-            NSLog(@"%@", [row.value objectForKey:@"id"] );
+          //  NSLog(@"%@", [row.value objectForKey:@"id"] );
             NSData * thumb = [RESTBody dataWithBase64:base64];
             if(thumb != NULL && [thumb length]){
-            [newProperties setObject:[UIImage imageWithData:thumb]
+                [newProperties setObject:[UIImage imageWithData:thumb]
                           forKey:@"thumb"];
             } else {
                 [newProperties removeObjectForKey:@"thumb"];
-                
             }
+        } else {
+            [newProperties removeObjectForKey:@"thumb"];
         }
+        
+        
         if([newProperties objectForKey:@"medium"] != NULL && [newProperties objectForKey:@"medium"] != @"" ){
             NSString * base64 = [newProperties objectForKey:@"medium"];
-            NSLog(@"%@", [row.value objectForKey:@"id"] );
+          //  NSLog(@"%@", [row.value objectForKey:@"id"] );
             NSData * medium = [RESTBody dataWithBase64:base64];
             if(medium != NULL && [medium length]){
                 [newProperties setObject:[UIImage imageWithData:medium]
@@ -206,7 +213,11 @@
                 [newProperties removeObjectForKey:@"medium"];
                 
             }
+        } else {
+            [newProperties removeObjectForKey:@"medium"];
         }
+        
+        
         //give em the data
         [data addObject: [[RhusDocument alloc] initWithDictionary: [NSDictionary dictionaryWithDictionary: newProperties]]];
     }
@@ -256,6 +267,8 @@
  
     CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
     query.descending = NO;
+    //query.limit = 50;
+    NSLog(@"%@", @"Limit to 50 docs");
     NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
         
     return r;

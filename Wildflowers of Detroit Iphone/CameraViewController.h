@@ -23,6 +23,7 @@
     UITextField * reporter;
     UITextField * comment;
     NSInteger activeImageOrientation;
+    BOOL useCustomCamera;
 }
 @property(strong, nonatomic) id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
 @property(strong, nonatomic)  UIImagePickerController * imagePicker;
@@ -34,6 +35,7 @@
 @property(strong, nonatomic)  UIImage * currentImage;
 @property(strong, nonatomic)  IBOutlet   UIView * shutterView;
 @property(nonatomic) NSInteger activeImageOrientation;
+@property(nonatomic) BOOL useCustomCamera;
 
 //Generalized / Superclass
 @property(strong, nonatomic)  NSDictionary * attributeTranslation;
@@ -51,9 +53,11 @@
 - (void) hidePictureDialog;
 - (void) animateShowInfoBox;
 - (void) showImagePickerView;
-
-
+- (void) showModalCamera;
 - (void) setToggleButtonState:(UIButton *) button;
+- (void) confirmImageWithUser: (UIImage *) currentImage;
+
+
 
 
 

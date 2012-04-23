@@ -83,6 +83,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.userDataOnly = false;
+        self.firstView = true;
     }
     return self;
 }
@@ -102,7 +103,6 @@
 {
     [super viewDidLoad];
     
-    firstView = true;
     
     //Set up some tags
     self.detailScrollView.tag = kDetailScrollViewTag;
@@ -141,7 +141,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if(launchInGalleryMode || !mapShowing ) {
+    if(launchInGalleryMode || (!mapShowing && !firstView) ) {
         [self transitionToFullScreen];
     }
 
@@ -175,14 +175,15 @@
         if(thumbnailImage != nil){
             [thumbnailButton setImage: thumbnailImage
                              forState:UIControlStateNormal];
-        }
+        
+            [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
+        
+            thumbnailButton.tag =  index;
+        
+            thumbnailButton.contentMode = UIViewContentModeCenter;
+            thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
             
-        [thumbnailButton addTarget:self action:@selector(didTouchThumbnail:) forControlEvents:UIControlEventTouchUpInside];
-        
-        thumbnailButton.tag =  index;
-        
-        thumbnailButton.contentMode = UIViewContentModeCenter;
-        thumbnailButton.imageView.contentMode = UIViewContentModeCenter;
+        }
         
         [self.galleryScrollView addSubview:thumbnailButton];
     }

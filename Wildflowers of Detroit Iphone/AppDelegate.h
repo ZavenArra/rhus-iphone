@@ -13,18 +13,18 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     SwoopTabViewController * swoopTabViewController;
+    BOOL isDoneStartingUp;
 }
 
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SwoopTabViewController * swoopTabViewController;
 @property (strong, nonatomic) LoadingViewController * loadingViewController;
+@property (nonatomic) BOOL isDoneStartingUp;
 
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;
-
 - (void) initializeInBackground;
-
 - (void) doneStartingUp;
 
 

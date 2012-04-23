@@ -29,6 +29,7 @@
 
 - (void) initializeAppDelegateAndLaunch {
 
+    isDoneStartingUp = FALSE;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -93,10 +94,12 @@
 }
 
 - (void) receivedRotate {
-    if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
+    if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ) && !isDoneStartingUp){
+        isDoneStartingUp = TRUE;
         [loadingViewController.view removeFromSuperview];
         loadingViewController = nil;
         [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+        [swoopTabViewController didTouchBottomButton:self];
         
     }
 }
@@ -112,7 +115,7 @@
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
     }
-    [[MapDataModel instance] updateSyncURL];
+  //  [[MapDataModel instance] updateSyncURL];
 
 }
 
