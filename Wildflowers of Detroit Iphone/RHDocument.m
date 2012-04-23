@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "RhusDocument.h"
+#import "RHDocument.h"
 
-@implementation RhusDocument
+@implementation RHDocument
 
 - (id)init
 {

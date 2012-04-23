@@ -10,7 +10,7 @@
 #import "GalleryViewController.h"
 #import "CameraViewController.h"
 #import "MapViewController.h"
-#import "MapDataModel.h"
+#import "RHDataModel.h"
 #import "RHLocation.h"
 
 @implementation AppDelegate
@@ -82,7 +82,7 @@
     @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
-        [MapDataModel instance];
+        [RHDataModel instance];
         
         
         NSLog(@"%@", @"Done");

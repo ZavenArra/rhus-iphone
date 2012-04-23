@@ -1,16 +1,18 @@
 //
-//  RhusMapAnnotation.m
+//  RhusMapAnnotation.h
 //  Wildflowers of Detroit Iphone
 //
 //  Created by Deep Winter on 3/8/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "RhusMapAnnotation.h"
+#import "SSMapAnnotation.h"
 
 
-@implementation RhusMapAnnotation
+@interface RHMapAnnotation : SSMapAnnotation
+{
+}
+@property(nonatomic) NSInteger tag;
 
-@synthesize tag;
 
 @end

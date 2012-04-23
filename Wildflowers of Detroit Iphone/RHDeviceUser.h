@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DeviceUser : NSObject
+@interface RHDeviceUser : NSObject
 
 
 + (NSString *) uniqueIdentifier;

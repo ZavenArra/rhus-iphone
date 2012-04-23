@@ -1,18 +1,48 @@
 //
-//  MapDataModelBase.h
-//  Wildflowers of Detroit Iphone
+//  MapDataModel.h
+//  Rhus Iphone
 //
 //  Created by Deep Winter on 2/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-@interface MapDataModelBase : NSObject
-{
+#import <Foundation/Foundation.h>
+#import "RHDataModel.h"
+
+#import <Couchbase/CouchbaseMobile.h>
+#import <CouchCocoa/CouchCocoa.h>
+
+@interface RHDataModel {
+    
+    CouchPersistentReplication* _pull;
+    CouchPersistentReplication* _push;
+
 }
 
-+ (id) instance;
+@property (nonatomic, strong) CouchDatabase *database;
+@property (nonatomic, strong) CouchLiveQuery* query;
+
++ (void) initializeServer;
+
+
+- (void)showAlert: (NSString*)message error: (NSError*)error fatal: (BOOL)fatal;
+- (NSArray *) _getUserDocuments;
+
+- (void) initializeQuery;
+- (NSArray *) _getUserDocuments;
+
+-(void) test;
+
+- (void)updateSyncURL;
+- (void)forgetSync;
+- (NSArray *) getView: (NSString *) viewName;
+
+
++ (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;
++ (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;
+
+
++ (RHDataModel *) instance;
 + (NSArray *) getUserDocuments;
 + (NSArray *) getUserDocumentsWithOffset: (NSInteger) offset andLimit: (NSInteger) limit;
 + (NSDictionary *) getDocumentById: (NSString *) documentId;
@@ -34,5 +64,4 @@
 
 
 - (id) init;
-
 @end

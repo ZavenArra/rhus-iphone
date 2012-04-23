@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DeviceUser.h"
+#import "RHDeviceUser.h"
 
-@implementation DeviceUser
+@implementation RHDeviceUser
 
 
 + (NSString *) uniqueIdentifier {

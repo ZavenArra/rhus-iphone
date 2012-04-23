@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RhusDocument : NSMutableDictionary {
+@interface RHDocument : NSMutableDictionary {
     
     NSMutableDictionary * dictionary;
 }

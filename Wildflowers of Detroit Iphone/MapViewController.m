@@ -10,11 +10,11 @@
 #include <stdlib.h>
 #import "WOverlay.h"
 #import "WOverlayView.h"
-#import "MapDataModel.h"
-#import "RhusMapAnnotation.h"
-#import "RhusDocument.h"
+#import "RHDataModel.h"
+#import "RHMapAnnotation.h"
+#import "RHDocument.h"
 #import "RHSettings.h"
-#import "DeviceUser.h"
+#import "RHDeviceUser.h"
 
 //Map Settings
 #define mapInsetOriginX 10
@@ -157,7 +157,7 @@
 
 - (void) setupGalleryScrollView{
     
-    for(RhusDocument * document in activeDocuments){
+    for(RHDocument * document in activeDocuments){
         UIButton * thumbnailButton = [UIButton buttonWithType:UIButtonTypeCustom];
                 
         int index = [activeDocuments indexOfObject:document];
@@ -220,7 +220,7 @@
     //Once we switch to liveQuery this will be changed
     //TODO: Change when switch to live query
     for (int i =0; i < [mapView.annotations count]; i++) { 
-        if ([[mapView.annotations objectAtIndex:i] isKindOfClass:[RhusMapAnnotation class]]) {                      
+        if ([[mapView.annotations objectAtIndex:i] isKindOfClass:[RHMapAnnotation class]]) {                      
             [mapView removeAnnotation:[mapView.annotations objectAtIndex:i]]; 
         } 
     }
@@ -229,14 +229,14 @@
 
     NSArray * documents;
     if(self.userDataOnly){
-        documents = [MapDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
+        documents = [RHDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
     } else {
-        documents = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
+        documents = [RHDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
     }
     
     self.galleryHeading2.text = [NSString stringWithFormat:@"%i Images", [documents count]];
         
-    for( RhusDocument * document in documents){
+    for( RHDocument * document in documents){
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = [ (NSString*) [document objectForKey:@"latitude"] floatValue];
         coordinate.longitude = [ (NSString*) [document objectForKey:@"longitude"] floatValue];
@@ -244,7 +244,7 @@
             continue;
         }
        // NSLog(@"%f %f", coordinate.latitude, coordinate.longitude );
-        RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) [RhusMapAnnotation 
+        RHMapAnnotation * rhusMapAnnotation = (RHMapAnnotation *) [RHMapAnnotation 
                                                  mapAnnotationWithCoordinate: coordinate
                                                  title:  [document getDateString]
                                                  subtitle:  [document getReporter]
@@ -353,7 +353,7 @@
 
 -(void)centerMapAtCurrentDocument {
     
-    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+    RHDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
     [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
 }
 
@@ -455,7 +455,7 @@
     //http://stackoverflow.com/questions/8018841/customize-the-mkannotationview-callout
     
     
-    RhusMapAnnotation * rhusMapAnnotation = (RhusMapAnnotation *) annotation;
+    RHMapAnnotation * rhusMapAnnotation = (RHMapAnnotation *) annotation;
     
     //ask database for the image file..       
     NSString * rhusMapAnnotationIdentifier = @"rhusMapAnnotationIdentifier";
@@ -465,7 +465,7 @@
     }
 
     NSString * documentDeviceUserIdentifier = [[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"deviceuser_identifier"];
-    NSString * deviceUserIdentifier = [DeviceUser uniqueIdentifier];
+    NSString * deviceUserIdentifier = [RHDeviceUser uniqueIdentifier];
     if([deviceUserIdentifier isEqualToString: documentDeviceUserIdentifier] ){
         annotationView.image = [UIImage imageNamed:@"mapDeviceUserPoint"];
     } else {
@@ -540,7 +540,7 @@
     
     //TODO: currently this reruns the layout every time you click a thumb/callout
     for(int i=0; i<[activeDocuments count]; i++){
-        RhusDocument * document = [activeDocuments objectAtIndex:i];
+        RHDocument * document = [activeDocuments objectAtIndex:i];
         if([document objectForKey:@"medium"] == nil){
             continue;
         }
@@ -582,7 +582,7 @@
 }
 
 - (void)showInfoViewForIndex: (NSInteger) index{
-    RhusDocument * document = [activeDocuments objectAtIndex:index];
+    RHDocument * document = [activeDocuments objectAtIndex:index];
     
     CGRect frame = self.infoView.frame;
     frame.origin.x = (480 - frame.size.width) / 2;
@@ -731,7 +731,7 @@
 #pragma mark - UIScrollViewDelegate Functions
 
 - (void) updateTimestampView {
-    RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+    RHDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
     self.detailDate.text = [document objectForKey:@"created_at"];
 
 }
@@ -749,7 +749,7 @@
         //async load next gallery page of data!
         currentGalleryPage = page;
         
-        RhusDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
+        RHDocument * document = [activeDocuments objectAtIndex:currentDetailIndex];
         [self centerMapAtLatitude:[document getLatitude] andLongitude:[document getLongitude]];
         if(!launchInGalleryMode){
            // self.heading2.text = [document objectForKey:
