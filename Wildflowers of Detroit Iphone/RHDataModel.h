@@ -12,7 +12,7 @@
 #import <Couchbase/CouchbaseMobile.h>
 #import <CouchCocoa/CouchCocoa.h>
 
-@interface RHDataModel {
+@interface RHDataModel : NSObject {
     
     CouchPersistentReplication* _pull;
     CouchPersistentReplication* _push;
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) CouchDatabase *database;
 @property (nonatomic, strong) CouchLiveQuery* query;
 
-+ (void) initializeServer;
+- (id) initWithBlock: ( void ( ^ )() ) didStartBlock ;
 
 
 - (void)showAlert: (NSString*)message error: (NSError*)error fatal: (BOOL)fatal;
@@ -37,9 +37,7 @@
 - (void)forgetSync;
 - (NSArray *) getView: (NSString *) viewName;
 
-
-+ (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;
-+ (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;
++ (void) initializeServer;
 
 
 + (RHDataModel *) instance;
@@ -49,6 +47,8 @@
 + (NSDictionary *) getDocumentAtIndex: (NSUInteger) index;
 + (NSDictionary *) getNextDocument: (NSString *) documentId;
 + (NSDictionary *) getPrevDocument: (NSString *) documentId;
++ (NSDictionary *) getDetailDocument: (NSString *) documentId;
+
 
 //+ (UIImage *) getThumbnailForId: (NSString *) documentId;
 //+ (UIImage *) getImageForId: (NSString *) documentId;

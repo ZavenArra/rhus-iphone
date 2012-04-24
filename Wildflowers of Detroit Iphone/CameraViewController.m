@@ -7,8 +7,8 @@
 //
 
 #import "CameraViewController.h"
-#import "MapDataModel.h"
-#import "DeviceUser.h"
+#import "RHDataModel.h"
+#import "RHDeviceUser.h"
 #import "RHLocation.h"
 #import "RHSettings.h"
 #import "UIImage+Resize.h"
@@ -97,6 +97,8 @@
     if([RHSettings useCamera]) {
         if(useCustomCamera){
             [self showImagePickerView];
+        } else {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
         }
     }
 }
@@ -310,44 +312,16 @@
                                          [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
                                          [RESTBody base64WithData: thumbImageDataJpeg ], @"thumb",
                                          [RESTBody base64WithData: mediumImageDataJpeg ], @"medium",
-                                         [DeviceUser uniqueIdentifier], @"deviceuser_identifier",
+                                         [RHDeviceUser uniqueIdentifier], @"deviceuser_identifier",
                                          nil];
     
-    NSLog(@"debuggin %@", [newDocument debugDescription]);
+   // NSLog(@"debuggin %@", [newDocument debugDescription]);
 
     for(NSString * attribute in selectedAttributes){
         [newDocument setObject:@"true" forKey:attribute];
     }
     
-    /* */
-    /*
-    NSLog(@"%@", @"Adding New Document");
-    [MapDataModel addDocument:newDocument 
-                  withAttachments: [NSArray arrayWithObjects:
-                                    [NSDictionary dictionaryWithObjectsAndKeys:
-                                     thumbImageDataJpeg,  @"data", 
-                                     @"thumb.jpg", @"name", 
-                                     @"image/jpeg", @"contentType",
-                                     nil
-                                     ],
-                                    [NSDictionary dictionaryWithObjectsAndKeys:
-                                     mediumImageDataJpeg,  @"data", 
-                                     @"medium.jpg",  @"name", 
-                                     @"image/jpeg", @"contentType", 
-                                     nil
-                                     ],
-                                    /*
-                                    [NSDictionary dictionaryWithObjectsAndKeys:
-                                     UIImageJPEGRepresentation(currentImage, 1.0),  @"data", 
-                                     @"full.jpg",  @"name", 
-                                     @"image/jpeg", @"contentType", 
-                                     nil
-                                     ],*/
-    /*
-                                    nil
-                                    ]
-     ];
-    */
+    [RHDataModel addDocument:newDocument];
 
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
@@ -449,11 +423,12 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self confirmImageWithUser:currentImage];
+    [self dismissModalViewControllerAnimated:YES];
        
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 

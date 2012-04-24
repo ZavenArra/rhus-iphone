@@ -82,7 +82,23 @@
     @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
-        [RHDataModel instance];
+        [[RHDataModel instance] initWithBlock: ^ {
+            if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
+                
+                [loadingViewController.view removeFromSuperview];
+                loadingViewController = nil;
+            } else {
+                
+                [loadingViewController.loadingView removeFromSuperview];
+                [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+                [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
+            }
+            [[RHDataModel instance] updateSyncURL];
+            
+        } ];
+
+         
+        
         
         
         NSLog(@"%@", @"Done");
@@ -92,6 +108,7 @@
   //  [pool release];
 
 }
+
 
 - (void) receivedRotate {
     if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ) && !isDoneStartingUp){
@@ -104,20 +121,26 @@
     }
 }
 
-- (void) doneStartingUp {
-    if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
-        
-        [loadingViewController.view removeFromSuperview];
-        loadingViewController = nil;
-    } else {
-        
-        [loadingViewController.loadingView removeFromSuperview];
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
-    }
-  //  [[MapDataModel instance] updateSyncURL];
-
+/*
+- (void(^)()) doneStartingUp {
+    
+    return Block_copy( ^ {
+        if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
+            
+            [loadingViewController.view removeFromSuperview];
+            loadingViewController = nil;
+        } else {
+            
+            [loadingViewController.loadingView removeFromSuperview];
+            [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+            [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
+        }
+        //  [[MapDataModel instance] updateSyncURL];
+      
+    });
+  
 }
+ */
 
 
 

@@ -20,7 +20,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SwoopTabViewController * swoopTabViewController;
 @property (strong, nonatomic) LoadingViewController * loadingViewController;
-@property (nonatomic) BOOL isDoneStartingUp;
+//@property (nonatomic) BOOL isDoneStartingUp;
 
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;

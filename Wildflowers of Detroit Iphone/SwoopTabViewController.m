@@ -132,6 +132,7 @@
     
     if(manualAppearCallbacks){
         CameraViewController * cameraViewController = (CameraViewController*) middleViewController;
+        cameraViewController.imagePicker.delegate = self;
         [self presentModalViewController:cameraViewController.imagePicker animated:YES];
     }
     
@@ -208,11 +209,13 @@
 #pragma mark UIImagePickerControllerDelegate Methods
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage * currentImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
+    [ (CameraViewController *) [self middleViewController] confirmImageWithUser: currentImage];
+    [self dismissModalViewControllerAnimated:[(CameraViewController *) [self middleViewController] imagePicker]];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    
+    [self dismissModalViewControllerAnimated:YES];
+
 }
 
 @end

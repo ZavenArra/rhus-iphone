@@ -7,6 +7,10 @@
 //
 
 #import "RHDataModel.h"
+#import "RHSettings.h"
+#import "RHDocument.h"
+#import "RHDeviceUser.h"
+#import "SharedInstanceMacro.h"
 
 @implementation RHDataModel
 
@@ -22,10 +26,8 @@
 @synthesize query;
 
 
-//- (id) initWithBlock:( void ( ^ )() ) didStartBlock {
-- (id) init {
+-  (id) initWithBlock:( void ( ^ )() ) didStartBlock {
     // Start the Couchbase Mobile server:
-    // gCouchLogLevel = 1;
     [CouchbaseMobile class];  // prevents dead-stripping
     CouchEmbeddedServer* server;
     
@@ -51,9 +53,6 @@
             return;
         }
         
-        // NSError ** outError; 
-        // NSString * version = [server getVersion: outError];
-        //  NSArray * databases = [server getDatabases];
         self.database = [server databaseNamed: [RHSettings databaseName]];
         NSAssert(database, @"Database Is NULL!");
         
@@ -69,34 +68,49 @@
         }
         
         database.tracksChanges = YES;
-        
-        //  NSLog(@"%@", @"Calling did start block");
-        // didStartBlock();
-        
+
         //Compile views
-        CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+        CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
         NSAssert(design, @"Couldn't find design document");
         design.language = kCouchLanguageJavaScript;
         /*
          [design defineViewNamed: @"detailDocuments"
          map: @"function(doc) { emit([doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
          */
-        
+                
+        /*
         [design defineViewNamed: @"deviceUserGalleryDocuments"
                             map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+        */
         
-        design.language = kCouchLanguageJavaScript;
+        [design defineViewNamed: @"deviceUserGalleryDocuments"
+                            map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+        
+        /*  
         [design defineViewNamed: @"galleryDocuments"
                             map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
+        */
+        [design defineViewNamed: @"galleryDocuments"
+                            map: @"function(doc) { emit(doc.created_at,{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
         
-        design.language = kCouchLanguageJavaScript;
-        [design defineViewNamed: @"detailDocuments"
-                            map: @"function(doc) { emit(doc.created_at, [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
+             
+        [design defineViewNamed: @"userDetailDocuments"
+                            map: @"function(doc) { emit( [doc.deviceuser_identifier, doc.created_at], {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
+        
+        [design defineViewNamed: @"documentDetail"
+                            map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
+        
         [design saveChanges];
-        
-        //TODO: Reorganize to use a block
-        [(AppDelegate *) [[UIApplication sharedApplication] delegate] doneStartingUp];
-        
+        /*
+        design = [database designDocumentWithName: @"rhusMobile"];
+        NSMutableDictionary * properties = [design.properties mutableCopy];
+        [properties setObject: [NSDictionary dictionaryWithObjectsAndKeys: @"function(doc, req) { if(doc.id.indexOf(\"_design\") === 0) { return false; } else { return true; }}",@"excludeDesignDocs", nil]  forKey:@"filters"];
+        RESTOperation * op = [design putProperties:properties];
+        [op start];
+        [op wait]; //synchronous
+        */
+         
+        didStartBlock();
     }];
     NSLog(@"%@", @"Started...");
     NSAssert(started, @"didnt start");
@@ -130,11 +144,13 @@
 
 
 - (NSArray *) runQuery: (CouchQuery *) couchQuery {
-    RESTOperation * op = [couchQuery start];
+   RESTOperation * op = [couchQuery start];
+   [op wait]; //synchronous
+   NSLog(@"op = %@", op.responseBody.fromJSON);
+
     
     CouchQueryEnumerator * enumerator = [couchQuery rows];
     
-    NSLog(@"op = %@", op.dump);
     if(!enumerator){
         return [NSArray array];
     }
@@ -147,9 +163,10 @@
         
         //Fix Image Attachments
         //TODO: This code can be removed once we are reasonably certain everything has been transformed
-        BOOL docNeedsSave = false;
-        CouchDocument * doc = row.document;
-        NSMutableDictionary * newProperties = [doc.properties mutableCopy ];
+        //BOOL docNeedsSave = false;
+     //   CouchDocument * doc = row.document;
+      //  NSMutableDictionary * newProperties = [doc.properties mutableCopy ];
+        
         
         /*
          if( ([row.value objectForKey:@"thumb"] == NULL) || ([row.value objectForKey:@"thumb"] == @"") ){
@@ -189,40 +206,41 @@
          */
         
         
+        NSMutableDictionary * properties = [(NSDictionary *) row.value mutableCopy];
         //Translate the Base64 data into a UIImage
-        if([newProperties objectForKey:@"thumb"] != NULL && [newProperties objectForKey:@"thumb"] != @"" ){
-            NSString * base64 = [newProperties objectForKey:@"thumb"];
+        if([properties objectForKey:@"thumb"] != NULL && [properties objectForKey:@"thumb"] != @"" ){
+            NSString * base64 = [properties objectForKey:@"thumb"];
             //  NSLog(@"%@", [row.value objectForKey:@"id"] );
             NSData * thumb = [RESTBody dataWithBase64:base64];
             if(thumb != NULL && [thumb length]){
-                [newProperties setObject:[UIImage imageWithData:thumb]
+                [properties setObject:[UIImage imageWithData:thumb]
                                   forKey:@"thumb"];
             } else {
-                [newProperties removeObjectForKey:@"thumb"];
+                [properties removeObjectForKey:@"thumb"];
             }
         } else {
-            [newProperties removeObjectForKey:@"thumb"];
+            [properties removeObjectForKey:@"thumb"];
         }
         
         
-        if([newProperties objectForKey:@"medium"] != NULL && [newProperties objectForKey:@"medium"] != @"" ){
-            NSString * base64 = [newProperties objectForKey:@"medium"];
+        if([properties objectForKey:@"medium"] != NULL && [properties objectForKey:@"medium"] != @"" ){
+            NSString * base64 = [properties objectForKey:@"medium"];
             //  NSLog(@"%@", [row.value objectForKey:@"id"] );
             NSData * medium = [RESTBody dataWithBase64:base64];
             if(medium != NULL && [medium length]){
-                [newProperties setObject:[UIImage imageWithData:medium]
+                [properties setObject:[UIImage imageWithData:medium]
                                   forKey:@"medium"];
             } else {
-                [newProperties removeObjectForKey:@"medium"];
+                [properties removeObjectForKey:@"medium"];
                 
             }
         } else {
-            [newProperties removeObjectForKey:@"medium"];
+            [properties removeObjectForKey:@"medium"];
         }
         
         
         //give em the data
-        [data addObject: [[RHDocument alloc] initWithDictionary: [NSDictionary dictionaryWithDictionary: newProperties]]];
+        [data addObject: [[RHDocument alloc] initWithDictionary: [NSDictionary dictionaryWithDictionary: properties]]];
     }
     return data;
     
@@ -235,7 +253,7 @@
     
     //Create view;
     CouchDatabase * database = [self.instance database];
-    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
     NSAssert(design, @"Couldn't find design document");
     
     CouchQuery * query = [design queryViewNamed: @"deviceUserGalleryDocuments"]; //asLiveQuery];
@@ -244,7 +262,7 @@
     query.endKey = [NSArray arrayWithObjects:userIdentifier, nil];
     query.startKey = [NSArray arrayWithObjects:userIdentifier, [NSDictionary dictionary], nil];
     
-    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
+    NSArray * r = [(RHDataModel * ) self.instance runQuery:query];
     
     return r;
     
@@ -261,18 +279,16 @@
 
 + (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
     
-    //Create view;
     CouchDatabase * database = [self.instance database];
-    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
     NSAssert(design, @"Couldn't find design document");
-    
-    //  NSArray * r =  [ (MapCouchbaseDataModel * ) self.instance getView:@"galleryDocuments"];
-    
+        
     CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
     query.descending = NO;
-    //query.limit = 50;
-    NSLog(@"%@", @"Limit to 50 docs");
-    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery:query];
+   // query.limit = 50;
+    NSLog(@"%@", @"AAAA Limit to 50 docs");
+    NSArray * r = [self.instance runQuery:query];
+    NSLog(@"Count: %i", [r count]);
     
     return r;
 }
@@ -280,46 +296,27 @@
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {
     CouchDatabase * database = [self.instance database];
     
-    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
-    NSAssert(design, @"Couldn't find design document");
-    
-    [design saveChanges];
-    
-    // NSArray * r = [ (MapCouchbaseDataModel * ) self.instance getView:@"detailDocuments" ];
-    
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
+
     CouchQuery * query = [design queryViewNamed: @"detailDocuments"]; //asLiveQuery];
     query.descending = NO;
-    NSArray * r = [(MapCouchbaseDataModel * ) self.instance runQuery: query];
+    NSArray * r = [(RHDataModel * ) self.instance runQuery: query];
     
-    for(int i=0; i<[r count]; i++){
-        NSDictionary * d = [r objectAtIndex:i];
-        UIImage * mediumImage = [UIImage imageNamed:@"IMG_0068.jpg"]; //TODO: remove spoof
-        //getDocumentImageData
-        [d setValue:mediumImage forKey:@"medium"];
-    }
     return r;
     
 }
 
-
-- (NSArray *) getView: (NSString *) viewName {
-    
-    CouchDesignDocument* design = [database designDocumentWithName: @"design"];
-    self.query = [design queryViewNamed: viewName]; //asLiveQuery];
-    query.descending = YES;
-    
-    
-    CouchQueryEnumerator * enumerator = [query rows];
-    if(!enumerator){
-        return [NSArray array];
++ (NSDictionary *) getDetailDocument: (NSString *) documentId {
+    CouchDesignDocument* design = [  [[self instance] database] designDocumentWithName: @"rhusMobile"];
+    CouchQuery * query = [design queryViewNamed: @"documentDetail"]; //asLiveQuery];
+    query.startKey = documentId;
+    query.endKey = documentId;
+    NSArray * r = [(RHDataModel * ) self.instance runQuery: query];
+    if([r count] == 1){
+        return [r objectAtIndex:0];
+    } else {
+        return nil;
     }
-    CouchQueryRow * row;
-    NSMutableArray * data = [NSMutableArray array];
-    while( (row =[enumerator nextRow]) ){
-        [data addObject: (NSDictionary *) row.value];
-    }
-    return data;
-    
 }
 
 
@@ -350,8 +347,6 @@
     [op start];
     
 }
-
-
 
 
 
@@ -390,6 +385,8 @@
     NSArray* repls = [self.database replicateWithURL: newRemoteURL exclusively: YES];
     _pull = [repls objectAtIndex: 0];
     _push = [repls objectAtIndex: 1];
+  //  _pull.filter = @"design/excludeDesignDocs";
+  //  _push.filter = @"rhusMobile/excludeDesignDocs";
     [_pull addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
     [_push addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
 }
