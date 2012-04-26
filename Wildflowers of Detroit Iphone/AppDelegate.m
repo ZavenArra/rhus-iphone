@@ -93,13 +93,10 @@
                 [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
                 [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
             }
-            [[RHDataModel instance] updateSyncURL];
+         //   [[RHDataModel instance] updateSyncURL];
             
         } ];
 
-         
-        
-        
         
         NSLog(@"%@", @"Done");
 
@@ -109,17 +106,28 @@
 
 }
 
+- (void) delayedViewDidAppear {
+    [swoopTabViewController.bottomViewController viewDidAppear:NO];
+}
+
+- (void) presentApplication {
+    isDoneStartingUp = TRUE;    
+    [loadingViewController.view removeFromSuperview];
+    loadingViewController = nil;
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    [swoopTabViewController didTouchBottomButton:self];
+    if(swoopTabViewController.manualAppearCallbacks){
+        [self performSelector:@selector(delayedViewDidAppear) withObject:nil afterDelay:0.0];
+    }
+}
 
 - (void) receivedRotate {
     if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ) && !isDoneStartingUp){
-        isDoneStartingUp = TRUE;
-        [loadingViewController.view removeFromSuperview];
-        loadingViewController = nil;
-        [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-        [swoopTabViewController didTouchBottomButton:self];
-        
+        [self presentApplication];
     }
 }
+
+
 
 /*
 - (void(^)()) doneStartingUp {

@@ -403,13 +403,14 @@
     
 }
 
-- (void) confirmImageWithUser: (UIImage *) currentImage {
+- (void) confirmImageWithUser: (UIImage *) newImage {
+    currentImage = newImage;
     [imageView setImage:currentImage];
     
     if(self.activeImageOrientation == kPortraitPhoto){
-        imageView.transform = CGAffineTransformScale ( CGAffineTransformMakeRotation(-M_PI/2), 1.7, 1.7);
+     //   imageView.transform = CGAffineTransformScale ( CGAffineTransformMakeRotation(-M_PI/2), 1.7, 1.7);
     } else {
-        imageView.transform = CGAffineTransformScale ( CGAffineTransformIdentity, 1.8, 1.8);
+     //   imageView.transform = CGAffineTransformScale ( CGAffineTransformIdentity, 1.8, 1.8);
     }
     [self.view insertSubview:imageView belowSubview:shutterView];
     

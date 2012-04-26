@@ -40,6 +40,7 @@
     else
         manualAppearCallbacks = FALSE;
 
+    firstRun = true;
     return self;
 }
 
@@ -151,9 +152,12 @@
     if(manualAppearCallbacks)
         [bottomViewController viewWillAppear:NO];
     [self.view insertSubview:bottomViewController.view atIndex:0];
-    if(manualAppearCallbacks)
-        [bottomViewController viewDidAppear:NO];
-
+    
+    if(!firstRun){
+        if(manualAppearCallbacks)
+            [bottomViewController viewDidAppear:NO];
+    }
+    firstRun = NO;
     
     currentTab = kBottom;
 

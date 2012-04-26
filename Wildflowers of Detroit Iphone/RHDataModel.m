@@ -78,13 +78,15 @@
          map: @"function(doc) { emit([doc.created_at], [doc._id, doc.reporter, doc.comment, doc.medium, doc.created_at] );}"];
          */
                 
-        /*
-        [design defineViewNamed: @"deviceUserGalleryDocuments"
-                            map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
-        */
         
         [design defineViewNamed: @"deviceUserGalleryDocuments"
+                            map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+        
+        
+        /*
+        [design defineViewNamed: @"deviceUserGalleryDocuments"
                             map: @"function(doc) { emit([doc.deviceuser_identifier, doc.created_at],{'id':doc._id, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
+        */
         
         /*  
         [design defineViewNamed: @"galleryDocuments"
@@ -92,10 +94,6 @@
         */
         [design defineViewNamed: @"galleryDocuments"
                             map: @"function(doc) { emit(doc.created_at,{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
-        
-             
-        [design defineViewNamed: @"userDetailDocuments"
-                            map: @"function(doc) { emit( [doc.deviceuser_identifier, doc.created_at], {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
         
         [design defineViewNamed: @"documentDetail"
                             map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
@@ -144,9 +142,9 @@
 
 
 - (NSArray *) runQuery: (CouchQuery *) couchQuery {
-   RESTOperation * op = [couchQuery start];
-   [op wait]; //synchronous
-   NSLog(@"op = %@", op.responseBody.fromJSON);
+//   RESTOperation * op = [couchQuery start];
+//   [op wait]; //synchronous
+//   NSLog(@"op = %@", op.dump);
 
     
     CouchQueryEnumerator * enumerator = [couchQuery rows];

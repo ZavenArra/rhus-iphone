@@ -479,7 +479,9 @@
     UIButton * calloutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     calloutButton.contentMode = UIViewContentModeScaleToFill;
     calloutButton.frame = frame;
-    UIImage * calloutImage = [[activeDocuments objectAtIndex:rhusMapAnnotation.tag] objectForKey:@"thumb"];
+    RHDocument * doc = [activeDocuments objectAtIndex:rhusMapAnnotation.tag];
+    
+    UIImage * calloutImage = [doc objectForKey:@"thumb"];
     [calloutButton setBackgroundImage:calloutImage forState:UIControlStateNormal];
     
     annotationView.leftCalloutAccessoryView = calloutButton;
