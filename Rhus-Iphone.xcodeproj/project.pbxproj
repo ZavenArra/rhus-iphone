@@ -63,6 +63,105 @@
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
 		A6EC116115210D1C000E4183 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EC116015210D1C000E4183 /* Default@2x.png */; };
 		A6EFC47214C4E1DE0014ACA9 /* infoBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC47114C4E1DE0014ACA9 /* infoBack.png */; };
+		F414D9E91549F325008A38F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B21549F325008A38F5 /* UIImage+Alpha.m */; };
+		F414D9EA1549F325008A38F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B21549F325008A38F5 /* UIImage+Alpha.m */; };
+		F414D9EB1549F325008A38F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B21549F325008A38F5 /* UIImage+Alpha.m */; };
+		F414D9EC1549F325008A38F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B41549F325008A38F5 /* UIImage+Resize.m */; };
+		F414D9ED1549F325008A38F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B41549F325008A38F5 /* UIImage+Resize.m */; };
+		F414D9EE1549F325008A38F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B41549F325008A38F5 /* UIImage+Resize.m */; };
+		F414D9EF1549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */; };
+		F414D9F01549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */; };
+		F414D9F11549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */; };
+		F414D9F21549F325008A38F5 /* RHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B91549F325008A38F5 /* RHDataModel.m */; };
+		F414D9F31549F325008A38F5 /* RHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B91549F325008A38F5 /* RHDataModel.m */; };
+		F414D9F41549F325008A38F5 /* RHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B91549F325008A38F5 /* RHDataModel.m */; };
+		F414D9F51549F325008A38F5 /* RHDeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BB1549F325008A38F5 /* RHDeviceUser.m */; };
+		F414D9F61549F325008A38F5 /* RHDeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BB1549F325008A38F5 /* RHDeviceUser.m */; };
+		F414D9F71549F325008A38F5 /* RHDeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BB1549F325008A38F5 /* RHDeviceUser.m */; };
+		F414D9F81549F325008A38F5 /* RHDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BD1549F325008A38F5 /* RHDocument.m */; };
+		F414D9F91549F325008A38F5 /* RHDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BD1549F325008A38F5 /* RHDocument.m */; };
+		F414D9FA1549F325008A38F5 /* RHDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BD1549F325008A38F5 /* RHDocument.m */; };
+		F414D9FB1549F325008A38F5 /* RHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BF1549F325008A38F5 /* RHLocation.m */; };
+		F414D9FC1549F325008A38F5 /* RHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BF1549F325008A38F5 /* RHLocation.m */; };
+		F414D9FD1549F325008A38F5 /* RHLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9BF1549F325008A38F5 /* RHLocation.m */; };
+		F414D9FE1549F325008A38F5 /* RHMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C21549F325008A38F5 /* RHMapAnnotation.m */; };
+		F414D9FF1549F325008A38F5 /* RHMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C21549F325008A38F5 /* RHMapAnnotation.m */; };
+		F414DA001549F325008A38F5 /* RHMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C21549F325008A38F5 /* RHMapAnnotation.m */; };
+		F414DA011549F325008A38F5 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C41549F325008A38F5 /* SSMapAnnotation.m */; };
+		F414DA021549F325008A38F5 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C41549F325008A38F5 /* SSMapAnnotation.m */; };
+		F414DA031549F325008A38F5 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C41549F325008A38F5 /* SSMapAnnotation.m */; };
+		F414DA041549F325008A38F5 /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C61549F325008A38F5 /* WOverlay.m */; };
+		F414DA051549F325008A38F5 /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C61549F325008A38F5 /* WOverlay.m */; };
+		F414DA061549F325008A38F5 /* WOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C61549F325008A38F5 /* WOverlay.m */; };
+		F414DA071549F325008A38F5 /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C81549F325008A38F5 /* WOverlayView.m */; };
+		F414DA081549F325008A38F5 /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C81549F325008A38F5 /* WOverlayView.m */; };
+		F414DA091549F325008A38F5 /* WOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9C81549F325008A38F5 /* WOverlayView.m */; };
+		F414DA0A1549F325008A38F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F414D9CA1549F325008A38F5 /* InfoPlist.strings */; };
+		F414DA0B1549F325008A38F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F414D9CA1549F325008A38F5 /* InfoPlist.strings */; };
+		F414DA0C1549F325008A38F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F414D9CA1549F325008A38F5 /* InfoPlist.strings */; };
+		F414DA0D1549F325008A38F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9CC1549F325008A38F5 /* main.m */; };
+		F414DA0E1549F325008A38F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9CC1549F325008A38F5 /* main.m */; };
+		F414DA0F1549F325008A38F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9CC1549F325008A38F5 /* main.m */; };
+		F414DA101549F325008A38F5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D01549F325008A38F5 /* OrderedDictionary.m */; };
+		F414DA111549F325008A38F5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D01549F325008A38F5 /* OrderedDictionary.m */; };
+		F414DA121549F325008A38F5 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D01549F325008A38F5 /* OrderedDictionary.m */; };
+		F414DA131549F325008A38F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D41549F325008A38F5 /* AppDelegate.m */; };
+		F414DA141549F325008A38F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D41549F325008A38F5 /* AppDelegate.m */; };
+		F414DA151549F325008A38F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D41549F325008A38F5 /* AppDelegate.m */; };
+		F414DA161549F325008A38F5 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D61549F325008A38F5 /* CameraViewController.m */; };
+		F414DA171549F325008A38F5 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D61549F325008A38F5 /* CameraViewController.m */; };
+		F414DA181549F325008A38F5 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D61549F325008A38F5 /* CameraViewController.m */; };
+		F414DA191549F325008A38F5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9D71549F325008A38F5 /* CameraViewController.xib */; };
+		F414DA1A1549F325008A38F5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9D71549F325008A38F5 /* CameraViewController.xib */; };
+		F414DA1B1549F325008A38F5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9D71549F325008A38F5 /* CameraViewController.xib */; };
+		F414DA1C1549F325008A38F5 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DA1549F325008A38F5 /* GalleryViewController.m */; };
+		F414DA1D1549F325008A38F5 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DA1549F325008A38F5 /* GalleryViewController.m */; };
+		F414DA1E1549F325008A38F5 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DA1549F325008A38F5 /* GalleryViewController.m */; };
+		F414DA1F1549F325008A38F5 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9DB1549F325008A38F5 /* GalleryViewController.xib */; };
+		F414DA201549F325008A38F5 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9DB1549F325008A38F5 /* GalleryViewController.xib */; };
+		F414DA211549F325008A38F5 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9DB1549F325008A38F5 /* GalleryViewController.xib */; };
+		F414DA221549F325008A38F5 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DD1549F325008A38F5 /* ImageScrollView.m */; };
+		F414DA231549F325008A38F5 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DD1549F325008A38F5 /* ImageScrollView.m */; };
+		F414DA241549F325008A38F5 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DD1549F325008A38F5 /* ImageScrollView.m */; };
+		F414DA251549F325008A38F5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DF1549F325008A38F5 /* LoadingViewController.m */; };
+		F414DA261549F325008A38F5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DF1549F325008A38F5 /* LoadingViewController.m */; };
+		F414DA271549F325008A38F5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DF1549F325008A38F5 /* LoadingViewController.m */; };
+		F414DA281549F325008A38F5 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E01549F325008A38F5 /* LoadingViewController.xib */; };
+		F414DA291549F325008A38F5 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E01549F325008A38F5 /* LoadingViewController.xib */; };
+		F414DA2A1549F325008A38F5 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E01549F325008A38F5 /* LoadingViewController.xib */; };
+		F414DA2B1549F325008A38F5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E21549F325008A38F5 /* MapViewController.m */; };
+		F414DA2C1549F325008A38F5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E21549F325008A38F5 /* MapViewController.m */; };
+		F414DA2D1549F325008A38F5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E21549F325008A38F5 /* MapViewController.m */; };
+		F414DA2E1549F325008A38F5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E31549F325008A38F5 /* MapViewController.xib */; };
+		F414DA2F1549F325008A38F5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E31549F325008A38F5 /* MapViewController.xib */; };
+		F414DA301549F325008A38F5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E31549F325008A38F5 /* MapViewController.xib */; };
+		F414DA311549F325008A38F5 /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E51549F325008A38F5 /* SwoopTabViewController.m */; };
+		F414DA321549F325008A38F5 /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E51549F325008A38F5 /* SwoopTabViewController.m */; };
+		F414DA331549F325008A38F5 /* SwoopTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E51549F325008A38F5 /* SwoopTabViewController.m */; };
+		F414DA341549F325008A38F5 /* SwoopTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */; };
+		F414DA351549F325008A38F5 /* SwoopTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */; };
+		F414DA361549F325008A38F5 /* SwoopTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */; };
+		F414DA371549F325008A38F5 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */; };
+		F414DA381549F325008A38F5 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */; };
+		F414DA391549F325008A38F5 /* TimelineVisualizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */; };
+		F414DA431549F3D2008A38F5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */; };
+		F414DA441549F3D2008A38F5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */; };
+		F414DA451549F3D2008A38F5 /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */; };
+		F414DA461549F3D2008A38F5 /* RHSettings_Squirrels.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3E1549F3D2008A38F5 /* RHSettings_Squirrels.m */; };
+		F414DA471549F3D2008A38F5 /* RHSettings_Squirrels.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3E1549F3D2008A38F5 /* RHSettings_Squirrels.m */; };
+		F414DA481549F3D2008A38F5 /* RHSettings_Squirrels.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3E1549F3D2008A38F5 /* RHSettings_Squirrels.m */; };
+		F414DA491549F3D2008A38F5 /* RHSettings_Wildflowers.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3F1549F3D2008A38F5 /* RHSettings_Wildflowers.m */; };
+		F414DA4A1549F3D2008A38F5 /* RHSettings_Wildflowers.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3F1549F3D2008A38F5 /* RHSettings_Wildflowers.m */; };
+		F414DA4B1549F3D2008A38F5 /* RHSettings_Wildflowers.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3F1549F3D2008A38F5 /* RHSettings_Wildflowers.m */; };
+		F414DA4C1549F3D2008A38F5 /* RhusDevelopment-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA401549F3D2008A38F5 /* RhusDevelopment-Info.plist */; };
+		F414DA4D1549F3D2008A38F5 /* RhusDevelopment-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA401549F3D2008A38F5 /* RhusDevelopment-Info.plist */; };
+		F414DA4E1549F3D2008A38F5 /* RhusDevelopment-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA401549F3D2008A38F5 /* RhusDevelopment-Info.plist */; };
+		F414DA4F1549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA411549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist */; };
+		F414DA501549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA411549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist */; };
+		F414DA511549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA411549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist */; };
+		F414DA521549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA421549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist */; };
+		F414DA531549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA421549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist */; };
+		F414DA541549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F414DA421549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist */; };
 		F422E2E2150C331A009317E5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2C8150C3309009317E5 /* Default.png */; };
 		F422E2E3150C331A009317E5 /* Default@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2C9150C3309009317E5 /* Default@x2.png */; };
 		F422E2E4150C331A009317E5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2CA150C3309009317E5 /* icon.png */; };
@@ -147,10 +246,7 @@
 		F4C0623314BE6C0F0008FBB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4C0623414BE6C0F0008FBB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4C0623514BE6C0F0008FBB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
-		F4C0623B14BE6C0F0008FBB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4C0623914BE6C0F0008FBB5 /* InfoPlist.strings */; };
-		F4C0623D14BE6C0F0008FBB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0623C14BE6C0F0008FBB5 /* main.m */; };
 		F4C0624614BE6D0A0008FBB5 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */; };
-		F4C0624714BE6E1C0008FBB5 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */; };
 		F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
 		F4CE89DD150C0E24009AE0FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
 		F4CE89DE150C0E24009AE0FC /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
@@ -357,6 +453,63 @@
 		A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarMiddle.png; path = graphics/swoopBarMiddle.png; sourceTree = SOURCE_ROOT; };
 		A6EC116015210D1C000E4183 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		A6EFC47114C4E1DE0014ACA9 /* infoBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoBack.png; path = graphics/infoBack.png; sourceTree = SOURCE_ROOT; };
+		F414D9B11549F325008A38F5 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		F414D9B21549F325008A38F5 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		F414D9B31549F325008A38F5 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		F414D9B41549F325008A38F5 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		F414D9B51549F325008A38F5 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		F414D9B81549F325008A38F5 /* RHDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHDataModel.h; sourceTree = "<group>"; };
+		F414D9B91549F325008A38F5 /* RHDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHDataModel.m; sourceTree = "<group>"; };
+		F414D9BA1549F325008A38F5 /* RHDeviceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHDeviceUser.h; sourceTree = "<group>"; };
+		F414D9BB1549F325008A38F5 /* RHDeviceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHDeviceUser.m; sourceTree = "<group>"; };
+		F414D9BC1549F325008A38F5 /* RHDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHDocument.h; sourceTree = "<group>"; };
+		F414D9BD1549F325008A38F5 /* RHDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHDocument.m; sourceTree = "<group>"; };
+		F414D9BE1549F325008A38F5 /* RHLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHLocation.h; sourceTree = "<group>"; };
+		F414D9BF1549F325008A38F5 /* RHLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLocation.m; sourceTree = "<group>"; };
+		F414D9C11549F325008A38F5 /* RHMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHMapAnnotation.h; sourceTree = "<group>"; };
+		F414D9C21549F325008A38F5 /* RHMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHMapAnnotation.m; sourceTree = "<group>"; };
+		F414D9C31549F325008A38F5 /* SSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMapAnnotation.h; sourceTree = "<group>"; };
+		F414D9C41549F325008A38F5 /* SSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMapAnnotation.m; sourceTree = "<group>"; };
+		F414D9C51549F325008A38F5 /* WOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOverlay.h; sourceTree = "<group>"; };
+		F414D9C61549F325008A38F5 /* WOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOverlay.m; sourceTree = "<group>"; };
+		F414D9C71549F325008A38F5 /* WOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOverlayView.h; sourceTree = "<group>"; };
+		F414D9C81549F325008A38F5 /* WOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOverlayView.m; sourceTree = "<group>"; };
+		F414D9CB1549F325008A38F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F414D9CC1549F325008A38F5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F414D9CD1549F325008A38F5 /* Rhus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Rhus-Prefix.pch"; sourceTree = "<group>"; };
+		F414D9CF1549F325008A38F5 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
+		F414D9D01549F325008A38F5 /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
+		F414D9D11549F325008A38F5 /* SharedInstanceMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInstanceMacro.h; sourceTree = "<group>"; };
+		F414D9D31549F325008A38F5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F414D9D41549F325008A38F5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F414D9D51549F325008A38F5 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		F414D9D61549F325008A38F5 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		F414D9D71549F325008A38F5 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		F414D9D81549F325008A38F5 /* FullscreenTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenTransitionDelegate.h; sourceTree = "<group>"; };
+		F414D9D91549F325008A38F5 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		F414D9DA1549F325008A38F5 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		F414D9DB1549F325008A38F5 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		F414D9DC1549F325008A38F5 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
+		F414D9DD1549F325008A38F5 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
+		F414D9DE1549F325008A38F5 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		F414D9DF1549F325008A38F5 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		F414D9E01549F325008A38F5 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		F414D9E11549F325008A38F5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		F414D9E21549F325008A38F5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		F414D9E31549F325008A38F5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		F414D9E41549F325008A38F5 /* SwoopTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwoopTabViewController.h; sourceTree = "<group>"; };
+		F414D9E51549F325008A38F5 /* SwoopTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwoopTabViewController.m; sourceTree = "<group>"; };
+		F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwoopTabViewController.xib; sourceTree = "<group>"; };
+		F414D9E71549F325008A38F5 /* TimelineVisualizationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVisualizationView.h; sourceTree = "<group>"; };
+		F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVisualizationView.m; sourceTree = "<group>"; };
+		F414DA3C1549F3D2008A38F5 /* RHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHSettings.h; sourceTree = "<group>"; };
+		F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Development.m; sourceTree = "<group>"; };
+		F414DA3E1549F3D2008A38F5 /* RHSettings_Squirrels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Squirrels.m; sourceTree = "<group>"; };
+		F414DA3F1549F3D2008A38F5 /* RHSettings_Wildflowers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Wildflowers.m; sourceTree = "<group>"; };
+		F414DA401549F3D2008A38F5 /* RhusDevelopment-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RhusDevelopment-Info.plist"; sourceTree = "<group>"; };
+		F414DA411549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SquirrelsOfTheEarth-Info.plist"; sourceTree = "<group>"; };
+		F414DA421549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Wildflowers of Detroit Iphone-Info.plist"; sourceTree = "<group>"; };
 		F422E2C8150C3309009317E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F422E2C9150C3309009317E5 /* Default@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@x2.png"; sourceTree = "<group>"; };
 		F422E2CA150C3309009317E5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -383,14 +536,10 @@
 		F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
-		F4AA40FF14DA5BFE00ED3CCE /* Wildflowers of Detroit Iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildflowers of Detroit Iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4AA40FF14DA5BFE00ED3CCE /* Rhus-Iphone Iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rhus-Iphone Iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C05EF114BD1A900008FBB5 /* Northern%2BShrike%2BRenews%2528blog%2529.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Northern%2BShrike%2BRenews%2528blog%2529.jpg"; sourceTree = "<group>"; };
 		F4C05EF514BD24330008FBB5 /* 106x106.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 106x106.png; sourceTree = "<group>"; };
 		F4C0623114BE6C0F0008FBB5 /* GHUnit Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GHUnit Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4C0623814BE6C0F0008FBB5 /* GHUnit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GHUnit Tests-Info.plist"; sourceTree = "<group>"; };
-		F4C0623A14BE6C0F0008FBB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F4C0623C14BE6C0F0008FBB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F4C0623E14BE6C0F0008FBB5 /* GHUnit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUnit Tests-Prefix.pch"; sourceTree = "<group>"; };
 		F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../IphoneDevelopment/Libs/gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F4CE8857150C08A3009AE0FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F4CE8B2B150C0E24009AE0FC /* SquirrelsOfTheEarth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquirrelsOfTheEarth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,8 +550,6 @@
 		F4D392AB14BBA6660051E831 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F4D392B314BBA6660051E831 /* Wildflowers of Detroit IphoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wildflowers of Detroit IphoneTests-Info.plist"; sourceTree = "<group>"; };
 		F4D392B514BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wildflowers_of_Detroit_IphoneTests.h; path = "../Wildflowers of Detroit IphoneTests/Wildflowers_of_Detroit_IphoneTests.h"; sourceTree = "<group>"; };
-		F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Wildflowers_of_Detroit_IphoneTests.m; path = "../Wildflowers of Detroit IphoneTests/Wildflowers_of_Detroit_IphoneTests.m"; sourceTree = "<group>"; };
 		F4E29D62150C3A9000B797F3 /* Defaultx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Defaultx2.png; sourceTree = "<group>"; };
 		F4EB210D150C24B90041A957 /* RhusDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhusDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F2857A150DADBC009A24C9 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shutter.png; path = graphics/shutter.png; sourceTree = SOURCE_ROOT; };
@@ -558,26 +705,123 @@
 			name = Graphics;
 			sourceTree = "<group>";
 		};
-		F4C0623614BE6C0F0008FBB5 /* GHUnit Tests */ = {
+		F414D9AF1549F325008A38F5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F4D392B714BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.h */,
-				F4D392B814BBA6660051E831 /* Wildflowers_of_Detroit_IphoneTests.m */,
-				F4C0623714BE6C0F0008FBB5 /* Supporting Files */,
+				F414D9B01549F325008A38F5 /* Categories */,
+				F414D9B71549F325008A38F5 /* DataModels */,
+				F414D9C01549F325008A38F5 /* Maps */,
+				F414D9C91549F325008A38F5 /* Supporting Files */,
+				F414D9CE1549F325008A38F5 /* Util */,
+				F414D9D21549F325008A38F5 /* Views and Controllers */,
 			);
-			name = "GHUnit Tests";
-			path = "../GHUnit Tests";
+			path = Source;
 			sourceTree = "<group>";
 		};
-		F4C0623714BE6C0F0008FBB5 /* Supporting Files */ = {
+		F414D9B01549F325008A38F5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				F4C0623814BE6C0F0008FBB5 /* GHUnit Tests-Info.plist */,
-				F4C0623914BE6C0F0008FBB5 /* InfoPlist.strings */,
-				F4C0623C14BE6C0F0008FBB5 /* main.m */,
-				F4C0623E14BE6C0F0008FBB5 /* GHUnit Tests-Prefix.pch */,
+				F414D9B11549F325008A38F5 /* UIImage+Alpha.h */,
+				F414D9B21549F325008A38F5 /* UIImage+Alpha.m */,
+				F414D9B31549F325008A38F5 /* UIImage+Resize.h */,
+				F414D9B41549F325008A38F5 /* UIImage+Resize.m */,
+				F414D9B51549F325008A38F5 /* UIImage+RoundedCorner.h */,
+				F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */,
 			);
-			name = "Supporting Files";
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		F414D9B71549F325008A38F5 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				F414D9B81549F325008A38F5 /* RHDataModel.h */,
+				F414D9B91549F325008A38F5 /* RHDataModel.m */,
+				F414D9BA1549F325008A38F5 /* RHDeviceUser.h */,
+				F414D9BB1549F325008A38F5 /* RHDeviceUser.m */,
+				F414D9BC1549F325008A38F5 /* RHDocument.h */,
+				F414D9BD1549F325008A38F5 /* RHDocument.m */,
+				F414D9BE1549F325008A38F5 /* RHLocation.h */,
+				F414D9BF1549F325008A38F5 /* RHLocation.m */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		F414D9C01549F325008A38F5 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				F414D9C11549F325008A38F5 /* RHMapAnnotation.h */,
+				F414D9C21549F325008A38F5 /* RHMapAnnotation.m */,
+				F414D9C31549F325008A38F5 /* SSMapAnnotation.h */,
+				F414D9C41549F325008A38F5 /* SSMapAnnotation.m */,
+				F414D9C51549F325008A38F5 /* WOverlay.h */,
+				F414D9C61549F325008A38F5 /* WOverlay.m */,
+				F414D9C71549F325008A38F5 /* WOverlayView.h */,
+				F414D9C81549F325008A38F5 /* WOverlayView.m */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		F414D9C91549F325008A38F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F414D9CA1549F325008A38F5 /* InfoPlist.strings */,
+				F414D9CC1549F325008A38F5 /* main.m */,
+				F414D9CD1549F325008A38F5 /* Rhus-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F414D9CE1549F325008A38F5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F414D9CF1549F325008A38F5 /* OrderedDictionary.h */,
+				F414D9D01549F325008A38F5 /* OrderedDictionary.m */,
+				F414D9D11549F325008A38F5 /* SharedInstanceMacro.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		F414D9D21549F325008A38F5 /* Views and Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F414D9D31549F325008A38F5 /* AppDelegate.h */,
+				F414D9D41549F325008A38F5 /* AppDelegate.m */,
+				F414D9D51549F325008A38F5 /* CameraViewController.h */,
+				F414D9D61549F325008A38F5 /* CameraViewController.m */,
+				F414D9D71549F325008A38F5 /* CameraViewController.xib */,
+				F414D9D81549F325008A38F5 /* FullscreenTransitionDelegate.h */,
+				F414D9D91549F325008A38F5 /* GalleryViewController.h */,
+				F414D9DA1549F325008A38F5 /* GalleryViewController.m */,
+				F414D9DB1549F325008A38F5 /* GalleryViewController.xib */,
+				F414D9DC1549F325008A38F5 /* ImageScrollView.h */,
+				F414D9DD1549F325008A38F5 /* ImageScrollView.m */,
+				F414D9DE1549F325008A38F5 /* LoadingViewController.h */,
+				F414D9DF1549F325008A38F5 /* LoadingViewController.m */,
+				F414D9E01549F325008A38F5 /* LoadingViewController.xib */,
+				F414D9E11549F325008A38F5 /* MapViewController.h */,
+				F414D9E21549F325008A38F5 /* MapViewController.m */,
+				F414D9E31549F325008A38F5 /* MapViewController.xib */,
+				F414D9E41549F325008A38F5 /* SwoopTabViewController.h */,
+				F414D9E51549F325008A38F5 /* SwoopTabViewController.m */,
+				F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */,
+				F414D9E71549F325008A38F5 /* TimelineVisualizationView.h */,
+				F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */,
+			);
+			path = "Views and Controllers";
+			sourceTree = "<group>";
+		};
+		F414DA3B1549F3D2008A38F5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F414DA3C1549F3D2008A38F5 /* RHSettings.h */,
+				F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */,
+				F414DA3E1549F3D2008A38F5 /* RHSettings_Squirrels.m */,
+				F414DA3F1549F3D2008A38F5 /* RHSettings_Wildflowers.m */,
+				F414DA401549F3D2008A38F5 /* RhusDevelopment-Info.plist */,
+				F414DA411549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist */,
+				F414DA421549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F4CE8B30150C10AA009AE0FC /* Targets */ = {
@@ -636,6 +880,8 @@
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
+				F414DA3B1549F3D2008A38F5 /* Settings */,
+				F414D9AF1549F325008A38F5 /* Source */,
 				F4CE8857150C08A3009AE0FC /* CoreLocation.framework */,
 				F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */,
 				F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */,
@@ -655,7 +901,7 @@
 			children = (
 				F4D3928F14BBA6660051E831 /* Wild Detroit.app */,
 				F4C0623114BE6C0F0008FBB5 /* GHUnit Tests.app */,
-				F4AA40FF14DA5BFE00ED3CCE /* Wildflowers of Detroit Iphone copy.app */,
+				F4AA40FF14DA5BFE00ED3CCE /* Rhus-Iphone Iphone copy.app */,
 				F4CE8B2B150C0E24009AE0FC /* SquirrelsOfTheEarth.app */,
 				F4EB210D150C24B90041A957 /* RhusDevelopment.app */,
 			);
@@ -679,7 +925,6 @@
 			children = (
 				F4CE8B30150C10AA009AE0FC /* Targets */,
 				A6A620D814BBBB670096CA01 /* Graphics */,
-				F4C0623614BE6C0F0008FBB5 /* GHUnit Tests */,
 			);
 			path = "Wildflowers of Detroit Iphone";
 			sourceTree = "<group>";
@@ -719,7 +964,7 @@
 			);
 			name = "WF DBTesting";
 			productName = "Wildflowers of Detroit Iphone";
-			productReference = F4AA40FF14DA5BFE00ED3CCE /* Wildflowers of Detroit Iphone copy.app */;
+			productReference = F4AA40FF14DA5BFE00ED3CCE /* Rhus-Iphone Iphone copy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F4C0623014BE6C0F0008FBB5 /* GHUnit Tests */ = {
@@ -757,9 +1002,9 @@
 			productReference = F4CE8B2B150C0E24009AE0FC /* SquirrelsOfTheEarth.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F4D3928E14BBA6660051E831 /* Wildflowers of Detroit Iphone */ = {
+		F4D3928E14BBA6660051E831 /* Rhus-Iphone Iphone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4D392BC14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Wildflowers of Detroit Iphone" */;
+			buildConfigurationList = F4D392BC14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Rhus-Iphone Iphone" */;
 			buildPhases = (
 				F4D3928B14BBA6660051E831 /* Sources */,
 				F4D3928C14BBA6660051E831 /* Frameworks */,
@@ -770,7 +1015,7 @@
 			);
 			dependencies = (
 			);
-			name = "Wildflowers of Detroit Iphone";
+			name = "Rhus-Iphone Iphone";
 			productName = "Wildflowers of Detroit Iphone";
 			productReference = F4D3928F14BBA6660051E831 /* Wild Detroit.app */;
 			productType = "com.apple.product-type.application";
@@ -801,7 +1046,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Wildflowers of Detroit" */;
+			buildConfigurationList = F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Rhus-Iphone" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -813,7 +1058,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4D3928E14BBA6660051E831 /* Wildflowers of Detroit Iphone */,
+				F4D3928E14BBA6660051E831 /* Rhus-Iphone Iphone */,
 				F4CE89C8150C0E24009AE0FC /* Squirrels */,
 				F4EB1FAB150C24B90041A957 /* RhusDevelopment */,
 				F4C0623014BE6C0F0008FBB5 /* GHUnit Tests */,
@@ -876,7 +1121,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C0623B14BE6C0F0008FBB5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,6 +1195,15 @@
 				F422E2E8150C331A009317E5 /* StoreIcon.png in Resources */,
 				F4F2857D150DB751009A24C9 /* shutter.png in Resources */,
 				F4F2F42F150E0968003969F9 /* mapDeviceUserPoint.png in Resources */,
+				F414DA0B1549F325008A38F5 /* InfoPlist.strings in Resources */,
+				F414DA1A1549F325008A38F5 /* CameraViewController.xib in Resources */,
+				F414DA201549F325008A38F5 /* GalleryViewController.xib in Resources */,
+				F414DA291549F325008A38F5 /* LoadingViewController.xib in Resources */,
+				F414DA2F1549F325008A38F5 /* MapViewController.xib in Resources */,
+				F414DA351549F325008A38F5 /* SwoopTabViewController.xib in Resources */,
+				F414DA4D1549F3D2008A38F5 /* RhusDevelopment-Info.plist in Resources */,
+				F414DA501549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist in Resources */,
+				F414DA531549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,6 +1280,15 @@
 				F479003C15218C4300480471 /* ipad~iconx2.png in Resources */,
 				F479003D15218C4300480471 /* ipad~icon.png in Resources */,
 				F479003E15218C4300480471 /* Icon.png in Resources */,
+				F414DA0A1549F325008A38F5 /* InfoPlist.strings in Resources */,
+				F414DA191549F325008A38F5 /* CameraViewController.xib in Resources */,
+				F414DA1F1549F325008A38F5 /* GalleryViewController.xib in Resources */,
+				F414DA281549F325008A38F5 /* LoadingViewController.xib in Resources */,
+				F414DA2E1549F325008A38F5 /* MapViewController.xib in Resources */,
+				F414DA341549F325008A38F5 /* SwoopTabViewController.xib in Resources */,
+				F414DA4C1549F3D2008A38F5 /* RhusDevelopment-Info.plist in Resources */,
+				F414DA4F1549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist in Resources */,
+				F414DA521549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1100,6 +1362,15 @@
 				F422E2EE150C331F009317E5 /* Loadingx2.png in Resources */,
 				F4F2857E150DB751009A24C9 /* shutter.png in Resources */,
 				F4F2F431150E0968003969F9 /* mapDeviceUserPoint.png in Resources */,
+				F414DA0C1549F325008A38F5 /* InfoPlist.strings in Resources */,
+				F414DA1B1549F325008A38F5 /* CameraViewController.xib in Resources */,
+				F414DA211549F325008A38F5 /* GalleryViewController.xib in Resources */,
+				F414DA2A1549F325008A38F5 /* LoadingViewController.xib in Resources */,
+				F414DA301549F325008A38F5 /* MapViewController.xib in Resources */,
+				F414DA361549F325008A38F5 /* SwoopTabViewController.xib in Resources */,
+				F414DA4E1549F3D2008A38F5 /* RhusDevelopment-Info.plist in Resources */,
+				F414DA511549F3D2008A38F5 /* SquirrelsOfTheEarth-Info.plist in Resources */,
+				F414DA541549F3D2008A38F5 /* Wildflowers of Detroit Iphone-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1176,8 +1447,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C0623D14BE6C0F0008FBB5 /* main.m in Sources */,
-				F4C0624714BE6E1C0008FBB5 /* Wildflowers_of_Detroit_IphoneTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,6 +1454,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F414D9EA1549F325008A38F5 /* UIImage+Alpha.m in Sources */,
+				F414D9ED1549F325008A38F5 /* UIImage+Resize.m in Sources */,
+				F414D9F01549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */,
+				F414D9F31549F325008A38F5 /* RHDataModel.m in Sources */,
+				F414D9F61549F325008A38F5 /* RHDeviceUser.m in Sources */,
+				F414D9F91549F325008A38F5 /* RHDocument.m in Sources */,
+				F414D9FC1549F325008A38F5 /* RHLocation.m in Sources */,
+				F414D9FF1549F325008A38F5 /* RHMapAnnotation.m in Sources */,
+				F414DA021549F325008A38F5 /* SSMapAnnotation.m in Sources */,
+				F414DA051549F325008A38F5 /* WOverlay.m in Sources */,
+				F414DA081549F325008A38F5 /* WOverlayView.m in Sources */,
+				F414DA0E1549F325008A38F5 /* main.m in Sources */,
+				F414DA111549F325008A38F5 /* OrderedDictionary.m in Sources */,
+				F414DA141549F325008A38F5 /* AppDelegate.m in Sources */,
+				F414DA171549F325008A38F5 /* CameraViewController.m in Sources */,
+				F414DA1D1549F325008A38F5 /* GalleryViewController.m in Sources */,
+				F414DA231549F325008A38F5 /* ImageScrollView.m in Sources */,
+				F414DA261549F325008A38F5 /* LoadingViewController.m in Sources */,
+				F414DA2C1549F325008A38F5 /* MapViewController.m in Sources */,
+				F414DA321549F325008A38F5 /* SwoopTabViewController.m in Sources */,
+				F414DA381549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
+				F414DA441549F3D2008A38F5 /* RHSettings_Development.m in Sources */,
+				F414DA471549F3D2008A38F5 /* RHSettings_Squirrels.m in Sources */,
+				F414DA4A1549F3D2008A38F5 /* RHSettings_Wildflowers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1192,6 +1485,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F414D9E91549F325008A38F5 /* UIImage+Alpha.m in Sources */,
+				F414D9EC1549F325008A38F5 /* UIImage+Resize.m in Sources */,
+				F414D9EF1549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */,
+				F414D9F21549F325008A38F5 /* RHDataModel.m in Sources */,
+				F414D9F51549F325008A38F5 /* RHDeviceUser.m in Sources */,
+				F414D9F81549F325008A38F5 /* RHDocument.m in Sources */,
+				F414D9FB1549F325008A38F5 /* RHLocation.m in Sources */,
+				F414D9FE1549F325008A38F5 /* RHMapAnnotation.m in Sources */,
+				F414DA011549F325008A38F5 /* SSMapAnnotation.m in Sources */,
+				F414DA041549F325008A38F5 /* WOverlay.m in Sources */,
+				F414DA071549F325008A38F5 /* WOverlayView.m in Sources */,
+				F414DA0D1549F325008A38F5 /* main.m in Sources */,
+				F414DA101549F325008A38F5 /* OrderedDictionary.m in Sources */,
+				F414DA131549F325008A38F5 /* AppDelegate.m in Sources */,
+				F414DA161549F325008A38F5 /* CameraViewController.m in Sources */,
+				F414DA1C1549F325008A38F5 /* GalleryViewController.m in Sources */,
+				F414DA221549F325008A38F5 /* ImageScrollView.m in Sources */,
+				F414DA251549F325008A38F5 /* LoadingViewController.m in Sources */,
+				F414DA2B1549F325008A38F5 /* MapViewController.m in Sources */,
+				F414DA311549F325008A38F5 /* SwoopTabViewController.m in Sources */,
+				F414DA371549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
+				F414DA431549F3D2008A38F5 /* RHSettings_Development.m in Sources */,
+				F414DA461549F3D2008A38F5 /* RHSettings_Squirrels.m in Sources */,
+				F414DA491549F3D2008A38F5 /* RHSettings_Wildflowers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,16 +1516,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F414D9EB1549F325008A38F5 /* UIImage+Alpha.m in Sources */,
+				F414D9EE1549F325008A38F5 /* UIImage+Resize.m in Sources */,
+				F414D9F11549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */,
+				F414D9F41549F325008A38F5 /* RHDataModel.m in Sources */,
+				F414D9F71549F325008A38F5 /* RHDeviceUser.m in Sources */,
+				F414D9FA1549F325008A38F5 /* RHDocument.m in Sources */,
+				F414D9FD1549F325008A38F5 /* RHLocation.m in Sources */,
+				F414DA001549F325008A38F5 /* RHMapAnnotation.m in Sources */,
+				F414DA031549F325008A38F5 /* SSMapAnnotation.m in Sources */,
+				F414DA061549F325008A38F5 /* WOverlay.m in Sources */,
+				F414DA091549F325008A38F5 /* WOverlayView.m in Sources */,
+				F414DA0F1549F325008A38F5 /* main.m in Sources */,
+				F414DA121549F325008A38F5 /* OrderedDictionary.m in Sources */,
+				F414DA151549F325008A38F5 /* AppDelegate.m in Sources */,
+				F414DA181549F325008A38F5 /* CameraViewController.m in Sources */,
+				F414DA1E1549F325008A38F5 /* GalleryViewController.m in Sources */,
+				F414DA241549F325008A38F5 /* ImageScrollView.m in Sources */,
+				F414DA271549F325008A38F5 /* LoadingViewController.m in Sources */,
+				F414DA2D1549F325008A38F5 /* MapViewController.m in Sources */,
+				F414DA331549F325008A38F5 /* SwoopTabViewController.m in Sources */,
+				F414DA391549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
+				F414DA451549F3D2008A38F5 /* RHSettings_Development.m in Sources */,
+				F414DA481549F3D2008A38F5 /* RHSettings_Squirrels.m in Sources */,
+				F414DA4B1549F3D2008A38F5 /* RHSettings_Wildflowers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F4C0623914BE6C0F0008FBB5 /* InfoPlist.strings */ = {
+		F414D9CA1549F325008A38F5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F4C0623A14BE6C0F0008FBB5 /* en */,
+				F414D9CB1549F325008A38F5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1241,7 +1582,7 @@
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PRODUCT_NAME = "Wildflowers of Detroit Iphone copy";
+				PRODUCT_NAME = "Rhus-Iphone Iphone copy";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -1267,7 +1608,7 @@
 				GCC_PREFIX_HEADER = "Wildflowers of Detroit Iphone/Wildflowers of Detroit Iphone-Prefix.pch";
 				INFOPLIST_FILE = "Wildflowers of Detroit Iphone copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PRODUCT_NAME = "Wildflowers of Detroit Iphone copy";
+				PRODUCT_NAME = "Rhus-Iphone Iphone copy";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1569,7 +1910,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Wildflowers of Detroit" */ = {
+		F4D3928914BBA6650051E831 /* Build configuration list for PBXProject "Rhus-Iphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4D392BA14BBA6660051E831 /* Debug */,
@@ -1578,7 +1919,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4D392BC14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Wildflowers of Detroit Iphone" */ = {
+		F4D392BC14BBA6660051E831 /* Build configuration list for PBXNativeTarget "Rhus-Iphone Iphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4D392BD14BBA6660051E831 /* Debug */,
