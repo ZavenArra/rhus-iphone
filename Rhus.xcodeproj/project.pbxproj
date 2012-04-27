@@ -102,7 +102,7 @@
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
 		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */; };
-		F4F942A4154B25B00091279C /* RHSettings_Development.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */; };
+		F4F942A4154B25B00091279C /* RHSettings_Rhus.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3D1549F3D2008A38F5 /* RHSettings_Rhus.m */; };
 		F4F942AD154B2C690091279C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D6150C3313009317E5 /* Default.png */; };
 		F4F942AE154B2C690091279C /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D7150C3313009317E5 /* Defaultx2.png */; };
 		F4F942AF154B2C690091279C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D8150C3313009317E5 /* Icon.png */; };
@@ -214,7 +214,7 @@
 		F414D9E71549F325008A38F5 /* TimelineVisualizationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVisualizationView.h; sourceTree = "<group>"; };
 		F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVisualizationView.m; sourceTree = "<group>"; };
 		F414DA3C1549F3D2008A38F5 /* RHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHSettings.h; sourceTree = "<group>"; };
-		F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Development.m; sourceTree = "<group>"; };
+		F414DA3D1549F3D2008A38F5 /* RHSettings_Rhus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Rhus.m; sourceTree = "<group>"; };
 		F414DA551549FD41008A38F5 /* Rhus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Rhus-Info.plist"; sourceTree = "<group>"; };
 		F414DA59154A017A008A38F5 /* swoopBarBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarBottom.png; path = graphics/swoopBarBottom.png; sourceTree = SOURCE_ROOT; };
 		F414DA5A154A017A008A38F5 /* swoopBarTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarTop.png; path = graphics/swoopBarTop.png; sourceTree = SOURCE_ROOT; };
@@ -442,7 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				F414DA3C1549F3D2008A38F5 /* RHSettings.h */,
-				F414DA3D1549F3D2008A38F5 /* RHSettings_Development.m */,
+				F414DA3D1549F3D2008A38F5 /* RHSettings_Rhus.m */,
 				F414DA551549FD41008A38F5 /* Rhus-Info.plist */,
 			);
 			path = Settings;
@@ -697,7 +697,7 @@
 				F414DA2B1549F325008A38F5 /* MapViewController.m in Sources */,
 				F414DA311549F325008A38F5 /* SwoopTabViewController.m in Sources */,
 				F414DA371549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
-				F4F942A4154B25B00091279C /* RHSettings_Development.m in Sources */,
+				F4F942A4154B25B00091279C /* RHSettings_Rhus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
