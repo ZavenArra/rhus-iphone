@@ -12,11 +12,13 @@
 #import <Couchbase/CouchbaseMobile.h>
 #import <CouchCocoa/CouchCocoa.h>
 
+typedef void ( ^CompletedBlock )();
+
 @interface RHDataModel : NSObject {
     
     CouchPersistentReplication* _pull;
     CouchPersistentReplication* _push;
-
+    CompletedBlock syncCompletedBlock;
 }
 
 @property (nonatomic, strong) CouchDatabase *database;
@@ -34,6 +36,7 @@
 -(void) test;
 
 - (void)updateSyncURL;
+- (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock;
 - (void)forgetSync;
 - (NSArray *) getView: (NSString *) viewName;
 

@@ -364,6 +364,10 @@
 
 
 - (void)updateSyncURL {
+    [self updateSyncURLWithCompletedBlock: nil];
+}
+
+- (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock  {
     
     NSInteger count = [self.database getDocumentCount];
     
@@ -385,15 +389,24 @@
     _push = [repls objectAtIndex: 1];
   //  _pull.filter = @"design/excludeDesignDocs";
   //  _push.filter = @"rhusMobile/excludeDesignDocs";
+    
     [_pull addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
     [_push addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
+    [_pull addObserver: self forKeyPath: @"state" options: 0 context: NULL];
+    [_push addObserver: self forKeyPath: @"state" options: 0 context: NULL];
+    
+    syncCompletedBlock = setCompletedBlock;
+    
 }
 
 
 - (void) forgetSync {
     [_pull removeObserver: self forKeyPath: @"completed"];
+    [_pull removeObserver: self forKeyPath: @"state"];
     _pull = nil;
+    
     [_push removeObserver: self forKeyPath: @"completed"];
+    [_push removeObserver: self forKeyPath: @"state"];
     _push = nil;
 }
 
@@ -411,6 +424,10 @@
         } else {
             // [self showSyncButton];
             database.server.activityPollInterval = 2.0;   // poll less often at other times
+            if(syncCompletedBlock != nil){
+                syncCompletedBlock();
+                syncCompletedBlock = nil;
+            }
         }
     }
 }

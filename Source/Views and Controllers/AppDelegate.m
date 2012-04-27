@@ -92,7 +92,8 @@
                 [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
                 [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
             }
-         //   [[RHDataModel instance] updateSyncURL];
+            //If we are on iPhone 4, start replications
+            //   [[RHDataModel instance] updateSyncURL];
             
         } ];
 

@@ -76,6 +76,8 @@
 @synthesize heading2;
 @synthesize galleryHeading2;
 @synthesize myDataHeadingGallery;
+@synthesize syncButton;
+@synthesize spinnerContainerView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -684,18 +686,28 @@
 }
 
 - (IBAction)didRequestMenu:(id)sender{
-    
-        
     [UIView beginAnimations:nil context:nil];
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
     [self.view addSubview:self.overlayView];
     [UIView commitAnimations];
-        
-    
 }
 
 - (IBAction)didTapOverlay:(id)sender{
     [self transitionToFullScreen];
+}
+
+- (IBAction)didTabSync:(id)sender{
+    [self.view addSubview:self.spinnerContainerView];
+    UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.spinnerContainerView addSubview:ai];
+    [ai startAnimating];
+   
+    [[RHDataModel instance] updateSyncURLWithCompletedBlock:^{
+        [[RHDataModel instance] forgetSync];
+        [self.spinnerContainerView removeFromSuperview];
+    }
+     ];
+ 
 }
 
 #pragma mark - TimelineVisualizationView
@@ -711,7 +723,6 @@
 //        float randy;
 //        randy = (level)/numLevels;
         
-
         [data addObject: [NSValue valueWithCGPoint:
                           CGPointMake(i, level)]];
     }
