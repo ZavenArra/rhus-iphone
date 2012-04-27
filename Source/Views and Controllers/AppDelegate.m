@@ -67,9 +67,10 @@
     [self.window makeKeyAndVisible];
     
 
+    [RHDataModel instance];
     [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
     
-    //[self initializeInBackground];
+  //  [self initializeInBackground];
     
 }
 
@@ -77,16 +78,14 @@
 //start serving whenever it's ready.
 - (void) initializeInBackground{
     
-   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
     @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
         [[RHDataModel instance] initWithBlock: ^ {
             if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
-                
                 [loadingViewController.view removeFromSuperview];
                 loadingViewController = nil;
+                
             } else {
                 
                 [loadingViewController.loadingView removeFromSuperview];
@@ -101,8 +100,6 @@
         NSLog(@"%@", @"Done");
 
     }
-    
-  //  [pool release];
 
 }
 

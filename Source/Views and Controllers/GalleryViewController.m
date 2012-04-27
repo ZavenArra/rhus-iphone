@@ -7,7 +7,7 @@
 //
 
 #import "GalleryViewController.h"
-#import "MapDataModel.h"
+#import "RHDataModel.h"
 
 #define kRowHeight 100
 #define kRowWidth 422
@@ -53,7 +53,7 @@
     activeDocuments = [[NSMutableArray alloc] init];
     
     //Get first 50 user documents and lay out their thumbnails
-    NSArray * userDocuments = [MapDataModel
+    NSArray * userDocuments = [RHDataModel
                                getGalleryDocumentsWithStartKey: nil andLimit: nil];
     float count = [userDocuments count];
     int scrollViewPages = ceil( count / 21.0);
@@ -120,7 +120,7 @@
     /*
      layout some scroll images for demoing
      */
-    NSArray * userDocuments = [MapDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil ];
+    NSArray * userDocuments = [RHDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil ];
     int scrollViewPages = [userDocuments count];
     
     [self.detailScrollView setContentSize:CGSizeMake( scrollViewPages * 480, 320)];

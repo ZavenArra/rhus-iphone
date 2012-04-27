@@ -13,10 +13,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F4D3928E14BBA6660051E831"
-               BuildableName = "Wild Detroit.app"
-               BlueprintName = "Rhus-Iphone Iphone"
-               ReferencedContainer = "container:Rhus-Iphone.xcodeproj">
+               BlueprintIdentifier = "F4C0623014BE6C0F0008FBB5"
+               BuildableName = "GHUnit Tests.app"
+               BlueprintName = "GHUnit Tests"
+               ReferencedContainer = "container:Rhus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,10 +31,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F4D3928E14BBA6660051E831"
-            BuildableName = "Wild Detroit.app"
-            BlueprintName = "Rhus-Iphone Iphone"
-            ReferencedContainer = "container:Rhus-Iphone.xcodeproj">
+            BlueprintIdentifier = "F4C0623014BE6C0F0008FBB5"
+            BuildableName = "GHUnit Tests.app"
+            BlueprintName = "GHUnit Tests"
+            ReferencedContainer = "container:Rhus.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -49,10 +49,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F4D3928E14BBA6660051E831"
-            BuildableName = "Wild Detroit.app"
-            BlueprintName = "Rhus-Iphone Iphone"
-            ReferencedContainer = "container:Rhus-Iphone.xcodeproj">
+            BlueprintIdentifier = "F4C0623014BE6C0F0008FBB5"
+            BuildableName = "GHUnit Tests.app"
+            BlueprintName = "GHUnit Tests"
+            ReferencedContainer = "container:Rhus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -67,10 +67,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F4D3928E14BBA6660051E831"
-            BuildableName = "Wild Detroit.app"
-            BlueprintName = "Rhus-Iphone Iphone"
-            ReferencedContainer = "container:Rhus-Iphone.xcodeproj">
+            BlueprintIdentifier = "F4C0623014BE6C0F0008FBB5"
+            BuildableName = "GHUnit Tests.app"
+            BlueprintName = "GHUnit Tests"
+            ReferencedContainer = "container:Rhus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

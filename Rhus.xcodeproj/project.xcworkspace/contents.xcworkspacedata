@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Rhus-Iphone.xcodeproj">
+      location = "self:Rhus.xcodeproj">
    </FileRef>
 </Workspace>
