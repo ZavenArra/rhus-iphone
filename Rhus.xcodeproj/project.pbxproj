@@ -90,6 +90,14 @@
 		F43540DE14D1140D00C206CA /* mapPointPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DC14D1140D00C206CA /* mapPointPopup.png */; };
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
+		F49E28D2154F1E7B00AB8461 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28C9154F1E7B00AB8461 /* Default.png */; };
+		F49E28D3154F1E7B00AB8461 /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CA154F1E7B00AB8461 /* Defaultx2.png */; };
+		F49E28D4154F1E7B00AB8461 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CB154F1E7B00AB8461 /* Icon.png */; };
+		F49E28D5154F1E7B00AB8461 /* Iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CC154F1E7B00AB8461 /* Iconx2.png */; };
+		F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CD154F1E7B00AB8461 /* Loading.png */; };
+		F49E28D7154F1E7B00AB8461 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CE154F1E7B00AB8461 /* Loadingx2.png */; };
+		F49E28D8154F1E7B00AB8461 /* RHSettings_Rhus.m in Sources */ = {isa = PBXBuildFile; fileRef = F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */; };
+		F49E28D9154F1E7B00AB8461 /* Rhus-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */; };
 		F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4AA3F4414DA2F5100ED3CCE /* Couchbase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */; };
 		F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
@@ -104,13 +112,6 @@
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
 		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */; };
-		F4F942A4154B25B00091279C /* RHSettings_Rhus.m in Sources */ = {isa = PBXBuildFile; fileRef = F414DA3D1549F3D2008A38F5 /* RHSettings_Rhus.m */; };
-		F4F942AD154B2C690091279C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D6150C3313009317E5 /* Default.png */; };
-		F4F942AE154B2C690091279C /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D7150C3313009317E5 /* Defaultx2.png */; };
-		F4F942AF154B2C690091279C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D8150C3313009317E5 /* Icon.png */; };
-		F4F942B0154B2C690091279C /* Iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2D9150C3313009317E5 /* Iconx2.png */; };
-		F4F942B1154B2C690091279C /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DA150C3313009317E5 /* Loading.png */; };
-		F4F942B2154B2C690091279C /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F422E2DB150C3313009317E5 /* Loadingx2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -215,20 +216,20 @@
 		F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwoopTabViewController.xib; sourceTree = "<group>"; };
 		F414D9E71549F325008A38F5 /* TimelineVisualizationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVisualizationView.h; sourceTree = "<group>"; };
 		F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVisualizationView.m; sourceTree = "<group>"; };
-		F414DA3C1549F3D2008A38F5 /* RHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHSettings.h; sourceTree = "<group>"; };
-		F414DA3D1549F3D2008A38F5 /* RHSettings_Rhus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHSettings_Rhus.m; sourceTree = "<group>"; };
-		F414DA551549FD41008A38F5 /* Rhus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Rhus-Info.plist"; sourceTree = "<group>"; };
 		F414DA59154A017A008A38F5 /* swoopBarBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarBottom.png; path = graphics/swoopBarBottom.png; sourceTree = SOURCE_ROOT; };
 		F414DA5A154A017A008A38F5 /* swoopBarTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarTop.png; path = graphics/swoopBarTop.png; sourceTree = SOURCE_ROOT; };
-		F422E2D6150C3313009317E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		F422E2D7150C3313009317E5 /* Defaultx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Defaultx2.png; sourceTree = "<group>"; };
-		F422E2D8150C3313009317E5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		F422E2D9150C3313009317E5 /* Iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx2.png; sourceTree = "<group>"; };
-		F422E2DA150C3313009317E5 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
-		F422E2DB150C3313009317E5 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loadingx2.png; sourceTree = "<group>"; };
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
+		F49E28C9154F1E7B00AB8461 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Targets/Rhus/Default.png; sourceTree = SOURCE_ROOT; };
+		F49E28CA154F1E7B00AB8461 /* Defaultx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Defaultx2.png; path = Targets/Rhus/Defaultx2.png; sourceTree = SOURCE_ROOT; };
+		F49E28CB154F1E7B00AB8461 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Targets/Rhus/Icon.png; sourceTree = SOURCE_ROOT; };
+		F49E28CC154F1E7B00AB8461 /* Iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Iconx2.png; path = Targets/Rhus/Iconx2.png; sourceTree = SOURCE_ROOT; };
+		F49E28CD154F1E7B00AB8461 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loading.png; path = Targets/Rhus/Loading.png; sourceTree = SOURCE_ROOT; };
+		F49E28CE154F1E7B00AB8461 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loadingx2.png; path = Targets/Rhus/Loadingx2.png; sourceTree = SOURCE_ROOT; };
+		F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RHSettings_Rhus.m; path = Targets/Rhus/RHSettings_Rhus.m; sourceTree = SOURCE_ROOT; };
+		F49E28D0154F1E7B00AB8461 /* RHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RHSettings.h; path = Targets/Rhus/RHSettings.h; sourceTree = SOURCE_ROOT; };
+		F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Rhus-Info.plist"; path = "Targets/Rhus/Rhus-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Couchbase.framework; path = Frameworks/Couchbase.framework; sourceTree = "<group>"; };
 		F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
@@ -445,16 +446,6 @@
 			path = "Views and Controllers";
 			sourceTree = "<group>";
 		};
-		F414DA3B1549F3D2008A38F5 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				F414DA3C1549F3D2008A38F5 /* RHSettings.h */,
-				F414DA3D1549F3D2008A38F5 /* RHSettings_Rhus.m */,
-				F414DA551549FD41008A38F5 /* Rhus-Info.plist */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		F4C1734C154B698100A929E1 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,12 +466,15 @@
 		F4CE8B31150C10AB009AE0FC /* Rhus */ = {
 			isa = PBXGroup;
 			children = (
-				F422E2D6150C3313009317E5 /* Default.png */,
-				F422E2D7150C3313009317E5 /* Defaultx2.png */,
-				F422E2D8150C3313009317E5 /* Icon.png */,
-				F422E2D9150C3313009317E5 /* Iconx2.png */,
-				F422E2DA150C3313009317E5 /* Loading.png */,
-				F422E2DB150C3313009317E5 /* Loadingx2.png */,
+				F49E28C9154F1E7B00AB8461 /* Default.png */,
+				F49E28CA154F1E7B00AB8461 /* Defaultx2.png */,
+				F49E28CB154F1E7B00AB8461 /* Icon.png */,
+				F49E28CC154F1E7B00AB8461 /* Iconx2.png */,
+				F49E28CD154F1E7B00AB8461 /* Loading.png */,
+				F49E28CE154F1E7B00AB8461 /* Loadingx2.png */,
+				F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */,
+				F49E28D0154F1E7B00AB8461 /* RHSettings.h */,
+				F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */,
 			);
 			name = Rhus;
 			path = Dev;
@@ -490,7 +484,6 @@
 			isa = PBXGroup;
 			children = (
 				F4C17351154B74FF00A929E1 /* SystemConfiguration.framework */,
-				F414DA3B1549F3D2008A38F5 /* Settings */,
 				F4CE8B30150C10AA009AE0FC /* Targets */,
 				A6A620D814BBBB670096CA01 /* Graphics */,
 				F414D9AF1549F325008A38F5 /* Source */,
@@ -660,12 +653,13 @@
 				F414DA341549F325008A38F5 /* SwoopTabViewController.xib in Resources */,
 				F414DA5B154A017A008A38F5 /* swoopBarBottom.png in Resources */,
 				F414DA5E154A017A008A38F5 /* swoopBarTop.png in Resources */,
-				F4F942AD154B2C690091279C /* Default.png in Resources */,
-				F4F942AE154B2C690091279C /* Defaultx2.png in Resources */,
-				F4F942AF154B2C690091279C /* Icon.png in Resources */,
-				F4F942B0154B2C690091279C /* Iconx2.png in Resources */,
-				F4F942B1154B2C690091279C /* Loading.png in Resources */,
-				F4F942B2154B2C690091279C /* Loadingx2.png in Resources */,
+				F49E28D2154F1E7B00AB8461 /* Default.png in Resources */,
+				F49E28D3154F1E7B00AB8461 /* Defaultx2.png in Resources */,
+				F49E28D4154F1E7B00AB8461 /* Icon.png in Resources */,
+				F49E28D5154F1E7B00AB8461 /* Iconx2.png in Resources */,
+				F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */,
+				F49E28D7154F1E7B00AB8461 /* Loadingx2.png in Resources */,
+				F49E28D9154F1E7B00AB8461 /* Rhus-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,8 +708,8 @@
 				F414DA2B1549F325008A38F5 /* MapViewController.m in Sources */,
 				F414DA311549F325008A38F5 /* SwoopTabViewController.m in Sources */,
 				F414DA371549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
-				F4F942A4154B25B00091279C /* RHSettings_Rhus.m in Sources */,
 				F4C1734F154B698100A929E1 /* Reachability.m in Sources */,
+				F49E28D8154F1E7B00AB8461 /* RHSettings_Rhus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
