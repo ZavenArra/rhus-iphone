@@ -24,6 +24,7 @@
 
 @synthesize database;
 @synthesize query;
+@synthesize syncTimeoutTimer;
 
 
 -  (id) initWithBlock:( void ( ^ )() ) didStartBlock {
@@ -363,15 +364,39 @@
 }
 
 
+-(void)syncTimeout {
+    if(!syncStarted){
+        NSLog(@"Sync Timeout");
+
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"No Sync"
+                                                        message: @"Timed out while trying to sync, either there is nothing to sync or you aren't connected to the internet.  Make sure you are connected to the internet and try again!"
+                                                       delegate: nil
+                                              cancelButtonTitle: @"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        [self forgetSync];
+        if(syncCompletedBlock){
+            syncCompletedBlock();
+        }
+        syncCompletedBlock = nil;
+    }
+}
+
 - (void)updateSyncURL {
     [self updateSyncURLWithCompletedBlock: nil];
 }
 
+
 - (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock  {
+    //Should check for reachability of data.winterroot.net
+    //http://stackoverflow.com/questions/1083701/how-to-check-for-an-active-internet-connection-on-iphone-sdk
+    
+    
+    //Test for network
+    
     
     NSInteger count = [self.database getDocumentCount];
-    
-    
+        
     if (!self.database){
         NSLog(@"No Database in updateSyncURL");
         return;
@@ -387,26 +412,40 @@
     NSArray* repls = [self.database replicateWithURL: newRemoteURL exclusively: YES];
     _pull = [repls objectAtIndex: 0];
     _push = [repls objectAtIndex: 1];
-  //  _pull.filter = @"design/excludeDesignDocs";
-  //  _push.filter = @"rhusMobile/excludeDesignDocs";
+    //_pull.continuous = NO;  //we might want these not to be continuous for user initialized replications
+    //_push.continuous = NO;
+    // _pull.filter = @"design/excludeDesignDocs";
+    // _push.filter = @"rhusMobile/excludeDesignDocs";
     
     [_pull addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
     [_push addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
-    [_pull addObserver: self forKeyPath: @"state" options: 0 context: NULL];
-    [_push addObserver: self forKeyPath: @"state" options: 0 context: NULL];
+    
+    
     
     syncCompletedBlock = setCompletedBlock;
+    
+    //set a timeout to detect when there are in fact no changes
+    //This is only relevant when sync is NOT continuous
+   
+    /*NSInvocation * invocation = [[NSInvocation alloc] init];
+    [invocation setTarget:self];
+    [invocation setSelector:@selector(syncTimeout)];
+    syncStarted = FALSE;
+    self.syncTimeoutTimer = [NSTimer timerWithTimeInterval:5.0 invocation:invocation repeats:NO];
+     */
+    syncStarted = FALSE;
+    self.syncTimeoutTimer =  [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(syncTimeout) userInfo:nil repeats:NO];
+
     
 }
 
 
+
 - (void) forgetSync {
     [_pull removeObserver: self forKeyPath: @"completed"];
-    [_pull removeObserver: self forKeyPath: @"state"];
     _pull = nil;
     
     [_push removeObserver: self forKeyPath: @"completed"];
-    [_push removeObserver: self forKeyPath: @"state"];
     _push = nil;
 }
 
@@ -414,6 +453,8 @@
                          change:(NSDictionary *)change context:(void *)context
 {
     if (object == _pull || object == _push) {
+        syncStarted = TRUE;
+        
         unsigned completed = _pull.completed + _push.completed;
         unsigned total = _pull.total + _push.total;
         NSLog(@"SYNC progress: %u / %u", completed, total);

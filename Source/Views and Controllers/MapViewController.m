@@ -15,6 +15,7 @@
 #import "RHDocument.h"
 #import "RHSettings.h"
 #import "RHDeviceUser.h"
+#import "AppDelegate.h"
 
 //Map Settings
 #define mapInsetOriginX 10
@@ -697,6 +698,18 @@
 }
 
 - (IBAction)didTabSync:(id)sender{
+    if( ! [ (AppDelegate *) [[UIApplication sharedApplication] delegate] internetActive] ) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Internet Not Available"
+                               message: @"The internet is not currently available.  Please wait until you are able to connect to the interet in order to sync"
+                               delegate: nil
+                               cancelButtonTitle: @"OK"
+                               otherButtonTitles: nil];
+        [alert show];
+        return;
+        
+    }
+    
+    
     [self.view addSubview:self.spinnerContainerView];
     UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.spinnerContainerView addSubview:ai];

@@ -96,6 +96,8 @@
 		F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
 		F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */; };
 		F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */; };
+		F4C1734F154B698100A929E1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C1734E154B698100A929E1 /* Reachability.m */; };
+		F4C17352154B74FF00A929E1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C17351154B74FF00A929E1 /* SystemConfiguration.framework */; };
 		F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CE8857150C08A3009AE0FC /* CoreLocation.framework */; };
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
@@ -234,6 +236,9 @@
 		F4AA3F4E14DA5B4A00ED3CCE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F4AA3F5214DA5BBA00ED3CCE /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		F4C0624514BE6D0A0008FBB5 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../IphoneDevelopment/Libs/gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
+		F4C1734D154B698100A929E1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		F4C1734E154B698100A929E1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		F4C17351154B74FF00A929E1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		F4CE8857150C08A3009AE0FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F4D3928F14BBA6660051E831 /* Rhus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3929314BBA6660051E831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -251,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C17352154B74FF00A929E1 /* SystemConfiguration.framework in Frameworks */,
 				F4CE8858150C08A3009AE0FC /* CoreLocation.framework in Frameworks */,
 				F4AA3F5314DA5BBA00ED3CCE /* libstdc++.dylib in Frameworks */,
 				F4AA3F4F14DA5B4A00ED3CCE /* libz.dylib in Frameworks */,
@@ -336,6 +342,7 @@
 		F414D9AF1549F325008A38F5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F4C1734C154B698100A929E1 /* Third Party */,
 				F414D9B01549F325008A38F5 /* Categories */,
 				F414D9B71549F325008A38F5 /* DataModels */,
 				F414D9C01549F325008A38F5 /* Maps */,
@@ -448,6 +455,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		F4C1734C154B698100A929E1 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				F4C1734D154B698100A929E1 /* Reachability.h */,
+				F4C1734E154B698100A929E1 /* Reachability.m */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
 		F4CE8B30150C10AA009AE0FC /* Targets */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +489,7 @@
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
+				F4C17351154B74FF00A929E1 /* SystemConfiguration.framework */,
 				F414DA3B1549F3D2008A38F5 /* Settings */,
 				F4CE8B30150C10AA009AE0FC /* Targets */,
 				A6A620D814BBBB670096CA01 /* Graphics */,
@@ -698,6 +715,7 @@
 				F414DA311549F325008A38F5 /* SwoopTabViewController.m in Sources */,
 				F414DA371549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
 				F4F942A4154B25B00091279C /* RHSettings_Rhus.m in Sources */,
+				F4C1734F154B698100A929E1 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

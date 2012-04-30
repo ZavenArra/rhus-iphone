@@ -9,23 +9,29 @@
 #import <UIKit/UIKit.h>
 #import "SwoopTabViewController.h"
 #import "LoadingViewController.h"
+#import "Reachability.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     SwoopTabViewController * swoopTabViewController;
     BOOL isDoneStartingUp;
+    BOOL internetActive;
+    Reachability * internetReachable;
 }
 
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SwoopTabViewController * swoopTabViewController;
 @property (strong, nonatomic) LoadingViewController * loadingViewController;
-//@property (nonatomic) BOOL isDoneStartingUp;
+@property (strong, nonatomic) Reachability * internetReachable;
+@property (nonatomic) BOOL internetActive;
 
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;
 - (void) initializeInBackground;
 - (void) doneStartingUp;
+- (void) checkNetworkStatus:(NSNotification *)notice;
+
 
 
 @end

@@ -19,10 +19,13 @@ typedef void ( ^CompletedBlock )();
     CouchPersistentReplication* _pull;
     CouchPersistentReplication* _push;
     CompletedBlock syncCompletedBlock;
+    BOOL syncStarted;
+    NSTimer * syncTimeoutTimer;
 }
 
 @property (nonatomic, strong) CouchDatabase *database;
 @property (nonatomic, strong) CouchLiveQuery* query;
+@property (nonatomic, strong) NSTimer * syncTimeoutTimer;
 
 - (id) initWithBlock: ( void ( ^ )() ) didStartBlock ;
 
