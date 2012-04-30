@@ -228,7 +228,6 @@
 		F49E28CD154F1E7B00AB8461 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loading.png; path = Targets/Rhus/Loading.png; sourceTree = SOURCE_ROOT; };
 		F49E28CE154F1E7B00AB8461 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loadingx2.png; path = Targets/Rhus/Loadingx2.png; sourceTree = SOURCE_ROOT; };
 		F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RHSettings_Rhus.m; path = Targets/Rhus/RHSettings_Rhus.m; sourceTree = SOURCE_ROOT; };
-		F49E28D0154F1E7B00AB8461 /* RHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RHSettings.h; path = Targets/Rhus/RHSettings.h; sourceTree = SOURCE_ROOT; };
 		F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Rhus-Info.plist"; path = "Targets/Rhus/Rhus-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4AA3F4214DA2F5100ED3CCE /* Couchbase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Couchbase.framework; path = Frameworks/Couchbase.framework; sourceTree = "<group>"; };
@@ -473,7 +472,6 @@
 				F49E28CD154F1E7B00AB8461 /* Loading.png */,
 				F49E28CE154F1E7B00AB8461 /* Loadingx2.png */,
 				F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */,
-				F49E28D0154F1E7B00AB8461 /* RHSettings.h */,
 				F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */,
 			);
 			name = Rhus;
