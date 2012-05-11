@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProjectsTableViewController : UITableViewController
+@interface ProjectsTableViewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource>
+{
+    IBOutlet UINavigationBar * navigationBar;
+    
+}
+@property(nonatomic, retain) UINavigationBar * navigationBar;
 
 @end

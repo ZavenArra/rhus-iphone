@@ -26,6 +26,7 @@
     IBOutlet UIButton * syncButton;
     IBOutlet UIView * spinnerContainerView;
     IBOutlet UIView * overlayView;
+    IBOutlet UIViewController * projectsViewController;
 
     
     UIButton * mapInsetButton;
@@ -48,6 +49,7 @@
 @property(nonatomic, strong) UIButton * syncButton;
 @property(nonatomic, strong) UIView * spinnerContainerView;
 @property(nonatomic, strong) UIView * overlayView;
+@property(nonatomic, strong) UIViewController * projectsViewController;
 
 @property(nonatomic, strong) NSMutableArray * nextDocumentSet;
 @property(nonatomic, strong) NSMutableArray * activeDocuments;
@@ -58,10 +60,6 @@
 @property(nonatomic) BOOL launchInGalleryMode;
 @property(nonatomic) BOOL firstView;
 @property(nonatomic) BOOL mapShowing;
-
-
-
-
 
 
 //Gallery View Properties
@@ -93,10 +91,11 @@
 -(void) centerMapOnAnnotation:(CLLocationCoordinate2D) coordinate;
 -(void) addAnnotations;
 
-
 -(void) transitionFromMapToTimeline;
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index;
 -(void) transitionFromMapToTimelineWithIndex: (NSInteger) index andTimeline: (NSString *) timeline;
+
+- (IBAction)didTouchProjects:(id)sender;
 
 
 //Gallery Functions

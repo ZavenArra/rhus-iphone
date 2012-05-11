@@ -16,6 +16,7 @@
 #import "RHSettings.h"
 #import "RHDeviceUser.h"
 #import "AppDelegate.h"
+#import "ProjectsTableViewController.h"
 
 //Map Settings
 #define mapInsetOriginX 10
@@ -27,9 +28,6 @@
 #define insetLongitudeDelta .03
 #define kLargeLatitudeDelta 1
 #define kLargeLongitudeDelta 1
-
-
-
 
 //Gallery Settings
 #define kGalleryRowHeight 60
@@ -79,6 +77,7 @@
 @synthesize myDataHeadingGallery;
 @synthesize syncButton;
 @synthesize spinnerContainerView;
+@synthesize projectsViewController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -141,6 +140,9 @@
         self.heading2.hidden = TRUE;
         self.myDataHeadingGallery.hidden = TRUE;
     }
+    
+  //  projectsViewController = [[ProjectsTableViewController alloc] init ];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -721,6 +723,10 @@
     }
      ];
  
+}
+
+- (IBAction)didTapProjects:(id)sender{
+    [self.view addSubview:projectsViewController.view];
 }
 
 #pragma mark - TimelineVisualizationView

@@ -110,6 +110,7 @@
 		F4D3929414BBA6660051E831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929314BBA6660051E831 /* UIKit.framework */; };
 		F4D3929614BBA6660051E831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929514BBA6660051E831 /* Foundation.framework */; };
 		F4D3929814BBA6660051E831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D3929714BBA6660051E831 /* CoreGraphics.framework */; };
+		F4DCC94B155DC84F0056E1C6 /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCC94A155DC84F0056E1C6 /* ProjectsTableViewController.m */; };
 		F4F2857B150DADBC009A24C9 /* shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2857A150DADBC009A24C9 /* shutter.png */; };
 		F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */; };
 /* End PBXBuildFile section */
@@ -248,6 +249,8 @@
 		F4D392AB14BBA6660051E831 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F4D392B314BBA6660051E831 /* Wildflowers of Detroit IphoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wildflowers of Detroit IphoneTests-Info.plist"; sourceTree = "<group>"; };
 		F4D392B514BBA6660051E831 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4DCC949155DC84F0056E1C6 /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewController.h; sourceTree = "<group>"; };
+		F4DCC94A155DC84F0056E1C6 /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewController.m; sourceTree = "<group>"; };
 		F4F2857A150DADBC009A24C9 /* shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shutter.png; path = graphics/shutter.png; sourceTree = SOURCE_ROOT; };
 		F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapDeviceUserPoint.png; path = graphics/mapDeviceUserPoint.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -443,6 +446,8 @@
 				F414D9E61549F325008A38F5 /* SwoopTabViewController.xib */,
 				F414D9E71549F325008A38F5 /* TimelineVisualizationView.h */,
 				F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */,
+				F4DCC949155DC84F0056E1C6 /* ProjectsTableViewController.h */,
+				F4DCC94A155DC84F0056E1C6 /* ProjectsTableViewController.m */,
 			);
 			path = "Views and Controllers";
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 				F414DA371549F325008A38F5 /* TimelineVisualizationView.m in Sources */,
 				F4C1734F154B698100A929E1 /* Reachability.m in Sources */,
 				F49E28D8154F1E7B00AB8461 /* RHSettings_Rhus.m in Sources */,
+				F4DCC94B155DC84F0056E1C6 /* ProjectsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
