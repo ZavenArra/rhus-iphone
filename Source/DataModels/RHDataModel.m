@@ -348,7 +348,7 @@
     CouchQuery * couchQuery = [design queryViewNamed: @"projects"]; //asLiveQuery];
     couchQuery.groupLevel = 1;
     CouchQueryEnumerator * enumerator = [couchQuery rows];
-    NSMutableArray * r = [NSArray array];
+    NSMutableArray * r = [NSMutableArray array];
     CouchQueryRow * row;
     while( (row =[enumerator nextRow]) ){
         [r addObject:row.key];

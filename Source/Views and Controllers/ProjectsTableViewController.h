@@ -12,8 +12,12 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
     IBOutlet UINavigationBar * navigationBar;
-    
+    NSArray * projects;
 }
 @property(nonatomic, retain) UINavigationBar * navigationBar;
+@property(nonatomic, retain) NSArray * projects;
+
+-(IBAction) didTouchCancel:(id)sender;
+-(IBAction) didTouchAddProject:(id)sender;
 
 @end

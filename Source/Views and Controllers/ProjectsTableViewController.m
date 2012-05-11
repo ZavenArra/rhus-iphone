@@ -7,11 +7,13 @@
 //
 
 #import "ProjectsTableViewController.h"
+#import "RHDataModel.h"
 
 
 @implementation ProjectsTableViewController
 
 @synthesize navigationBar;
+@synthesize projects;
 
 - (void)didReceiveMemoryWarning
 {
@@ -28,7 +30,6 @@
     [super viewDidLoad];
     self.navigationBar.topItem.title = @"Choose a Project";
 
-    
 }
 
 - (void)viewDidUnload
@@ -41,11 +42,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.projects = [RHDataModel getProjects];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -77,7 +81,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 2;
+    return [projects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,7 +94,7 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = @"SUP?";
+    cell.textLabel.text = (NSString*) [projects objectAtIndex: [indexPath row]];
     return cell;
 }
 
@@ -144,6 +148,19 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    RHDataModel * rhDataModel = [RHDataModel instance];
+    rhDataModel.project = (NSString *) [self.projects objectAtIndex: [indexPath row]];
+    
+}
+
+#pragma mark - IBActions
+
+-(IBAction) didTouchCancel:(id)sender{
+    [self.view removeFromSuperview];
+}
+
+-(IBAction) didTouchAddProject:(id)sender{
+    
 }
 
 @end
