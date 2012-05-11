@@ -234,7 +234,7 @@
     if(self.userDataOnly){
         documents = [RHDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
     } else {
-        documents = [RHDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
+        documents = [RHDataModel getDocumentsInProject:[[RHDataModel instance] project] ];
     }
     
     self.galleryHeading2.text = [NSString stringWithFormat:@"%i Images", [documents count]];

@@ -25,6 +25,7 @@
 @synthesize database;
 @synthesize query;
 @synthesize syncTimeoutTimer;
+@synthesize project;
 
 
 -  (id) initWithBlock:( void ( ^ )() ) didStartBlock {
@@ -93,11 +94,15 @@
         [design defineViewNamed: @"galleryDocuments"
                             map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
         */
-        [design defineViewNamed: @"galleryDocuments"
-                            map: @"function(doc) { emit(doc.created_at,{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
+        [design defineViewNamed: @"rhusDocuments"
+                            map: @"function(doc) { emit( [doc.project, doc.created_at],{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
         
         [design defineViewNamed: @"documentDetail"
                             map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
+        
+        [design defineViewNamed: @"projects"
+                            map: @"function(doc) { emit(doc.project, null); }"
+                         reduce: @"function(key, values) { return true;}"];
         
         [design saveChanges];
         /*
@@ -276,21 +281,31 @@
 
 
 
-+ (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
++ (NSArray *) getAllDocuments {
+    //TODO: Implement
+}
+
++ (NSArray *) getDocumentsInProject: (NSString *) project {
     
     CouchDatabase * database = [self.instance database];
     CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
     NSAssert(design, @"Couldn't find design document");
-        
-    CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
-    query.descending = NO;
-   // query.limit = 50;
-    NSLog(@"%@", @"AAAA Limit to 50 docs");
+    
+    CouchQuery * query = [design queryViewNamed: @"rhusDocuments"]; //asLiveQuery];
+    query.descending = YES;
+    query.endKey = [NSArray arrayWithObjects:project, nil];
+    query.startKey = [NSArray arrayWithObjects:project, [NSDictionary dictionary], nil];    
     NSArray * r = [self.instance runQuery:query];
     NSLog(@"Count: %i", [r count]);
     
     return r;
 }
+
+
++ (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date {
+    //TODO: Implement
+}
+
 
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {
     CouchDatabase * database = [self.instance database];
@@ -326,6 +341,23 @@
 + (NSArray *) getUserDocumentsWithOffset:(NSInteger)offset andLimit:(NSInteger)limit {
     NSLog(@"getUserDocumentsWithOffset just calling getUserDocuments");
     return [self.instance _getUserDocuments];
+}
+
+- (NSArray *) _getProjects {
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
+    CouchQuery * couchQuery = [design queryViewNamed: @"projects"]; //asLiveQuery];
+    couchQuery.groupLevel = 1;
+    CouchQueryEnumerator * enumerator = [couchQuery rows];
+    NSMutableArray * r = [NSArray array];
+    CouchQueryRow * row;
+    while( (row =[enumerator nextRow]) ){
+        [r addObject:row.key];
+    }
+    return r;
+}
+
++ (NSArray *) getProjects {
+    return [self.instance _getProjects];
 }
 
 + (void) addDocument: (NSDictionary *) document {

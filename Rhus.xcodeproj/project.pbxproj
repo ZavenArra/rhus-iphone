@@ -218,6 +218,7 @@
 		F414D9E81549F325008A38F5 /* TimelineVisualizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVisualizationView.m; sourceTree = "<group>"; };
 		F414DA59154A017A008A38F5 /* swoopBarBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarBottom.png; path = graphics/swoopBarBottom.png; sourceTree = SOURCE_ROOT; };
 		F414DA5A154A017A008A38F5 /* swoopBarTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swoopBarTop.png; path = graphics/swoopBarTop.png; sourceTree = SOURCE_ROOT; };
+		F415F1B5155DBD1A00E25BFF /* RHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHSettings.h; sourceTree = "<group>"; };
 		F43540DC14D1140D00C206CA /* mapPointPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPointPopup.png; path = graphics/mapPointPopup.png; sourceTree = SOURCE_ROOT; };
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
@@ -369,6 +370,7 @@
 		F414D9B71549F325008A38F5 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				F415F1B5155DBD1A00E25BFF /* RHSettings.h */,
 				F414D9B81549F325008A38F5 /* RHDataModel.h */,
 				F414D9B91549F325008A38F5 /* RHDataModel.m */,
 				F414D9BA1549F325008A38F5 /* RHDeviceUser.h */,
@@ -809,7 +811,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Supporting Files/Rhus-Prefix.pch";
-				INFOPLIST_FILE = "Settings/Rhus-Info.plist";
+				INFOPLIST_FILE = "Targets/Rhus/$(PRODUCT_NAME)-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Rhus;
 				PROVISIONING_PROFILE = "";
@@ -836,7 +838,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Supporting Files/Rhus-Prefix.pch";
-				INFOPLIST_FILE = "Settings/Rhus-Info.plist";
+				INFOPLIST_FILE = "Targets/Rhus/$(PRODUCT_NAME)-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Rhus;
 				PROVISIONING_PROFILE = "";

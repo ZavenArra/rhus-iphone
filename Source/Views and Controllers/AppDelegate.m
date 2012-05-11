@@ -69,7 +69,8 @@
     [self.window makeKeyAndVisible];
     
 
-    [RHDataModel instance];
+    RHDataModel * dataModel =[RHDataModel instance];
+    dataModel.project = @"default";
     
     // check for internet connection
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];

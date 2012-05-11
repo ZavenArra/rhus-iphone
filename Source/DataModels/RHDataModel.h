@@ -21,11 +21,13 @@ typedef void ( ^CompletedBlock )();
     CompletedBlock syncCompletedBlock;
     BOOL syncStarted;
     NSTimer * syncTimeoutTimer;
+    NSString * project;
 }
 
 @property (nonatomic, strong) CouchDatabase *database;
 @property (nonatomic, strong) CouchLiveQuery* query;
 @property (nonatomic, strong) NSTimer * syncTimeoutTimer;
+@property (nonatomic, strong) NSString * project;
 
 - (id) initWithBlock: ( void ( ^ )() ) didStartBlock ;
 
@@ -54,6 +56,10 @@ typedef void ( ^CompletedBlock )();
 + (NSDictionary *) getNextDocument: (NSString *) documentId;
 + (NSDictionary *) getPrevDocument: (NSString *) documentId;
 + (NSDictionary *) getDetailDocument: (NSString *) documentId;
++ (NSArray *) getDocuments;
++ (NSArray *) getAllDocuments;
++ (NSArray *) getDocumentsInProject: (NSString *) project;
++ (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date;
 
 
 //+ (UIImage *) getThumbnailForId: (NSString *) documentId;
