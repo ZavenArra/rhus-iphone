@@ -18,6 +18,8 @@
 @synthesize window = _window;
 @synthesize swoopTabViewController;
 @synthesize loadingViewController;
+@synthesize internetActive;
+@synthesize internetReachable;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -67,7 +69,16 @@
     [self.window makeKeyAndVisible];
     
 
-    [RHDataModel instance];
+    RHDataModel * dataModel =[RHDataModel instance];
+    dataModel.project = @"default";
+    
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    
+    self.internetActive = YES;
+    self.internetReachable = [Reachability reachabilityForInternetConnection];
+    [internetReachable startNotifier];
+
     [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
     
   //  [self initializeInBackground];
@@ -92,7 +103,8 @@
                 [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
                 [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
             }
-         //   [[RHDataModel instance] updateSyncURL];
+            //If we are on iPhone 4, start replications
+            //   [[RHDataModel instance] updateSyncURL];
             
         } ];
 
@@ -187,6 +199,37 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+
+-(void) checkNetworkStatus:(NSNotification *)notice
+{
+    // called after network status changes
+    NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            internetActive = NO;
+            
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"The internet is working via WIFI.");
+            internetActive = YES;
+            
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN.");
+            internetActive = YES;
+            
+            break;
+        }
+    }
 }
 
 @end

@@ -260,6 +260,10 @@
 
 - (IBAction) didTouchSendButton:(id)sender{
 
+    //Most of this needs to move to the DataModel
+    //Logic for saving should be contained in RHDocument
+    //i.e. build a new RHDocument, then call toCouchJson on it or something like that, then send to couchdb.
+    
     //Crop Thumbnail
     CGRect cropBounds;
     cropBounds.size.width = 320;
@@ -313,6 +317,7 @@
                                          [RESTBody base64WithData: thumbImageDataJpeg ], @"thumb",
                                          [RESTBody base64WithData: mediumImageDataJpeg ], @"medium",
                                          [RHDeviceUser uniqueIdentifier], @"deviceuser_identifier",
+                                         [[RHDataModel instance] project], @"project",
                                          nil];
     
    // NSLog(@"debuggin %@", [newDocument debugDescription]);

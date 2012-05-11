@@ -15,6 +15,7 @@
 #import "RHDocument.h"
 #import "RHSettings.h"
 #import "RHDeviceUser.h"
+#import "AppDelegate.h"
 
 //Map Settings
 #define mapInsetOriginX 10
@@ -76,6 +77,8 @@
 @synthesize heading2;
 @synthesize galleryHeading2;
 @synthesize myDataHeadingGallery;
+@synthesize syncButton;
+@synthesize spinnerContainerView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -231,7 +234,7 @@
     if(self.userDataOnly){
         documents = [RHDataModel getDeviceUserGalleryDocumentsWithStartKey:nil andLimit:nil];
     } else {
-        documents = [RHDataModel getGalleryDocumentsWithStartKey:nil andLimit:nil];
+        documents = [RHDataModel getDocumentsInProject:[[RHDataModel instance] project] ];
     }
     
     self.galleryHeading2.text = [NSString stringWithFormat:@"%i Images", [documents count]];
@@ -684,18 +687,40 @@
 }
 
 - (IBAction)didRequestMenu:(id)sender{
-    
-        
     [UIView beginAnimations:nil context:nil];
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
     [self.view addSubview:self.overlayView];
     [UIView commitAnimations];
-        
-    
 }
 
 - (IBAction)didTapOverlay:(id)sender{
     [self transitionToFullScreen];
+}
+
+- (IBAction)didTabSync:(id)sender{
+    if( ! [ (AppDelegate *) [[UIApplication sharedApplication] delegate] internetActive] ) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Internet Not Available"
+                               message: @"The internet is not currently available.  Please wait until you are able to connect to the interet in order to sync"
+                               delegate: nil
+                               cancelButtonTitle: @"OK"
+                               otherButtonTitles: nil];
+        [alert show];
+        return;
+        
+    }
+    
+    
+    [self.view addSubview:self.spinnerContainerView];
+    UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.spinnerContainerView addSubview:ai];
+    [ai startAnimating];
+   
+    [[RHDataModel instance] updateSyncURLWithCompletedBlock:^{
+        [[RHDataModel instance] forgetSync];
+        [self.spinnerContainerView removeFromSuperview];
+    }
+     ];
+ 
 }
 
 #pragma mark - TimelineVisualizationView
@@ -711,7 +736,6 @@
 //        float randy;
 //        randy = (level)/numLevels;
         
-
         [data addObject: [NSValue valueWithCGPoint:
                           CGPointMake(i, level)]];
     }

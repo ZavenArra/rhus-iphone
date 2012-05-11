@@ -1,5 +1,5 @@
-Rhus.xcodeproj/project.xcworkspace/
-Rhus.xcodeproj/xcuserdata/
+*/project.xcworkspace/
+*/xcuserdata/
 *.DS_Store
 iphone
 testdata

@@ -12,15 +12,22 @@
 #import <Couchbase/CouchbaseMobile.h>
 #import <CouchCocoa/CouchCocoa.h>
 
+typedef void ( ^CompletedBlock )();
+
 @interface RHDataModel : NSObject {
     
     CouchPersistentReplication* _pull;
     CouchPersistentReplication* _push;
-
+    CompletedBlock syncCompletedBlock;
+    BOOL syncStarted;
+    NSTimer * syncTimeoutTimer;
+    NSString * project;
 }
 
 @property (nonatomic, strong) CouchDatabase *database;
 @property (nonatomic, strong) CouchLiveQuery* query;
+@property (nonatomic, strong) NSTimer * syncTimeoutTimer;
+@property (nonatomic, strong) NSString * project;
 
 - (id) initWithBlock: ( void ( ^ )() ) didStartBlock ;
 
@@ -34,6 +41,7 @@
 -(void) test;
 
 - (void)updateSyncURL;
+- (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock;
 - (void)forgetSync;
 - (NSArray *) getView: (NSString *) viewName;
 
@@ -48,6 +56,10 @@
 + (NSDictionary *) getNextDocument: (NSString *) documentId;
 + (NSDictionary *) getPrevDocument: (NSString *) documentId;
 + (NSDictionary *) getDetailDocument: (NSString *) documentId;
++ (NSArray *) getDocuments;
++ (NSArray *) getAllDocuments;
++ (NSArray *) getDocumentsInProject: (NSString *) project;
++ (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date;
 
 
 //+ (UIImage *) getThumbnailForId: (NSString *) documentId;

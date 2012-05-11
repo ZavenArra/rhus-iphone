@@ -24,6 +24,8 @@
 
 @synthesize database;
 @synthesize query;
+@synthesize syncTimeoutTimer;
+@synthesize project;
 
 
 -  (id) initWithBlock:( void ( ^ )() ) didStartBlock {
@@ -92,11 +94,15 @@
         [design defineViewNamed: @"galleryDocuments"
                             map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
         */
-        [design defineViewNamed: @"galleryDocuments"
-                            map: @"function(doc) { emit(doc.created_at,{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
+        [design defineViewNamed: @"rhusDocuments"
+                            map: @"function(doc) { emit( [doc.project, doc.created_at],{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
         
         [design defineViewNamed: @"documentDetail"
                             map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
+        
+        [design defineViewNamed: @"projects"
+                            map: @"function(doc) { emit(doc.project, null); }"
+                         reduce: @"function(key, values) { return true;}"];
         
         [design saveChanges];
         /*
@@ -275,21 +281,31 @@
 
 
 
-+ (NSArray *) getGalleryDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit {
++ (NSArray *) getAllDocuments {
+    //TODO: Implement
+}
+
++ (NSArray *) getDocumentsInProject: (NSString *) project {
     
     CouchDatabase * database = [self.instance database];
     CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
     NSAssert(design, @"Couldn't find design document");
-        
-    CouchQuery * query = [design queryViewNamed: @"galleryDocuments"]; //asLiveQuery];
-    query.descending = NO;
-   // query.limit = 50;
-    NSLog(@"%@", @"AAAA Limit to 50 docs");
+    
+    CouchQuery * query = [design queryViewNamed: @"rhusDocuments"]; //asLiveQuery];
+    query.descending = YES;
+    query.endKey = [NSArray arrayWithObjects:project, nil];
+    query.startKey = [NSArray arrayWithObjects:project, [NSDictionary dictionary], nil];    
     NSArray * r = [self.instance runQuery:query];
     NSLog(@"Count: %i", [r count]);
     
     return r;
 }
+
+
++ (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date {
+    //TODO: Implement
+}
+
 
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit  {
     CouchDatabase * database = [self.instance database];
@@ -325,6 +341,23 @@
 + (NSArray *) getUserDocumentsWithOffset:(NSInteger)offset andLimit:(NSInteger)limit {
     NSLog(@"getUserDocumentsWithOffset just calling getUserDocuments");
     return [self.instance _getUserDocuments];
+}
+
+- (NSArray *) _getProjects {
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
+    CouchQuery * couchQuery = [design queryViewNamed: @"projects"]; //asLiveQuery];
+    couchQuery.groupLevel = 1;
+    CouchQueryEnumerator * enumerator = [couchQuery rows];
+    NSMutableArray * r = [NSArray array];
+    CouchQueryRow * row;
+    while( (row =[enumerator nextRow]) ){
+        [r addObject:row.key];
+    }
+    return r;
+}
+
++ (NSArray *) getProjects {
+    return [self.instance _getProjects];
 }
 
 + (void) addDocument: (NSDictionary *) document {
@@ -363,11 +396,39 @@
 }
 
 
+-(void)syncTimeout {
+    if(!syncStarted){
+        NSLog(@"Sync Timeout");
+
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"No Sync"
+                                                        message: @"Timed out while trying to sync, either there is nothing to sync or you aren't connected to the internet.  Make sure you are connected to the internet and try again!"
+                                                       delegate: nil
+                                              cancelButtonTitle: @"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        [self forgetSync];
+        if(syncCompletedBlock){
+            syncCompletedBlock();
+        }
+        syncCompletedBlock = nil;
+    }
+}
+
 - (void)updateSyncURL {
+    [self updateSyncURLWithCompletedBlock: nil];
+}
+
+
+- (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock  {
+    //Should check for reachability of data.winterroot.net
+    //http://stackoverflow.com/questions/1083701/how-to-check-for-an-active-internet-connection-on-iphone-sdk
+    
+    
+    //Test for network
+    
     
     NSInteger count = [self.database getDocumentCount];
-    
-    
+        
     if (!self.database){
         NSLog(@"No Database in updateSyncURL");
         return;
@@ -383,16 +444,39 @@
     NSArray* repls = [self.database replicateWithURL: newRemoteURL exclusively: YES];
     _pull = [repls objectAtIndex: 0];
     _push = [repls objectAtIndex: 1];
-  //  _pull.filter = @"design/excludeDesignDocs";
-  //  _push.filter = @"rhusMobile/excludeDesignDocs";
+    //_pull.continuous = NO;  //we might want these not to be continuous for user initialized replications
+    //_push.continuous = NO;
+    // _pull.filter = @"design/excludeDesignDocs";
+    // _push.filter = @"rhusMobile/excludeDesignDocs";
+    
     [_pull addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
     [_push addObserver: self forKeyPath: @"completed" options: 0 context: NULL];
+    
+    
+    
+    syncCompletedBlock = setCompletedBlock;
+    
+    //set a timeout to detect when there are in fact no changes
+    //This is only relevant when sync is NOT continuous
+   
+    /*NSInvocation * invocation = [[NSInvocation alloc] init];
+    [invocation setTarget:self];
+    [invocation setSelector:@selector(syncTimeout)];
+    syncStarted = FALSE;
+    self.syncTimeoutTimer = [NSTimer timerWithTimeInterval:5.0 invocation:invocation repeats:NO];
+     */
+    syncStarted = FALSE;
+    self.syncTimeoutTimer =  [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(syncTimeout) userInfo:nil repeats:NO];
+
+    
 }
+
 
 
 - (void) forgetSync {
     [_pull removeObserver: self forKeyPath: @"completed"];
     _pull = nil;
+    
     [_push removeObserver: self forKeyPath: @"completed"];
     _push = nil;
 }
@@ -401,6 +485,8 @@
                          change:(NSDictionary *)change context:(void *)context
 {
     if (object == _pull || object == _push) {
+        syncStarted = TRUE;
+        
         unsigned completed = _pull.completed + _push.completed;
         unsigned total = _pull.total + _push.total;
         NSLog(@"SYNC progress: %u / %u", completed, total);
@@ -411,6 +497,10 @@
         } else {
             // [self showSyncButton];
             database.server.activityPollInterval = 2.0;   // poll less often at other times
+            if(syncCompletedBlock != nil){
+                syncCompletedBlock();
+                syncCompletedBlock = nil;
+            }
         }
     }
 }

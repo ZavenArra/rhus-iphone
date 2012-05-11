@@ -23,6 +23,10 @@
     IBOutlet UIView * timelineView;
     IBOutlet UIView * timelineControlsView;
     IBOutlet TimelineVisualizationView * timelineVisualizationView;
+    IBOutlet UIButton * syncButton;
+    IBOutlet UIView * spinnerContainerView;
+    IBOutlet UIView * overlayView;
+
     
     UIButton * mapInsetButton;
     
@@ -41,7 +45,9 @@
 @property(nonatomic, strong) UIView *timelineControlsView;
 @property(nonatomic, strong) UIButton *mapInsetButton;
 @property(nonatomic, strong) TimelineVisualizationView * timelineVisualizationView;
-@property(nonatomic, strong) IBOutlet UIView * overlayView;
+@property(nonatomic, strong) UIButton * syncButton;
+@property(nonatomic, strong) UIView * spinnerContainerView;
+@property(nonatomic, strong) UIView * overlayView;
 
 @property(nonatomic, strong) NSMutableArray * nextDocumentSet;
 @property(nonatomic, strong) NSMutableArray * activeDocuments;
@@ -112,6 +118,7 @@
 - (IBAction)didRequestMenu:(id)sender;
 - (IBAction)didTapGalleryButton:(id)sender;
 - (IBAction)didTapOverlay:(id)sender;
+- (IBAction)didTapSync:(id)sender;
 
 
 
