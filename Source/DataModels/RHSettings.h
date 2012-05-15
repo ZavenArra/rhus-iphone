@@ -25,6 +25,9 @@
 + (BOOL) useRemoteServer;
 + (NSString *) couchRemoteServer;
 
+//Other Settings
++ (BOOL) allowNewProjectCreation;
+
 //Development
 
 + (BOOL) useCamera;

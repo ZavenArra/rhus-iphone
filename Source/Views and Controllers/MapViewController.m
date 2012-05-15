@@ -104,8 +104,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+    projectsViewController.delegate = self;
+     
     //Set up some tags
     self.detailScrollView.tag = kDetailScrollViewTag;
     self.galleryScrollView.tag = kGalleryScrollViewTag;
@@ -201,22 +201,18 @@
 
 }
 
-- (void) populateTestingData{
-    //spoof map data
-    //later on read this spoofed data from the data layer
-    /*
-     float latHigh = 42.362;
-     float latLow = 42.293;
-     float longHigh = -83.101;
-     float longLow = -82.935;
-     for(int i=0; i<10; i++){
-     float latitude = latLow + (latHigh-latLow) * ( arc4random() % 1000 )/1000;
-     float longitude = longLow + (longHigh-longLow) * ( arc4random() % 1000 )/1000;
-     CLLocationCoordinate2D coordinate;
-     coordinate.latitude = latitude;
-     coordinate.longitude = longitude;
-     [self.mapView addAnnotation:[SSMapAnnotation mapAnnotationWithCoordinate:coordinate title:@"Hey Guy!"] ];
-     }*/
+- (void) populate {
+    [self addAnnotations];
+    
+    [self setupGalleryScrollView];
+    
+    if(launchInGalleryMode) {
+        [UIView beginAnimations:nil context:NULL];
+        [fullscreenTransitionDelegate subviewRequestingFullscreen];
+        [UIView commitAnimations];
+        firstView = FALSE;
+    }
+    
 }
 
 - (void) addAnnotations {
@@ -273,16 +269,9 @@
     //  - actually it's not, because something isn't in place yet, and nothing loads
     //Both should be key-value observers and already be updated
     //by the time the user clicks on the button.
-    [self addAnnotations];
     
-    [self setupGalleryScrollView];
+    [self populate];
     
-    if(launchInGalleryMode) {
-        [UIView beginAnimations:nil context:NULL];
-        [fullscreenTransitionDelegate subviewRequestingFullscreen];
-        [UIView commitAnimations];
-        firstView = FALSE;
-    }
 }
 
 - (void)viewDidUnload
@@ -802,6 +791,10 @@
     [self updateTimestampView];   
 }
 
+#pragma mark - ProjectsTableViewControllerDelegate
 
+-(void) didChangeProject {
+    [self populate];
+}
 
 @end

@@ -101,7 +101,7 @@
                             map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
         
         [design defineViewNamed: @"projects"
-                            map: @"function(doc) { emit(doc.project, null); }"
+                            map: @"function(doc) { if(doc.project) { emit(doc.project, null);}  }"
                          reduce: @"function(key, values) { return true;}"];
         
         [design saveChanges];
@@ -343,6 +343,12 @@
     return [self.instance _getUserDocuments];
 }
 
+
++ (void) addProject:(NSString *) projectName {    
+    NSDictionary * document = [NSDictionary dictionaryWithObjectsAndKeys:projectName, @"project", nil];
+    [RHDataModel addDocument:document];
+}
+
 - (NSArray *) _getProjects {
     CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
     CouchQuery * couchQuery = [design queryViewNamed: @"projects"]; //asLiveQuery];
@@ -376,6 +382,7 @@
         [self.instance.query start];
 	}];
     [op start];
+    [op wait]; //kickin it synchronous for right now.
     
 }
 

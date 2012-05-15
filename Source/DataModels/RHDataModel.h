@@ -61,7 +61,7 @@ typedef void ( ^CompletedBlock )();
 + (NSArray *) getDocumentsInProject: (NSString *) project;
 + (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date;
 + (NSArray *) getProjects;
-
++ (void) addProject:(NSString *) projectName;
 
 
 //+ (UIImage *) getThumbnailForId: (NSString *) documentId;

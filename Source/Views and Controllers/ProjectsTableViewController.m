@@ -14,6 +14,10 @@
 
 @synthesize navigationBar;
 @synthesize projects;
+@synthesize addProjectDialog;
+@synthesize tableView;
+@synthesize projectNameField;
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -94,7 +98,13 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = (NSString*) [projects objectAtIndex: [indexPath row]];
+    NSString * currentProject = [[RHDataModel instance] project];
+    NSString * aProject = (NSString*) [projects objectAtIndex: [indexPath row]];
+    cell.textLabel.text = aProject;
+    if([currentProject isEqualToString: aProject]){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
     return cell;
 }
 
@@ -151,16 +161,43 @@
     RHDataModel * rhDataModel = [RHDataModel instance];
     rhDataModel.project = (NSString *) [self.projects objectAtIndex: [indexPath row]];
     
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    cell.selected = NO;
 }
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+}
+
 
 #pragma mark - IBActions
 
--(IBAction) didTouchCancel:(id)sender{
+-(IBAction) didTouchDone:(id)sender{
+    [self.delegate didChangeProject];
     [self.view removeFromSuperview];
+    
 }
 
 -(IBAction) didTouchAddProject:(id)sender{
+    [self.view addSubview:self.addProjectDialog];
+}
+
+-(IBAction) didTouchConfirmProject:(id)sender{
+    if(projectNameField.text){
+        [RHDataModel addProject:projectNameField.text];
+    }
+    [self.addProjectDialog removeFromSuperview];
+    self.projects = [RHDataModel getProjects];
+    [self.tableView reloadData];
+    projectNameField.text = @"";
     
+    
+}
+
+-(IBAction) didTouchCancelAddProject:(id)sender{
+    [self.addProjectDialog removeFromSuperview];
 }
 
 @end

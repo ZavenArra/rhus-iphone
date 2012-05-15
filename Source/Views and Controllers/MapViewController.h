@@ -10,12 +10,13 @@
 #import <MapKit/MapKit.h>
 #import "FullscreenTransitionDelegate.h"
 #import "TimelineVisualizationView.h"
+#import "ProjectsTableViewController.h"
 
 
 
 
 @interface MapViewController : UIViewController
-<MKMapViewDelegate, TimelineVisualizationViewDelegate, UIScrollViewDelegate>
+<MKMapViewDelegate, TimelineVisualizationViewDelegate, UIScrollViewDelegate, ProjectsTableViewControllerDelegate>
 {
     id <FullscreenTransitionDelegate> fullscreenTransitionDelegate;
 
@@ -26,7 +27,7 @@
     IBOutlet UIButton * syncButton;
     IBOutlet UIView * spinnerContainerView;
     IBOutlet UIView * overlayView;
-    IBOutlet UIViewController * projectsViewController;
+    IBOutlet ProjectsTableViewController * projectsViewController;
 
     
     UIButton * mapInsetButton;
@@ -49,7 +50,7 @@
 @property(nonatomic, strong) UIButton * syncButton;
 @property(nonatomic, strong) UIView * spinnerContainerView;
 @property(nonatomic, strong) UIView * overlayView;
-@property(nonatomic, strong) UIViewController * projectsViewController;
+@property(nonatomic, strong) ProjectsTableViewController * projectsViewController;
 
 @property(nonatomic, strong) NSMutableArray * nextDocumentSet;
 @property(nonatomic, strong) NSMutableArray * activeDocuments;
@@ -105,6 +106,7 @@
 - (void)showDetailViewForIndex: (NSInteger) index;
 
 - (void)hideInfoView;
+- (void) populate;
 
 
 - (IBAction)didTouchThumbnail:(id)sender;
