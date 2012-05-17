@@ -79,9 +79,9 @@
     self.internetReachable = [Reachability reachabilityForInternetConnection];
     [internetReachable startNotifier];
 
-    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+  //  [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
     
-  //  [self initializeInBackground];
+    [self initializeInBackground];
     
 }
 
@@ -89,7 +89,7 @@
 //start serving whenever it's ready.
 - (void) initializeInBackground{
     
-    @autoreleasepool {
+  //  @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
         [[RHDataModel instance] initWithBlock: ^ {
@@ -111,7 +111,7 @@
         
         NSLog(@"%@", @"Done");
 
-    }
+   // }
 
 }
 

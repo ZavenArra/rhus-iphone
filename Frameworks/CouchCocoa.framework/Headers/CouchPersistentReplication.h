@@ -7,6 +7,7 @@
 //
 
 #import "CouchModel.h"
+#import "CouchReplication.h"
 
 
 /** Possible current states of a replication. */
@@ -27,6 +28,8 @@ typedef enum {
     CouchReplicationState _state;
     unsigned _completed, _total;
     NSString* _statusString;
+    NSError* _error;
+    CouchReplicationMode _mode;
 }
 
 /** The source URL for the replication.
@@ -36,6 +39,8 @@ typedef enum {
 /** The destination URL for the replication.
     This will be either a complete HTTP(s) URL or the name of a database on this server. */
 @property (readonly, copy) NSString* target;
+
+@property (readonly) NSURL* remoteURL;
 
 /** Should the target database be created if it doesn't already exist? (Defaults to NO). */
 @property bool create_target;
@@ -52,6 +57,23 @@ typedef enum {
     Should be a JSON-compatible dictionary. */
 @property (copy) NSDictionary* query_params;
 
+/** Sets the documents to specify as part of the replication. */
+@property (copy) NSArray *doc_ids;
+
+/** Sets the "user_ctx" property of the replication, which identifies what privileges it will run with when accessing the local server. To replicate design documents, this should be set to a value with "_admin" in the list of roles.
+    The server will not let you specify privileges you don't have, so the request to create the replication must be made with credentials that match what you're setting here, unless the server is in no-authentication "admin party" mode.
+    See <https://gist.github.com/832610>, section 8, for details.
+    If both 'user' and 'roles' are nil, the user_ctx will be cleared.
+    @param user  A server username, or nil
+    @param roles  An array of CouchDB role name strings, or nil */
+- (void) actAsUser: (NSString*)username withRoles: (NSArray*)roles;
+
+/** A convenience that calls -actAsUser:withRoles: to specify the _admin role. */
+- (void) actAsAdmin;
+
+/** Restarts a replication; this is most useful to make a non-continuous replication run again after it's stopped. */
+- (void) restart;
+
 /** The current state of replication activity. */
 @property (readonly) CouchReplicationState state;
 
@@ -60,5 +82,9 @@ typedef enum {
 
 /** The total number of changes to be processed, if the task is active, else 0 (observable). */
 @property (nonatomic, readonly) unsigned total;
+
+@property (nonatomic, readonly, retain) NSError* error;
+
+@property (nonatomic, readonly) CouchReplicationMode mode;
 
 @end

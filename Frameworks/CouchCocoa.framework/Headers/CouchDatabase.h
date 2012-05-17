@@ -15,8 +15,10 @@
 
 #import "CouchResource.h"
 #import "CouchReplication.h"
-@class RESTCache, CouchChangeTracker, CouchDocument, CouchDesignDocument, CouchPersistentReplication, CouchQuery, CouchServer;
+@class RESTCache, CouchChangeTracker, CouchDocument, CouchDesignDocument, CouchModelFactory,
+        CouchPersistentReplication, CouchQuery, CouchServer;
 
+typedef NSString* (^CouchDocumentPathMap)(NSString* documentID);
 
 /** A CouchDB database; contains CouchDocuments.
     The CouchServer is the factory object for CouchDatabases. */
@@ -30,6 +32,8 @@
     BOOL _lastSequenceNumberKnown;
     id _onChangeBlock;
     NSMutableArray* _deferredChanges;
+    CouchDocumentPathMap _documentPathMap;
+    CouchModelFactory* _modelFactory;
 }
 
 /** A convenience to instantiate a CouchDatabase directly from a URL, without having to first instantiate a CouchServer.
@@ -42,6 +46,10 @@
                  onServerWithURL: (NSURL*)serverURL;
 
 @property (readonly) CouchServer* server;
+
+/** Allows retrieving documents from the CouchDatabase using a different path from the documentID. This is useful for
+    accessing a document using a Couch rewrite. The result of the CouchDocumentPathMap is the path relative to the database. */
+@property (copy) CouchDocumentPathMap documentPathMap;
 
 /** Creates the database on the server.
     Fails with an HTTP status 412 (Conflict) if a database with this name already exists. */
@@ -77,7 +85,7 @@
 
 /** Bulk-writes multiple documents in one HTTP call.
     @param properties  An array specifying the new properties of each item in revisions. Each item must be an NSDictionary, or an NSNull object which means to delete the corresponding document.
-    @param revisions  A parallel array to 'properties', containing each CouchRevision to be updated. Can be nil, in which case the method acts as described in the docs for -putChanges:. */
+    @param revisions  A parallel array to 'properties', containing each CouchRevision or CouchDocument to be updated. Can be nil, in which case the method acts as described in the docs for -putChanges:. */
 - (RESTOperation*) putChanges: (NSArray*)properties toRevisions: (NSArray*)revisions;
 
 /** Bulk-writes multiple documents in one HTTP call.
@@ -133,17 +141,13 @@
 
 /** Triggers replication from a source database, to this database.
     @param sourceURL  The URL of the database to replicate from.
-    @param options  Zero or more option flags affecting the replication.
-    @return  The CouchReplication object managing the replication. It will already have been started. */
-- (CouchReplication*) pullFromDatabaseAtURL: (NSURL*)sourceURL
-                                    options: (CouchReplicationOptions)options;
+    @return  The CouchReplication object managing the replication. You have a chance to customize its properties (like .continuous and .filter) before it starts. */
+- (CouchReplication*) pullFromDatabaseAtURL: (NSURL*)sourceURL;
 
 /** Triggers replication from this database to a target database.
     @param targetURL  The URL of the database to replicate to.
-    @param options  Zero or more option flags affecting the replication.
-    @return  The CouchReplication object managing the replication. It will already have been started. */
-- (CouchReplication*) pushToDatabaseAtURL: (NSURL*)targetURL
-                                  options: (CouchReplicationOptions)options;
+    @return  The CouchReplication object managing the replication. You have a chance to customize its properties (like .continuous and .filter) before it starts.*/
+- (CouchReplication*) pushToDatabaseAtURL: (NSURL*)targetURL;
 
 /** Configures this database to replicate bidirectionally (sync to and from) a database at the given URL.
     @param otherURL  The URL of the other database, or nil to indicate no replication.
