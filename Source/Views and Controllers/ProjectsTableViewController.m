@@ -103,6 +103,8 @@
     cell.textLabel.text = aProject;
     if([currentProject isEqualToString: aProject]){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+      //  cell.selected = YES;
+      //  cell.selected = NO;
     }
     
     return cell;
@@ -149,25 +151,18 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)currentTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     RHDataModel * rhDataModel = [RHDataModel instance];
     rhDataModel.project = (NSString *) [self.projects objectAtIndex: [indexPath row]];
     
-    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell * cell = [currentTableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     cell.selected = NO;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+- (void)tableView:(UITableView *)currentTableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell * cell = [currentTableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
