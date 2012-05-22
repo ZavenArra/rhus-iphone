@@ -23,6 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSDictionary * dict = [NSDictionary dictionary];
+    //NSLog(@"wact %@",(NSString *)[dict objectForKey:@"hey"]);
+    
     [self initializeAppDelegateAndLaunch];
     
     return true;
@@ -104,7 +108,7 @@
                 [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
             }
             //If we are on iPhone 4, start replications
-            //   [[RHDataModel instance] updateSyncURL];
+            [[RHDataModel instance] updateSyncURL];
             
         } ];
 
