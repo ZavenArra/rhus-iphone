@@ -92,11 +92,15 @@
     @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
+        //  @autoreleasepool {
+        //  doing this in the background doesn't make as much sense with touchdb
+        //NSLog(@"%@", @"Starting app resources in background");
+        NSLog(@"%@", @"Starting app resources");    
+    
         [[RHDataModel instance] initWithBlock: ^ {
             if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] )){
                 [loadingViewController.view removeFromSuperview];
                 loadingViewController = nil;
-                
             } else {
                 
                 [loadingViewController.loadingView removeFromSuperview];
@@ -104,7 +108,7 @@
                 [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
             }
             //If we are on iPhone 4, start replications
-            //   [[RHDataModel instance] updateSyncURL];
+            [[RHDataModel instance] updateSyncURL];
             
         } ];
 

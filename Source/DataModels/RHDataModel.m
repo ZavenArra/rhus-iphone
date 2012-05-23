@@ -429,8 +429,6 @@
 - (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock  {
     //Should check for reachability of data.winterroot.net
     //http://stackoverflow.com/questions/1083701/how-to-check-for-an-active-internet-connection-on-iphone-sdk
-    
-    
     //Test for network
     
     
@@ -472,9 +470,12 @@
     syncStarted = FALSE;
     self.syncTimeoutTimer = [NSTimer timerWithTimeInterval:5.0 invocation:invocation repeats:NO];
      */
+    
     syncStarted = FALSE;
-    self.syncTimeoutTimer =  [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(syncTimeout) userInfo:nil repeats:NO];
-
+    /*
+    This causes erroneous sync failure message when there is nothing to sync using continuous.
+    self.syncTimeoutTimer =  [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(syncTimeout) userInfo:nil repeats:NO];
+     */
     
 }
 
