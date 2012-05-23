@@ -96,6 +96,11 @@ typedef void (^OnCompleteBlock)();
     @return  YES on success, NO on error. */
 - (BOOL) wait;
 
+/** Same as -wait but also returns any resulting error in the outError parameter.
+    This is useful if the receiver is an intermediate value not accessible in a variable, for instance if you do something like
+    [[resource GET] wait: &error] */
+- (BOOL) wait: (NSError**)outError;
+
 /** Blocks until all of the given operations have finished.
     @param operations  A set of RESTOperations.
     @return  YES if all operations succeeded; NO if any of them failed. */
@@ -128,6 +133,9 @@ typedef void (^OnCompleteBlock)();
 
 /** The body of the response, with its entity headers (Synchronous.) */
 @property (readonly) RESTBody* responseBody;
+
+/** The raw NSHTTPURLResponse object, in case you need it. */
+@property (readonly) NSHTTPURLResponse* response;
 
 
 /** Object associated with this response.

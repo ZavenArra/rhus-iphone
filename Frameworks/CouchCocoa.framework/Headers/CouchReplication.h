@@ -18,12 +18,12 @@
 @class CouchDatabase, RESTOperation;
 
 
-/** Option flags for replication (push/pull). */
-enum {
-    kCouchReplicationCreateTarget = 1,  /**< Create the destination database if it doesn't exist */
-    kCouchReplicationContinuous   = 2,  /**< Continuous mode; remains active till canceled */
-};
-typedef NSUInteger CouchReplicationOptions;
+typedef enum {
+    kCouchReplicationStopped,
+    kCouchReplicationOffline,
+    kCouchReplicationIdle,
+    kCouchReplicationActive
+} CouchReplicationMode;
 
 
 /** Tracks a CouchDB replication. Can be used to observe its progress. */
@@ -31,14 +31,32 @@ typedef NSUInteger CouchReplicationOptions;
 {
     CouchDatabase* _database;
     NSURL* _remote;
-    BOOL _pull;
-    CouchReplicationOptions _options;
+    bool _pull, _createTarget, _continuous;
+    NSString* _filter;
+    NSDictionary* _filterParams;
     BOOL _running;
     NSString* _taskID;
     NSString* _status;
     unsigned _completed, _total;
+    CouchReplicationMode _mode;
     NSError* _error;
 }
+
+/** Should the target database be created if it doesn't already exist? (Defaults to NO). */
+@property (nonatomic) bool createTarget;
+
+/** Should the replication operate continuously, copying changes as soon as the source database is modified? (Defaults to NO). */
+@property (nonatomic) bool continuous;
+
+/** Path of an optional filter function to run on the source server.
+    Only documents for which the function returns true are replicated.
+    The path looks like "designdocname/filtername". */
+@property (nonatomic, copy) NSString* filter;
+
+/** Parameters to pass to the filter function.
+    Should be a JSON-compatible dictionary. */
+@property (nonatomic, copy) NSDictionary* filterParams;
+
 
 /** Starts the replication, asynchronously.
     @return  The operation to start replication, or nil if replication is already started. */
@@ -46,6 +64,11 @@ typedef NSUInteger CouchReplicationOptions;
 
 /** Stops replication, asynchronously. */
 - (void) stop;
+
+@property (nonatomic, readonly) NSURL* remoteURL;
+
+/** Does the replication pull from (as opposed to push to) the target? */
+@property (nonatomic, readonly) bool pull;
 
 @property (nonatomic, readonly) BOOL running;
 
@@ -60,5 +83,7 @@ typedef NSUInteger CouchReplicationOptions;
 @property (nonatomic, readonly) unsigned total;
 
 @property (nonatomic, readonly, retain) NSError* error;
+
+@property (nonatomic, readonly) CouchReplicationMode mode;
 
 @end

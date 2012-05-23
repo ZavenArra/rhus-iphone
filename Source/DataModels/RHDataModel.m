@@ -29,19 +29,45 @@
 
 
 -  (id) initWithBlock:( void ( ^ )() ) didStartBlock {
-    // Start the Couchbase Mobile server:
-    [CouchbaseMobile class];  // prevents dead-stripping
-    CouchEmbeddedServer* server;
     
+    
+    
+    /*
+    NSLog(@"Creating database...");
+    CouchTouchDBServer* aserver = [CouchTouchDBServer sharedInstance];
+    NSAssert(!aserver.error, @"Error initializing TouchDB: %@", aserver.error);
+    
+    // Create the database on the first run of the app.
+    self.database = [aserver databaseNamed: @"grocery-sync"];
+    NSError* error;
+    if (![self.database ensureCreated: &error]) {
+        [self showAlert: @"Couldn't create local database." error: error fatal: YES];
+       // return YES;
+    }
+    database.tracksChanges = YES;
+    NSLog(@"...Created CouchDatabase at <%@>", self.database.URL);
+    
+    
+    return self;
+    */
+    
+    
+    
+    
+    // Start the TouchDB server:
+    CouchTouchDBServer* server = [CouchTouchDBServer sharedInstance];
+    NSAssert(!server.error, @"Error initializing TouchDB: %@", server.error);
+    
+    /*
     if(![RHSettings useRemoteServer]){
         server = [[CouchEmbeddedServer alloc] init];
     } else {
         server = [[CouchEmbeddedServer alloc] initWithURL: [NSURL URLWithString: [RHSettings couchRemoteServer]]];
-        /*
+        / *
          Set Admin Credential Somehow??
          server.couchbase.adminCredential = [NSURLCredential credentialWithUser:@"winterroot" password:@"dieis8835nd" persistence:NSURLCredentialPersistenceForSession];
          */
-    }
+    //}
     
 #if INSTALL_CANNED_DATABASE
     NSString* dbPath = [[NSBundle mainBundle] pathForResource: [RHSettings databaseName] ofType: @"couch"];
@@ -49,7 +75,7 @@
     [server installDefaultDatabase: dbPath];
 #endif
     
-    BOOL started = [server start: ^{  // ... this block runs later on when the server has started up:
+  //  BOOL started = [server start: ^{  // ... this block runs later on when the server has started up:
         if (server.error) {
             [self showAlert: @"Couldn't start Couchbase." error: server.error fatal: YES];
             return;
@@ -61,11 +87,13 @@
         
         if(![RHSettings useRemoteServer]){
             // Create the database on the first run of the app.
-            NSError* error;
+            NSError* error; 
             if (![self.database ensureCreated: &error]) {
                 [self showAlert: @"Couldn't create local database." error: error fatal: YES];
                 return;
             }
+            NSLog(@"...Created CouchDatabase at <%@>", self.database.URL);
+
             
         }
         
@@ -81,9 +109,29 @@
          */
                 
         
-        [design defineViewNamed: @"deviceUserGalleryDocuments"
+    [design defineViewNamed: @"deviceUserGalleryDocuments" mapBlock: ^(NSDictionary* doc, void (^emit)(id key, id value)){
+    
+            NSArray * key = [NSArray arrayWithObjects: 
+                             [doc objectForKey: @"deviceuser_identifier"], 
+                             [doc objectForKey: @"project"],
+                             [doc objectForKey: @"created_at"],
+                             nil];
+     
+            NSDictionary * value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [doc objectForKey: @"_id"], @"id",  
+                                    [doc objectForKey: @"thumb"], @"thumb", 
+                                    [doc objectForKey: @"latitude"], @"latitude",
+                                    [doc objectForKey: @"longitude"], @"longitude", 
+                                    [doc objectForKey: @"reporter"], @"reporter", 
+                                    [doc objectForKey: @"comment"], @"comment", 
+                                    [doc objectForKey: @"created_at"],@"created_at", 
+                                    nil];
+            emit(key, value);
+        } version: @"1.0"];
+     
+         /*
                             map: @"function(doc) { emit([doc.deviceuser_identifier, doc.project, doc.created_at],{'id':doc._id, 'thumb':doc.thumb, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at} );}"];
-        
+        */
         
         /*
         [design defineViewNamed: @"deviceUserGalleryDocuments"
@@ -94,15 +142,63 @@
         [design defineViewNamed: @"galleryDocuments"
                             map: @"function(doc) { emit(doc.created_at,{'id':doc._id, 'thumb':doc.thumb, 'medium':doc.medium, 'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
         */
+        
+        [design defineViewNamed: @"rhusDocuments" mapBlock: ^(NSDictionary* doc, void (^emit)(id key, id value)){
+            NSArray * key = [NSArray arrayWithObjects:
+                             [doc objectForKey:@"project"],
+                             [doc objectForKey:@"created_at"],
+                             nil];
+            
+            NSDictionary * value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [doc objectForKey: @"_id"], @"id",
+                                    [doc objectForKey: @"thumb"], @"thumb",
+                                    [doc objectForKey: @"latitude"], @"latitude",
+                                    [doc objectForKey: @"longitude"], @"longitude",
+                                    [doc objectForKey: @"reporter"], @"reporter",
+                                    [doc objectForKey: @"comment"], @"comment",
+                                    [doc objectForKey: @"created_at"], @"created_at",
+                                    nil];
+            
+            emit(key, value);
+        } version: @"1.0"];
+
+/*         
+        
         [design defineViewNamed: @"rhusDocuments"
                             map: @"function(doc) { emit( [doc.project, doc.created_at],{'id':doc._id,'latitude':doc.latitude, 'longitude':doc.longitude, 'reporter':doc.reporter, 'comment':doc.comment, 'created_at':doc.created_at, 'deviceuser_identifier':doc.deviceuser_identifier } );}"];
-        
-        [design defineViewNamed: @"documentDetail"
+  */      
+        [design defineViewNamed: @"documentDetail" mapBlock: ^(NSDictionary* doc, void (^emit)(id key, id value)){
+            NSString * key = [doc objectForKey:@"_id"];
+            NSDictionary * value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [doc objectForKey: @"_id"], @"id",
+                                    [doc objectForKey: @"thumb"], @"thumb",
+                                    [doc objectForKey: @"medium"], @"medium",
+                                    [doc objectForKey: @"latitude"], @"latitude",
+                                    [doc objectForKey: @"longitude"], @"longitude",
+                                    [doc objectForKey: @"reporter"], @"reporter",
+                                    [doc objectForKey: @"comment"], @"comment", 
+                                    [doc objectForKey: @"created_at"], @"created_at",
+                                    nil];
+        } version: @"1.0"];
+            /*                                                          )
                             map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
+        */
         
-        [design defineViewNamed: @"projects"
-                            map: @"function(doc) { if(doc.project) { emit(doc.project, null);}  }"
+        
+        [design defineViewNamed: @"projects" mapBlock: ^(NSDictionary* doc, void (^emit)(id key, id value)){
+            NSString * key = [doc objectForKey:@"project"];
+            if(key != NULL){
+                emit(key, NULL);
+            }
+        } 
+                    reduceBlock: REDUCEBLOCK({
+            return NULL;
+        }) version: @"1.0"];
+        /*
+    map: @"function(doc) { if(doc.project) { emit(doc.project, null);}  }"
                          reduce: @"function(key, values) { return true;}"];
+        
+         */
         
         [design saveChanges];
         /*
@@ -115,9 +211,9 @@
         */
          
         didStartBlock();
-    }];
+   // }];
     NSLog(@"%@", @"Started...");
-    NSAssert(started, @"didnt start");
+   // NSAssert(started, @"didnt start");
     
     return self;
     

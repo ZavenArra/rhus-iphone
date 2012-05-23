@@ -23,6 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSDictionary * dict = [NSDictionary dictionary];
+    //NSLog(@"wact %@",(NSString *)[dict objectForKey:@"hey"]);
+    
     [self initializeAppDelegateAndLaunch];
     
     return true;
@@ -79,9 +83,9 @@
     self.internetReachable = [Reachability reachabilityForInternetConnection];
     [internetReachable startNotifier];
 
-    [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
+  //  [self performSelectorInBackground:@selector(initializeInBackground) withObject:nil];
     
-  //  [self initializeInBackground];
+    [self initializeInBackground];
     
 }
 
@@ -89,7 +93,7 @@
 //start serving whenever it's ready.
 - (void) initializeInBackground{
     
-    @autoreleasepool {
+  //  @autoreleasepool {
         NSLog(@"%@", @"Starting app resources in background");
         
         //  @autoreleasepool {
@@ -115,7 +119,7 @@
         
         NSLog(@"%@", @"Done");
 
-    }
+   // }
 
 }
 

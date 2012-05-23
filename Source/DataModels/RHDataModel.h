@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "RHDataModel.h"
 
-#import <Couchbase/CouchbaseMobile.h>
 #import <CouchCocoa/CouchCocoa.h>
+#import <CouchCocoa/CouchDesignDocument_Embedded.h>
 
 typedef void ( ^CompletedBlock )();
 

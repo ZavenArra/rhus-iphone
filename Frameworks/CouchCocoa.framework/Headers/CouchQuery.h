@@ -18,12 +18,23 @@
 @class CouchLiveQuery, CouchQueryEnumerator, CouchQueryRow;
 
 
+/** Options for CouchQuery.stale property, to allow out-of-date results to be returned. */
+typedef enum {
+    kCouchStaleNever,           /**< Never return stale view results (default) */
+    kCouchStaleOK,              /**< Return stale results as long as view is already populated */
+    kCouchStaleUpdateAfter      /**< Return stale results, then update view afterwards */
+} CouchStaleness;
+
+
 /** Represents a CouchDB 'view', or a view-like resource like _all_documents. */
 @interface CouchQuery : CouchResource
 {
     @private
     NSUInteger _limit, _skip;
     id _startKey, _endKey;
+    NSString* _startKeyDocID;
+    NSString* _endKeyDocID;
+    CouchStaleness _stale;
     BOOL _descending, _prefetch;
     NSArray *_keys;
     NSUInteger _groupLevel;
@@ -47,6 +58,17 @@
 
 /** If non-nil, the key value to end after. */
 @property (copy) id endKey;
+
+/** If non-nil, the document ID to start at. 
+    (Useful if the view contains multiple identical keys, making .startKey ambiguous.) */
+@property (copy) NSString* startKeyDocID;
+
+/** If non-nil, the document ID to end at. 
+    (Useful if the view contains multiple identical keys, making .endKey ambiguous.) */
+@property (copy) NSString* endKeyDocID;
+
+/** If set, allows faster results at the expense of returning possibly out-of-date data. */
+@property CouchStaleness stale;
 
 /** If non-nil, the query will fetch only the rows with the given keys. */
 @property (copy) NSArray* keys;
@@ -137,7 +159,14 @@
 @property (readonly) id key;
 @property (readonly) id value;
 
+/** The ID of the document described by this view row.
+    (This is not necessarily the same as the document that caused this row to be emitted; see the discussion of the .sourceDocumentID property for details.) */
 @property (readonly) NSString* documentID;
+
+/** The ID of the document that caused this view row to be emitted.
+    This is the value of the "id" property of the JSON view row.
+    It will be the same as the .documentID property, unless the map function caused a related document to be linked by adding an "_id" key to the emitted value; in this case .documentID will refer to the linked document, while sourceDocumentID always refers to the original document. */
+@property (readonly) NSString* sourceDocumentID;
 
 /** The revision ID of the document this row was mapped from. */
 @property (readonly) NSString* documentRevision;

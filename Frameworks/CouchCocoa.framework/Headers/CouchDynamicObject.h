@@ -14,6 +14,9 @@
     The dynamic accessors will be bridged to calls to -getValueOfProperty: and setValue:ofProperty:, allowing you to easily store property values in an NSDictionary or other container. */
 @interface CouchDynamicObject : NSObject
 
+/** Returns the names of all properties defined in this class and superclasses up to CouchDynamicObject. */
++ (NSSet*) propertyNames;
+
 /** Returns the value of a named property.
     This method will only be called for properties that have been declared in the class's @interface using @property.
     You must override this method -- the base implementation just raises an exception.*/
@@ -26,6 +29,15 @@
     Default implementation returns NO. */
 - (BOOL) setValue: (id)value ofProperty: (NSString*)property;
 
+
+// FOR SUBCLASSES TO CALL:
+
+/** Given the name of an object-valued property, returns the class of the property's value.
+    Returns nil if the property doesn't exist, or if its type isn't an object pointer or is 'id'. */
++ (Class) classOfProperty: (NSString*)propertyName;
+
++ (NSString*) getterKey: (SEL)sel;
++ (NSString*) setterKey: (SEL)sel;
 
 // ADVANCED STUFF FOR SUBCLASSES TO OVERRIDE:
 
