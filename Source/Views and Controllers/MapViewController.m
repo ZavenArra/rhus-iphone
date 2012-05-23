@@ -220,9 +220,10 @@
     //Cludgy way of removing all annotations
     //Once we switch to liveQuery this will be changed
     //TODO: Change when switch to live query
-    for (int i =0; i < [mapView.annotations count]; i++) { 
-        if ([[mapView.annotations objectAtIndex:i] isKindOfClass:[RHMapAnnotation class]]) {                      
-            [mapView removeAnnotation:[mapView.annotations objectAtIndex:i]]; 
+    NSArray * annotations = mapView.annotations;
+    for (int i =0; i < [annotations count]; i++) { 
+        if ([[annotations objectAtIndex:i] isKindOfClass:[RHMapAnnotation class]]) {                      
+            [mapView removeAnnotation:[annotations objectAtIndex:i]]; 
         } 
     }
     self.activeDocuments = nil;
