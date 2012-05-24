@@ -93,11 +93,11 @@
 		F43540DF14D1140D00C206CA /* mapPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = F43540DD14D1140D00C206CA /* mapPoint.png */; };
 		F43B7E801508F33A00584E8B /* orangeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F43B7E7F1508F33A00584E8B /* orangeOverlay.png */; };
 		F49E28D2154F1E7B00AB8461 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28C9154F1E7B00AB8461 /* Default.png */; };
-		F49E28D3154F1E7B00AB8461 /* Defaultx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CA154F1E7B00AB8461 /* Defaultx2.png */; };
+		F49E28D3154F1E7B00AB8461 /* Default@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CA154F1E7B00AB8461 /* Default@x2.png */; };
 		F49E28D4154F1E7B00AB8461 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CB154F1E7B00AB8461 /* Icon.png */; };
 		F49E28D5154F1E7B00AB8461 /* Iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CC154F1E7B00AB8461 /* Iconx2.png */; };
 		F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CD154F1E7B00AB8461 /* Loading.png */; };
-		F49E28D7154F1E7B00AB8461 /* Loadingx2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CE154F1E7B00AB8461 /* Loadingx2.png */; };
+		F49E28D7154F1E7B00AB8461 /* Loading@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CE154F1E7B00AB8461 /* Loading@x2.png */; };
 		F49E28D8154F1E7B00AB8461 /* RHSettings_Rhus.m in Sources */ = {isa = PBXBuildFile; fileRef = F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */; };
 		F49E28D9154F1E7B00AB8461 /* Rhus-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */; };
 		F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
@@ -227,11 +227,11 @@
 		F43540DD14D1140D00C206CA /* mapPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPoint.png; path = graphics/mapPoint.png; sourceTree = SOURCE_ROOT; };
 		F43B7E7F1508F33A00584E8B /* orangeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeOverlay.png; path = graphics/orangeOverlay.png; sourceTree = SOURCE_ROOT; };
 		F49E28C9154F1E7B00AB8461 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Targets/Rhus/Default.png; sourceTree = SOURCE_ROOT; };
-		F49E28CA154F1E7B00AB8461 /* Defaultx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Defaultx2.png; path = Targets/Rhus/Defaultx2.png; sourceTree = SOURCE_ROOT; };
+		F49E28CA154F1E7B00AB8461 /* Default@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@x2.png"; path = "Targets/Rhus/Default@x2.png"; sourceTree = SOURCE_ROOT; };
 		F49E28CB154F1E7B00AB8461 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Targets/Rhus/Icon.png; sourceTree = SOURCE_ROOT; };
 		F49E28CC154F1E7B00AB8461 /* Iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Iconx2.png; path = Targets/Rhus/Iconx2.png; sourceTree = SOURCE_ROOT; };
 		F49E28CD154F1E7B00AB8461 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loading.png; path = Targets/Rhus/Loading.png; sourceTree = SOURCE_ROOT; };
-		F49E28CE154F1E7B00AB8461 /* Loadingx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loadingx2.png; path = Targets/Rhus/Loadingx2.png; sourceTree = SOURCE_ROOT; };
+		F49E28CE154F1E7B00AB8461 /* Loading@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Loading@x2.png"; path = "Targets/Rhus/Loading@x2.png"; sourceTree = SOURCE_ROOT; };
 		F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RHSettings_Rhus.m; path = Targets/Rhus/RHSettings_Rhus.m; sourceTree = SOURCE_ROOT; };
 		F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Rhus-Info.plist"; path = "Targets/Rhus/Rhus-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -476,11 +476,11 @@
 			isa = PBXGroup;
 			children = (
 				F49E28C9154F1E7B00AB8461 /* Default.png */,
-				F49E28CA154F1E7B00AB8461 /* Defaultx2.png */,
+				F49E28CA154F1E7B00AB8461 /* Default@x2.png */,
 				F49E28CB154F1E7B00AB8461 /* Icon.png */,
 				F49E28CC154F1E7B00AB8461 /* Iconx2.png */,
 				F49E28CD154F1E7B00AB8461 /* Loading.png */,
-				F49E28CE154F1E7B00AB8461 /* Loadingx2.png */,
+				F49E28CE154F1E7B00AB8461 /* Loading@x2.png */,
 				F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */,
 				F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */,
 			);
@@ -662,11 +662,11 @@
 				F414DA5B154A017A008A38F5 /* swoopBarBottom.png in Resources */,
 				F414DA5E154A017A008A38F5 /* swoopBarTop.png in Resources */,
 				F49E28D2154F1E7B00AB8461 /* Default.png in Resources */,
-				F49E28D3154F1E7B00AB8461 /* Defaultx2.png in Resources */,
+				F49E28D3154F1E7B00AB8461 /* Default@x2.png in Resources */,
 				F49E28D4154F1E7B00AB8461 /* Icon.png in Resources */,
 				F49E28D5154F1E7B00AB8461 /* Iconx2.png in Resources */,
 				F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */,
-				F49E28D7154F1E7B00AB8461 /* Loadingx2.png in Resources */,
+				F49E28D7154F1E7B00AB8461 /* Loading@x2.png in Resources */,
 				F49E28D9154F1E7B00AB8461 /* Rhus-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
