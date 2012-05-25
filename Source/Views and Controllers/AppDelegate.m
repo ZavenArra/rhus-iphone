@@ -22,10 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    NSDictionary * dict = [NSDictionary dictionary];
-    //NSLog(@"wact %@",(NSString *)[dict objectForKey:@"hey"]);
-    
+
     [self initializeAppDelegateAndLaunch];
     
     return true;

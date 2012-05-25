@@ -48,7 +48,7 @@
 @property (strong, nonatomic) UIImage * bottomBackground;
 @property (nonatomic) BOOL tabsHidden;
 @property (nonatomic) BOOL manualAppearCallbacks;
-@property (nonatomic) BOOL firstRun;
+//@property (nonatomic) BOOL firstRun;
 
 @property (nonatomic) NSInteger currentTab;
 

@@ -404,6 +404,7 @@
 
 + (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date {
     //TODO: Implement
+    return [NSArray array];
 }
 
 

@@ -53,7 +53,6 @@
 		A6D3AC9314BBC85F005BB81D /* MapIconT.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC8F14BBC85F005BB81D /* MapIconT.png */; };
 		A6D3AC9414BBC85F005BB81D /* swoopBarMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */; };
 		A6EFC47214C4E1DE0014ACA9 /* infoBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC47114C4E1DE0014ACA9 /* infoBack.png */; };
-		A6FF927815701A7D006A03A9 /* galleryButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FF927715701A7D006A03A9 /* galleryButton.png */; };
 		F414D9E91549F325008A38F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B21549F325008A38F5 /* UIImage+Alpha.m */; };
 		F414D9EC1549F325008A38F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B41549F325008A38F5 /* UIImage+Resize.m */; };
 		F414D9EF1549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */; };
@@ -91,7 +90,6 @@
 		F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CD154F1E7B00AB8461 /* Loading.png */; };
 		F49E28D7154F1E7B00AB8461 /* Loading@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E28CE154F1E7B00AB8461 /* Loading@x2.png */; };
 		F49E28D8154F1E7B00AB8461 /* RHSettings_Rhus.m in Sources */ = {isa = PBXBuildFile; fileRef = F49E28CF154F1E7B00AB8461 /* RHSettings_Rhus.m */; };
-		F49E28D9154F1E7B00AB8461 /* Rhus-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49E28D1154F1E7B00AB8461 /* Rhus-Info.plist */; };
 		F4AA3F4114DA2F4800ED3CCE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4014DA2F4800ED3CCE /* MapKit.framework */; };
 		F4AA3F4514DA2F5100ED3CCE /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4314DA2F5100ED3CCE /* CouchCocoa.framework */; };
 		F4AA3F4D14DA5B3E00ED3CCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA3F4C14DA5B3E00ED3CCE /* Security.framework */; };
@@ -633,8 +631,6 @@
 				F49E28D5154F1E7B00AB8461 /* Iconx2.png in Resources */,
 				F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */,
 				F49E28D7154F1E7B00AB8461 /* Loading@x2.png in Resources */,
-				F49E28D9154F1E7B00AB8461 /* Rhus-Info.plist in Resources */,
-				A6FF927815701A7D006A03A9 /* galleryButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

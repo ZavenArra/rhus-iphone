@@ -283,6 +283,7 @@
     //i.e. build a new RHDocument, then call toCouchJson on it or something like that, then send to couchdb.
     
     //Crop Thumbnail
+    /*
     CGRect cropBounds;
     cropBounds.size.width = 320;
     cropBounds.size.height = 320;  
@@ -294,6 +295,7 @@
         cropBounds.origin.y = 80;
     }
     UIImage * croppedImage = [currentImage croppedImage: cropBounds];
+     */
     
     CGRect thumbRect;
     thumbRect.origin.x = 0;

@@ -52,9 +52,9 @@
 @property(nonatomic, strong) UIView * overlayView;
 @property(nonatomic, strong) ProjectsTableViewController * projectsViewController;
 
-@property(nonatomic, strong) NSMutableArray * nextDocumentSet;
+//@property(nonatomic, strong) NSMutableArray * nextDocumentSet;
 @property(nonatomic, strong) NSMutableArray * activeDocuments;
-@property(nonatomic, strong) NSMutableArray * prevDocumentSet;
+//@property(nonatomic, strong) NSMutableArray * prevDocumentSet;
 @property(nonatomic) NSInteger currentDetailIndex;
 @property(nonatomic) NSInteger currentGalleryPage;
 @property(nonatomic) BOOL userDataOnly;
