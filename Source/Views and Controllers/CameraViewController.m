@@ -314,8 +314,8 @@
                                          [RHLocation getLatitudeString], @"latitude", 
                                          [RHLocation getLongitudeString], @"longitude",
                                          [RESTBody JSONObjectWithDate: [NSDate date]], @"created_at",
-                                         [RESTBody base64WithData: thumbImageDataJpeg ], @"thumb",
-                                         [RESTBody base64WithData: mediumImageDataJpeg ], @"medium",
+                                         //[RESTBody base64WithData: thumbImageDataJpeg ], @"thumb",
+                                         //[RESTBody base64WithData: mediumImageDataJpeg ], @"medium",
                                          [RHDeviceUser uniqueIdentifier], @"deviceuser_identifier",
                                          [[RHDataModel instance] project], @"project",
                                          nil];
@@ -326,8 +326,12 @@
         [newDocument setObject:@"true" forKey:attribute];
     }
     
-    [RHDataModel addDocument:newDocument];
+    NSString * documentId = [RHDataModel addDocument:newDocument];
+    
+    [RHDataModel addAttachment:@"thumb.jpg" toDocument:documentId withData:thumbImageDataJpeg andContentType:@"image/jpeg"];
 
+    [RHDataModel addAttachment:@"medium.jpg" toDocument:documentId withData:mediumImageDataJpeg andContentType:@"image/jpeg"];
+    
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
     CGRect frame = self.pictureInfo.frame;

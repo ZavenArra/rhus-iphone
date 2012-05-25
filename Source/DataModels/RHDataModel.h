@@ -64,11 +64,12 @@ typedef void ( ^CompletedBlock )();
 + (void) addProject:(NSString *) projectName;
 
 
-//+ (UIImage *) getThumbnailForId: (NSString *) documentId;
-//+ (UIImage *) getImageForId: (NSString *) documentId;
++ (UIImage *) getDocumentThumbnail: (NSString *) documentId;
++ (UIImage *) getDocumentImage: (NSString *) documentId;
 
-+ (void) addDocument: (NSDictionary *) document;
-+ (void) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments;
++ (NSString *) addDocument: (NSDictionary *) document;
++ (NSString *) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments;
++ (void) addAttachment:(NSString *) name toDocument: (NSString *) documentId withData: (NSData *) data andContentType: (NSString *) contentType;
 
 
 + (NSArray *) getDetailDocumentsWithStartKey: (NSString *) startKey andLimit: (NSInteger) limit;

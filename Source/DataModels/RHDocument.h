@@ -19,6 +19,8 @@
 - (NSString *) getDateString;
 - (float) getLatitude;
 - (float) getLongitude;
+- (UIImage *) getThumbnail;
+- (UIImage *) getImage;
 
 
 @end

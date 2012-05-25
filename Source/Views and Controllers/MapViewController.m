@@ -176,7 +176,7 @@
         frame.origin.y = ((i%21 / kThumbnailsPerRow) * (kThumbnailHeight + kThumbnailPaddingVertical) + kThumbnailPaddingVertical);
         thumbnailButton.frame = frame;
         
-        UIImage * thumbnailImage = [document valueForKey:@"thumb"];
+        UIImage * thumbnailImage = [document getThumbnail];
         if(thumbnailImage != nil){
             [thumbnailButton setImage: thumbnailImage
                              forState:UIControlStateNormal];
@@ -476,7 +476,7 @@
     calloutButton.frame = frame;
     RHDocument * doc = [activeDocuments objectAtIndex:rhusMapAnnotation.tag];
     
-    UIImage * calloutImage = [doc objectForKey:@"thumb"];
+    UIImage * calloutImage = [doc getThumbnail];
     [calloutButton setBackgroundImage:calloutImage forState:UIControlStateNormal];
     
     annotationView.leftCalloutAccessoryView = calloutButton;
@@ -538,11 +538,11 @@
     //TODO: currently this reruns the layout every time you click a thumb/callout
     for(int i=0; i<[activeDocuments count]; i++){
         RHDocument * document = [activeDocuments objectAtIndex:i];
-        if([document objectForKey:@"medium"] == nil){
+        if([document getImage] == nil){
             continue;
         }
         
-        UIImage * image = [document objectForKey:@"medium"];
+        UIImage * image = [document getImage];
         
         UIImageView * scrollPage = [[UIImageView alloc]init ];
         scrollPage.image = image;
@@ -620,7 +620,8 @@
     
     UIButton * senderButton = (UIButton *) sender;
     NSDictionary * relevantDocument =  (NSDictionary *) [activeDocuments objectAtIndex:senderButton.tag];
-    UIImage * zoomImage = [relevantDocument objectForKey:@"medium"];
+    RHDocument * document = [[RHDocument alloc] initWithDictionary:relevantDocument];
+    UIImage * zoomImage = [document getImage];
     self.zoomView.image = zoomImage;
     
     CGPoint senderOrigin = [senderButton.superview convertPoint:senderButton.frame.origin toView:self.view];

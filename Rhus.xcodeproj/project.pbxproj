@@ -75,8 +75,6 @@
 		F414DA131549F325008A38F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D41549F325008A38F5 /* AppDelegate.m */; };
 		F414DA161549F325008A38F5 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9D61549F325008A38F5 /* CameraViewController.m */; };
 		F414DA191549F325008A38F5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9D71549F325008A38F5 /* CameraViewController.xib */; };
-		F414DA1C1549F325008A38F5 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DA1549F325008A38F5 /* GalleryViewController.m */; };
-		F414DA1F1549F325008A38F5 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9DB1549F325008A38F5 /* GalleryViewController.xib */; };
 		F414DA221549F325008A38F5 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DD1549F325008A38F5 /* ImageScrollView.m */; };
 		F414DA251549F325008A38F5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9DF1549F325008A38F5 /* LoadingViewController.m */; };
 		F414DA281549F325008A38F5 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414D9E01549F325008A38F5 /* LoadingViewController.xib */; };
@@ -202,9 +200,6 @@
 		F414D9D61549F325008A38F5 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		F414D9D71549F325008A38F5 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		F414D9D81549F325008A38F5 /* FullscreenTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenTransitionDelegate.h; sourceTree = "<group>"; };
-		F414D9D91549F325008A38F5 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
-		F414D9DA1549F325008A38F5 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		F414D9DB1549F325008A38F5 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		F414D9DC1549F325008A38F5 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		F414D9DD1549F325008A38F5 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
 		F414D9DE1549F325008A38F5 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
@@ -433,9 +428,6 @@
 				F414D9D61549F325008A38F5 /* CameraViewController.m */,
 				F414D9D71549F325008A38F5 /* CameraViewController.xib */,
 				F414D9D81549F325008A38F5 /* FullscreenTransitionDelegate.h */,
-				F414D9D91549F325008A38F5 /* GalleryViewController.h */,
-				F414D9DA1549F325008A38F5 /* GalleryViewController.m */,
-				F414D9DB1549F325008A38F5 /* GalleryViewController.xib */,
 				F414D9DC1549F325008A38F5 /* ImageScrollView.h */,
 				F414D9DD1549F325008A38F5 /* ImageScrollView.m */,
 				F414D9DE1549F325008A38F5 /* LoadingViewController.h */,
@@ -655,7 +647,6 @@
 				F4F2859E150DEA3A009A24C9 /* mapDeviceUserPoint.png in Resources */,
 				F414DA0A1549F325008A38F5 /* InfoPlist.strings in Resources */,
 				F414DA191549F325008A38F5 /* CameraViewController.xib in Resources */,
-				F414DA1F1549F325008A38F5 /* GalleryViewController.xib in Resources */,
 				F414DA281549F325008A38F5 /* LoadingViewController.xib in Resources */,
 				F414DA2E1549F325008A38F5 /* MapViewController.xib in Resources */,
 				F414DA341549F325008A38F5 /* SwoopTabViewController.xib in Resources */,
@@ -693,7 +684,6 @@
 				F414DA101549F325008A38F5 /* OrderedDictionary.m in Sources */,
 				F414DA131549F325008A38F5 /* AppDelegate.m in Sources */,
 				F414DA161549F325008A38F5 /* CameraViewController.m in Sources */,
-				F414DA1C1549F325008A38F5 /* GalleryViewController.m in Sources */,
 				F414DA221549F325008A38F5 /* ImageScrollView.m in Sources */,
 				F414DA251549F325008A38F5 /* LoadingViewController.m in Sources */,
 				F414DA2B1549F325008A38F5 /* MapViewController.m in Sources */,
@@ -731,10 +721,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -757,7 +744,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv6";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -765,10 +752,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -786,17 +770,14 @@
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv6";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
 		F4D392BD14BBA6660051E831 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -812,7 +793,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv6";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -820,10 +801,7 @@
 		F4D392BE14BBA6660051E831 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -839,7 +817,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv6";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

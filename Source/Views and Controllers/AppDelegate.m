@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "GalleryViewController.h"
 #import "CameraViewController.h"
 #import "MapViewController.h"
 #import "RHDataModel.h"

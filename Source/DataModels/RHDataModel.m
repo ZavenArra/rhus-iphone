@@ -220,23 +220,23 @@
 }
 
 
-+ (NSData *) getDocumentThumbnailData: (NSString *) key {
++ (UIImage *) getDocumentThumbnail: (NSString *) key {
     CouchDocument* doc = [[self.instance database] documentWithID: key];
     CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
     CouchAttachment * thumbnail = [model attachmentNamed:@"thumb.jpg"];
     if(thumbnail != nil){
-        return thumbnail.body;
+        return [UIImage imageWithData: thumbnail.body];
     } else {
         return nil;
     }
 }
 
-+ (NSData *) getDocumentImageData: (NSString *) key {
++ (UIImage *) getDocumentImage: (NSString *) key {
     CouchDocument* doc = [[self.instance database] documentWithID: key];
     CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
-    CouchAttachment * thumbnail = [model attachmentNamed:@"medium.jpg"];
-    if(thumbnail != nil){
-        return thumbnail.body;
+    CouchAttachment * image = [model attachmentNamed:@"medium.jpg"];
+    if(image != nil){
+        return [UIImage imageWithData: image.body];
     } else {
         return nil;
     }
@@ -264,7 +264,7 @@
         //Fix Image Attachments
         //TODO: This code can be removed once we are reasonably certain everything has been transformed
         //BOOL docNeedsSave = false;
-     //   CouchDocument * doc = row.document;
+        CouchDocument * doc = row.document;
       //  NSMutableDictionary * newProperties = [doc.properties mutableCopy ];
         
         
@@ -305,7 +305,7 @@
          }
          */
         
-        
+        /*
         NSMutableDictionary * properties = [(NSDictionary *) row.value mutableCopy];
         //Translate the Base64 data into a UIImage
         if([properties objectForKey:@"thumb"] != NULL && [properties objectForKey:@"thumb"] != @"" ){
@@ -337,9 +337,10 @@
         } else {
             [properties removeObjectForKey:@"medium"];
         }
-        
+        */
         
         //give em the data
+        NSDictionary * properties = doc.properties;
         [data addObject: [[RHDocument alloc] initWithDictionary: [NSDictionary dictionaryWithDictionary: properties]]];
     }
     return data;
@@ -462,7 +463,7 @@
     return [self.instance _getProjects];
 }
 
-+ (void) addDocument: (NSDictionary *) document {
++ (NSString *) addDocument: (NSDictionary *) document {
     //Add any additional properties
     
     // Save the document, asynchronously:
@@ -480,8 +481,28 @@
     [op start];
     [op wait]; //kickin it synchronous for right now.
     
+    RESTBody * responseBody = op.responseBody;
+    NSLog([op.responseBody asString]);
+    
+    NSDictionary * object = (NSDictionary *)responseBody.fromJSON;
+    NSLog([object objectForKey:@"id"]);
+    return [object objectForKey:@"id"];
 }
 
++ (void) addAttachment:(NSString *) name toDocument: (NSString *) documentId withData: (NSData *) data andContentType: (NSString *) contentType {
+
+    CouchDocument * doc = [self.instance.database documentWithID:documentId];
+    CouchRevision * revision = doc.currentRevision;
+    
+    CouchAttachment * newAttachment = [revision createAttachmentWithName:name
+                                                                    type:contentType ];
+    
+    RESTOperation * op2 = [newAttachment PUT:data contentType:contentType];
+    [op2 start];
+    [op2 wait];
+    //kickin it synchronous for right now.
+
+}
 
 
 // Display an error alert, without blocking.
@@ -608,6 +629,8 @@
         }
     }
 }
+
+
 
 
 @end

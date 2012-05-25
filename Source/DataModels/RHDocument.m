@@ -7,6 +7,7 @@
 //
 
 #import "RHDocument.h"
+#import "RHDataModel.h"
 
 @implementation RHDocument
 
@@ -80,6 +81,12 @@
     return [dictionary removeObjectForKey:aKey];
 }
 
+- (UIImage *)getThumbnail {
+    return [RHDataModel getDocumentThumbnail:[self objectForKey:@"_id"]];
+}
 
+- (UIImage *)getImage {
+    return [RHDataModel getDocumentImage:[self objectForKey:@"_id"]];
+}
 
 @end
