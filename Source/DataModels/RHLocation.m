@@ -59,15 +59,18 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 	if(status != kCLAuthorizationStatusAuthorized){
-		UIAlertView *alert = [[UIAlertView alloc]						  
+        //This block gets called both if they decline and the first time Location Services asks for access when it doesn't already have access
+        //So it gets called twice, which is confusing.
+/*		UIAlertView *alert = [[UIAlertView alloc]						  
 							  initWithTitle:[NSString stringWithFormat:@"Location Services Declined"]
 							  message:
 							  [NSString stringWithFormat:@"We can understand not wanting to use location services, but this application is pretty useless without them turned on"]
 							  delegate: self
-							  cancelButtonTitle:@"Enable Location Services"
+							  cancelButtonTitle:@"Please Enable Location Services"
 							  otherButtonTitles:nil
 							  ];
 		[alert show];
+ */
 	}
 }
 

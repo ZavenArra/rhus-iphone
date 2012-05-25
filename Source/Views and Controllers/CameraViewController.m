@@ -101,6 +101,7 @@
             self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;	
         }
     }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -161,6 +162,23 @@
 - (void) secondTapTabButton{
 
     if([RHSettings useCamera]){
+        
+        if( !([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)
+           || !([CLLocationManager locationServicesEnabled] == YES) ) {
+            
+            UIAlertView *alert = [[UIAlertView alloc]						  
+                                  initWithTitle:[NSString stringWithFormat:@"Location Services Declined"]
+                                  message:
+                                  [NSString stringWithFormat:@"You must enable location services to capture new images in this application and add them to the map."]
+                                  delegate: self
+                                  cancelButtonTitle:@"Please Enable Location Services"
+                                  otherButtonTitles:nil
+                                  ];
+            [alert show];
+            return;
+
+        }
+        
         [self.view addSubview:shutterView];
         if(UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])){
             self.activeImageOrientation = kLandscapePhoto;

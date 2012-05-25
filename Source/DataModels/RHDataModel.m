@@ -78,7 +78,7 @@
   //  BOOL started = [server start: ^{  // ... this block runs later on when the server has started up:
         if (server.error) {
             [self showAlert: @"Couldn't start Couchbase." error: server.error fatal: YES];
-            return;
+            return nil;
         }
         
         self.database = [server databaseNamed: [RHSettings databaseName]];
@@ -90,7 +90,7 @@
             NSError* error; 
             if (![self.database ensureCreated: &error]) {
                 [self showAlert: @"Couldn't create local database." error: error fatal: YES];
-                return;
+                return nil;
             }
             NSLog(@"...Created CouchDatabase at <%@>", self.database.URL);
 
@@ -179,6 +179,8 @@
                                     [doc objectForKey: @"comment"], @"comment", 
                                     [doc objectForKey: @"created_at"], @"created_at",
                                     nil];
+            
+            emit(key, value);
         } version: @"1.0"];
             /*                                                          )
                             map: @"function(doc) { emit( doc._id, {'id' :doc._id, 'reporter' : doc.reporter, 'comment' : doc.comment, 'thumb' : doc.thumb, 'medium' : doc.medium, 'created_at' : doc.created_at} );}"];
@@ -380,6 +382,7 @@
 
 + (NSArray *) getAllDocuments {
     //TODO: Implement
+    return [NSArray array];
 }
 
 + (NSArray *) getDocumentsInProject: (NSString *) project {
@@ -482,10 +485,10 @@
     [op wait]; //kickin it synchronous for right now.
     
     RESTBody * responseBody = op.responseBody;
-    NSLog([op.responseBody asString]);
+    NSLog(@"%@", [op.responseBody asString]);
     
     NSDictionary * object = (NSDictionary *)responseBody.fromJSON;
-    NSLog([object objectForKey:@"id"]);
+    NSLog(@"%@", [object objectForKey:@"id"]);
     return [object objectForKey:@"id"];
 }
 
@@ -544,13 +547,7 @@
 
 
 - (void)updateSyncURLWithCompletedBlock: ( CompletedBlock ) setCompletedBlock  {
-    //Should check for reachability of data.winterroot.net
-    //http://stackoverflow.com/questions/1083701/how-to-check-for-an-active-internet-connection-on-iphone-sdk
-    //Test for network
     
-    
-    NSInteger count = [self.database getDocumentCount];
-        
     if (!self.database){
         NSLog(@"No Database in updateSyncURL");
         return;
