@@ -36,11 +36,11 @@
 
 
 - (NSString *) _getLatitudeString{
-    return [NSString stringWithFormat: @"%g", currentLocation.coordinate.latitude];
+    return [NSString stringWithFormat: @"%lf", currentLocation.coordinate.latitude];
 }
 
 - (NSString *) _getLongitudeString {
-    return [NSString stringWithFormat: @"%g", currentLocation.coordinate.longitude];
+    return [NSString stringWithFormat: @"%lf", currentLocation.coordinate.longitude];
 }
 
 
