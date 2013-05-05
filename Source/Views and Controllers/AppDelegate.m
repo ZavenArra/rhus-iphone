@@ -19,10 +19,12 @@
 @synthesize loadingViewController;
 @synthesize internetActive;
 @synthesize internetReachable;
+@synthesize networkEngine = _networkEngine;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    self.networkEngine = [[MKNetworkEngine alloc] initWithHostName:@"jrmfelipe.iriscouch.com"];
+    //[self.networkEngine setPortNumber:5984];
     [self initializeAppDelegateAndLaunch];
     
     return true;
@@ -108,7 +110,7 @@
                 [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receivedRotate) name: UIDeviceOrientationDidChangeNotification object: nil];
             }
             //If we are on iPhone 4, start replications
-            [[RHDataModel instance] updateSyncURL];
+            //[[RHDataModel instance] updateSyncURL];
             
         } ];
 

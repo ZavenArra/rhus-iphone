@@ -10,6 +10,9 @@
 #import "SwoopTabViewController.h"
 #import "LoadingViewController.h"
 #import "Reachability.h"
+#import "MKNetworkKit.h"
+
+#define APPDELEGATE (AppDelegate *)[UIApplication sharedApplication].delegate
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -25,6 +28,7 @@
 @property (strong, nonatomic) LoadingViewController * loadingViewController;
 @property (strong, nonatomic) Reachability * internetReachable;
 @property (nonatomic) BOOL internetActive;
+@property (strong, nonatomic) MKNetworkEngine *networkEngine;
 
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;

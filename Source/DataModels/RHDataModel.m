@@ -382,7 +382,18 @@
 
 + (NSArray *) getAllDocuments {
     //TODO: Implement
-    return [NSArray array];
+    //return [NSArray array];
+    
+    CouchDatabase * database = [self.instance database];
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
+    NSAssert(design, @"Couldn't find design document");
+    
+    CouchQuery * query = [design queryViewNamed: @"rhusDocuments"]; //asLiveQuery];
+    query.descending = YES;
+    NSArray * r = [self.instance runQuery:query];
+    NSLog(@"Count: %i", [r count]);
+    
+    return r;
 }
 
 + (NSArray *) getDocumentsInProject: (NSString *) project {

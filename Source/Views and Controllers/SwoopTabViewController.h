@@ -57,6 +57,8 @@
 - (IBAction)didTouchTopButton:(id)sender;
 - (IBAction)didTouchMiddleButton:(id)sender;
 - (IBAction)didTouchBottomButton:(id)sender;
+- (IBAction)didTouchUploadButton:(id)sender;
+- (IBAction)didTouchUploadButton2:(id)sender;
 
 
 #pragma mark - Interface Functions
