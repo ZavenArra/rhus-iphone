@@ -31,6 +31,7 @@
 }
 
 -(void)setDocument:(RHDocument *)doc {
+    result = [NSMutableDictionary dictionary];
     document = doc;
     attachmentIdx = 0;
     // get the necessary information
@@ -117,24 +118,27 @@
         NSString *strRev = [response objectForKey:@"rev"];
         NSLog(@"rev = %@",strRev);
         strDocRev = strRev;
+        
+        // save the successful doc upload rev string
+        [result setValue:strDocID forKey:@"_id"];
+        
         if ([self hasAttachments])
         {
             [self uploadAttachments];
         }
         else
         {
+            //save the lastest revision
+            [result setValue:strDocRev forKey:@"_rev"];
+            [result setValue:@"success" forKey:@"operation"];
             if (uploadDone) {
-                uploadDone(operation);
+                uploadDone(result);
             }
         }
         
     } errorHandler:^(MKNetworkOperation *operation,NSError *error) {
-        NSLog(@"%@", error);
-        //ToDo: update error message description here.
-        if (uploadError)
-        {
-            uploadError(error);
-        }
+        [result setValue:@"error" forKey:@"operation"];
+        [self handleError:error withOperation:operation];
     }];
     [_networkEngine enqueueOperation:op];
 }
@@ -160,6 +164,39 @@
     if (attachmentIdx<[arrAttachments count])
         return YES;
     return NO;
+}
+
+- (void)handleError:(NSError *)error withOperation:(MKNetworkOperation *)operation
+{
+    NSLog(@"%@", error);
+    NSLog(@"%@", [operation responseString]);
+    NSError* err;
+    NSDictionary* jsonError = [NSJSONSerialization
+                               JSONObjectWithData:[operation responseData] //1
+                               
+                               options:kNilOptions
+                               error:&err];
+    if (err!=nil)
+    {   //Error in NSJSONSerialization
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:[operation responseString] forKey:NSLocalizedDescriptionKey];
+        error = [NSError errorWithDomain:@"rhus.RHRemoteUploader" code:100 userInfo:errorDetail];
+    }
+    else
+    {   //NOTE: add extra error codes here
+        NSInteger errorCode = -1; // unknown
+        if ([[jsonError objectForKey:@"error"] isEqualToString:@"conflict"])
+            errorCode = 101; //Conflict
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:[jsonError objectForKey:@"reason"] forKey:NSLocalizedDescriptionKey];
+        error = [NSError errorWithDomain:@"rhus.RHRemoteUploader"
+                                    code:errorCode
+                                userInfo:errorDetail];
+    }
+    if (uploadError)
+    {
+        uploadError(result,error);
+    }
 }
 
 - (void)attachFileToDoc:(NSString *)name revision:(NSString *)strRev {
@@ -192,20 +229,28 @@
         NSString *strRev = [response objectForKey:@"rev"];
         NSLog(@"rev = %@",strRev);
         strDocRev = strRev; //update the strDocRev (current)
+        
+        // save the successful attachment upload rev string
+        [result setValue:strRev forKey:name];
+        
         if ([self hasMoreAttachments])
             [self uploadAttachments];
         else
         {
+            //save the lastest revision
+            [result setValue:strRev forKey:@"rev"];
+            [result setValue:@"success" forKey:@"operation"];
             if (uploadDone) {
-                uploadDone(operation);
+                uploadDone(result);
             }
         }
             
         
     } errorHandler:^(MKNetworkOperation *operation,NSError *error) {
-        if (uploadError) {
-            uploadError(error);
-        }
+        [result setValue:name forKey:@"_attachment_error"]; // name of the which gave an error.
+        [result setValue:strDocRev forKey:@"_rev"]; // last revision number
+        [result setValue:@"error" forKey:@"operation"];
+        [self handleError:error withOperation:operation];
     }];
     [self.networkEngine enqueueOperation:op];
 }

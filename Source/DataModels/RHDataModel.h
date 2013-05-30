@@ -58,6 +58,7 @@ typedef void ( ^CompletedBlock )();
 + (NSDictionary *) getDetailDocument: (NSString *) documentId;
 + (NSArray *) getDocuments;
 + (NSArray *) getAllDocuments;
++ (NSArray *) getAllDocumentsNotUploaded;
 + (NSArray *) getDocumentsInProject: (NSString *) project;
 + (NSArray *) getDocumentsInProject: (NSString *) project since: (NSString*) date;
 + (NSArray *) getProjects;
@@ -66,6 +67,8 @@ typedef void ( ^CompletedBlock )();
 
 + (UIImage *) getDocumentThumbnail: (NSString *) documentId;
 + (UIImage *) getDocumentImage: (NSString *) documentId;
+
++ (BOOL) updateDocument:(NSDictionary*)document;
 
 + (NSString *) addDocument: (NSDictionary *) document;
 + (NSString *) addDocument: (NSDictionary *) document withAttachments: (NSDictionary *) attachments;

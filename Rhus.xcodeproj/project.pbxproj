@@ -64,6 +64,8 @@
 		B110C7A01734381A00F9F82F /* RHRemoteUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B110C79F1734381A00F9F82F /* RHRemoteUploader.m */; };
 		B14E5C6B172AFDC00040423D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14E5C6A172AFDC00040423D /* SystemConfiguration.framework */; };
 		B14E5C6D172AFDDB0040423D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B14E5C6C172AFDDB0040423D /* libsqlite3.0.dylib */; };
+		B19F5361173AEA2F00261A8E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F5360173AEA2F00261A8E /* MBProgressHUD.m */; };
+		B1D2A01517572C760084B7BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D2A01417572C760084B7BF /* Default-568h@2x.png */; };
 		F414D9E91549F325008A38F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B21549F325008A38F5 /* UIImage+Alpha.m */; };
 		F414D9EC1549F325008A38F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B41549F325008A38F5 /* UIImage+Resize.m */; };
 		F414D9EF1549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */; };
@@ -183,6 +185,9 @@
 		B110C79F1734381A00F9F82F /* RHRemoteUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHRemoteUploader.m; sourceTree = "<group>"; };
 		B14E5C6A172AFDC00040423D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B14E5C6C172AFDDB0040423D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		B19F535F173AEA2F00261A8E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		B19F5360173AEA2F00261A8E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		B1D2A01417572C760084B7BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F414D9B11549F325008A38F5 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		F414D9B21549F325008A38F5 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		F414D9B31549F325008A38F5 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -288,6 +293,7 @@
 			children = (
 				F414DA59154A017A008A38F5 /* swoopBarBottom.png */,
 				F414DA5A154A017A008A38F5 /* swoopBarTop.png */,
+				A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */,
 				F4F2859D150DEA3A009A24C9 /* mapDeviceUserPoint.png */,
 				F4F2857A150DADBC009A24C9 /* shutter.png */,
 				A6B74F18150A20F300D1B133 /* MapIconT@x2.png */,
@@ -334,7 +340,6 @@
 				A6D3AC8E14BBC85F005BB81D /* GalleryIconT.png */,
 				A6D3AC8D14BBC85F005BB81D /* CameraIconT.png */,
 				A6D3AC8F14BBC85F005BB81D /* MapIconT.png */,
-				A6D3AC9014BBC85F005BB81D /* swoopBarMiddle.png */,
 				A6D3AC8314BBC2C0005BB81D /* MapIcon.png */,
 				A6D3AC8114BBBF31005BB81D /* cameraIcon.png */,
 				A6D3AC7F14BBBE57005BB81D /* GalleryIcon.png */,
@@ -373,6 +378,15 @@
 				B110C76F17304BE000F9F82F /* UIImageView+MKNetworkKitAdditions.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		B19F535E173AEA2F00261A8E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B19F535F173AEA2F00261A8E /* MBProgressHUD.h */,
+				B19F5360173AEA2F00261A8E /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		F414D9AF1549F325008A38F5 /* Source */ = {
@@ -484,6 +498,7 @@
 		F4C1734C154B698100A929E1 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				B19F535E173AEA2F00261A8E /* MBProgressHUD */,
 				B110C76017304BE000F9F82F /* MKNetworkKit */,
 				F4C1734D154B698100A929E1 /* Reachability.h */,
 				F4C1734E154B698100A929E1 /* Reachability.m */,
@@ -518,6 +533,7 @@
 		F4D3928414BBA6650051E831 = {
 			isa = PBXGroup;
 			children = (
+				B1D2A01417572C760084B7BF /* Default-568h@2x.png */,
 				F4CE8B30150C10AA009AE0FC /* Targets */,
 				A6A620D814BBBB670096CA01 /* Graphics */,
 				F414D9AF1549F325008A38F5 /* Source */,
@@ -666,6 +682,7 @@
 				F49E28D5154F1E7B00AB8461 /* Iconx2.png in Resources */,
 				F49E28D6154F1E7B00AB8461 /* Loading.png in Resources */,
 				F49E28D7154F1E7B00AB8461 /* Loading@x2.png in Resources */,
+				B1D2A01517572C760084B7BF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +724,7 @@
 				B110C77C17304BE000F9F82F /* MKNetworkEngine.m in Sources */,
 				B110C77D17304BE000F9F82F /* MKNetworkOperation.m in Sources */,
 				B110C7A01734381A00F9F82F /* RHRemoteUploader.m in Sources */,
+				B19F5361173AEA2F00261A8E /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,8 +803,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: JOSE REY M FELIPE (HU85RKX9SG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JOSE REY M FELIPE (HU85RKX9SG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -796,8 +814,8 @@
 				INFOPLIST_FILE = "Targets/Rhus/$(PRODUCT_NAME)-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = Rhus;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "C4DC449C-EC4E-40F1-8310-BF35D8067404";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C4DC449C-EC4E-40F1-8310-BF35D8067404";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;

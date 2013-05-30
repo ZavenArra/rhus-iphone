@@ -32,6 +32,8 @@
     
     NSInteger currentTab;
     
+    NSArray *docsToUpload;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UIButton * topButton;

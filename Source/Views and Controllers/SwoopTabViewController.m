@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "RHDataModel.h"
 #import "RHRemoteUploader.h"
+#import "MBProgressHUD.h"
 
 #define kTop 1
 #define kMiddle 2
@@ -39,7 +40,7 @@
     NSString *ver = [[UIDevice currentDevice] systemVersion];
     float ver_float = [ver floatValue];
     if (ver_float < 5.0) 
-        manualAppearCallbacks = TRUE;
+        manualAppearCallbacks = FALSE;//TRUE;
     else
         manualAppearCallbacks = FALSE;
 
@@ -74,8 +75,11 @@
     self.topBackground = [UIImage imageNamed:@"swoopBarTop"];
     self.middleBackground = [UIImage imageNamed:@"swoopBarMiddle"];
     self.bottomBackground = [UIImage imageNamed:@"swoopBarBottom"];
-    
 
+    if  (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ))
+        NSLog(@"LandScape");
+    else
+        NSLog(@"not LandScape = %d",[[UIDevice currentDevice] orientation]);
 }
 
 
@@ -88,9 +92,37 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if  (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ))
+        NSLog(@"LandScape");
+    else
+        NSLog(@"not LandScape = %d",[[UIDevice currentDevice] orientation]);
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
     
 }
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if  (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ))
+        NSLog(@"LandScape");
+    else
+        NSLog(@"not LandScape = %d",[[UIDevice currentDevice] orientation]);
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    if  (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation] ))
+        NSLog(@"LandScape");
+    else
+        NSLog(@"not LandScape = %d",[[UIDevice currentDevice] orientation]);
+    return UIInterfaceOrientationLandscapeRight;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 
 #pragma mark - IBActions
 - (IBAction)didTouchTopButton:(id)sender{
@@ -154,6 +186,7 @@
     [middleViewController.view removeFromSuperview];
     if(manualAppearCallbacks)
         [bottomViewController viewWillAppear:NO];
+    
     [self.view insertSubview:bottomViewController.view atIndex:0];
     
     if(!firstRun){
@@ -169,10 +202,71 @@
 
 - (IBAction)didTouchUploadButton2:(id)sender {
     
-    NSArray * documents;
-    documents = [RHDataModel getAllDocuments];
-    NSLog(@"local db doc size = %d", [documents count]);
-    id obj = [documents objectAtIndex:1];
+    docsToUpload = [RHDataModel getAllDocumentsNotUploaded];
+    //documents = [RHDataModel getAllDocuments];
+    
+    NSInteger totalItem = [docsToUpload count];
+    NSLog(@"local db doc size = %d",totalItem);
+    if (totalItem==0)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Upload"
+                                    message:@"Nothing to upload."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //totalItem = 1;
+    [self uploadToRemoteDB:0 totalItem:totalItem progressUI:hud];
+    
+    /*
+    for (NSInteger i=0; i<totalItem; i++)
+    {
+        id obj = [documents objectAtIndex:i];
+        [hud setLabelText:[NSString stringWithFormat:@"Uploading %d of %d",i+1,totalItem]];
+    
+        RHRemoteUploader *rhupload = [[RHRemoteUploader alloc] initWithHostName:@"jrmfelipe.iriscouch.com"
+                                                                       port:nil
+                                                                     useSSL:NO
+                                                                   username:@"jrmfelipe"
+                                                                   password:@"mc1999"
+                                                                   database:@"testing"];
+        [rhupload setDocument:obj];
+        [rhupload uploadWithFinishedBlock:^(NSDictionary *result) {
+            NSLog(@"didTouchUploadButton2 uploadWithFinishedBlock %@", result);
+            if ((i+1)>=totalItem)
+            {
+                [hud hide:YES];
+                [[[UIAlertView alloc] initWithTitle:@"Upload"
+                                            message:@"Upload Successful"
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }
+        } errorBlock:^(NSDictionary *result, NSError *error) {
+                NSLog(@"didTouchUploadButton2 error result %@", result);
+                NSLog(@"didTouchUploadButton2 error block %@", error);
+                [hud hide:YES];
+                NSString *strCaption = [NSString stringWithFormat:@"Upload Error (%d)", error.code];
+                [[[UIAlertView alloc] initWithTitle:strCaption
+                                            message:[error localizedDescription]
+                                           delegate:nil
+                                  cancelButtonTitle:@"Dismiss"
+                                  otherButtonTitles:nil] show];
+            }];
+    }
+    */
+   // http://winterroot:dieis8835nd@data.winterroot.net:5984/houseofsaltmarsh
+}
+
+- (void)uploadToRemoteDB:(NSInteger)index totalItem:(NSInteger)total progressUI:(MBProgressHUD *)hud
+{
+    __block NSInteger idx = index;
+    
+    id obj = [docsToUpload objectAtIndex:index];
+    [hud setLabelText:[NSString stringWithFormat:@"Uploading %d of %d",index+1,total]];
+    
     RHRemoteUploader *rhupload = [[RHRemoteUploader alloc] initWithHostName:@"jrmfelipe.iriscouch.com"
                                                                        port:nil
                                                                      useSSL:NO
@@ -180,13 +274,41 @@
                                                                    password:@"mc1999"
                                                                    database:@"testing"];
     [rhupload setDocument:obj];
-    [rhupload uploadWithFinishedBlock:^(MKNetworkOperation *operation) {
-            NSLog(@"didTouchUploadButton2 uploadWithFinishedBlock %@", operation);
-        } errorBlock:^(NSError *error) {
-            NSLog(@"didTouchUploadButton2 error block %@", error);
+    [rhupload uploadWithFinishedBlock:^(NSDictionary *result) {
+        NSLog(@"didTouchUploadButton2 uploadWithFinishedBlock %@", result);
+        if ((index+1)>=total)
+        {
+            [obj setObject:@"YES" forKey:@"uploaded"];
+            BOOL bResult = [RHDataModel updateDocument:obj];
+            NSLog(@"bResult(%d) = %d",index,bResult);
+            [hud hide:YES];
+            [[[UIAlertView alloc] initWithTitle:@"Upload Successful"
+                                        message:[NSString stringWithFormat:@"%d items uploaded.",total]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }
+        else
+        {
+            //TODO: update local DB
+            [obj setObject:@"YES" forKey:@"uploaded"];
+            BOOL bResult = [RHDataModel updateDocument:obj];
+            NSLog(@"bResult(%d) = %d",index,bResult);
+            idx++;
+            [self uploadToRemoteDB:idx totalItem:total progressUI:hud];
+        }
+    } errorBlock:^(NSDictionary *result, NSError *error) {
+        NSLog(@"didTouchUploadButton2 error result %@", result);
+        NSLog(@"didTouchUploadButton2 error block %@", error);
+        [hud hide:YES];
+        NSString *strCaption = [NSString stringWithFormat:@"Upload Error (%d)", error.code];
+        NSString *strMessage = [NSString stringWithFormat:@"%@\n\n%d out of %d uploaded",[error localizedDescription],idx,total];
+        [[[UIAlertView alloc] initWithTitle:strCaption
+                                    message:strMessage
+                                   delegate:nil
+                          cancelButtonTitle:@"Dismiss"
+                          otherButtonTitles:nil] show];
     }];
-    
-   // http://winterroot:dieis8835nd@data.winterroot.net:5984/houseofsaltmarsh
 }
 
 - (IBAction)didTouchUploadButton:(id)sender {

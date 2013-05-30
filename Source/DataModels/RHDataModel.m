@@ -201,7 +201,17 @@
                          reduce: @"function(key, values) { return true;}"];
         
          */
-        
+    
+        [design defineViewNamed: @"uploaded" mapBlock: ^(NSDictionary* doc, void (^emit)(id key, id value)){
+                NSString * key = [doc objectForKey:@"uploaded"];
+                if(key == NULL){
+                    emit(doc, NULL);
+                }
+        }
+            reduceBlock: REDUCEBLOCK({
+                return NULL;
+        }) version: @"1.0"];
+    
         [design saveChanges];
         /*
         design = [database designDocumentWithName: @"rhusMobile"];
@@ -379,6 +389,24 @@
 }
 
 
++ (NSArray *) getAllDocumentsNotUploaded {
+    
+    CouchDatabase * database = [self.instance database];
+    CouchDesignDocument* design = [database designDocumentWithName: @"rhusMobile"];
+    NSAssert(design, @"Couldn't find design document");
+    // Later on, we can query the view:
+    CouchQuery* query = [design queryViewNamed: @"uploaded"];
+    query.descending = YES;
+    /*
+    NSLog(@"Count: %i", [[query rows] count]);
+    for (CouchQueryRow* row in query.rows) {
+        NSLog(@"%@'s email is <%@>", row.key, row.value);
+    }
+     */
+    NSArray * r = [self.instance runQuery:query];
+    NSLog(@"Count: %i", [r count]);
+    return r;
+}
 
 + (NSArray *) getAllDocuments {
     //TODO: Implement
@@ -476,6 +504,34 @@
 
 + (NSArray *) getProjects {
     return [self.instance _getProjects];
+}
+
++ (BOOL) updateDocument:(NSDictionary*)document
+{
+    NSString *strDocID  = [document objectForKey:@"_id"];
+    NSString *strDocRev = [document objectForKey:@"_rev"];
+    if (strDocID==nil || strDocRev==nil)
+        return NO;
+    CouchDocument *doc = [self.instance.database documentWithID:strDocID];
+    RESTOperation *op = [doc putProperties:document];
+    [op onCompletion: ^{
+        if (op.error)
+            NSAssert(false, @"ERROR");
+        // AppDelegate needs to observer MapData for connection errors.
+        // [self showErrorAlert: @"Couldn't save the new item" forOperation: op];
+        // Re-run the query:
+		//[self.dataSource.query start];
+        [self.instance.query start];
+	}];
+    [op start];
+    [op wait]; //kickin it synchronous for right now.
+    
+    RESTBody * responseBody = op.responseBody;
+    NSLog(@"%@", [op.responseBody asString]);
+    
+    NSDictionary * object = (NSDictionary *)responseBody.fromJSON;
+    NSLog(@"%@", [object objectForKey:@"id"]);
+    return YES;
 }
 
 + (NSString *) addDocument: (NSDictionary *) document {

@@ -29,6 +29,7 @@
 @property (strong, nonatomic) Reachability * internetReachable;
 @property (nonatomic) BOOL internetActive;
 @property (strong, nonatomic) MKNetworkEngine *networkEngine;
+@property BOOL is4InchScreen;
 
 - (void) initializeAppDelegateAndLaunch;
 - (void) initializeDataModel;

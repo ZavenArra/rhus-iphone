@@ -10,8 +10,8 @@
 #import "MKNetworkEngine.h"
 #import "RHDocument.h"
 
-typedef void (^UploadFinishedBlock)(MKNetworkOperation* completedOperation);
-typedef void (^UploadErrorBlock)(NSError* error);
+typedef void (^UploadFinishedBlock)(NSDictionary* status);
+typedef void (^UploadErrorBlock)(NSDictionary* status, NSError* error);
 
 @interface RHRemoteUploader : NSObject {
 @private
@@ -31,6 +31,7 @@ typedef void (^UploadErrorBlock)(NSError* error);
     NSUInteger attachmentIdx;
     UploadFinishedBlock uploadDone;
     UploadErrorBlock uploadError;
+    NSMutableDictionary *result;
 }
 
 @property (nonatomic, readonly) NSString* hostName;

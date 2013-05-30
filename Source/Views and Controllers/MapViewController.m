@@ -142,7 +142,6 @@
     }
     
   //  projectsViewController = [[ProjectsTableViewController alloc] init ];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -285,10 +284,24 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+            //UIInterfaceOrientationPortrait);
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
 
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationLandscapeRight;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
 
 
 #pragma mark - Interface Methods

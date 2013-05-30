@@ -20,11 +20,13 @@
 @synthesize internetActive;
 @synthesize internetReachable;
 @synthesize networkEngine = _networkEngine;
+@synthesize is4InchScreen;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.networkEngine = [[MKNetworkEngine alloc] initWithHostName:@"jrmfelipe.iriscouch.com"];
     //[self.networkEngine setPortNumber:5984];
+    
     [self initializeAppDelegateAndLaunch];
     
     return true;
@@ -37,27 +39,46 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //check if screen is 4inch
+    is4InchScreen = NO;
+    if (self.window.frame.size.height==568)
+        is4InchScreen = YES;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     
   
     
     self.swoopTabViewController = [[SwoopTabViewController alloc] init];
+    self.window.rootViewController = self.swoopTabViewController;
     
-        
     MapViewController * galleryViewController = [[MapViewController alloc]init];
     galleryViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
     galleryViewController.userDataOnly = YES;
     galleryViewController.launchInGalleryMode = YES;
+    if (is4InchScreen)
+    {
+        [galleryViewController.view setFrame:CGRectMake(0, 0, 568, 320)];
+        [galleryViewController.overlayView setFrame:CGRectMake(0, 0, 568, 320)];
+    }
     self.swoopTabViewController.topViewController = galleryViewController;
     
     
     CameraViewController * cameraViewController = [[CameraViewController alloc]init];
     cameraViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
-    self.swoopTabViewController.middleViewController = cameraViewController; 
+    if (is4InchScreen)
+    {
+        [cameraViewController.view setFrame:CGRectMake(0, 0, 568, 320)];
+        [cameraViewController.shutterView setFrame:CGRectMake(0, 0, 568, 320)];
+        [cameraViewController.pictureInfo setFrame:CGRectMake(0, 0, 568, 320)];
+        //[cameraViewController.imagePicker.view setFrame:CGRectMake(0, 0, 568, 320)];
+    }
+    self.swoopTabViewController.middleViewController = cameraViewController;
     
     MapViewController * mapViewController = [[MapViewController alloc]init];
     mapViewController.fullscreenTransitionDelegate = self.swoopTabViewController;
-
+    if (is4InchScreen)
+        [mapViewController.view setFrame:CGRectMake(0, 0, 568, 320)];
     self.swoopTabViewController.bottomViewController = mapViewController;
     
     
@@ -65,8 +86,6 @@
     self.loadingViewController = [[LoadingViewController alloc] init];
     [swoopTabViewController.view addSubview:loadingViewController.view];
     loadingViewController.loadingImageView.image = [UIImage imageNamed:@"Loading"];
-
-    
     
     [self.window makeKeyAndVisible];
     
@@ -131,7 +150,7 @@
     loadingViewController = nil;
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
     [swoopTabViewController didTouchBottomButton:self];
-    if(swoopTabViewController.manualAppearCallbacks){
+    if(!swoopTabViewController.manualAppearCallbacks){
         [self performSelector:@selector(delayedViewDidAppear) withObject:nil afterDelay:0.0];
     }
 }
@@ -141,7 +160,6 @@
         [self presentApplication];
     }
 }
-
 
 
 /*
@@ -236,6 +254,16 @@
             break;
         }
     }
+}
+
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)w {
+        UIViewController *topController = self.window.rootViewController;
+        if( [topController supportedInterfaceOrientations]!=0)
+        {
+            return [w.rootViewController supportedInterfaceOrientations];
+        }
+        return UIInterfaceOrientationMaskAll;
 }
 
 @end

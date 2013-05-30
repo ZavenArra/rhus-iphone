@@ -125,6 +125,7 @@
             self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
 	}
+    
     self.imagePicker.view.transform =  
     
     CGAffineTransformScale (
@@ -139,6 +140,10 @@
     ;
     
     [self.imagePicker.view removeFromSuperview];
+    [self.imagePicker.view setFrame:CGRectMake(0.0f, 0.0f, 568.0f, 320.0f)];
+    //[self.imagePicker.view setFrame:self.view.frame];
+    NSLog(@"self.imagePicker.view %fx%f at %f,%f",self.imagePicker.view.frame.size.width,self.imagePicker.view.frame.size.height,self.imagePicker.view.frame.origin.x,self.imagePicker.view.frame.origin.y);
+    
     [self.view addSubview:self.imagePicker.view];
 
 }
@@ -198,7 +203,8 @@
 /*TODO: this function should be called by imagePickerController:didFinishPickingMediaWithInfo:*/
 - (void) showPictureDialog {
     CGRect frame = self.pictureDialog.frame;
-    frame.origin.x = 480 - 58 - self.pictureDialog.frame.size.width;
+    //frame.origin.x = 480 - 58 - self.pictureDialog.frame.size.width;
+    frame.origin.x = self.view.frame.size.width - 58 - self.pictureDialog.frame.size.width;
     frame.origin.y = 108;
     self.pictureDialog.frame = frame;
     [self.view addSubview:self.pictureDialog];
@@ -212,7 +218,8 @@
 
 - (void) animateShowInfoBox {
     CGRect frame = self.pictureInfo.frame;
-    frame.origin.x = -480;
+    //frame.origin.x = -480;
+    frame.origin.x = -1 * self.view.frame.size.width;
     self.pictureInfo.frame = frame;
     [self.view addSubview:self.pictureInfo];
     [UIView beginAnimations:@"anim" context:nil];
@@ -221,7 +228,8 @@
     self.pictureInfo.frame = frame;
     
     frame = self.pictureDialog.frame;
-    frame.origin.x = 480;
+    //frame.origin.x = 480;
+    frame.origin.x = self.view.frame.size.width;
     self.pictureDialog.frame = frame;
     
     [UIView setAnimationDuration:0.50];
@@ -254,13 +262,15 @@
     [fullscreenTransitionDelegate subviewRequestingFullscreen];
     
     CGRect frame = self.pictureDialog.frame;
-    frame.origin.x = 480;
+    //frame.origin.x = 480;
+    frame.origin.x = self.view.frame.size.width;
     self.pictureDialog.frame = frame;
     
     
     //Moved from animate show info box
     frame = self.pictureInfo.frame;
-    frame.origin.x = 480;
+    //frame.origin.x = 480;
+    frame.origin.x = self.view.frame.size.width;
     self.pictureInfo.frame = frame;
     [self.view addSubview:self.pictureInfo];
     //[UIView beginAnimations:@"anim" context:nil];
@@ -355,7 +365,8 @@
     [UIView beginAnimations:@"anim" context:nil];
     [UIView setAnimationDuration:0.50];
     CGRect frame = self.pictureInfo.frame;
-    frame.origin.x = 480;
+    //frame.origin.x = 480;
+    frame.origin.x = self.view.frame.size.width;
     self.pictureInfo.frame = frame;
     
     [fullscreenTransitionDelegate subviewReleasingFullscreen];
