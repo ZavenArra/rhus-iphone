@@ -99,6 +99,7 @@
                                                         params:putParam
                                                     httpMethod:@"PUT"
                                                            ssl:_useSSL];
+    
     if (self.username != nil && self.password != nil) {
         [op setUsername:self.username password:self.password basicAuth:YES];
     }
@@ -168,8 +169,19 @@
 
 - (void)handleError:(NSError *)error withOperation:(MKNetworkOperation *)operation
 {
-    NSLog(@"%@", error);
-    NSLog(@"%@", [operation responseString]);
+    NSLog(@"ERROR = %@", error);
+    NSLog(@"responseString = %@", [operation responseString]);
+    NSLog(@"responseData = %@", [operation responseData]);
+    
+    if ([operation responseData]==nil)
+    {
+        if (uploadError)
+        {
+            uploadError(result,error);
+        }
+        return;
+    }
+    
     NSError* err;
     NSDictionary* jsonError = [NSJSONSerialization
                                JSONObjectWithData:[operation responseData] //1

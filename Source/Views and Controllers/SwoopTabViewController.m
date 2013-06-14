@@ -313,7 +313,7 @@
         }
         else
         {
-            //TODO: update local DB
+            //update local DB
             [obj setObject:@"YES" forKey:@"uploaded"];
             BOOL bResult = [RHDataModel updateDocument:obj];
             NSLog(@"bResult(%d) = %d",index,bResult);
@@ -323,23 +323,55 @@
     } errorBlock:^(NSDictionary *result, NSError *error) {
         nUnsuccessfulUploadCtr++;
         idx++;
+        //Stop the upload on specific error such as timeout
+        if (error.code!=101) //"The request timed out." or any other NSURLRequest error
+        {
+            [hud hide:YES];
+            NSString *strCaption = [NSString stringWithFormat:@"Upload Error (%d)", error.code];
+            NSString *strMessage = [NSString stringWithFormat:@"%@\nUpload operation halted",[error localizedDescription]];
+            if (nUnsuccessfulUploadCtr!=idx)
+            {
+                strMessage = [NSString stringWithFormat:@"%@\n%d out of %d uploaded",[error localizedDescription],idx-nUnsuccessfulUploadCtr, total];
+            }
+            [[[UIAlertView alloc] initWithTitle:strCaption
+                                        message:strMessage
+                                       delegate:nil
+                              cancelButtonTitle:@"Dismiss"
+                              otherButtonTitles:nil] show];
+            return;
+        }
+        
+        
+        
         if ((index+1)>=total)
         {
             [hud hide:YES];
             if (nUnsuccessfulUploadCtr==total)
             {
-                [[[UIAlertView alloc] initWithTitle:@"Upload Error"
-                                            message:@"All document upload failed."
-                                           delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil] show];
+                if (total==1)
+                {
+                    NSString *strCaption = [NSString stringWithFormat:@"Upload Error (%d)", error.code];
+                    [[[UIAlertView alloc] initWithTitle:strCaption
+                                                message:[error localizedDescription]
+                                               delegate:nil
+                                      cancelButtonTitle:@"Dismiss"
+                                      otherButtonTitles:nil] show];
+                }
+                else
+                {
+                    [[[UIAlertView alloc] initWithTitle:@"Upload Error"
+                                                message:@"All document upload failed."
+                                               delegate:nil
+                                      cancelButtonTitle:@"Dismiss"
+                                      otherButtonTitles:nil] show];
+                }
             }
             else
             {
                 [[[UIAlertView alloc] initWithTitle:@"Upload"
                                             message:[NSString stringWithFormat:@"%d out of %d items was successfully uploaded.",total-nUnsuccessfulUploadCtr, total]
                                            delegate:nil
-                                  cancelButtonTitle:@"OK"
+                                  cancelButtonTitle:@"Dismiss"
                                   otherButtonTitles:nil] show];
             }
         }
