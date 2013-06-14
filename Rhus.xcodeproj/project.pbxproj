@@ -66,6 +66,9 @@
 		B14E5C6D172AFDDB0040423D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B14E5C6C172AFDDB0040423D /* libsqlite3.0.dylib */; };
 		B19F5361173AEA2F00261A8E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F5360173AEA2F00261A8E /* MBProgressHUD.m */; };
 		B1D2A01517572C760084B7BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D2A01417572C760084B7BF /* Default-568h@2x.png */; };
+		B1D2A01B1759208B0084B7BF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D2A01A1759208B0084B7BF /* AssetsLibrary.framework */; };
+		B1D2A01D1759229F0084B7BF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D2A01C1759229F0084B7BF /* MobileCoreServices.framework */; };
+		B1D2A01E1759256F0084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D2A01917591F320084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		F414D9E91549F325008A38F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B21549F325008A38F5 /* UIImage+Alpha.m */; };
 		F414D9EC1549F325008A38F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B41549F325008A38F5 /* UIImage+Resize.m */; };
 		F414D9EF1549F325008A38F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = F414D9B61549F325008A38F5 /* UIImage+RoundedCorner.m */; };
@@ -188,6 +191,10 @@
 		B19F535F173AEA2F00261A8E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		B19F5360173AEA2F00261A8E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		B1D2A01417572C760084B7BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B1D2A01817591F320084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		B1D2A01917591F320084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		B1D2A01A1759208B0084B7BF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B1D2A01C1759229F0084B7BF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F414D9B11549F325008A38F5 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		F414D9B21549F325008A38F5 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		F414D9B31549F325008A38F5 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -270,6 +277,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D2A01D1759229F0084B7BF /* MobileCoreServices.framework in Frameworks */,
+				B1D2A01B1759208B0084B7BF /* AssetsLibrary.framework in Frameworks */,
 				B14E5C6D172AFDDB0040423D /* libsqlite3.0.dylib in Frameworks */,
 				B14E5C6B172AFDC00040423D /* SystemConfiguration.framework in Frameworks */,
 				F42672CB1564FC4500C6580F /* TouchDB.framework in Frameworks */,
@@ -498,6 +507,8 @@
 		F4C1734C154B698100A929E1 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				B1D2A01817591F320084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				B1D2A01917591F320084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				B19F535E173AEA2F00261A8E /* MBProgressHUD */,
 				B110C76017304BE000F9F82F /* MKNetworkKit */,
 				F4C1734D154B698100A929E1 /* Reachability.h */,
@@ -553,6 +564,8 @@
 		F4D3929214BBA6660051E831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1D2A01C1759229F0084B7BF /* MobileCoreServices.framework */,
+				B1D2A01A1759208B0084B7BF /* AssetsLibrary.framework */,
 				B14E5C6C172AFDDB0040423D /* libsqlite3.0.dylib */,
 				B14E5C6A172AFDC00040423D /* SystemConfiguration.framework */,
 				F42672CA1564FC4500C6580F /* TouchDB.framework */,
@@ -725,6 +738,7 @@
 				B110C77D17304BE000F9F82F /* MKNetworkOperation.m in Sources */,
 				B110C7A01734381A00F9F82F /* RHRemoteUploader.m in Sources */,
 				B19F5361173AEA2F00261A8E /* MBProgressHUD.m in Sources */,
+				B1D2A01E1759256F0084B7BF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +777,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
@@ -787,7 +801,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";

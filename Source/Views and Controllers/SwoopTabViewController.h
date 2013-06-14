@@ -34,6 +34,8 @@
     
     NSArray *docsToUpload;
     
+    @private
+    NSInteger nUnsuccessfulUploadCtr;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton * topButton;
@@ -41,6 +43,7 @@
 @property (strong, nonatomic) IBOutlet UIButton * bottomButton;
 @property (strong, nonatomic) IBOutlet UIView * controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView * controlsBackgroundImage;
+@property (strong, nonatomic) IBOutlet UIButton *uploadButton;
 
 @property (strong, nonatomic) UIViewController * topViewController;
 @property (strong, nonatomic) UIViewController * middleViewController;
@@ -65,5 +68,6 @@
 
 #pragma mark - Interface Functions
 - (void) updateTabBackground:(int) backgroundSelected;
+- (void) updateUploadButton;
 
 @end

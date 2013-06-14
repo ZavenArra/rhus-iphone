@@ -236,14 +236,12 @@
         {
             NSLog(@"The internet is down.");
             internetActive = NO;
-            
             break;
         }
         case ReachableViaWiFi:
         {
             NSLog(@"The internet is working via WIFI.");
             internetActive = YES;
-            
             break;
         }
         case ReachableViaWWAN:
@@ -254,6 +252,7 @@
             break;
         }
     }
+    [swoopTabViewController updateUploadButton];
 }
 
 

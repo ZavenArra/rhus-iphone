@@ -12,7 +12,8 @@
 #import "RHLocation.h"
 #import "RHSettings.h"
 #import "UIImage+Resize.h"
-
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
+#import "MBProgressHUD.h"
 
 #define kThreePetal 101
 #define kFourPetal 102
@@ -238,6 +239,35 @@
     [UIView commitAnimations];
 }
 
+- (void)savePhotoToAlbum:(UIImage *)image
+{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    //[library saveImage:image toAlbum:@"Wild Detroit" completionBlock:nil failureBlock:nil];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [library saveImage:image
+               toAlbum:@"Wild Detroit"
+       completionBlock:^(NSURL *assetURL, NSError *error){
+            NSLog(@"Error = %@",error);
+           [MBProgressHUD hideHUDForView:self.view animated:YES];
+       }
+          failureBlock:^(NSError *error){
+               NSLog(@"Error = %@",error);
+              [MBProgressHUD hideHUDForView:self.view animated:YES];
+          }];
+    /*
+    [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+        NSLog(@"Error = %@",error);
+        if (error) {
+            // TODO: error handling
+            
+        } else {
+            // TODO: success handling
+        }
+    }];
+     */
+}
+
 #pragma mark IBActions
 - (IBAction) didTouchRetakeButton:(id)sender{
     [self hidePictureDialog];
@@ -284,6 +314,7 @@
     [UIView setAnimationDelegate:self];
     [UIView commitAnimations];
     
+    [self savePhotoToAlbum:currentImage];
 }
 
 - (IBAction) didTouchSendButton:(id)sender{

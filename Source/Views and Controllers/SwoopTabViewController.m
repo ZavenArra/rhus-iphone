@@ -19,7 +19,7 @@
 
 @implementation SwoopTabViewController
 
-@synthesize topButton, middleButton, bottomButton;
+@synthesize topButton, middleButton, bottomButton, uploadButton;
 @synthesize controlsBackgroundImage, controlsView  ;
 @synthesize topBackground, middleBackground, bottomBackground;
 @synthesize topViewController, middleViewController, bottomViewController;
@@ -127,6 +127,7 @@
 #pragma mark - IBActions
 - (IBAction)didTouchTopButton:(id)sender{
     [self updateTabBackground:kTop];
+    [uploadButton setHidden:YES];
     self.topButton.selected = YES;
     self.middleButton.selected = NO;
     self.bottomButton.selected = NO;
@@ -151,7 +152,7 @@
         }
         return;
     }
-    
+    [uploadButton setHidden:YES];
     [self updateTabBackground:kMiddle];
     self.topButton.selected = NO;
     self.middleButton.selected = YES;
@@ -180,7 +181,7 @@
     self.topButton.selected = NO;
     self.middleButton.selected = NO;
     self.bottomButton.selected = YES;
-    
+    [self updateUploadButton]; // show/hide button based on reachability status
     
     [topViewController.view removeFromSuperview];
     [middleViewController.view removeFromSuperview];
@@ -202,9 +203,19 @@
 
 - (IBAction)didTouchUploadButton2:(id)sender {
     
+    // DEBUG purpose only
+    //docsToUpload = [RHDataModel getAllDocuments];
+    //for (id obj in docsToUpload)
+    //{
+    //    //[obj setObject:@"NO" forKey:@"uploaded"];
+    //    [obj removeObjectForKey:@"uploaded"];
+    //    [RHDataModel updateDocument:obj];
+    //}
+    // end DEBUG
+    
+    
     docsToUpload = [RHDataModel getAllDocumentsNotUploaded];
     //documents = [RHDataModel getAllDocuments];
-    
     NSInteger totalItem = [docsToUpload count];
     NSLog(@"local db doc size = %d",totalItem);
     if (totalItem==0)
@@ -218,6 +229,7 @@
     }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //totalItem = 1;
+    nUnsuccessfulUploadCtr = 0;
     [self uploadToRemoteDB:0 totalItem:totalItem progressUI:hud];
     
     /*
@@ -282,11 +294,22 @@
             BOOL bResult = [RHDataModel updateDocument:obj];
             NSLog(@"bResult(%d) = %d",index,bResult);
             [hud hide:YES];
-            [[[UIAlertView alloc] initWithTitle:@"Upload Successful"
-                                        message:[NSString stringWithFormat:@"%d items uploaded.",total]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
+            if (nUnsuccessfulUploadCtr>0)
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Upload"
+                                            message:[NSString stringWithFormat:@"%d out of %d items was successfully uploaded.",total-nUnsuccessfulUploadCtr, total]
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }
+            else
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Upload Successful"
+                                            message:[NSString stringWithFormat:@"%d items uploaded.",total]
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }
         }
         else
         {
@@ -298,6 +321,31 @@
             [self uploadToRemoteDB:idx totalItem:total progressUI:hud];
         }
     } errorBlock:^(NSDictionary *result, NSError *error) {
+        nUnsuccessfulUploadCtr++;
+        idx++;
+        if ((index+1)>=total)
+        {
+            [hud hide:YES];
+            if (nUnsuccessfulUploadCtr==total)
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Upload Error"
+                                            message:@"All document upload failed."
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }
+            else
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Upload"
+                                            message:[NSString stringWithFormat:@"%d out of %d items was successfully uploaded.",total-nUnsuccessfulUploadCtr, total]
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }
+        }
+        else
+            [self uploadToRemoteDB:idx totalItem:total progressUI:hud];
+        /*
         NSLog(@"didTouchUploadButton2 error result %@", result);
         NSLog(@"didTouchUploadButton2 error block %@", error);
         [hud hide:YES];
@@ -308,10 +356,21 @@
                                    delegate:nil
                           cancelButtonTitle:@"Dismiss"
                           otherButtonTitles:nil] show];
+         */
     }];
 }
 
 - (IBAction)didTouchUploadButton:(id)sender {
+    AppDelegate *delegate = APPDELEGATE;
+    if (delegate.internetActive==NO)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Upload Error"
+                                    message:@"Internet connection is required to upload."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
     [self didTouchUploadButton2:sender];
     return;
     NSLog(@"didTouchUploadButton");
@@ -378,7 +437,7 @@
      
     NSLog(@"dic = %@",dic);
     */
-    AppDelegate *delegate = APPDELEGATE;
+    //AppDelegate *delegate = APPDELEGATE;
     ////http://winterroot:dieis8835nd@data.winterroot.net:5984/houseofsaltmarsh
     NSString *strPath = [NSString stringWithFormat:@"testing/%@",strID];
     MKNetworkOperation *op = [delegate.networkEngine operationWithPath:strPath
@@ -507,6 +566,20 @@
         case kBottom:
             controlsBackgroundImage.image = self.bottomBackground;
             break;
+    }
+}
+
+- (void) updateUploadButton
+{
+    AppDelegate *delegate = APPDELEGATE;
+    if (delegate.internetActive==NO)
+    {
+        [uploadButton setHidden:YES];
+    }
+    else
+    {
+        if ([self.bottomButton isSelected])
+            [uploadButton setHidden:NO];
     }
 }
 
