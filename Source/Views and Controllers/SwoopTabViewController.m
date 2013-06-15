@@ -12,6 +12,7 @@
 #import "RHDataModel.h"
 #import "RHRemoteUploader.h"
 #import "MBProgressHUD.h"
+#import "RHSettings.h"
 
 #define kTop 1
 #define kMiddle 2
@@ -279,12 +280,12 @@
     id obj = [docsToUpload objectAtIndex:index];
     [hud setLabelText:[NSString stringWithFormat:@"Uploading %d of %d",index+1,total]];
     
-    RHRemoteUploader *rhupload = [[RHRemoteUploader alloc] initWithHostName:@"jrmfelipe.iriscouch.com"
+    RHRemoteUploader *rhupload = [[RHRemoteUploader alloc] initWithHostName:[RHSettings databaseHost]
                                                                        port:nil
                                                                      useSSL:NO
-                                                                   username:@"jrmfelipe"
-                                                                   password:@"mc1999"
-                                                                   database:@"testing"];
+                                                                   username:[RHSettings databaseUser]
+                                                                   password:[RHSettings databasePassword]
+                                                                   database:[RHSettings databaseName] ];
     [rhupload setDocument:obj];
     [rhupload uploadWithFinishedBlock:^(NSDictionary *result) {
         NSLog(@"didTouchUploadButton2 uploadWithFinishedBlock %@", result);
