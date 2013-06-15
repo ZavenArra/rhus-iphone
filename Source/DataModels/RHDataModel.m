@@ -609,6 +609,7 @@
     }
 }
 
+/*
 - (void)updateSyncURL {
     [self updateSyncURLWithCompletedBlock: nil];
 }
@@ -646,21 +647,21 @@
     //set a timeout to detect when there are in fact no changes
     //This is only relevant when sync is NOT continuous
    
-    /*NSInvocation * invocation = [[NSInvocation alloc] init];
+    /* NSInvocation * invocation = [[NSInvocation alloc] init];
     [invocation setTarget:self];
     [invocation setSelector:@selector(syncTimeout)];
     syncStarted = FALSE;
     self.syncTimeoutTimer = [NSTimer timerWithTimeInterval:5.0 invocation:invocation repeats:NO];
      */
     
-    syncStarted = FALSE;
+  //  syncStarted = FALSE;
     /*
     This causes erroneous sync failure message when there is nothing to sync using continuous.
     self.syncTimeoutTimer =  [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(syncTimeout) userInfo:nil repeats:NO];
      */
-    
+    /*
 }
-
+*/
 
 
 - (void) forgetSync {

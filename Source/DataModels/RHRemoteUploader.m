@@ -7,6 +7,8 @@
 //
 
 #import "RHRemoteUploader.h"
+#import <CouchCocoa/CouchCocoa.h>
+#import "RHDataModel.h"
 
 @implementation RHRemoteUploader
 
@@ -213,7 +215,12 @@
 
 - (void)attachFileToDoc:(NSString *)name revision:(NSString *)strRev {
     NSLog(@"rev = %@",strRev);
-    NSData *docData = [NSData dataFromBase64String:[self.document objectForKey:name]];
+    
+    CouchDocument* doc = [[RHDataModel instance].database documentWithID: [self.document objectForKey:@"_id"] ];
+    CouchModel * model = [[CouchModel alloc] initWithDocument:doc];
+    CouchAttachment * image = [model attachmentNamed:[NSString stringWithFormat:@"%@.jpg", name]];
+    NSData * docData = image.body;
+    
     NSLog(@"imgData length = %d",[docData length]);
     
     NSString *strPath = [NSString stringWithFormat:@"%@/%@/%@.jpg?rev=%@",self.dbname,strDocID,name,strRev];
