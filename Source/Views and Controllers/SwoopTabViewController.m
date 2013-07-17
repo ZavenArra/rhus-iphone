@@ -81,6 +81,7 @@
         NSLog(@"LandScape");
     else
         NSLog(@"not LandScape = %d",[[UIDevice currentDevice] orientation]);
+    
 }
 
 
@@ -107,7 +108,7 @@
         NSLog(@"LandScape");
     else
         NSLog(@"not LandScape = %d",[[UIDevice currentDevice] orientation]);
-    return UIInterfaceOrientationMaskLandscape;
+    return UIInterfaceOrientationMaskLandscapeRight;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation

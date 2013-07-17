@@ -140,8 +140,9 @@
                             1.2, 1.2)
     ;
     
+    
     [self.imagePicker.view removeFromSuperview];
-    [self.imagePicker.view setFrame:CGRectMake(0.0f, 0.0f, 568.0f, 320.0f)];
+    [self.imagePicker.view setFrame:CGRectMake(-0.0f, -1.0f, 569.0f, 321.0f)];
     //[self.imagePicker.view setFrame:self.view.frame];
     NSLog(@"self.imagePicker.view %fx%f at %f,%f",self.imagePicker.view.frame.size.width,self.imagePicker.view.frame.size.height,self.imagePicker.view.frame.origin.x,self.imagePicker.view.frame.origin.y);
     
@@ -159,8 +160,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
+
 
 
 #pragma mark Interface Methods
@@ -271,7 +273,16 @@
 #pragma mark IBActions
 - (IBAction) didTouchRetakeButton:(id)sender{
     [self hidePictureDialog];
-    [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:0];
+    //REYF add fix when user successfully created a new obs document the camera viewer does not show up.
+    NSInteger imgViewIndex = 0;
+    for (NSInteger i=0; i<[self.view.subviews count]; i++)
+    {
+        if ([[self.view.subviews objectAtIndex:i] isKindOfClass:[UIImageView class]])
+            imgViewIndex = i;
+        //NSLog(@"view %d = %@", i, [self.view.subviews objectAtIndex:i]);
+    }
+    
+    [self.view exchangeSubviewAtIndex:imgViewIndex withSubviewAtIndex:0];
 }
 
 - (IBAction) didTouchCancelUploadButton:(id)sender{

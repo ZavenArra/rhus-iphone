@@ -10,18 +10,19 @@
 
 @interface RHSettings : NSObject
 
+//Database for App
+
++ (NSString *) databaseName;
++ (NSString *) databaseUser;
++ (NSString *) databasePassword;
++ (NSString *) databaseHost;
+
 //Map Settings
 + (float) mapCenterLatitudeOnLoad;
 + (float) mapCenterLongitudeOnLoad;
 + (float) mapDeltaLatitudeOnLoad;
 + (float) mapDeltaLongitudeOnLoad;
 
-
-//Sync Server
-+ (NSString *) couchRemoteSyncURL;
-
-//Database for App
-+ (NSString *) databaseName;
 + (BOOL) useRemoteServer;
 + (NSString *) couchRemoteServer;
 
@@ -33,17 +34,3 @@
 + (BOOL) useCamera;
 
 @end
-
-//Base implementation
-/*
-@implementation RHSettings
-+ (BOOL) useRemoteServer{
-    return false;
-}
-
-+ (NSString *) couchRemoteServer{
-    return nil;
-}
-
-@end
- */
