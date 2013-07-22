@@ -164,24 +164,27 @@
 					</object>
 					<object class="IBUIButton" id="736747289">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{12, 9}, {75, 44}}</string>
+						<int key="NSvFlags">265</int>
+						<string key="NSFrame">{{327, 264}, {87, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="203454563"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
+						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Upload</string>
 						<reference key="IBUIHighlightedTitleColor" ref="556111890"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="987675618"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">uploadButton.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="243181861"/>
 						<reference key="IBUIFont" ref="398291503"/>
 					</object>
@@ -472,6 +475,7 @@
 			<string key="MapIconT.png">{46, 46}</string>
 			<string key="cameraIcon.png">{88, 90}</string>
 			<string key="swoopBarMiddle.png">{58, 320}</string>
+			<string key="uploadButton.png">{87, 36}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
